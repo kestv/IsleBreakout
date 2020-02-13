@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviourPun
 {
+    public float offY;
+    public float offZ;
     public GameObject target;
     public float distance;
     Vector3 targetPos;
@@ -17,7 +19,7 @@ public class CameraMovement : MonoBehaviourPun
     // Update is called once per frame
     void LateUpdate()
     {
-        targetPos = new Vector3(target.transform.position.x, target.transform.position.y + 20, target.transform.position.z - 15);
+        targetPos = new Vector3(target.transform.position.x, target.transform.position.y + offY, target.transform.position.z - offZ);
         transform.position = targetPos;
     }
 

@@ -11,30 +11,57 @@ public class PlayerMovementController : MonoBehaviour
         camera = PhotonNetwork.Instantiate(camera.name, transform.position, Quaternion.identity, 0);
         camera.GetComponent<Camera>().enabled = true;
         camera.GetComponent<CameraMovement>().enabled = true;
-        camera.GetComponent<CameraMovement>().target = gameObject;
-        
+        camera.GetComponent<CameraMovement>().target = gameObject;        
     }
     private void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.rotation = Quaternion.Euler(0, 45, 0);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                transform.rotation = Quaternion.Euler(0, -45, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 0, 0);
+            }
             transform.Translate(new Vector3(0, 0, Time.deltaTime * 10f));
+            GetComponent<Animator>().SetBool("Running", true);
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.rotation = Quaternion.Euler(0, 135, 0);
+            }
+            else if (Input.GetKey(KeyCode.A))
+            {
+                transform.rotation = Quaternion.Euler(0, -135, 0);
+            }
+            else
+            {
+                transform.rotation = Quaternion.Euler(0, 180, 0);
+            }
+            
             transform.Translate(new Vector3(0, 0, Time.deltaTime * 10f));
+            GetComponent<Animator>().SetBool("Running", true);
         }
-        if (Input.GetKey(KeyCode.A))
+        else if (Input.GetKey(KeyCode.A))
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
             transform.Translate(new Vector3(0, 0, Time.deltaTime * 10f));
+            GetComponent<Animator>().SetBool("Running", true);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, 90, 0);
             transform.Translate(new Vector3(0, 0, Time.deltaTime * 10f));
+            GetComponent<Animator>().SetBool("Running", true);
         }
+        else GetComponent<Animator>().SetBool("Running", false);
     }
 }
