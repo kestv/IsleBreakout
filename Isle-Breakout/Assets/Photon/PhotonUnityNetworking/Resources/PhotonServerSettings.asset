@@ -33,7 +33,6 @@ MonoBehaviour:
   - DestroyRpc
   - DestroySpaceship
   - Fire
-  - moveForward
   - RespawnSpaceship
   DisableAutoOpenWizard: 1
   ShowSettings: 0
