@@ -6489,44 +6489,11 @@ MonoBehaviour:
   ShowLayerWeightsInspector: 1
   ShowParameterInspector: 1
   m_SynchronizeParameters:
-  - Type: 9
-    SynchronizeType: 1
-    Name: Walk
-  - Type: 9
-    SynchronizeType: 0
-    Name: Idle
-  - Type: 9
-    SynchronizeType: 0
-    Name: Smile
-  - Type: 9
-    SynchronizeType: 0
-    Name: Default
-  - Type: 9
-    SynchronizeType: 0
-    Name: Frown
-  - Type: 9
-    SynchronizeType: 0
-    Name: Wink
-  - Type: 9
-    SynchronizeType: 0
-    Name: Suprise
-  - Type: 9
-    SynchronizeType: 0
-    Name: Run
-  - Type: 9
-    SynchronizeType: 0
-    Name: RoundKick
-  - Type: 9
-    SynchronizeType: 0
-    Name: Cry
-  - Type: 9
-    SynchronizeType: 0
-    Name: Mean
   - Type: 4
-    SynchronizeType: 0
+    SynchronizeType: 2
     Name: Running
   m_SynchronizeLayers:
-  - SynchronizeType: 0
+  - SynchronizeType: 1
     LayerIndex: 0
   - SynchronizeType: 0
     LayerIndex: 1
