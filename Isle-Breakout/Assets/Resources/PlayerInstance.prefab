@@ -6309,7 +6309,6 @@ GameObject:
   - component: {fileID: 6055854465605884402}
   - component: {fileID: 8881442136460140514}
   - component: {fileID: 3878707778463041069}
-  - component: {fileID: 5931791044420297743}
   - component: {fileID: 95541309264892610}
   - component: {fileID: 6013952516642632356}
   - component: {fileID: 7649005012218480203}
@@ -6379,6 +6378,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   ObservedComponents:
   - {fileID: 8881442136460140514}
+  - {fileID: 3969998199278181145}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6410,22 +6410,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camera: {fileID: 3281516458160600734, guid: 064e91ae4394c5240a5d73c98e3d3c40, type: 3}
---- !u!114 &5931791044420297743
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 789886572439412201}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f371186d970e57f4588258d1bb110926, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inventory: {fileID: 5907364954581828731, guid: 646fa2e8641b8f341a64906711811e16,
-    type: 3}
-  slotHolder: {fileID: 6766120858563872994, guid: d97f2ffaa0072dc469d5ea42fb5fc333,
-    type: 3}
 --- !u!95 &95541309264892610
 Animator:
   serializedVersion: 3
