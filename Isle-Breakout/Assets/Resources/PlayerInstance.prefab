@@ -6313,6 +6313,7 @@ GameObject:
   - component: {fileID: 95541309264892610}
   - component: {fileID: 6013952516642632356}
   - component: {fileID: 7649005012218480203}
+  - component: {fileID: 3969998199278181145}
   m_Layer: 0
   m_Name: PlayerInstance
   m_TagString: Untagged
@@ -6374,10 +6375,10 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 0
+  Synchronization: 3
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 0}
+  - {fileID: 8881442136460140514}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -6394,7 +6395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   localScripts:
-  - {fileID: 0}
+  - {fileID: 3878707778463041069}
   localObjects: []
 --- !u!114 &3878707778463041069
 MonoBehaviour:
@@ -6473,6 +6474,62 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.9216969, z: 1}
   m_Center: {x: 0, y: 0.9534782, z: 0}
+--- !u!114 &3969998199278181145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789886572439412201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b8c4a61274f60b4ea5fb4299cfdbf14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowLayerWeightsInspector: 1
+  ShowParameterInspector: 1
+  m_SynchronizeParameters:
+  - Type: 9
+    SynchronizeType: 1
+    Name: Walk
+  - Type: 9
+    SynchronizeType: 0
+    Name: Idle
+  - Type: 9
+    SynchronizeType: 0
+    Name: Smile
+  - Type: 9
+    SynchronizeType: 0
+    Name: Default
+  - Type: 9
+    SynchronizeType: 0
+    Name: Frown
+  - Type: 9
+    SynchronizeType: 0
+    Name: Wink
+  - Type: 9
+    SynchronizeType: 0
+    Name: Suprise
+  - Type: 9
+    SynchronizeType: 0
+    Name: Run
+  - Type: 9
+    SynchronizeType: 0
+    Name: RoundKick
+  - Type: 9
+    SynchronizeType: 0
+    Name: Cry
+  - Type: 9
+    SynchronizeType: 0
+    Name: Mean
+  - Type: 4
+    SynchronizeType: 0
+    Name: Running
+  m_SynchronizeLayers:
+  - SynchronizeType: 0
+    LayerIndex: 0
+  - SynchronizeType: 0
+    LayerIndex: 1
 --- !u!1 &789886572439412203
 GameObject:
   m_ObjectHideFlags: 0
