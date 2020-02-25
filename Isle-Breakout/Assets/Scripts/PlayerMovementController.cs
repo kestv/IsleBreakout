@@ -5,13 +5,9 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviourPun
 {
-    public GameObject camera;
     private void Start()
     {
-        camera = PhotonNetwork.Instantiate(camera.name, transform.position, Quaternion.identity, 0);
-        camera.GetComponent<Camera>().enabled = true;
-        camera.GetComponent<CameraMovement>().enabled = true;
-        camera.GetComponent<CameraMovement>().target = gameObject;        
+     
     }
     private void Update()
     {

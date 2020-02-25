@@ -1160,6 +1160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FreeCharacter_model
       objectReference: {fileID: 0}
+    - target: {fileID: 100066, guid: 1b7945602ded3ec43804b120aa9ed037, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 400066, guid: 1b7945602ded3ec43804b120aa9ed037, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.073456
@@ -1353,6 +1357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0ff20c248864144b88779e49634f184, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotSelector: 0
 --- !u!1 &2040994903
 GameObject:
   m_ObjectHideFlags: 0
