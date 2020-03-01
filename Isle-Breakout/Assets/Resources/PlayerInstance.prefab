@@ -6314,7 +6314,8 @@ GameObject:
   - component: {fileID: 7649005012218480203}
   - component: {fileID: 3969998199278181145}
   - component: {fileID: 8979320055274606596}
-  - component: {fileID: 1528003989865460724}
+  - component: {fileID: -8336744778581919939}
+  - component: {fileID: -2675727248018542635}
   m_Layer: 0
   m_Name: PlayerInstance
   m_TagString: Player
@@ -6502,7 +6503,7 @@ MonoBehaviour:
   camera: {fileID: 3281516458160600734, guid: 064e91ae4394c5240a5d73c98e3d3c40, type: 3}
   healthBarCanvas: {fileID: 4358227976260331984, guid: ccb7f336ca341074991961371e70fe7a,
     type: 3}
---- !u!114 &1528003989865460724
+--- !u!114 &-8336744778581919939
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6511,11 +6512,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 789886572439412201}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b0933e524b392441baa95b0c0edb785, type: 3}
+  m_Script: {fileID: 11500000, guid: a9c8815f0c966764fa5942aee5dcdbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBar: {fileID: 4358227976260331984, guid: ccb7f336ca341074991961371e70fe7a,
-    type: 3}
+--- !u!114 &-2675727248018542635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789886572439412201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5a404e2bc6fdd04aae04719ccb5dc3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  healthBarCanvas: {fileID: 0}
 --- !u!1 &789886572439412203
 GameObject:
   m_ObjectHideFlags: 0
