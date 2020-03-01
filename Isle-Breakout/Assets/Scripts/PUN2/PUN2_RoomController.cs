@@ -53,4 +53,10 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
         //We have left the Room, return back to the GameLobby
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameLobby");
     }
+
+    public GameObject getPlayer()
+    { return playerPrefab; }
+
+    public void setPlayer(GameObject playerPrefab)
+    { this.playerPrefab = playerPrefab; }
 }

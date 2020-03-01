@@ -6563,6 +6563,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6569801a71fa8e4a8a6b088871f8ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
+  maxItems: 0
+  inventoryFull: 0
+  itemSelector: 0
+  itemCount: 0
+  roomDependencyMngr: {fileID: 0}
+  hotbar: {fileID: 0}
 --- !u!1 &789886572439412203
 GameObject:
   m_ObjectHideFlags: 0

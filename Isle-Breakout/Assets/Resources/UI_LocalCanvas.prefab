@@ -1312,6 +1312,7 @@ GameObject:
   - component: {fileID: 7201037260522453620}
   - component: {fileID: 7201037260522453627}
   - component: {fileID: 7201037260522453623}
+  - component: {fileID: 1145820048064139983}
   m_Layer: 5
   m_Name: UI_LocalCanvas
   m_TagString: Untagged
@@ -1415,3 +1416,16 @@ MonoBehaviour:
   item: {fileID: 5036964613046758375, guid: fe942d2911972414e8751e8e07e57ecc, type: 3}
   item2: {fileID: 8401209527125998241, guid: f4f47bd7318319149a862fc6db0c76f1, type: 3}
   item3: {fileID: 7854903988374793049, guid: 97417c6a718bd5940b048a38335a991b, type: 3}
+--- !u!114 &1145820048064139983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7201037260522453626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a65c5791a71fd344bdc2bfd5ac845b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPlayer: {fileID: 0}

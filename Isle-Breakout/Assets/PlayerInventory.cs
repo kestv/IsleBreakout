@@ -6,15 +6,15 @@ using System;
 
 public class PlayerInventory : MonoBehaviour
 {
-    private List<GameObject> items;  //Item list
-    private int maxItems;            //Maximal ammount of items in item list
-    private bool inventoryFull;      //Is inventory full
-    private int itemSelector;        //Active hotbar slot
-    private int itemCount;           //Items in inventory count
+    public List<GameObject> items;  //Item list
+    public int maxItems;            //Maximal ammount of items in item list
+    public bool inventoryFull;      //Is inventory full
+    public int itemSelector;        //Active hotbar slot
+    public int itemCount;           //Items in inventory count
 
     //public Canvas canvas;
-    private DependencyManager dependencyMngr;
-    private GameObject hotbar;
+    public RoomDependencyManager roomDependencyMngr;
+    public GameObject hotbar;
 
     void Start()
     {
@@ -28,8 +28,8 @@ public class PlayerInventory : MonoBehaviour
 
         try
         {
-            dependencyMngr = transform.GetComponent<DependencyManager>();
-            hotbar = dependencyMngr.getHotbar();
+            roomDependencyMngr = GameObject.Find("_RoomController").GetComponent<RoomDependencyManager>();
+            hotbar = roomDependencyMngr.getCanvas().transform.GetChild(0).gameObject;
         }
         catch (Exception e)
         {
@@ -102,6 +102,7 @@ public class PlayerInventory : MonoBehaviour
         if (index >= 0 && index < items.Count)
         {
             ItemParameters itemParams = items[index].GetComponent<ItemParameters>();
+            itemParams.ChangeParent(transform.parent);
             itemParams.Enable(transform.position);
 
             hotbar.transform.GetChild(index).GetChild(1).gameObject.SetActive(false);
