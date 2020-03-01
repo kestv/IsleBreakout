@@ -1,29 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class HotbarController : MonoBehaviour
 {
-    private List<GameObject> slots; //Slot container
-    public int slotSelector;        //Selected (active) slot
+    private List<GameObject> slots;     //Slot container
+    private int slotSelector;           //Selected (active) slot
+    public GameObject player;
+    public PlayerInventory inventory;
 
     private Color colorUnselectedSlot;
     private Color colorSelectedSlot;
 
-    #region Start/Update
     void Start()
     {
         slots = new List<GameObject>();         //Initialize slot container
-        foreach (Transform child in transform)  //Add all slots to slots container
+
+        colorUnselectedSlot = new Color32(255, 255, 255, 100);
+        colorSelectedSlot = new Color32(255, 255, 255, 200);
+
+        //Initialize components
+        try
         {
-            slots.Add(child.gameObject);
+            foreach (Transform child in transform)  //Add all slots to slots container
+            {
+                slots.Add(child.gameObject);
+            }
+            //player = GameObject.Find("PlayerInstance").gameObject;
+            //inventory = player.GetComponent<PlayerInventory>();
+        }
+        catch (Exception e)
+        {
+            Debug.Log(this.GetType().Name + " " + e.ToString());
         }
 
-        colorUnselectedSlot  = new Color32(255, 255, 255, 100);
-        colorSelectedSlot    = new Color32(255, 255, 255, 200);
-
-        //Initialize hotbar
         slotSelector = 0;
         ChangeSlotColor(slotSelector, colorSelectedSlot);
     }
@@ -58,15 +70,14 @@ public class HotbarController : MonoBehaviour
         {
             if (slotSelector != 0)
             {
-                ChangeActiveSlot(slotSelector -1);
+                ChangeActiveSlot(slotSelector - 1);
             }
             else
             {
                 ChangeActiveSlot(slots.Count - 1);
-            }            
+            }
         }
     }
-    #endregion methods
 
     #region Get/Set methods
     public List<GameObject> getSlots()
@@ -83,6 +94,18 @@ public class HotbarController : MonoBehaviour
 
     public void setSlotSelector(int index)
     { slotSelector = index; }
+
+    public GameObject getPlayer()
+    { return player; }
+
+    public void setPlayer(GameObject player)
+    { this.player = player; }
+
+    public PlayerInventory getInventory()
+    { return inventory; }
+
+    public void setInventory(PlayerInventory inventory)
+    { this.inventory = inventory; }
     #endregion
 
     public void ChangeActiveSlot(int index)
@@ -95,6 +118,7 @@ public class HotbarController : MonoBehaviour
     {
         slotSelector = index;
         ChangeSlotColor(slotSelector, colorSelectedSlot);
+        inventory.setItemSelector(slotSelector);
     }
 
     public void ChangeSlotColor(int index, Color color)
