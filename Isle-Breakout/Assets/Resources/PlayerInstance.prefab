@@ -6314,8 +6314,15 @@ GameObject:
   - component: {fileID: 7649005012218480203}
   - component: {fileID: 3969998199278181145}
   - component: {fileID: 8979320055274606596}
+<<<<<<< HEAD
   - component: {fileID: -8336744778581919939}
   - component: {fileID: -2675727248018542635}
+=======
+  - component: {fileID: 1528003989865460724}
+  - component: {fileID: -5771923069220740336}
+  - component: {fileID: 3590774743647512623}
+  - component: {fileID: 5560822619767131775}
+>>>>>>> 9333ddc3a2490e95c30f04194897c9439c462414
   m_Layer: 0
   m_Name: PlayerInstance
   m_TagString: Player
@@ -6515,7 +6522,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9c8815f0c966764fa5942aee5dcdbcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!114 &-2675727248018542635
+=======
+  healthBar: {fileID: 4358227976260331984, guid: ccb7f336ca341074991961371e70fe7a,
+    type: 3}
+--- !u!114 &-5771923069220740336
+>>>>>>> 9333ddc3a2490e95c30f04194897c9439c462414
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6524,11 +6537,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 789886572439412201}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: f5a404e2bc6fdd04aae04719ccb5dc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
   healthBarCanvas: {fileID: 0}
+=======
+  m_Script: {fileID: 11500000, guid: c6569801a71fa8e4a8a6b088871f8ec0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  items: []
+  maxItems: 0
+  inventoryFull: 0
+  itemSelector: 0
+  itemCount: 0
+  dependencyMngr: {fileID: 0}
+  hotbar: {fileID: 0}
+--- !u!114 &3590774743647512623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789886572439412201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6aa293276cdc2b48800de88a25691f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  itemPanel: {fileID: 0}
+  itemPanelText: {fileID: 0}
+  triggeredItem: {fileID: 0}
+  inventory: {fileID: 0}
+--- !u!114 &5560822619767131775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 789886572439412201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 755218ec4efa7d74f98b72a91e155d61, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  hotbar: {fileID: 0}
+  hotbarCtrl: {fileID: 0}
+>>>>>>> 9333ddc3a2490e95c30f04194897c9439c462414
 --- !u!1 &789886572439412203
 GameObject:
   m_ObjectHideFlags: 0
