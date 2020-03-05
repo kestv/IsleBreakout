@@ -6506,8 +6506,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerCamera: {fileID: 3281516458160600734, guid: 064e91ae4394c5240a5d73c98e3d3c40,
     type: 3}
-  healthBarCanvas: {fileID: 4358227976260331984, guid: ccb7f336ca341074991961371e70fe7a,
-    type: 3}
 --- !u!114 &3590774743647512623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6515,7 +6513,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789886572439412201}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6aa293276cdc2b48800de88a25691f2, type: 3}
   m_Name: 
@@ -6532,7 +6530,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789886572439412201}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 755218ec4efa7d74f98b72a91e155d61, type: 3}
   m_Name: 
@@ -6547,11 +6545,18 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 789886572439412201}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c6569801a71fa8e4a8a6b088871f8ec0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  items: []
+  maxItems: 0
+  inventoryFull: 0
+  itemSelector: 0
+  itemCount: 0
+  roomDependencyMngr: {fileID: 0}
+  hotbar: {fileID: 0}
 --- !u!114 &2330724900125359906
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -22,7 +22,7 @@ public class DependencyManager : MonoBehaviour
             Debug.Log(this.GetType().Name + " " + e.ToString());
         }
 
-        InitializeDependencies();
+        //InitializeDependencies();
     }
 
     void Update()

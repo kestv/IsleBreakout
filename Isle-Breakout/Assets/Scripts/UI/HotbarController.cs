@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class HotbarController : MonoBehaviour
 {
     private List<GameObject> slots;     //Slot container
-    private int slotSelector;           //Selected (active) slot
+    public int slotSelector;           //Selected (active) slot
     public GameObject player;
     public PlayerInventory inventory;
 
@@ -28,8 +28,8 @@ public class HotbarController : MonoBehaviour
             {
                 slots.Add(child.gameObject);
             }
-            //player = GameObject.Find("PlayerInstance").gameObject;
-            //inventory = player.GetComponent<PlayerInventory>();
+            player = transform.parent.GetComponent<CanvasSettings>().getTargetPlayer();
+            inventory = player.GetComponent<PlayerInventory>();
         }
         catch (Exception e)
         {
