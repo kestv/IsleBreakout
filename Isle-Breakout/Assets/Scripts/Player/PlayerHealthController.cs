@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void doDamage(float amount)
@@ -27,5 +28,10 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (healthBarCanvas.GetComponent<HealthController>().getHealth() <= 0) return true;
         else return false;
+    }
+
+    public void setCanvas(GameObject obj)
+    {
+        healthBarCanvas = obj;
     }
 }

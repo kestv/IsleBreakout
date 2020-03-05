@@ -3,22 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerObjectsSpawnController : MonoBehaviour
+public class PlayerObjectsSpawnController : MonoBehaviourPun
 {
-    public GameObject camera;
-    public GameObject healthBarCanvas;
-    
+    public GameObject playerCamera;
     void Start()
     {
-        camera = PhotonNetwork.Instantiate(camera.name, transform.position, Quaternion.identity, 0);
-        camera.GetComponent<Camera>().enabled = true;
-        camera.GetComponent<CameraMovement>().enabled = true;
-        camera.GetComponent<CameraMovement>().target = gameObject;
-
-        Vector3 canvasPos = new Vector3(transform.position.x, transform.position.y + 3, transform.position.z);
-        GameObject healthBar = PhotonNetwork.Instantiate(healthBarCanvas.name, canvasPos, new Quaternion(0,0,0,0), 0);
-        healthBar.GetComponent<HealthbarCanvasMovement>().player = gameObject;
-
-        transform.GetComponent<PlayerHealthController>().healthBarCanvas = healthBar;
+        if (photonView.IsMine)
+        {
+            playerCamera = PhotonNetwork.Instantiate(playerCamera.name, transform.position, Quaternion.identity, 0);
+            playerCamera.GetComponent<Camera>().enabled = true;
+            playerCamera.GetComponent<CameraMovement>().enabled = true;
+            playerCamera.GetComponent<CameraMovement>().target = gameObject;
+        }
     }
 }

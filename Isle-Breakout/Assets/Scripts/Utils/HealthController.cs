@@ -10,13 +10,13 @@ public class HealthController : MonoBehaviour
     public void Start()
     {
         lastVisible = Time.time;
-        healthBar.SetActive(false);
+        healthBar.SetActive(true);
     }
     public void Update()
     {
         if (Time.time < lastVisible + 1.5f)
             healthBar.SetActive(true);
-        else healthBar.SetActive(false);
+        //else healthBar.SetActive(false);
     }
     public void setHealth(float amount)
     {

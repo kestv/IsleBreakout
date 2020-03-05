@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Photon.Pun;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyActionController : MonoBehaviour
+public class EnemyActionController : MonoBehaviourPun, IPunObservable
 {
-    GameObject[] players = new GameObject[2];
+    public GameObject[] players = new GameObject[2];
     float distance;
     //Actions for animations
     int action;
@@ -28,12 +29,14 @@ public class EnemyActionController : MonoBehaviour
     {
         playerSpotted = false;
         spawnPos = transform.position;
+        
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
     
     void Update()
     {
+        players = GameObject.FindGameObjectsWithTag("Player");
         //Object can't handle object movement and animator setting. No idea wtf
 
         //switch (action)
@@ -144,5 +147,15 @@ public class EnemyActionController : MonoBehaviour
     {
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
             transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
+    }
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (photonView.IsMine)
+        {
+            stream.SendNext(transform.position);
+            stream.SendNext(transform.rotation);
+        }
     }
 }

@@ -10,6 +10,8 @@ public class PUN2_RoomController : MonoBehaviourPunCallbacks
     //Player spawn point
     public Transform spawnPoint;
 
+    public GameObject healthBarCanvas;
+
     // Use this for initialization
     void Start()
     {
