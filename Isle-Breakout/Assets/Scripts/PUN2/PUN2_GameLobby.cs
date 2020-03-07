@@ -72,6 +72,11 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
         {
             if (roomName != "")
             {
+                int count = createdRooms.FindAll(x => x.Name == roomName).Count;
+                if (count > 0)
+                {
+                    roomName = string.Format("{0}{1}", roomName, count+1); 
+                }
                 joiningRoom = true;
 
                 RoomOptions roomOptions = new RoomOptions();
@@ -79,7 +84,7 @@ public class PUN2_GameLobby : MonoBehaviourPunCallbacks
                 roomOptions.IsVisible = true;
                 roomOptions.MaxPlayers = (byte)10; //Set any number
 
-                PhotonNetwork.JoinOrCreateRoom(roomName, roomOptions, TypedLobby.Default);
+                PhotonNetwork.CreateRoom(roomName, roomOptions, TypedLobby.Default);
             }
         }
 
