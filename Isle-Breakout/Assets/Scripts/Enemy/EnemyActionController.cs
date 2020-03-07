@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyActionController : MonoBehaviourPun, IPunObservable
+public class EnemyActionController : MonoBehaviourPun
 {
     public GameObject[] players = new GameObject[2];
     float distance;
@@ -16,9 +16,9 @@ public class EnemyActionController : MonoBehaviourPun, IPunObservable
     //Position where enemy spot is
     Vector3 spawnPos;
     //Trigger if player was found
-    bool playerSpotted;
+    public bool playerSpotted;
     //Targets which player to follow
-    GameObject target;
+    public GameObject target;
     //Attack cooldown
     float lastAttack = 0;
     //Damage that enemy does
@@ -65,11 +65,15 @@ public class EnemyActionController : MonoBehaviourPun, IPunObservable
                     playerSpotted = true;
                     target = player;
                 }
-                else playerSpotted = false;
+                else
+                {
+                    playerSpotted = false;
+                    target = null;
+                }
             }
         }
 
-        if (playerSpotted && !target.GetComponent<PlayerHealthController>().isDead())
+        if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()) && target != null)
         {
             followPlayer(target);
             if (getDistance(target) > 10)
@@ -149,13 +153,5 @@ public class EnemyActionController : MonoBehaviourPun, IPunObservable
             transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
     }
 
-
-    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
-    {
-        if (photonView.IsMine)
-        {
-            stream.SendNext(transform.position);
-            stream.SendNext(transform.rotation);
-        }
-    }
+    
 }
