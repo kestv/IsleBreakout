@@ -19,8 +19,10 @@ public class PlayerSkillController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            model.SetActive(!model.active);
-            polymorphModel.SetActive(!polymorphModel.active);
+            model.SetActive(!model.activeSelf);
+            polymorphModel.SetActive(!polymorphModel.activeSelf);
+            if (polymorphModel.activeSelf) transform.tag = "Polymorphed";
+            else transform.tag = "Player";
         }
     }
 }

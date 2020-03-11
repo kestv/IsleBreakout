@@ -84,7 +84,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3281516458160600734}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!114 &3281516458160600735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,8 +97,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc7f2649915d3974682dcd2c7e523c98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offY: 10
-  offZ: 10
+  offY: 5
+  offZ: 5
   target: {fileID: 0}
   distance: 0
 --- !u!114 &114029616878621618
