@@ -62,7 +62,7 @@ public class PlayerStatsController : MonoBehaviour
         {
             remainingPoints -= value;
             speed += value;
-            speedValue.text = strength.ToString();
+            speedValue.text = speed.ToString();
         }
     }
 
@@ -72,7 +72,7 @@ public class PlayerStatsController : MonoBehaviour
         {
             remainingPoints -= value;
             wisdom += value;
-            wisdomValue.text = strength.ToString();
+            wisdomValue.text = wisdom.ToString();
         }
     }
 

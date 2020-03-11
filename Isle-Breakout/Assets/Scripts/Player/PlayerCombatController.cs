@@ -35,7 +35,7 @@ public class PlayerCombatController : MonoBehaviour
 
     void attack()
     {
-        damage = GetComponent<PlayerStatsController>().strength * 10 + damage;
+        var damage = GetComponent<PlayerStatsController>().strength * 10 + this.damage;
         if (isTriggering)
         {
             Vector3 direction = (enemy.transform.position - transform.position).normalized;
