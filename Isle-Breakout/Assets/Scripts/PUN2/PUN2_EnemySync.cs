@@ -13,8 +13,13 @@ public class PUN2_EnemySync : MonoBehaviourPun, IPunObservable
     public MonoBehaviour[] localScripts;
     public GameObject[] localObjects;
 
+    public bool lastTrigger;
+
     public void Start()
     {
+        latestPlayerSpotted = false;
+        lastTrigger = !latestPlayerSpotted;
+
         action = transform.GetComponent<EnemyActionController>();
         if (photonView.IsMine)
         {
@@ -40,15 +45,11 @@ public class PUN2_EnemySync : MonoBehaviourPun, IPunObservable
         {
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
-            stream.SendNext(action.playerSpotted);
-            //stream.SendNext(action.target);
         }
         else
         {
             latestPos = (Vector3)stream.ReceiveNext();
             latestRot = (Quaternion)stream.ReceiveNext();
-            latestPlayerSpotted = (bool)stream.ReceiveNext();
-            //latestTarget = (GameObject)stream.ReceiveNext();
         }
     }
 
@@ -60,10 +61,6 @@ public class PUN2_EnemySync : MonoBehaviourPun, IPunObservable
             //Update remote player (smooth this, this looks good, at the cost of some accuracy)
             transform.position = Vector3.Lerp(transform.position, latestPos, Time.deltaTime * 5);
             transform.rotation = Quaternion.Lerp(transform.rotation, latestRot, Time.deltaTime * 5);
-            //action.target = latestTarget;
-            action.playerSpotted = latestPlayerSpotted;
         }
     }
-
-    
 }

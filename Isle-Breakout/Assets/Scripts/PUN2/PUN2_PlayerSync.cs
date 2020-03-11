@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using Photon.Pun;
+using UnityEngine.UI;
 
 public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
 {
+    public GameObject healthBar;
     //List of the scripts that should only be active for the local player (ex. PlayerController, MouseLook etc.)
     public MonoBehaviour[] localScripts;
     //List of the GameObjects that should only be active for the local player (ex. Camera, AudioListener etc.)
@@ -39,12 +41,14 @@ public class PUN2_PlayerSync : MonoBehaviourPun, IPunObservable
             //We own this player: send the others our data
             stream.SendNext(transform.position);
             stream.SendNext(transform.rotation);
+            stream.SendNext(healthBar.GetComponent<Slider>().value);
         }
         else
         {
             //Network player, receive data
             latestPos = (Vector3)stream.ReceiveNext();
             latestRot = (Quaternion)stream.ReceiveNext();
+            healthBar.GetComponent<Slider>().value = (float)stream.ReceiveNext();
         }
     }
 

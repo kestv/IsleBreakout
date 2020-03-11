@@ -825,6 +825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e72dc1b1e26cf4c418ac6968f51d36f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  slotSelector: 0
   player: {fileID: 0}
   inventory: {fileID: 0}
 --- !u!1 &7201037259816823038

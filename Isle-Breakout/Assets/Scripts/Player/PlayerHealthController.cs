@@ -5,23 +5,37 @@ using UnityEngine;
 
 public class PlayerHealthController : MonoBehaviour
 {
-    public float health;
     public GameObject healthBarCanvas;
     void Start()
     {
-        healthBarCanvas.GetComponent<HealthController>().setHealth(health);
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (isDead())
+        {
+            transform.GetComponent<Animator>().SetBool("isDead", true);
+            if(transform.tag == "Player")
+            {
+                transform.GetComponent<PlayerMovementController>().enabled = false;
+            }
+            else if(transform.tag == "Enemy")
+            {
+                transform.GetComponent<EnemyActionController>().enabled = false;
+            }
+        }
     }
 
     public void doDamage(float amount)
     {
-        health -= amount;
-        healthBarCanvas.GetComponent<HealthController>().setHealth(health);
+        healthBarCanvas.GetComponent<HealthController>().decreaseHealth(amount);
+        transform.GetComponent<Animator>().SetTrigger("isDamaged");
+    }
+    
+    public float getHealth()
+    {
+        return healthBarCanvas.GetComponent<HealthController>().getHealth();
     }
 
     public bool isDead()
@@ -30,8 +44,8 @@ public class PlayerHealthController : MonoBehaviour
         else return false;
     }
 
-    public void setCanvas(GameObject obj)
+    public GameObject getHealthbarCanvas()
     {
-        healthBarCanvas = obj;
+        return healthBarCanvas;
     }
 }

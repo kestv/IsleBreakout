@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class EnemyActionController : MonoBehaviourPun
 {
+    float speed = 5f;
     public GameObject[] players = new GameObject[2];
     float distance;
     //Actions for animations
@@ -15,6 +16,7 @@ public class EnemyActionController : MonoBehaviourPun
     const int IS_ATTACKING = 3;
     //Position where enemy spot is
     Vector3 spawnPos;
+    Vector3 spawnPos2;
     //Trigger if player was found
     public bool playerSpotted;
     //Targets which player to follow
@@ -33,65 +35,73 @@ public class EnemyActionController : MonoBehaviourPun
         players = GameObject.FindGameObjectsWithTag("Player");
     }
 
-    
+    [PunRPC]
+    public void assignTarget(bool trigger, GameObject target)
+    {
+        this.playerSpotted = trigger;
+        this.target = target;
+    }
+
     void Update()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        //Object can't handle object movement and animator setting. No idea wtf
-
-        //switch (action)
-        //{
-        //    case 1:
-        //        isIdling(true);
-        //        break;
-        //    case 2:
-        //        isRunning(true);
-        //        break;
-        //    case 3:
-        //        isAttacking(true);
-        //        break;
-        //    default: 
-        //        isIdling(true);
-        //        break;
-        //}
+        switch (action)
+        {
+            case 1:
+                isIdling(true);
+                break;
+            case 2:
+                isRunning(true);
+                break;
+            case 3:
+                isAttacking(true);
+                break;
+        }
 
         if (!playerSpotted)
         {
+            action = IS_IDLING;
             foreach (var player in players)
             {
                 distance = getDistance(player);
                 if (distance < 10)
                 {
-                    playerSpotted = true;
                     target = player;
+                    playerSpotted = true;
                 }
                 else
                 {
-                    playerSpotted = false;
                     target = null;
+                    playerSpotted = false;
                 }
             }
         }
 
-        if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()) && target != null)
+        if (target != null)
         {
-            followPlayer(target);
-            if (getDistance(target) > 10)
+            if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
             {
-                playerSpotted = false;
+                followPlayer(target);
+                if (getDistance(target) > 10)
+                {
+                    target = null;
+                    playerSpotted = false;
+                }
             }
-        }
-        else
-        {
-            if (transform.position != spawnPos)
+            else
             {
-                playerSpotted = false;
-                goBackToCamp();
-            }
-            else if (transform.position == spawnPos)
-            {
-                playerSpotted = false;
-                action = IS_IDLING;
+                if (transform.position != spawnPos)
+                {
+                    target = null;
+                    playerSpotted = false;
+                    goBackToCamp();
+                }
+                else if (transform.position == spawnPos)
+                {
+                    target = null;
+                    playerSpotted = false;
+                    action = IS_IDLING;
+                }
             }
         }
     }
@@ -106,13 +116,16 @@ public class EnemyActionController : MonoBehaviourPun
         if (getDistance(player) > 1.5f)
         {
             action = IS_RUNNING;
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 5 * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+            var _direction = (player.transform.position - transform.position).normalized;
+            var _lookRotation = Quaternion.LookRotation(_direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
             //This is for cooldown before attacking if target met;
             lastAttack = Time.time - 1.5f;
         }
         else 
         {
-            action = IS_ATTACKING;
+            action = IS_IDLING;
             attack(target);
         }
     }
@@ -121,36 +134,52 @@ public class EnemyActionController : MonoBehaviourPun
 
     void attack(GameObject target)
     {
-        if(lastAttack + attackRate < Time.time)
+        if (lastAttack + attackRate < Time.time)
         {
             lastAttack = Time.time;
+            action = IS_ATTACKING;
             target.GetComponent<PlayerHealthController>().doDamage(damage);
         }
-       
+        else action = IS_IDLING;
     }
 
     void goBackToCamp()
     {
         action = IS_RUNNING;
-        transform.position = Vector3.MoveTowards(transform.position, spawnPos, 5 * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, spawnPos, speed * Time.deltaTime);
+        var _direction = (spawnPos - transform.position).normalized;
+        var _lookRotation = Quaternion.LookRotation(_direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
     }
 
     void isRunning(bool isRunning)
     {
         if(transform.GetComponent<Animator>().GetBool("isRunning") != true)
+        {
             transform.GetComponent<Animator>().SetBool("isRunning", isRunning);
+            transform.GetComponent<Animator>().SetBool("isIdling", !isRunning);
+            transform.GetComponent<Animator>().SetBool("isAttacking", !isRunning);
+        }
     }
 
     void isIdling(bool isIdling)
     {
-        if(transform.GetComponent<Animator>().GetBool("isIdling") != true)
+        if (transform.GetComponent<Animator>().GetBool("isIdling") != true)
+        {
             transform.GetComponent<Animator>().SetBool("isIdling", isIdling);
+            transform.GetComponent<Animator>().SetBool("isRunning", !isIdling);
+            transform.GetComponent<Animator>().SetBool("isAttacking", !isIdling);
+        }
     }
 
     void isAttacking(bool isAttacking)
     {
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
+        {
             transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
+            transform.GetComponent<Animator>().SetBool("isRunning", !isAttacking);
+            transform.GetComponent<Animator>().SetBool("isIdling", !isAttacking);
+        }
     }
 
     
