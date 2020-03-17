@@ -35,6 +35,7 @@ public class EnemyHealthController : MonoBehaviour
     {
         health -= amount;
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
+        if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().playerSpotted = true;
     }
 
     public float getHealth()

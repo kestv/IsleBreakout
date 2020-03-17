@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
+    public float range;
     public GameObject castPoint;
     float lastCast;
     void Start()
@@ -15,13 +16,15 @@ public class SpellController : MonoBehaviour
     {
     }
 
-    public void castSpell(GameObject target, GameObject spell)
+    public void castSpell(GameObject target, SpellHolder spellHolder)
     {
-        if (Time.time - lastCast > spell.GetComponent<ProjectileMoveScript>().cooldown)
+        if (Time.time - lastCast > spellHolder.spell.GetComponent<ProjectileMoveScript>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
         {
             lastCast = Time.time;
             //GetComponent<Animator>().Play("SpellCast");
-            StartCoroutine(waitCoroutine(target, spell));
+            spellHolder.cooldown = true;
+            spellHolder.image.fillAmount = 0f;
+            StartCoroutine(waitCoroutine(target, spellHolder.spell));
             //var item = Instantiate(spell, castPoint.transform.position, Quaternion.identity);
             //item.GetComponent<ProjectileMoveScript>().target = target;
             //lastCast = Time.time;

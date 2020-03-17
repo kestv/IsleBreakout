@@ -65,28 +65,28 @@ public class PlayerCombatController : MonoBehaviour
         {
             if(target != null)
             {
-                spellController.castSpell(target, slot1.GetComponent<SpellHolder>().spell);
+                spellController.castSpell(target, slot1.GetComponent<SpellHolder>());
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
             if (target != null)
             {
-                spellController.castSpell(target, slot2.GetComponent<SpellHolder>().spell);
+                spellController.castSpell(target, slot2.GetComponent<SpellHolder>());
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             if (target != null)
             {
-                spellController.castSpell(target, slot3.GetComponent<SpellHolder>().spell);
+                spellController.castSpell(target, slot3.GetComponent<SpellHolder>());
             }
         }
         if (Input.GetKeyDown(KeyCode.Alpha4))
         {
             if (target != null)
             {
-                spellController.castSpell(target, slot4.GetComponent<SpellHolder>().spell);
+                spellController.castSpell(target, slot4.GetComponent<SpellHolder>());
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape))

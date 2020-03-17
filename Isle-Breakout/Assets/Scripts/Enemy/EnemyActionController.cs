@@ -27,6 +27,7 @@ public class EnemyActionController : MonoBehaviourPun
     public float damage;
     //Attack rate
     float attackRate = 2.0f;
+    public float fallBackDistance = 15f;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
@@ -55,12 +56,10 @@ public class EnemyActionController : MonoBehaviourPun
             distance = getDistance(player);
             if (distance < 10)
             {
-                target = player;
                 playerSpotted = true;
             }
             else
             {
-                target = null;
                 playerSpotted = false;
             }
 
@@ -69,9 +68,8 @@ public class EnemyActionController : MonoBehaviourPun
         if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
         {
             followPlayer(target);
-            if (getDistance(target) > 10)
+            if (getDistance(target) > fallBackDistance)
             {
-                target = null;
                 playerSpotted = false;
             }
         }
@@ -79,13 +77,11 @@ public class EnemyActionController : MonoBehaviourPun
         {
             if (transform.position != spawnPos)
             {
-                target = null;
                 playerSpotted = false;
                 goBackToCamp();
             }
             else if (transform.position == spawnPos)
             {
-                target = null;
                 playerSpotted = false;
                 action = IS_IDLING;
             }
