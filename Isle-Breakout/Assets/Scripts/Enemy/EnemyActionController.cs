@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemyActionController : MonoBehaviourPun
 {
     float speed = 5f;
-    public GameObject[] players = new GameObject[2];
+    public GameObject player;
     float distance;
     //Actions for animations
     int action;
@@ -29,22 +29,13 @@ public class EnemyActionController : MonoBehaviourPun
     float attackRate = 2.0f;
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         playerSpotted = false;
         spawnPos = transform.position;
-        
-        players = GameObject.FindGameObjectsWithTag("Player");
-    }
-
-    [PunRPC]
-    public void assignTarget(bool trigger, GameObject target)
-    {
-        this.playerSpotted = trigger;
-        this.target = target;
     }
 
     void Update()
     {
-        players = GameObject.FindGameObjectsWithTag("Player");
         switch (action)
         {
             case 1:
@@ -61,54 +52,49 @@ public class EnemyActionController : MonoBehaviourPun
         if (!playerSpotted)
         {
             action = IS_IDLING;
-            foreach (var player in players)
+            distance = getDistance(player);
+            if (distance < 10)
             {
-                distance = getDistance(player);
-                if (distance < 10)
-                {
-                    target = player;
-                    playerSpotted = true;
-                }
-                else
-                {
-                    target = null;
-                    playerSpotted = false;
-                }
-            }
-        }
-
-        if (target != null)
-        {
-            if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
-            {
-                followPlayer(target);
-                if (getDistance(target) > 10)
-                {
-                    target = null;
-                    playerSpotted = false;
-                }
+                target = player;
+                playerSpotted = true;
             }
             else
             {
-                if (transform.position != spawnPos)
-                {
-                    target = null;
-                    playerSpotted = false;
-                    goBackToCamp();
-                }
-                else if (transform.position == spawnPos)
-                {
-                    target = null;
-                    playerSpotted = false;
-                    action = IS_IDLING;
-                }
+                target = null;
+                playerSpotted = false;
+            }
+
+        }
+
+        if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
+        {
+            followPlayer(target);
+            if (getDistance(target) > 10)
+            {
+                target = null;
+                playerSpotted = false;
+            }
+        }
+        else
+        {
+            if (transform.position != spawnPos)
+            {
+                target = null;
+                playerSpotted = false;
+                goBackToCamp();
+            }
+            else if (transform.position == spawnPos)
+            {
+                target = null;
+                playerSpotted = false;
+                action = IS_IDLING;
             }
         }
     }
 
     float getDistance(GameObject target)
     {
-        return (Math.Abs(target.transform.position.x - transform.position.x) + Math.Abs(target.transform.position.z - transform.position.z)); ;
+        return (Math.Abs(target.transform.position.x - transform.position.x) + Math.Abs(target.transform.position.z - transform.position.z));
     }
 
     void followPlayer(GameObject player)
@@ -123,14 +109,14 @@ public class EnemyActionController : MonoBehaviourPun
             //This is for cooldown before attacking if target met;
             lastAttack = Time.time - 1.5f;
         }
-        else 
+        else
         {
             action = IS_IDLING;
             attack(target);
         }
     }
 
-    
+
 
     void attack(GameObject target)
     {
@@ -154,7 +140,7 @@ public class EnemyActionController : MonoBehaviourPun
 
     void isRunning(bool isRunning)
     {
-        if(transform.GetComponent<Animator>().GetBool("isRunning") != true)
+        if (transform.GetComponent<Animator>().GetBool("isRunning") != true)
         {
             transform.GetComponent<Animator>().SetBool("isRunning", isRunning);
             transform.GetComponent<Animator>().SetBool("isIdling", !isRunning);
@@ -182,5 +168,5 @@ public class EnemyActionController : MonoBehaviourPun
         }
     }
 
-    
+
 }

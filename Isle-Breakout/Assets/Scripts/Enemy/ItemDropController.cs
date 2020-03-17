@@ -12,9 +12,9 @@ public class ItemDropController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<PlayerHealthController>().isDead())
+        if(GetComponent<EnemyHealthController>().isDead())
         {
-            Instantiate(item, transform);
+            Instantiate(item, transform.position, transform.rotation);
             enabled = false;
         }
     }

@@ -5,22 +5,35 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviourPun
 {
-    public float offY;
-    public float offZ;
-    public GameObject target;
-    public float distance;
-    Vector3 targetPos;
-    // Start is called before the first frame update
+    public Transform lookAt;
+    Transform camTransform;
+
+    private Camera cam;
+
+    private float distance = 10f;
+    float currentX = 0f;
+    float currentY = 30f;
+    float sensitivityX = 4f;
     void Start()
     {
-        transform.rotation = new Quaternion(80, 0, 0, 180);
+        camTransform = transform;
+        cam = Camera.main;
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void Update()
     {
-        targetPos = new Vector3(target.transform.position.x, target.transform.position.y + offY, target.transform.position.z - offZ);
-        transform.position = targetPos;
+        currentX += Input.GetAxis("Mouse X");
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 dir = new Vector3(0, 0, -distance);
+        Quaternion rotation = Quaternion.Euler(currentY, currentX*sensitivityX, 0);
+
+        camTransform.position = lookAt.position + rotation * dir;
+        camTransform.LookAt(lookAt.position);
+
     }
 
 

@@ -63,6 +63,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             speed += value;
             speedValue.text = speed.ToString();
+            GetComponent<PlayerMovementController>().speed += speed/4;
         }
     }
 
@@ -81,7 +82,15 @@ public class PlayerStatsController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.K))
         {
-            statsWindow.SetActive(!statsWindow.activeSelf);
+            if(statsWindow.activeSelf)
+            {
+                statsWindow.SetActive(false);
+            }
+            else
+            {
+                statsWindow.SetActive(true);
+            }
+            
         }
         remainingValue.text = remainingPoints.ToString();
     }

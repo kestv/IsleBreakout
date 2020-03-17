@@ -2,12 +2,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
     public GameObject healthBarCanvas;
+    public Slider hungerBar;
+    float timer;
     void Start()
     {
+        hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
+        timer = Time.time;
     }
 
     // Update is called once per frame
@@ -24,6 +29,17 @@ public class PlayerHealthController : MonoBehaviour
             {
                 transform.GetComponent<EnemyActionController>().enabled = false;
             }
+        }
+
+
+    }
+
+    void HungerDecrease()
+    {
+        if (Time.time - timer >= 10)
+        {
+            hungerBar.value -= 10;
+            timer = Time.time;
         }
     }
 
