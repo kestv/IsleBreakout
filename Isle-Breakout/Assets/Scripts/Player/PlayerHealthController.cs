@@ -8,10 +8,14 @@ public class PlayerHealthController : MonoBehaviour
 {
     public GameObject healthBarCanvas;
     public Slider hungerBar;
+    public Slider warmthBar;
+    bool gettingWarm;
     float timer;
     void Start()
     {
+        gettingWarm = false;
         hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
+        warmthBar = GameObject.Find("Warmth").GetComponent<Slider>();
         timer = Time.time;
     }
 
@@ -30,16 +34,22 @@ public class PlayerHealthController : MonoBehaviour
                 transform.GetComponent<EnemyActionController>().enabled = false;
             }
         }
-
-
-    }
-
-    void HungerDecrease()
-    {
-        if (Time.time - timer >= 10)
+        hungerBar.value -= 0.1f;
+        if (gettingWarm == false)
         {
-            hungerBar.value -= 10;
-            timer = Time.time;
+            warmthBar.value -= 0.1f;
+        }
+        else
+        {
+            warmthBar.value += 0.5f;
+        }
+        if(warmthBar.value <= 0 || hungerBar.value <= 0)
+        {
+            if(Time.time - timer >= 10)
+            {
+                doDamage(5);
+                timer = Time.time;
+            }
         }
     }
 
@@ -63,5 +73,19 @@ public class PlayerHealthController : MonoBehaviour
     public GameObject getHealthbarCanvas()
     {
         return healthBarCanvas;
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Campfire")
+        {
+            gettingWarm = true;
+        }
+    }
+    private void OnTriggerExit(Collider col)
+    {
+        if (col.gameObject.tag == "Campfire")
+        {
+            gettingWarm = false;
+        }
     }
 }

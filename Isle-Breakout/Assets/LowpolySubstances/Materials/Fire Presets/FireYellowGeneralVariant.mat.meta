@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: 413b180ebab02d349a31789fab789ef6
-timeCreated: 1530207055
+guid: a519bbb074aaa4876a56adb2293d0d90
+labels:
+- Lowpoly
+- Fire
+- Substance
+- Effect
+timeCreated: 1456906616
 licenseType: Store
 NativeFormatImporter:
-  externalObjects: {}
-  mainObjectFileID: 100100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

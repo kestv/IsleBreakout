@@ -8,9 +8,7 @@ public class HealthController : MonoBehaviour
 {
     public GameObject player;
     public float startingHealth;
-    public GameObject levelField;
     float lastVisible;
-    public GameObject healthBar;
     GameObject obj;
     public void Start()
     {

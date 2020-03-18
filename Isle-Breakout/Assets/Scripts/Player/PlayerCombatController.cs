@@ -20,6 +20,7 @@ public class PlayerCombatController : MonoBehaviour
     public bool isAttacking;
     GameObject enemyHealthBar;
     SpellController spellController;
+    public GameObject levelField;
 
     GameObject slot1;
     GameObject slot2;
@@ -35,8 +36,9 @@ public class PlayerCombatController : MonoBehaviour
         levelUp();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
+        levelField = GameObject.Find("Level");
         enemyHealthBar.SetActive(false);
-
+        Debug.Log(levelField.GetComponent<Text>().text);
         slot1 = GameObject.Find("Slot1");
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
@@ -185,7 +187,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         level++;
         var hpCanvas = GetComponent<PlayerHealthController>().getHealthbarCanvas();
-        hpCanvas.GetComponent<HealthController>().levelField.GetComponent<Text>().text = level.ToString();
+        levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().remainingPoints++;
     }
 }
