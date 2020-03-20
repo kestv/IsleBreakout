@@ -32,7 +32,7 @@ public class PlayerTriggers : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))    //Pick up item
+        if (Input.GetKeyDown(KeyCode.F))    //Pick up item
         {
             if (triggeredItem != null)
             {
@@ -40,7 +40,7 @@ public class PlayerTriggers : MonoBehaviour
             }
         }
         //Drop item
-        if (Input.GetKeyDown(KeyCode.Q))    //Drop item
+        if (Input.GetKeyDown(KeyCode.G))    //Drop item
         {
             inventory.Drop();
         }
