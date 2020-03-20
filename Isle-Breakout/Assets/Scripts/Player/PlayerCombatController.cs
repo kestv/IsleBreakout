@@ -6,26 +6,35 @@ using UnityEngine.UI;
 
 public class PlayerCombatController : MonoBehaviour
 {
-    bool isTriggering;    
+    bool isTriggering;
+    public bool isAttacking;
     //Attack cooldown
     float lastAttack = 0;
     //Attack rate
     float attackRate = 2.0f;
     //Damage that enemy does
     public float damage;
-    public int level;
-    float experiencePoints;
     GameObject[] enemies;
     public GameObject target;
-    public bool isAttacking;
-    GameObject enemyHealthBar;
-    SpellController spellController;
-    public GameObject levelField;
+    
+    public int level;
+    float experiencePoints;
 
+    SpellController spellController;
+    bool isRangedWeapon;
+
+    public GameObject levelField;
+    GameObject enemyHealthBar;
     GameObject slot1;
     GameObject slot2;
     GameObject slot3;
     GameObject slot4;
+
+    GameObject rangeSelect;
+    GameObject meleeSelect;
+
+    GameObject meleeWeapon;
+    GameObject rangeWeapon;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +52,14 @@ public class PlayerCombatController : MonoBehaviour
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
         slot4 = GameObject.Find("Slot4");
+
+        rangeSelect = GameObject.Find("SelectRange");
+        meleeSelect = GameObject.Find("SelectMelee");
+        rangeSelect.SetActive(false);
+
+        meleeWeapon = GameObject.Find("MeleeWeapon");
+        rangeWeapon = GameObject.Find("RangeWeapon");
+        rangeWeapon.SetActive(false);
     }
 
     // Update is called once per frame
@@ -63,33 +80,37 @@ public class PlayerCombatController : MonoBehaviour
                 isAttacking = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             if(target != null)
             {
                 spellController.castSpell(target, slot1.GetComponent<SpellHolder>());
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha2))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (target != null)
             {
                 spellController.castSpell(target, slot2.GetComponent<SpellHolder>());
             }
         }
-        if (Input.GetKeyDown(KeyCode.Alpha3))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (target != null)
-            {
-                spellController.castSpell(target, slot3.GetComponent<SpellHolder>());
-            }
+            isRangedWeapon = false;
+            meleeSelect.SetActive(true);
+            rangeSelect.SetActive(false);
+            meleeWeapon.SetActive(true);
+            rangeWeapon.SetActive(false);
+
         }
-        if (Input.GetKeyDown(KeyCode.Alpha4))
+        if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            if (target != null)
-            {
-                spellController.castSpell(target, slot4.GetComponent<SpellHolder>());
-            }
+            isRangedWeapon = true;
+            meleeSelect.SetActive(false);
+            rangeSelect.SetActive(true);
+            meleeWeapon.SetActive(false);
+            rangeWeapon.SetActive(true);
+
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -113,11 +134,10 @@ public class PlayerCombatController : MonoBehaviour
 
         if (isAttacking && target != null)
         {
-            if (getDistance(target) > 2f)
+            if (!isRangedWeapon && getDistance(target) > 2f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 10f * Time.deltaTime);
                 transform.GetComponent<PlayerMovementController>().isRunning = true;
-
             }
             else
             {
@@ -132,7 +152,14 @@ public class PlayerCombatController : MonoBehaviour
                     if (lastAttack + attackRate < Time.time && !target.GetComponent<EnemyHealthController>().isDead())
                     {
                         lastAttack = Time.time;
-                        transform.GetComponent<Animator>().SetTrigger("isAttacking");
+                        if (!isRangedWeapon)
+                        {
+                            transform.GetComponent<Animator>().SetTrigger("isAttacking");  
+                        }
+                        else
+                        {
+                            transform.GetComponent<Animator>().SetTrigger("isShooting");
+                        }
                         target.GetComponent<EnemyHealthController>().doDamage(damage);
                         if (target.GetComponent<EnemyHealthController>().isDead())
                         {
