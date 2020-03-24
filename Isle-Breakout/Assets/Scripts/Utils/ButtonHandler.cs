@@ -7,10 +7,11 @@ public class ButtonHandler : MonoBehaviour
 {
     public Button button;
     public GameObject window;
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.Find("Player");
     }
 
     // Update is called once per frame
@@ -22,5 +23,6 @@ public class ButtonHandler : MonoBehaviour
     public void closeWindow()
     {
         window.SetActive(false);
+        player.GetComponent<QuestController>().StartQuest();
     }
 }

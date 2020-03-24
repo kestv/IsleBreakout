@@ -1,10 +1,9 @@
-﻿using Photon.Pun;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyActionController : MonoBehaviourPun
+public class EnemyActionController : MonoBehaviour
 {
     float speed = 5f;
     public GameObject player;

@@ -1,10 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 using UnityEngine.UI;
 
-public class ItemParameters : MonoBehaviourPun
+public class ItemParameters : MonoBehaviour
 {
     public string itemName;
     public Image itemImage;

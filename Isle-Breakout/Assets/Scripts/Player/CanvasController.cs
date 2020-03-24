@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class CanvasController : MonoBehaviourPun
+public class CanvasController : MonoBehaviour
 {
     private bool isMessagePanelActive;
     public void ToggleMessagePanel()

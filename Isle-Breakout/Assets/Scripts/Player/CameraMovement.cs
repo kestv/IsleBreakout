@@ -1,9 +1,8 @@
-﻿using Photon.Pun;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraMovement : MonoBehaviourPun
+public class CameraMovement : MonoBehaviour
 {
     public Transform lookAt;
     Transform camTransform;

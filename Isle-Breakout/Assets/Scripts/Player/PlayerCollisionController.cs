@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
-public class PlayerCollisionController : MonoBehaviourPun
+public class PlayerCollisionController : MonoBehaviour
 {
     public GameObject canvas;
 

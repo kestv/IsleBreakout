@@ -1,9 +1,8 @@
-﻿using Photon.Pun;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovementController : MonoBehaviourPun
+public class PlayerMovementController : MonoBehaviour
 {
     public GameObject cam;
     Transform camTransform;
