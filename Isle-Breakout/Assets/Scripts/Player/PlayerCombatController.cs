@@ -16,9 +16,6 @@ public class PlayerCombatController : MonoBehaviour
     public float damage;
     GameObject[] enemies;
     public GameObject target;
-    
-    public int level;
-    float experiencePoints;
 
     SpellController spellController;
     bool isRangedWeapon;
@@ -41,8 +38,6 @@ public class PlayerCombatController : MonoBehaviour
     {
         spellController = GetComponent<SpellController>();
         isAttacking = false;
-        level = 0;
-        levelUp();
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
         levelField = GameObject.Find("Level");
@@ -205,16 +200,8 @@ public class PlayerCombatController : MonoBehaviour
 
     void killedTarget()
     {
-        levelUp();
+        GetComponent<PlayerLevelController>().LevelUp();
         enemyHealthBar.SetActive(false);
         target = null;
-    }
-
-    void levelUp()
-    {
-        level++;
-        var hpCanvas = GetComponent<PlayerHealthController>().getHealthbarCanvas();
-        levelField.GetComponent<Text>().text = level.ToString();
-        GetComponent<PlayerStatsController>().remainingPoints++;
     }
 }

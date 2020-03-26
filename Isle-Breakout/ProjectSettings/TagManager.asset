@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - HealthBar
+  - Bullet
+  - Enemy
+  - item
+  - Campfire
+  - Npc
   layers:
   - Default
   - TransparentFX

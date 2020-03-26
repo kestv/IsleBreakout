@@ -73,11 +73,19 @@ public class PlayerHealthController : MonoBehaviour
     {
         return healthBarCanvas;
     }
+    
     private void OnTriggerEnter(Collider col)
     {
         if (col.gameObject.tag == "Campfire")
         {
             gettingWarm = true;
+        }
+        if(col.gameObject.tag == "Npc")
+        {
+            if(Input.GetKey(KeyCode.F))
+            {
+                GameObject.Find("Info").SetActive(true);
+            }
         }
     }
     private void OnTriggerExit(Collider col)

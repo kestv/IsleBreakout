@@ -43,7 +43,7 @@ public class PlayerStatsController : MonoBehaviour
 
         statsWindow = GameObject.Find("Stats");
 
-        remainingPoints = GetComponent<PlayerCombatController>().level;
+        remainingPoints = GetComponent<PlayerLevelController>().level;
     }
 
     void improveStrength(float value)

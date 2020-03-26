@@ -11,7 +11,7 @@ public class ButtonHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Player");
+        player = GameObject.Find("PlayerInstance");
     }
 
     // Update is called once per frame
@@ -23,6 +23,6 @@ public class ButtonHandler : MonoBehaviour
     public void closeWindow()
     {
         window.SetActive(false);
-        player.GetComponent<QuestController>().StartQuest();
+        //player.GetComponent<QuestController>().StartQuest();
     }
 }

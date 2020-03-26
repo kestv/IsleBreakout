@@ -17,7 +17,7 @@ public class PlayerSkillController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.P))
         {
             model.SetActive(!model.activeSelf);
             polymorphModel.SetActive(!polymorphModel.activeSelf);
