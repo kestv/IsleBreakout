@@ -18,9 +18,10 @@ public class TalkGoal : Goal
         base.Init();
     }
 
-    public void TalkedToNpc(int id)
+    public void TalkedToNpc(int id, List<string> conversations, string name, List<Quest> quests)
     {
-        if(this.npcId == id)
+        Debug.Log("TalkedToNpc");
+        if (this.npcId == id)
             this.Complete();
     }
 }

@@ -347,7 +347,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &8422565564660125930
 Transform:
   m_ObjectHideFlags: 0
@@ -2909,7 +2909,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8422565564660096540
 Transform:
   m_ObjectHideFlags: 0
@@ -3054,6 +3054,8 @@ GameObject:
   - component: {fileID: 8422565564660061308}
   - component: {fileID: 8422565564670010356}
   - component: {fileID: 1677045732}
+  - component: {fileID: 1839748567}
+  - component: {fileID: 1839748568}
   m_Layer: 0
   m_Name: Villager
   m_TagString: Npc
@@ -3069,7 +3071,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8422565564660575944}
   m_LocalRotation: {x: 0, y: 0.9999556, z: -0, w: -0.009424517}
-  m_LocalPosition: {x: 0, y: 0, z: -5.58}
+  m_LocalPosition: {x: 0, y: 0, z: -6.53}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8422565564660096540}
@@ -3111,10 +3113,50 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.9730244
+  m_Radius: 1.3697103
   m_Height: 5.3377333
   m_Direction: 1
-  m_Center: {x: 9.577033e-10, y: 1.7994776, z: 1.473027}
+  m_Center: {x: 0.15161037, y: 1.799478, z: -0.054537296}
+--- !u!114 &1839748567
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422565564660575944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a20dcca5796fc904793b243b1b1a1f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Bla
+  Description: Bla
+  Experience: 50
+  Completed: 0
+  Active: 0
+  player: {fileID: 0}
+--- !u!114 &1839748568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422565564660575944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 2
+  name: Pepperoni Tony
+  conversations:
+  - Hello there
+  - bring me some shit
+  - will ya
+  conversationText: {fileID: 0}
+  conversationButton: {fileID: 0}
+  quests:
+  - {fileID: 1839748567}
 --- !u!1 &8422565564660577554
 GameObject:
   m_ObjectHideFlags: 0

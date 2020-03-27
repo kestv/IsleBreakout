@@ -80,13 +80,6 @@ public class PlayerHealthController : MonoBehaviour
         {
             gettingWarm = true;
         }
-        if(col.gameObject.tag == "Npc")
-        {
-            if(Input.GetKey(KeyCode.F))
-            {
-                GameObject.Find("Info").SetActive(true);
-            }
-        }
     }
     private void OnTriggerExit(Collider col)
     {

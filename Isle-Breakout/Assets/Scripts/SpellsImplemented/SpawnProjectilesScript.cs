@@ -13,7 +13,7 @@ public class SpawnProjectilesScript : MonoBehaviour {
 	public GameObject cameras;
 	public List<GameObject> VFXs = new List<GameObject> ();
 
-	private int count = 0;
+	//private int count = 0;
 	private float timeToFire = 0f;
 	private GameObject effectToSpawn;
 	private List<Camera> camerasList = new List<Camera> ();

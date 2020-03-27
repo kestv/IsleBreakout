@@ -12,7 +12,7 @@ public class PlayerLevelController : MonoBehaviour
 
     public void Start()
     {
-        //CombatEvents.getInstance().onEnemyDeathDelegate += GetExperience;
+        CombatEventHandler.Instance.onEnemyDeath += GetExperience;
     }
     public void GetExperience(float amount)
     {

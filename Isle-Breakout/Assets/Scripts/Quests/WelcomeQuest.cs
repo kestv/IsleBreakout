@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WelcomeQuest : Quest
 {
-    void Start()
+    new void Start()
     {
         this.goals.Add(new TalkGoal("Starting quest", false, 1));
         this.Experience = 50;

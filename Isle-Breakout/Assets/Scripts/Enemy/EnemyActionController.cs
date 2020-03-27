@@ -30,6 +30,7 @@ public class EnemyActionController : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        target = player;
         playerSpotted = false;
         spawnPos = transform.position;
     }

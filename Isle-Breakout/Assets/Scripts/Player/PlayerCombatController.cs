@@ -33,16 +33,16 @@ public class PlayerCombatController : MonoBehaviour
     GameObject meleeWeapon;
     GameObject rangeWeapon;
 
-    // Start is called before the first frame update
     void Start()
     {
+        CombatEventHandler.Instance.onEnemyDeath += killedTarget;
         spellController = GetComponent<SpellController>();
         isAttacking = false;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
+        enemyHealthBar.SetActive(false);
         levelField = GameObject.Find("Level");
         enemyHealthBar.SetActive(false);
-        Debug.Log(levelField.GetComponent<Text>().text);
         slot1 = GameObject.Find("Slot1");
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
@@ -116,11 +116,6 @@ public class PlayerCombatController : MonoBehaviour
                 target = null;
             }
         }
-        if(target != null && target.GetComponent<EnemyHealthController>().isDead())
-        {
-            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
-            killedTarget();
-        }
 
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
         {
@@ -156,11 +151,6 @@ public class PlayerCombatController : MonoBehaviour
                             transform.GetComponent<Animator>().SetTrigger("isShooting");
                         }
                         target.GetComponent<EnemyHealthController>().doDamage(damage);
-                        if (target.GetComponent<EnemyHealthController>().isDead())
-                        {
-                            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
-                            killedTarget();
-                        }
                     }
                 }
             }
@@ -198,9 +188,9 @@ public class PlayerCombatController : MonoBehaviour
         return (Math.Abs(target.transform.position.x - transform.position.x) + Math.Abs(target.transform.position.z - transform.position.z));
     }
 
-    void killedTarget()
+    void killedTarget(float xp)
     {
-        GetComponent<PlayerLevelController>().LevelUp();
+        target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
         enemyHealthBar.SetActive(false);
         target = null;
     }

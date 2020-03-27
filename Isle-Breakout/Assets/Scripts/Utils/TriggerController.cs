@@ -6,7 +6,10 @@ public class TriggerController : MonoBehaviour
 {
     public GameObject info;
     bool triggeringNpc = false;
-    int villager = 0;
+    int ID = 0;
+    List<string> conversations;
+    List<Quest> quests;
+    string npcName;
     void Start()
     {
         
@@ -17,7 +20,8 @@ public class TriggerController : MonoBehaviour
     {
         if(triggeringNpc && Input.GetKeyDown(KeyCode.F))
         {
-            NpcEventHandler.Instance.onTalkedToNpc(villager);
+            NpcEventHandler.Instance.onTalkedToNpc(ID, conversations, npcName, quests);
+            NpcEventHandler.Instance.afterTalkedToNpc();
         }
     }
 
@@ -25,8 +29,15 @@ public class TriggerController : MonoBehaviour
     {
         if(col.gameObject.tag == "Npc")
         {
-            triggeringNpc = true;
-            if (col.gameObject.name == "Villager") villager = 1;
+            if (col.gameObject.GetComponent<NpcController>() != null)
+            {
+                triggeringNpc = true;
+                ID = col.gameObject.GetComponent<NpcController>().ID;
+                conversations = col.gameObject.GetComponent<NpcController>().conversations;
+                npcName = col.gameObject.GetComponent<NpcController>().name;
+                quests = col.gameObject.GetComponent<NpcController>().quests;
+            }
+
         }
     }
 

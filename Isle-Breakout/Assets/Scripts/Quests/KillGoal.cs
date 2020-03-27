@@ -14,11 +14,11 @@ public class KillGoal : Goal
 
     public override void Init()
     {
-        CombatEvents.getInstance().onEnemyDeathDelegate += EnemyDied;
+        CombatEventHandler.Instance.onEnemyDeath += EnemyDied;
         base.Init();
     }
 
-    public void EnemyDied()
+    public void EnemyDied(float xp)
     {
         this.currentAmount ++;
         Evaluate();

@@ -9,6 +9,7 @@ public class EnemyHealthController : MonoBehaviour
     float timer;
     public GameObject targetSprite;
     public float health;
+    bool dead = false;
     void Start()
     {
         timer = Time.time;
@@ -21,13 +22,7 @@ public class EnemyHealthController : MonoBehaviour
         {
             healthBar.GetComponent<Slider>().value = health;
         }
-
-        if (isDead())
-        {
-            transform.GetComponent<Animator>().SetBool("isDead", true);
-            transform.GetComponent<EnemyActionController>().enabled = false;
-            transform.GetComponent<EnemyHealthController>().enabled = false;
-        }
+        isDead();
     }
 
     public void doDamage(float amount)
@@ -44,7 +39,16 @@ public class EnemyHealthController : MonoBehaviour
 
     public bool isDead()
     {
-        if (health <= 0) return true;
+        if (health <= 0)
+        {
+            transform.GetComponent<Animator>().SetBool("isDead", true);
+            transform.GetComponent<EnemyActionController>().enabled = false;
+            transform.GetComponent<EnemyHealthController>().enabled = false;
+            if(!dead)
+                CombatEventHandler.Instance.onEnemyDeath(GetComponent<EnemyController>().xp);
+            dead = true;
+            return true;
+        }
         else return false;
     }
 
