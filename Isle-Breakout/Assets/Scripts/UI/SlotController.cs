@@ -43,7 +43,14 @@ public class SlotController : MonoBehaviour, IDropHandler
                     {
                         inventory.MoveItem(DragHandler.parentSlotIndex, slotIndex);
                     }
-                }                
+                }
+                else
+                {
+                    if (!isChest)
+                    {
+                        inventory.ChangeItem(transform.GetChild(0).GetChild(0).gameObject, slotIndex);
+                    }
+                }
             }
             else
             {
@@ -63,6 +70,13 @@ public class SlotController : MonoBehaviour, IDropHandler
                     else
                     {
                         inventory.SwapItems(DragHandler.parentSlotIndex, slotIndex);
+                    }
+                }
+                else
+                {
+                    if (!isChest)
+                    {
+                        inventory.ChangeItem(transform.GetChild(0).GetChild(0).gameObject, slotIndex);
                     }
                 }
             }            

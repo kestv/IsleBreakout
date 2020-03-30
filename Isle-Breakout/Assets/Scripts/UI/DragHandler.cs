@@ -15,7 +15,6 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public static bool movedToEmptySlot;
     public static bool isItemInChest;
     
-
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
