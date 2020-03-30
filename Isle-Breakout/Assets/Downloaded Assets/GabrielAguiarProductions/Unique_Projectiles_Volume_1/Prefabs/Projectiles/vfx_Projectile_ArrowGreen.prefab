@@ -200,6 +200,9 @@ MonoBehaviour:
   trails:
   - {fileID: 1048663460839562}
   target: {fileID: 0}
+  damage: 100
+  actualDamage: 0
+  cooldown: 1
 --- !u!199 &199073291066996958
 ParticleSystemRenderer:
   serializedVersion: 6

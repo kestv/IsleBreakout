@@ -10,10 +10,6 @@ public class TriggerController : MonoBehaviour
     List<string> conversations;
     List<Quest> quests;
     string npcName;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
@@ -21,7 +17,11 @@ public class TriggerController : MonoBehaviour
         if(triggeringNpc && Input.GetKeyDown(KeyCode.F))
         {
             NpcEventHandler.Instance.onTalkedToNpc(ID, conversations, npcName, quests);
-            NpcEventHandler.Instance.afterTalkedToNpc();
+            if (NpcEventHandler.Instance._onTalkedToNpc != null)
+            {
+                Debug.Log("calling");
+                NpcEventHandler.Instance._onTalkedToNpc();
+            }
         }
     }
 

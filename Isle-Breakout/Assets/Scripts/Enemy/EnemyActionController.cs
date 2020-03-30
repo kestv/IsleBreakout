@@ -26,7 +26,7 @@ public class EnemyActionController : MonoBehaviour
     public float damage;
     //Attack rate
     float attackRate = 2.0f;
-    public float fallBackDistance = 15f;
+    public float fallBackDistance = 30f;
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");

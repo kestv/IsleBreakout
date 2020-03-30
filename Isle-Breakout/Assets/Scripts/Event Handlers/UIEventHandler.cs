@@ -1,18 +1,39 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIEventHandler : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public delegate void OnRewardReceive();
+    public OnRewardReceive onRewardReceive;
+    public GameObject rewardObject;
+    public static UIEventHandler Instance { get; private set; }
+
+    private void Awake()
     {
-        
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Start()
     {
-        
+        rewardObject = GameObject.Find("Reward");
+    }
+
+    public void DisplayReward(string reward, bool levelUp)
+    {
+        if (levelUp)
+            rewardObject.GetComponent<Text>().color = Color.yellow;
+        else rewardObject.GetComponent<Text>().color = Color.green;
+        rewardObject.GetComponent<Text>().text = levelUp ? reward : "+ " + reward;
+        rewardObject.GetComponent<ScrollController>().StartMoving();
     }
 }

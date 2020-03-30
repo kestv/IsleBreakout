@@ -10,6 +10,8 @@ public class TalkGoal : Goal
         this.description = description;
         this.completed = completed;
         this.npcId = id;
+        this.currentAmount = 0;
+        this.requiredAmount = 1;
     }
 
     public override void Init()
@@ -22,6 +24,9 @@ public class TalkGoal : Goal
     {
         Debug.Log("TalkedToNpc");
         if (this.npcId == id)
+        {
+            this.currentAmount = 1;
             this.Complete();
+        }
     }
 }

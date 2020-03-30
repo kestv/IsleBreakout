@@ -17,7 +17,20 @@ public class PlayerLevelController : MonoBehaviour
     public void GetExperience(float amount)
     {
         currentExperiencePoints += amount;
-        while(currentExperiencePoints >= requiredExperiencePoints)
+        UIEventHandler.Instance.DisplayReward(amount + " xp", false);
+        EvaluateXp();
+    }
+    //For events
+    public void GetExperience(float amount, int id)
+    {
+        currentExperiencePoints += amount;
+        UIEventHandler.Instance.DisplayReward(amount + " xp", false);
+        EvaluateXp();
+    }
+
+    public void EvaluateXp()
+    {
+        while (currentExperiencePoints >= requiredExperiencePoints)
         {
             LevelUp();
         }
@@ -25,6 +38,7 @@ public class PlayerLevelController : MonoBehaviour
 
     public void LevelUp()
     {
+        UIEventHandler.Instance.DisplayReward("Level up!", true);
         level += 1;
         currentExperiencePoints -= requiredExperiencePoints;
         requiredExperiencePoints *= levelRate;
@@ -33,5 +47,7 @@ public class PlayerLevelController : MonoBehaviour
         var hpCanvas = GetComponent<PlayerHealthController>().getHealthbarCanvas();
         GetComponent<PlayerCombatController>().levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().remainingPoints++;
+
+        UIEventHandler.Instance.DisplayReward("Level up!", true);
     }
 }

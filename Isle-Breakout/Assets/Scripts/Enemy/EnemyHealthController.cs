@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthController : MonoBehaviour
+public class EnemyHealthController : EnemyController
 {
     public GameObject healthBar;
     float timer;
@@ -44,8 +44,11 @@ public class EnemyHealthController : MonoBehaviour
             transform.GetComponent<Animator>().SetBool("isDead", true);
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
-            if(!dead)
-                CombatEventHandler.Instance.onEnemyDeath(GetComponent<EnemyController>().xp);
+            if (!dead)
+            {
+                CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
+                CombatEventHandler.Instance.afterEnemyDeath();
+            }
             dead = true;
             return true;
         }

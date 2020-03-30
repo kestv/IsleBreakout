@@ -12,7 +12,8 @@ public class ConversationHandler : MonoBehaviour
     GameObject buttonText;
     GameObject name;
     GameObject questAcceptButton;
-    ConversationHandler Instance;
+    Text questName;
+    Text questObjective;
 
     int i;
     List<string> conversations;
@@ -20,16 +21,6 @@ public class ConversationHandler : MonoBehaviour
 
     public void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
         conversation = GameObject.Find("Conversation");
         text = GameObject.Find("ConversationText");
         button = GameObject.Find("ConversationButton");
@@ -39,23 +30,33 @@ public class ConversationHandler : MonoBehaviour
     }
 
     void Start()
-    {       
-        //conversation.SetActive(false);
+    {
+        conversation.SetActive(false);
         NpcEventHandler.Instance.onTalkedToNpc += StartConversation;
     }
 
     public void StartConversation(int ID, List<string> conversations, string name, List<Quest> quests)
     {
         Debug.Log("StartConversation");
-        conversation.SetActive(true);
+        
         questAcceptButton.SetActive(false);
+        if (quests.Count > 0)
+            foreach (var quest in quests)
+            {
+                if (quest.Completed != true && quest.Active != true)
+                {
+                    this.conversations = quest.conversations;
+                    break;
+                }
+                this.conversations = conversations;
+            }
+        else this.conversations = conversations;
 
-        this.conversations = conversations;
         this.quests = quests;
-
+        conversation.SetActive(true);
         this.name.GetComponent<Text>().text = name;
         i = 1;
-        text.GetComponent<Text>().text = conversations[0];
+        text.GetComponent<Text>().text = this.conversations[0];
         if (conversations.Count - i > 1)
         {
             buttonText.GetComponent<Text>().text = "Next";
@@ -64,6 +65,7 @@ public class ConversationHandler : MonoBehaviour
 
     public void Iterate()
     {
+        Debug.Log(conversations.Count);
         if (i < conversations.Count - 1)
         {
             buttonText.GetComponent<Text>().text = "Next";
@@ -73,21 +75,24 @@ public class ConversationHandler : MonoBehaviour
         else if (i < conversations.Count)
         {
             buttonText.GetComponent<Text>().text = "Close";
-            if(quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false))
+            if (quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false))
                 questAcceptButton.SetActive(true);
             text.GetComponent<Text>().text = conversations[i];
             i++;
         }
-        else conversation.SetActive(false);
+        else
+        {
+            conversation.SetActive(false);
+            NpcEventHandler.Instance.afterTalkedToNpc();
+        }
     }
-
     public void AcceptQuest()
     {
         foreach (var quest in quests)
         {
-            if(quest.Completed == false)
+            if (quest.Completed == false && quest.Active == false)
             {
-                quest.Active = true;
+                quest.ActivateQuest();
                 conversation.SetActive(false);
                 break;
             }

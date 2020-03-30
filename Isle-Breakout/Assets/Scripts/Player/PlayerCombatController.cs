@@ -18,6 +18,8 @@ public class PlayerCombatController : MonoBehaviour
     public GameObject target;
 
     SpellController spellController;
+    public GameObject arrow;
+
     bool isRangedWeapon;
 
     public GameObject levelField;
@@ -57,6 +59,15 @@ public class PlayerCombatController : MonoBehaviour
         rangeWeapon.SetActive(false);
     }
 
+    void SetWeapon(bool ranged)
+    {
+        isRangedWeapon = ranged;
+        meleeSelect.SetActive(!ranged);
+        rangeSelect.SetActive(ranged);
+        meleeWeapon.SetActive(!ranged);
+        rangeWeapon.SetActive(ranged);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -91,21 +102,11 @@ public class PlayerCombatController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            isRangedWeapon = false;
-            meleeSelect.SetActive(true);
-            rangeSelect.SetActive(false);
-            meleeWeapon.SetActive(true);
-            rangeWeapon.SetActive(false);
-
+            SetWeapon(false);
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            isRangedWeapon = true;
-            meleeSelect.SetActive(false);
-            rangeSelect.SetActive(true);
-            meleeWeapon.SetActive(false);
-            rangeWeapon.SetActive(true);
-
+            SetWeapon(true);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -144,18 +145,24 @@ public class PlayerCombatController : MonoBehaviour
                         lastAttack = Time.time;
                         if (!isRangedWeapon)
                         {
-                            transform.GetComponent<Animator>().SetTrigger("isAttacking");  
+                            transform.GetComponent<Animator>().SetTrigger("isAttacking");
+                            target.GetComponent<EnemyHealthController>().doDamage(damage);
                         }
                         else
                         {
-                            transform.GetComponent<Animator>().SetTrigger("isShooting");
+                            AttackFromRange();
                         }
-                        target.GetComponent<EnemyHealthController>().doDamage(damage);
                     }
                 }
             }
         }
         else transform.GetComponent<PlayerMovementController>().isRunning = false;
+    }
+
+    void AttackFromRange()
+    {
+        transform.GetComponent<Animator>().SetTrigger("isShooting");
+        spellController.CastArrow(target, arrow);
     }
     void findTarget()
     {
@@ -188,7 +195,7 @@ public class PlayerCombatController : MonoBehaviour
         return (Math.Abs(target.transform.position.x - transform.position.x) + Math.Abs(target.transform.position.z - transform.position.z));
     }
 
-    void killedTarget(float xp)
+    void killedTarget(float xp, int id)
     {
         target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
         enemyHealthBar.SetActive(false);

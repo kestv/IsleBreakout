@@ -64,7 +64,7 @@ void Start () {
 	void Update () {
         if (speed != 0)
         {
-            var pos = new Vector3(target.transform.position.x, 1, target.transform.position.z);
+            var pos = new Vector3(target.transform.position.x, target.transform.position.y + 1, target.transform.position.z);
             transform.position = Vector3.MoveTowards(transform.position, pos, 10f * Time.deltaTime);
             if (Vector3.Distance(transform.position, target.transform.position) <= 1)
             {
@@ -77,7 +77,7 @@ void Start () {
     void collisionDetected() {
         if (!collided) {
 			collided = true;
-
+            Debug.Log(actualDamage);
             target.GetComponent<EnemyHealthController>().doDamage(actualDamage);
 
 			if (shotSFX != null && GetComponent<AudioSource>()) {

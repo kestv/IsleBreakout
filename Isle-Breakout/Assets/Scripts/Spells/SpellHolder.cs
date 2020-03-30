@@ -17,7 +17,7 @@ public class SpellHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cooldown)
+        if(cooldown && image != null)
         {
             image.fillAmount += 1f/spell.GetComponent<ProjectileMoveScript>().cooldown * Time.deltaTime;
             if (image.fillAmount >= 1) cooldown = false;

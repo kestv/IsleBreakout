@@ -2858,6 +2858,7 @@ MonoBehaviour:
   isAttacking: 0
   damage: 50
   target: {fileID: 0}
+  arrow: {fileID: 1170744857039610, guid: 1fcfcb93d7455e94bb4991c5ab289a41, type: 3}
   levelField: {fileID: 0}
 --- !u!114 &6036651468081100905
 MonoBehaviour:
@@ -2896,6 +2897,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 0
   castPoint: {fileID: 415126268}
+  arrowCastPoint: {fileID: 310160172}
 --- !u!114 &720963750
 MonoBehaviour:
   m_ObjectHideFlags: 0

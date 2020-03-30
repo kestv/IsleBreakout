@@ -5,8 +5,11 @@ using UnityEngine;
 public class NpcEventHandler : MonoBehaviour
 {
     public delegate void OnTalkedToNpc(int id, List<string> conversations, string name, List<Quest> quests);
+    public delegate void _OnTalkedToNpc();
     public delegate void AfterTalkedToNpc();
+
     public OnTalkedToNpc onTalkedToNpc;
+    public _OnTalkedToNpc _onTalkedToNpc;
     public AfterTalkedToNpc afterTalkedToNpc;
     public static NpcEventHandler Instance { get; private set; }
 

@@ -33,10 +33,10 @@ public class PlayerHealthController : MonoBehaviour
                 transform.GetComponent<EnemyActionController>().enabled = false;
             }
         }
-        hungerBar.value -= 0.1f;
+        hungerBar.value -= 0.02f;
         if (gettingWarm == false)
         {
-            warmthBar.value -= 0.1f;
+            warmthBar.value -= 0.02f;
         }
         else
         {

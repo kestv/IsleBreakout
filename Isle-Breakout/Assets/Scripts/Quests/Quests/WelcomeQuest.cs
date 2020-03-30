@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class WelcomeQuest : Quest
 {
-    new void Start()
+
+    public void Start()
     {
+        this.init(GetComponent<NpcController>().ID);
         this.goals.Add(new TalkGoal("Starting quest", false, 1));
         this.Experience = 50;
 
         this.goals.ForEach(g => g.Init());
-    }
 
+
+    }
 }

@@ -3161,6 +3161,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b326c7dd192f864abd2929ec4b0dcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  xp: 0
+  id: 1
   healthBar: {fileID: 0}
   targetSprite: {fileID: 250441423}
   health: 100
@@ -3177,6 +3179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xp: 50
+  id: 1
 --- !u!1 &8422565564660577554
 GameObject:
   m_ObjectHideFlags: 0
