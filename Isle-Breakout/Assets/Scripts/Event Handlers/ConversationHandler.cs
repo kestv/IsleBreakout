@@ -57,7 +57,7 @@ public class ConversationHandler : MonoBehaviour
         this.name.GetComponent<Text>().text = name;
         i = 1;
         text.GetComponent<Text>().text = this.conversations[0];
-        if (conversations.Count - i > 1)
+        if (this.conversations.Count - i > 1)
         {
             buttonText.GetComponent<Text>().text = "Next";
         }

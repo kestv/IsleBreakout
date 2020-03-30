@@ -21,15 +21,12 @@ public class UIEventHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    public void Start()
-    {
         rewardObject = GameObject.Find("Reward");
     }
 
     public void DisplayReward(string reward, bool levelUp)
     {
+        rewardObject.SetActive(true);
         if (levelUp)
             rewardObject.GetComponent<Text>().color = Color.yellow;
         else rewardObject.GetComponent<Text>().color = Color.green;

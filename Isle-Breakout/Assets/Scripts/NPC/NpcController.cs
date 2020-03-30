@@ -10,6 +10,12 @@ public class NpcController : MonoBehaviour
     public List<string> conversations = new List<string>();
     public GameObject conversationText;
     public GameObject conversationButton;
+    public GameObject nameTag;
 
     public List<Quest> quests;
+
+    public void Awake()
+    {
+        nameTag.GetComponent<TextMesh>().text = name;
+    }
 }
