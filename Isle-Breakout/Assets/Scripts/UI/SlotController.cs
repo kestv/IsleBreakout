@@ -81,6 +81,7 @@ public class SlotController : MonoBehaviour, IDropHandler
                 }
             }            
         }
+
         DragHandler.itemBeingDragged.transform.parent = DragHandler.startParent;
     }
 

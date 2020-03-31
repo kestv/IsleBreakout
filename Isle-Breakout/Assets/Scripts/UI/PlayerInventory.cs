@@ -9,7 +9,7 @@ public class PlayerInventory : MonoBehaviour
     public int inventorySize;
     public GameObject canvas;
     public GameObject inventoryPanel;
-    public bool isInventoryFull;
+    public bool inventoryFull;
     public int itemCount;
 
 
@@ -24,12 +24,12 @@ public class PlayerInventory : MonoBehaviour
         {
             inventory.Add(null);
         }
-        isInventoryFull = false;
+        inventoryFull = false;
     }
 
     public void InsertItem(GameObject go, int index)
     {
-        if (go != null && !isInventoryFull)
+        if (go != null && !inventoryFull)
         {
             //Add item to player inventory and disable/change parent for GameObject
             inventory[index] = go;
@@ -43,14 +43,14 @@ public class PlayerInventory : MonoBehaviour
 
             if (itemCount == inventorySize)
             {
-                isInventoryFull = true;
+                inventoryFull = true;
             }
         }
     }
 
     public void AddItem(GameObject go, int index)
     {
-        if (!isInventoryFull)
+        if (!inventoryFull)
         {
             if (inventory[index] == null)
             {
@@ -72,7 +72,7 @@ public class PlayerInventory : MonoBehaviour
 
     public void ChangeItem(GameObject go, int index)
     {
-        if (go != null && !isInventoryFull)
+        if (go != null)
         {
             inventory[index] = go;
         }
@@ -113,12 +113,9 @@ public class PlayerInventory : MonoBehaviour
 
     public void RemoveItem(int index)
     {
-        if (!isSlotEmpty(index))
-        {
-            inventory[index] = null;
-            itemCount--;
-            isInventoryFull = false;
-        }
+        inventory[index] = null;
+        itemCount--;
+        inventoryFull = false;
     }
 
     public void DestroyItem(int index)
@@ -144,20 +141,15 @@ public class PlayerInventory : MonoBehaviour
         return inventory[index] == null;
     }
 
-    private void Update()
-    {
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position = new Vector3(transform.position.x - 0.1f, transform.position.y, transform.position.z);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position = new Vector3(transform.position.x + 0.1f, transform.position.y, transform.position.z);
-        }
-        if (Input.GetKey(KeyCode.X))
-        {
-            DestroyItem(0);
-        }
-    }
-    //TODO: getters & setters
+    public bool getInventoryFull()
+    { return inventoryFull; }
+
+    public void setInventoruFull(bool inventoryFull)
+    { this.inventoryFull = inventoryFull; }
+
+    public int getItemCount()
+    { return itemCount; }
+
+    public void setItemCount(int itemCount)
+    { this.itemCount = itemCount; }
 }
