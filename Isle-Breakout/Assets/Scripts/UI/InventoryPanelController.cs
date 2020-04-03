@@ -17,21 +17,19 @@ public class InventoryPanelController : MonoBehaviour
         for (int i = 0; i < inventorySize; i++)
         {
             slotPrefab = Instantiate(slotPrefab);
-            slotPrefab.transform.parent = transform;
+            slotPrefab.transform.SetParent(transform);
             slotPrefab.GetComponent<SlotController>().setSlotIndex(i);
         }
     }
 
     public void ChangeImage(Sprite sprite, int index)
     {
-        //TODO: loose child dependency
         transform.GetChild(index).GetChild(0).GetComponent<Image>().sprite = sprite;
         transform.GetChild(index).GetChild(0).gameObject.SetActive(true);
     }
 
     public void ChangeImageActiveState(bool state, int index)
     {
-        //TODO: loose child dependency
         transform.GetChild(index).GetChild(0).gameObject.SetActive(state);
     }
 }

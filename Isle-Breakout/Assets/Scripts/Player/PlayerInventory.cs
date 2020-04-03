@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory : MonoBehaviour, IItemContainer
 {
     public DependencyManager manager;
     public List<GameObject> inventory;
@@ -39,35 +39,31 @@ public class PlayerInventory : MonoBehaviour
             go.SetActive(false);
 
             //Disable message panel
-            canvas.transform.Find("UI_MessagePanel").gameObject.SetActive(false);
+            canvas.transform.Find("UI_MessagePanel").gameObject.SetActive(false);            
 
             if (itemCount == inventorySize)
             {
                 inventoryFull = true;
             }
+
+            RefreshCraftingPanel();
         }
     }
 
-    public void AddItem(GameObject go, int index)
+    public bool AddItem(GameObject go)
     {
         if (!inventoryFull)
         {
-            if (inventory[index] == null)
+            for (int i = 0; i < inventorySize; i++)
             {
-                InsertItem(go, index);
-            }
-            else
-            {
-                for (int i = 0; i < inventorySize; i++)
+                if (inventory[i] == null)
                 {
-                    if (inventory[i] == null)
-                    {
-                        InsertItem(go, i);
-                        break;
-                    }
+                    InsertItem(go, i);
+                    return true;
                 }
             }
         }
+        return false;
     }
 
     public void ChangeItem(GameObject go, int index)
@@ -76,6 +72,7 @@ public class PlayerInventory : MonoBehaviour
         {
             inventory[index] = go;
         }
+        RefreshCraftingPanel();
     }
 
     public void SwapItems(int index1, int index2)
@@ -116,6 +113,7 @@ public class PlayerInventory : MonoBehaviour
         inventory[index] = null;
         itemCount--;
         inventoryFull = false;
+        RefreshCraftingPanel();
     }
 
     public void DestroyItem(int index)
@@ -152,4 +150,62 @@ public class PlayerInventory : MonoBehaviour
 
     public void setItemCount(int itemCount)
     { this.itemCount = itemCount; }
+
+    public bool ContainsItem(string name)
+    {
+        foreach(GameObject item in inventory)
+        {
+            if(item.GetComponent<ItemSettings>().getName() == name)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool RemoveItem(string name)
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if(inventory[i].GetComponent<ItemSettings>().getName() == name)
+            {
+                RemoveItem(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool isFull()
+    {
+        return inventoryFull;
+    }
+
+    public int ItemCount(string name)
+    {
+        int count = 0;
+        //foreach(GameObject item in inventory)
+        //{
+        //    if(item.GetComponent<ItemSettings>().getName() == name)
+        //    {
+        //        count++;
+        //    }
+        //}
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if (!isSlotEmpty(i))
+            {
+                if (inventory[i].GetComponent<ItemSettings>().getName() == name)
+                {
+                    count++;
+                }
+            }
+        }
+        return count;        
+    }
+
+    public void RefreshCraftingPanel()
+    {
+        canvas.transform.Find("UI_CraftingPanel").GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
+    }
 }

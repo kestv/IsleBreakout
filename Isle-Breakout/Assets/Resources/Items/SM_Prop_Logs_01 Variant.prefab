@@ -24,7 +24,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31fd411ff37ee6844ba0bc25eb22b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  label: Wood
+  itemID: 0
   name: Wood
   sprite: {fileID: 21300000, guid: 0f0068617291d43418baf48cc4927434, type: 3}
 --- !u!1001 &5588204171165530015
@@ -36,7 +36,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 184438, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_Name
-      value: SM_Prop_Logs_01
+      value: SM_Prop_Logs_01 Variant
       objectReference: {fileID: 0}
     - target: {fileID: 184438, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_TagString
@@ -44,15 +44,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 488820, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 396.25604
+      value: 397.73242
       objectReference: {fileID: 0}
     - target: {fileID: 488820, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 8.722259
+      value: 8.358774
       objectReference: {fileID: 0}
     - target: {fileID: 488820, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -405.75732
+      value: -410.09573
       objectReference: {fileID: 0}
     - target: {fileID: 488820, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_LocalRotation.x

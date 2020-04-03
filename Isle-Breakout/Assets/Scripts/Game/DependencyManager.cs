@@ -6,9 +6,10 @@ public class DependencyManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject canvas;
+    public GameObject itemList;
     public int inventorySize;
 
-    private void Start()
+    private void Awake()
     {
         //player = GameObject.Find("PlayerInstance");
         player = Instantiate(player, new Vector3(394, 9, -408), player.transform.rotation);
@@ -25,6 +26,7 @@ public class DependencyManager : MonoBehaviour
         player.GetComponent<SpellController>().enabled = false;
         canvas = Instantiate(canvas);
         inventorySize = 6;
+        itemList = Instantiate(itemList);
     }
 
     public GameObject getPlayer()
@@ -44,4 +46,10 @@ public class DependencyManager : MonoBehaviour
 
     public void setInventorySize(int inventorySize)
     { this.inventorySize = inventorySize; }
+
+    public GameObject getItemList()
+    { return itemList; }
+
+    public void setItemList(GameObject itemList)
+    { this.itemList = itemList; }
 }

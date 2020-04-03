@@ -27,7 +27,7 @@ public class PlayerTriggerHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            inventory.AddItem(item, 0);
+            inventory.AddItem(item);
             item = null;
 
             if (trigger != null && trigger.tag == "chest")
@@ -43,10 +43,10 @@ public class PlayerTriggerHandler : MonoBehaviour
         if (other.tag == "item")
         {
             item = other.gameObject;
-            string itemLabel = other.GetComponent<ItemSettings>().getLabel();
-            if (itemLabel != "")
+            string itemName = other.GetComponent<ItemSettings>().getName();
+            if (itemName != "")
             {
-                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up <#ffffff>" + itemLabel + "</color> with <#ffffff>'F'</color>";
+                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up <#ffffff>" + itemName + "</color> with <#ffffff>'F'</color>";
             }
             else
             {

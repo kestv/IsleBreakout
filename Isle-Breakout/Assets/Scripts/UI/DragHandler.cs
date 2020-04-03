@@ -31,7 +31,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         parentSlotIndex = transform.parent.GetComponent<SlotController>().getSlotIndex();
-        itemBeingDragged.transform.parent = transform.root;
+        itemBeingDragged.transform.SetParent(transform.root);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -50,7 +50,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         }
         else
         {
-            itemBeingDragged.transform.parent = startParent;
+            itemBeingDragged.transform.SetParent(startParent);
 
             if (!isItemInChest)
             {
