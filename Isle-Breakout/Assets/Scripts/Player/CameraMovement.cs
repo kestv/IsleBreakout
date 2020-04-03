@@ -13,6 +13,7 @@ public class CameraMovement : MonoBehaviour
     float currentX = 0f;
     float currentY = 30f;
     float sensitivityX = 4f;
+    float sensitivityY = 4f;
     void Start()
     {
         camTransform = transform;
@@ -23,12 +24,15 @@ public class CameraMovement : MonoBehaviour
     void Update()
     {
         currentX += Input.GetAxis("Mouse X");
+        currentY += Input.GetAxis("Mouse Y");
+        currentY = Mathf.Clamp(currentY, 1, 89);
     }
 
     private void LateUpdate()
     {
         Vector3 dir = new Vector3(0, 0, -distance);
-        Quaternion rotation = Quaternion.Euler(currentY, currentX*sensitivityX, 0);
+        var rotationY = currentY;
+        Quaternion rotation = Quaternion.Euler(rotationY, currentX*sensitivityX, 0);
 
         camTransform.position = lookAt.position + rotation * dir;
         camTransform.LookAt(lookAt.position);

@@ -35,8 +35,11 @@ public class PlayerCombatController : MonoBehaviour
     GameObject meleeWeapon;
     GameObject rangeWeapon;
 
+    CharacterController controller;
+
     void Start()
     {
+        controller = GetComponent<CharacterController>();
         CombatEventHandler.Instance.onEnemyDeath += killedTarget;
         spellController = GetComponent<SpellController>();
         isAttacking = false;
@@ -113,6 +116,7 @@ public class PlayerCombatController : MonoBehaviour
             if (target != null)
             {
                 target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
+                target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
                 enemyHealthBar.SetActive(false);
                 target = null;
             }
@@ -127,7 +131,10 @@ public class PlayerCombatController : MonoBehaviour
         {
             if (!isRangedWeapon && getDistance(target) > 2f)
             {
-                transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 10f * Time.deltaTime);
+                //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 10f * Time.deltaTime);
+                var pos = target.transform.position - transform.position;
+                pos = pos.normalized * GetComponent<PlayerMovementController>().speed;
+                controller.Move(pos * Time.deltaTime);
                 transform.GetComponent<PlayerMovementController>().isRunning = true;
             }
             else
@@ -150,6 +157,7 @@ public class PlayerCombatController : MonoBehaviour
                         }
                         else
                         {
+                            if(getDistance(target) < 10f)
                             AttackFromRange();
                         }
                     }
@@ -166,6 +174,7 @@ public class PlayerCombatController : MonoBehaviour
     }
     void findTarget()
     {
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemy in enemies)
         {
             if (!enemy.GetComponent<EnemyHealthController>().isDead())
@@ -176,6 +185,7 @@ public class PlayerCombatController : MonoBehaviour
                     target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
 
                     target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
+                    target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
                     enemyHealthBar.SetActive(true);
                     enemyHealthBar.GetComponent<HealthController>().player = target;
                     enemyHealthBar.GetComponent<Slider>().value = target.GetComponent<EnemyHealthController>().health;
@@ -192,12 +202,13 @@ public class PlayerCombatController : MonoBehaviour
 
     float getDistance(GameObject target)
     {
-        return (Math.Abs(target.transform.position.x - transform.position.x) + Math.Abs(target.transform.position.z - transform.position.z));
+        return Vector3.Distance(transform.position, target.transform.position);
     }
 
     void killedTarget(float xp, int id)
     {
         target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
+        target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
         enemyHealthBar.SetActive(false);
         target = null;
     }

@@ -7,7 +7,13 @@ public class PlayerMovementController : MonoBehaviour
     public GameObject cam;
     Transform camTransform;
     public bool isRunning;
-    public float speed = 10;
+    public CharacterController controller;
+    public float speed = 8f;
+    public Vector3 velocity;
+    public float gravity = -15f;
+    public Transform groundCheck;
+    public LayerMask layerMask;
+    bool isGrounded;
     private void Start()
     {
         isRunning = false;
@@ -15,64 +21,26 @@ public class PlayerMovementController : MonoBehaviour
     }
     private void Update()
     {
-        transform.rotation = camTransform.rotation;
-        transform.Rotate(-30, 0, 0);
-        if (Input.GetKey(KeyCode.W))
+        transform.eulerAngles = new Vector3(0, camTransform.eulerAngles.y, 0);
+        //transform.Rotate(-30, 0, 0);
+        isGrounded = Physics.CheckSphere(groundCheck.position, 0.1f, layerMask);
+        if (isGrounded && velocity.y < 0)
         {
-            if(Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, -45, 0);
-            }
-            else if(Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, 45, 0);
-            }
-            transform.Translate(new Vector3(0, 0, Time.deltaTime * speed));
-            GetComponent<Animator>().SetBool("Running", true);
+            velocity.y = -2f;
         }
-        else if (Input.GetKey(KeyCode.S))
-        {
-            transform.Rotate(0, 180, 0);
-            if (Input.GetKey(KeyCode.A))
-            {
-                transform.Rotate(0, 45, 0);
-            }
-            else if (Input.GetKey(KeyCode.D))
-            {
-                transform.Rotate(0, -45, 0);
-            }
-            transform.Translate(new Vector3(0, 0, Time.deltaTime * speed));
-            GetComponent<Animator>().SetBool("Running", true);
-        }
-        else if (Input.GetKey(KeyCode.A))
-        {
-            transform.Rotate(0, -90, 0);
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.Rotate(0, 45, 0);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                transform.Rotate(0, -45, 0);
-            }
-            transform.Translate(new Vector3(0, 0, Time.deltaTime * speed));
-            GetComponent<Animator>().SetBool("Running", true);
-        }
-        else if (Input.GetKey(KeyCode.D))
-        {
-            transform.Rotate(0, 90, 0);
-            if (Input.GetKey(KeyCode.W))
-            {
-                transform.Rotate(0, -45, 0);
-            }
-            else if (Input.GetKey(KeyCode.S))
-            {
-                transform.Rotate(0, 45, 0);
-            }
-            transform.Translate(new Vector3(0, 0, Time.deltaTime * speed));
-            GetComponent<Animator>().SetBool("Running", true);
-        }
-        else if(isRunning)
+        float x = Input.GetAxis("Horizontal");
+        float z = Input.GetAxis("Vertical");
+        
+
+        Vector3 move = transform.right * x + transform.forward * z;
+        if(Vector3.zero != move)
+            transform.rotation = Quaternion.LookRotation(move);
+        controller.Move(move * speed * Time.deltaTime);
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
+        if(x != 0 || z != 0 || isRunning)
         {
             GetComponent<Animator>().SetBool("Running", true);
         }

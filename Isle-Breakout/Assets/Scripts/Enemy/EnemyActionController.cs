@@ -14,8 +14,7 @@ public class EnemyActionController : MonoBehaviour
     const int IS_RUNNING = 2;
     const int IS_ATTACKING = 3;
     //Position where enemy spot is
-    Vector3 spawnPos;
-    Vector3 spawnPos2;
+    public Vector3 spawnPos;
     //Trigger if player was found
     public bool playerSpotted;
     //Targets which player to follow
@@ -27,27 +26,45 @@ public class EnemyActionController : MonoBehaviour
     //Attack rate
     float attackRate = 2.0f;
     public float fallBackDistance = 30f;
+
+    public bool busy;
+
+    public EnemyAnimationController animations;
+
     void Start()
     {
+        animations = GetComponent<EnemyAnimationController>();
+        busy = false;
         player = GameObject.FindGameObjectWithTag("Player");
         target = player;
         playerSpotted = false;
+        StartCoroutine(Landing());
+    }
+
+    IEnumerator Landing()
+    {
+        yield return new WaitForSeconds(5f);
         spawnPos = transform.position;
+        if(GetComponent<EnemyWander>() != null)
+            GetComponent<EnemyWander>().enabled = true;
     }
 
     void Update()
     {
-        switch (action)
+        if (busy)
         {
-            case 1:
-                isIdling(true);
-                break;
-            case 2:
-                isRunning(true);
-                break;
-            case 3:
-                isAttacking(true);
-                break;
+            switch (action)
+            {
+                case 1:
+                    isIdling(true);
+                    break;
+                case 2:
+                    isRunning(true);
+                    break;
+                case 3:
+                    isAttacking(true);
+                    break;
+            }
         }
 
         if (!playerSpotted)
@@ -56,6 +73,7 @@ public class EnemyActionController : MonoBehaviour
             distance = getDistance(player);
             if (distance < 10)
             {
+                busy = true;
                 playerSpotted = true;
             }
             else
@@ -75,15 +93,16 @@ public class EnemyActionController : MonoBehaviour
         }
         else
         {
-            if (transform.position != spawnPos)
+            if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
             {
                 playerSpotted = false;
                 goBackToCamp();
             }
-            else if (transform.position == spawnPos)
+            else if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
             {
                 playerSpotted = false;
                 action = IS_IDLING;
+                busy = false;
             }
         }
     }
@@ -95,6 +114,7 @@ public class EnemyActionController : MonoBehaviour
 
     void followPlayer(GameObject player)
     {
+        busy = true;
         if (getDistance(player) > 1.5f)
         {
             action = IS_RUNNING;
@@ -116,6 +136,7 @@ public class EnemyActionController : MonoBehaviour
 
     void attack(GameObject target)
     {
+        busy = true;
         if (lastAttack + attackRate < Time.time)
         {
             lastAttack = Time.time;
@@ -127,41 +148,34 @@ public class EnemyActionController : MonoBehaviour
 
     void goBackToCamp()
     {
-        action = IS_RUNNING;
-        transform.position = Vector3.MoveTowards(transform.position, spawnPos, speed * Time.deltaTime);
-        var _direction = (spawnPos - transform.position).normalized;
-        var _lookRotation = Quaternion.LookRotation(_direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
-    }
-
-    void isRunning(bool isRunning)
-    {
-        if (transform.GetComponent<Animator>().GetBool("isRunning") != true)
+        if (spawnPos.x != 0 && !GetComponent<EnemyWander>().busy)
         {
-            transform.GetComponent<Animator>().SetBool("isRunning", isRunning);
-            transform.GetComponent<Animator>().SetBool("isIdling", !isRunning);
-            transform.GetComponent<Animator>().SetBool("isAttacking", !isRunning);
+            action = IS_RUNNING;
+            transform.position = Vector3.MoveTowards(transform.position, spawnPos, speed * Time.deltaTime);
+            var _direction = (spawnPos - transform.position).normalized;
+            var _lookRotation = Quaternion.LookRotation(_direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
         }
     }
 
-    void isIdling(bool isIdling)
+    public void isRunning(bool isRunning)
     {
-        if (transform.GetComponent<Animator>().GetBool("isIdling") != true)
-        {
-            transform.GetComponent<Animator>().SetBool("isIdling", isIdling);
-            transform.GetComponent<Animator>().SetBool("isRunning", !isIdling);
-            transform.GetComponent<Animator>().SetBool("isAttacking", !isIdling);
-        }
+        animations.isRunning(isRunning);
     }
 
-    void isAttacking(bool isAttacking)
+    public void isIdling(bool isIdling)
     {
-        if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
-        {
-            transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
-            transform.GetComponent<Animator>().SetBool("isRunning", !isAttacking);
-            transform.GetComponent<Animator>().SetBool("isIdling", !isAttacking);
-        }
+        animations.isIdling(isIdling);
+    }
+
+    public void isAttacking(bool isAttacking)
+    {
+        animations.isAttacking(isAttacking);
+    }
+
+    public void isWalking(bool isWalking)
+    {
+        animations.isWalking(isWalking);
     }
 
 
