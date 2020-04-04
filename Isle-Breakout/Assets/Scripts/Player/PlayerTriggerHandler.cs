@@ -27,13 +27,20 @@ public class PlayerTriggerHandler : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            inventory.AddItem(item);
-            item = null;
-
-            if (trigger != null && trigger.tag == "chest")
+            if (trigger)
             {
-                trigger.GetComponent<ChestSettings>().getChestPanel().SetActive(true);
-                messagePanel.SetActive(false);
+                switch (trigger.tag)
+                {
+                    case "item":
+                        PickUpItem();
+                        break;
+                    case "chest":
+                        trigger.GetComponent<ChestSettings>().getChestPanel().SetActive(true);
+                        messagePanel.SetActive(false);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
@@ -42,7 +49,7 @@ public class PlayerTriggerHandler : MonoBehaviour
     {
         if (other.tag == "item")
         {
-            item = other.gameObject;
+            trigger = other.gameObject;
             string itemName = other.GetComponent<ItemSettings>().getName();
             if (itemName != "")
             {
@@ -67,7 +74,7 @@ public class PlayerTriggerHandler : MonoBehaviour
     {
         if (other.tag == "item")
         {            
-            item = null;
+            trigger = null;
         }
         if (other.tag == "chest")
         {
@@ -75,5 +82,15 @@ public class PlayerTriggerHandler : MonoBehaviour
         }
         messagePanel.SetActive(false);
         trigger = null;
+    }
+
+    public void PickUpItem()
+    {
+        GameObject go = trigger;
+        trigger = null;
+        if (!inventory.AddItem(go))
+        {
+            trigger = go;
+        }        
     }
 }

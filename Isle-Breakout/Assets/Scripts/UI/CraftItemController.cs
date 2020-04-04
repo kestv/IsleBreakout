@@ -47,7 +47,7 @@ public class CraftItemController : MonoBehaviour
             ItemSettings itemSettings = item.requiredItem.GetComponent<ItemSettings>();
             slotController.setSprite(itemSettings.getSprite());
             slotController.setText(itemSettings.getName());
-            slotController.setCountText(string.Format("{0}/{1}", inventory.ItemCount(itemSettings.getName()), item.count));
+            slotController.setCountText(string.Format("{0}/{1}", inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName()), item.count));
         }
     }
 
@@ -56,7 +56,18 @@ public class CraftItemController : MonoBehaviour
         GameObject craftedItem = recipe.Craft(inventory);
         if (craftedItem)
         {
+            craftedItem = Instantiate(craftedItem);
             inventory.AddItem(craftedItem);
+        }
+    }
+
+    public void FormatCountText()
+    {
+        for (int i = 0; i < slotPanel.transform.childCount; i++)
+        {
+            CraftItemSlotController slotCtrl = slotPanel.transform.GetChild(i).GetComponent<CraftItemSlotController>();
+            Item item = recipe.getMaterials()[i];
+            slotCtrl.setSlotCountText(string.Format("{0}/{1}", inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName()), item.count));
         }
     }
 

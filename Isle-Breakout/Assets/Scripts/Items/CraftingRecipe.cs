@@ -37,9 +37,11 @@ public class CraftingRecipe : ScriptableObject
             {
                 for (int i = 0; i < item.count; i++)
                 {
+                    Debug.Log("Calls remove");
                     itemContainer.RemoveItem(item.requiredItem.GetComponent<ItemSettings>().getName());
                 }
             }
+            Debug.Log("Craft success");
             return craftedItem;
         }
         return null;

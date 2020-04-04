@@ -9,6 +9,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     public int inventorySize;
     public GameObject canvas;
     public GameObject inventoryPanel;
+    public GameObject craftingPanel;
     public bool inventoryFull;
     public int itemCount;
 
@@ -18,6 +19,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();        
         canvas = manager.getCanvas();
         inventoryPanel = canvas.transform.Find("UI_InventoryPanel").gameObject;
+        craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
 
         inventorySize = manager.getInventorySize();
         for (int i = 0; i < inventorySize; i++)
@@ -98,22 +100,31 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     {
         if (!isSlotEmpty(index))
         {
-            //Change parent, position and active state for the GameObject
             GameObject go = inventory[index];
             go.transform.parent = transform.root.parent;
             go.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             go.SetActive(true);
-
-            RemoveItem(index);
+            Remove(index);
+            RefreshCraftingPanel();
         }
     }
 
     public void RemoveItem(int index)
     {
+        GameObject go = inventory[index];
         inventory[index] = null;
         itemCount--;
         inventoryFull = false;
+        canvas.transform.Find("UI_InventoryPanel").GetChild(index).GetChild(0).gameObject.SetActive(false);
+        Destroy(go);
         RefreshCraftingPanel();
+    }
+
+    public void Remove(int index)
+    {
+        inventory[index] = null;
+        itemCount--;
+        inventoryFull = false;
     }
 
     public void DestroyItem(int index)
@@ -165,13 +176,16 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
 
     public bool RemoveItem(string name)
     {
-        for (int i = 0; i < inventory.Count; i++)
+        for (int i = 0; i < inventorySize; i++)
         {
-            if(inventory[i].GetComponent<ItemSettings>().getName() == name)
+            if (!isSlotEmpty(i))
             {
-                RemoveItem(i);
-                return true;
-            }
+                if (inventory[i].GetComponent<ItemSettings>().getName() == name)
+                {
+                    RemoveItem(i);
+                    return true;
+                }
+            }            
         }
         return false;
     }
@@ -184,13 +198,6 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     public int ItemCount(string name)
     {
         int count = 0;
-        //foreach(GameObject item in inventory)
-        //{
-        //    if(item.GetComponent<ItemSettings>().getName() == name)
-        //    {
-        //        count++;
-        //    }
-        //}
         for (int i = 0; i < inventory.Count; i++)
         {
             if (!isSlotEmpty(i))
@@ -205,7 +212,8 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     }
 
     public void RefreshCraftingPanel()
-    {
-        canvas.transform.Find("UI_CraftingPanel").GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
+    {       
+        craftingPanel.transform.GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
+        craftingPanel.transform.GetChild(1).GetComponent<CraftItemController>().FormatCountText();
     }
 }

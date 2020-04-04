@@ -37,7 +37,7 @@ public class SlotController : MonoBehaviour, IDropHandler
                 {
                     if (isChest)
                     {
-                        inventory.RemoveItem(DragHandler.parentSlotIndex);
+                        inventory.Remove(DragHandler.parentSlotIndex);
                     }
                     else
                     {
