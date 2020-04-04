@@ -27,7 +27,6 @@ public class CraftItemController : MonoBehaviour
 
     public void InitItem(CraftingRecipe recipe, Sprite sprite, string text)
     {
-        //inventory = manager.getPlayer().GetComponent<PlayerInventory>();
         this.recipe = recipe;
 
         foreach (Transform child in slotPanel.transform)
@@ -82,5 +81,4 @@ public class CraftItemController : MonoBehaviour
 
     public void setText(string text)
     { this.text.GetComponent<TextMeshProUGUI>().text = text; }
-
 }

@@ -38,7 +38,7 @@ public class RecipeSlotController : MonoBehaviour, IPointerClickHandler
         slotText = transform.GetChild(1).GetChild(0).gameObject;
         slotDarkPanel = transform.GetChild(2).gameObject;
 
-        craftItemPanel = transform.parent.parent.GetChild(1).gameObject;
+        craftItemPanel = transform.parent.parent.parent.GetChild(1).gameObject;
         craftItemCtrl = craftItemPanel.GetComponent<CraftItemController>();
 
         setSlotImage(sprite);

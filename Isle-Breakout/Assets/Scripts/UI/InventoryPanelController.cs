@@ -32,15 +32,4 @@ public class InventoryPanelController : MonoBehaviour
     {
         transform.GetChild(index).GetChild(0).gameObject.SetActive(state);
     }
-
-    public void UpdateSlotImageState(int index, bool state)
-    {
-        //transform.GetChild(index).GetChild(0).gameObject.SetActive(state);
-        //foreach(Transform child in transform)
-        //{
-        //    {
-        //        child.GetChild(0).gameObject.SetActive(false);
-        //    }
-        //}
-    }
 }

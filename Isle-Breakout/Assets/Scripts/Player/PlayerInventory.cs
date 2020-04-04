@@ -213,7 +213,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
 
     public void RefreshCraftingPanel()
     {       
-        craftingPanel.transform.GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
+        craftingPanel.transform.GetChild(0).GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
         craftingPanel.transform.GetChild(1).GetComponent<CraftItemController>().FormatCountText();
     }
 }
