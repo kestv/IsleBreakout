@@ -16,7 +16,6 @@ public class RecipeController : MonoBehaviour
         inventory = manager.getPlayer().GetComponent<PlayerInventory>();
         itemList = manager.getItemList();
 
-
         foreach(CraftingRecipe recipe in recipes)
         {
             GameObject slot = Instantiate(slotPrefab);

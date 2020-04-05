@@ -8,7 +8,7 @@ public struct Item
 {
     public GameObject requiredItem;
     [Range(1, 100)]
-    public int count;       
+    public int count;
 }
 
 [CreateAssetMenu]

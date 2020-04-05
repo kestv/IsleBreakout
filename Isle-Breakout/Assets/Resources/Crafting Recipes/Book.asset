@@ -16,5 +16,6 @@ MonoBehaviour:
   - requiredItem: {fileID: 3911296048882696562, guid: 1bad5216fd1e49e45b0dcc977ae64b4f,
       type: 3}
     count: 1
+    description: 
   craftedItem: {fileID: 5588204171165673449, guid: 103f0d706e454c74aad3a93d3fc9edad,
     type: 3}

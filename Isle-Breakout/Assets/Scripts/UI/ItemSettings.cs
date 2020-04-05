@@ -6,9 +6,10 @@ using UnityEditor;
 
 public class ItemSettings : MonoBehaviour
 {
-    public int itemID;      //Item display name
-    public string name;     //Item name used in scripts
-    public Sprite sprite;   //Item sprite (image) used for item containers such as inventory or chests
+    public int itemID;          //Item display name
+    public string itemName;     //Item name used in scripts
+    public string description;  //Item description
+    public Sprite sprite;       //Item sprite (image) used for item containers such as inventory or chests    
 
     //--------------------------------------
     public int getItemID()
@@ -18,10 +19,16 @@ public class ItemSettings : MonoBehaviour
     { this.itemID = itemID; }
 
     public string getName()
-    { return name; }
+    { return itemName; }
 
     public void setName(string name)
-    { this.name = name; }
+    { this.itemName = name; }
+
+    public string getDescription()
+    { return description; }
+
+    public void setDescription(string description)
+    { this.description = description; }
 
     public Sprite getSprite()
     { return sprite; }

@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7491937525309011634
 Transform:
   m_ObjectHideFlags: 0
@@ -123,5 +123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  name: Chair
+  itemName: Chair
+  description: Chair description text asdasdasd
   sprite: {fileID: 21300000, guid: 5ef52d57e98a2b943b5db35e94766445, type: 3}

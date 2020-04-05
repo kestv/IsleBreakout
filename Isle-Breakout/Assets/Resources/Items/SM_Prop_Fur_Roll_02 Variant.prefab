@@ -25,7 +25,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  name: Cloth
+  itemName: Cloth
+  description: 
   sprite: {fileID: 21300000, guid: a44263f5fdd824c4995a457c978c696f, type: 3}
 --- !u!1001 &3911296048882558336
 PrefabInstance:

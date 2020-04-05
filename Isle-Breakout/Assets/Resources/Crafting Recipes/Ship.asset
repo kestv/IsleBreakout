@@ -10,16 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef4e507a84fce924296dcf3a2bf14f58, type: 3}
-  m_Name: Chair
+  m_Name: Ship
   m_EditorClassIdentifier: 
   materials:
-  - requiredItem: {fileID: 3911296048882696562, guid: 1bad5216fd1e49e45b0dcc977ae64b4f,
+  - requiredItem: {fileID: 5170939325159001704, guid: 1380ac95e161d364daccd4e1e58867e6,
       type: 3}
     count: 1
-    description: 
   - requiredItem: {fileID: 5588204171165673449, guid: 103f0d706e454c74aad3a93d3fc9edad,
       type: 3}
-    count: 1
-    description: 
-  craftedItem: {fileID: 7489777480121727882, guid: 07037420c627a45458e5cde7b20be506,
+    count: 5
+  craftedItem: {fileID: 577595451210562505, guid: 9647928e7a61a3542ac0b31b24a01d1f,
     type: 3}
