@@ -6,8 +6,8 @@ using UnityEngine.EventSystems;
 
 public class ShipSlotController : MonoBehaviour, IPointerClickHandler
 {
+    //-----------------------VARIABLES-----------------------
     public CraftingRecipe recipe;
-    public int recipeIndex;
 
     public GameObject namePanel;
     public GameObject descriptionPanel;
@@ -18,6 +18,7 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
     public ShipPartController shipPartCtrl;
     public ShipObjectController shipObjectCtrl;
 
+    //---------------------UNITY METHODS---------------------
     private void Start()
     {
         namePanel = transform.GetChild(0).gameObject;
@@ -29,22 +30,30 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
         setNamePanelText(nameText);
         setDescriptionPanelText(descriptionText);
 
-        //TODO RELINK AFTER MOVING TO MAIN CANVAS?
-        shipPartCtrl = transform.root.GetChild(0).GetChild(0).Find("UI_ShipRecipePartPanel").GetComponent<ShipPartController>();
-        shipObjectCtrl = transform.root.GetChild(0).GetChild(0).Find("UI_ShipObjectPanel").GetComponent<ShipObjectController>();
+        shipPartCtrl = transform.root.GetChild(0).GetChild(0).GetChild(3).GetComponent<ShipPartController>();
+        shipObjectCtrl = transform.root.GetChild(0).GetChild(0).GetChild(1).GetComponent<ShipObjectController>();
 
         UpdateUI();
-
     }
 
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        UpdateUI();
+    }
+
+    //------------------------METHODS------------------------
+    public void UpdateUI()
+    {
+        shipPartCtrl.InitSlots(recipe);
+        shipObjectCtrl.InitObject(recipe.craftedItem);
+    }
+
+    //------------------------GET/SET------------------------
     public CraftingRecipe getRecipe()
     { return recipe; }
 
     public void setRecipe(CraftingRecipe recipe)
     { this.recipe = recipe; }
-
-    public void setRecipeIndex(int index)
-    { recipeIndex = index; }
 
     public string getNamePanelText()
     { return namePanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text; }
@@ -57,19 +66,4 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
 
     public void setDescriptionPanelText(string text)
     { descriptionPanel.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = text; }
-
-    public string getNameText()
-    { return nameText; }
-
-    //--------------------------
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        UpdateUI();
-    }
-
-    public void UpdateUI()
-    {
-        shipPartCtrl.InitSlots(recipe);
-        shipObjectCtrl.InitObject(recipe.craftedItem);
-    }
 }

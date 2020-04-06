@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class ShipObjectController : MonoBehaviour
 {
+    //-----------------------VARIABLES-----------------------
     public PanelObjectRotator rotator;
 
+    //---------------------UNITY METHODS---------------------
     private void Start()
     {
         rotator = GetComponent<PanelObjectRotator>();
     }
 
+    //------------------------METHODS------------------------
     public void InitObject(GameObject go)
     {
         removeChild();
@@ -26,7 +29,7 @@ public class ShipObjectController : MonoBehaviour
 
     public void removeChild()
     {
-        if(transform.childCount > 0)
+        if (transform.childCount > 0)
         {
             Destroy(transform.GetChild(0).gameObject);
             rotator.setObject(null);

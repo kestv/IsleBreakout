@@ -6,6 +6,7 @@ using TMPro;
 
 public class ShipPartSlotController : MonoBehaviour
 {
+    //-----------------------VARIABLES-----------------------
     public DependencyManager manager;
     public PlayerInventory inventory;
 
@@ -14,10 +15,8 @@ public class ShipPartSlotController : MonoBehaviour
     public GameObject countSlot;
 
     public Item item;
-    public Sprite sprite;
-    public string slotName;
-    public string count;
 
+    //---------------------UNITY METHODS---------------------
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
@@ -29,10 +28,11 @@ public class ShipPartSlotController : MonoBehaviour
         InitSlot();
     }
 
+    //------------------------METHODS------------------------
     public void InitSlot()
     {
         ItemSettings settings = item.requiredItem.GetComponent<ItemSettings>();
-        setSprite(settings.getSprite());
+        setImage(settings.getSprite());
         setName(settings.getName());
         setCount(item.count.ToString());
     }
@@ -42,21 +42,30 @@ public class ShipPartSlotController : MonoBehaviour
         setCount(item.count.ToString());
     }
 
-    public void setSprite(Sprite sprite)
-    {
-        imageSlot.transform.GetChild(0).GetComponent<Image>().sprite = sprite;
-    }
+    //------------------------GET/SET------------------------
+    public Sprite getImage()
+    { return imageSlot.transform.GetChild(0).GetComponent<Image>().sprite; }
+
+    public void setImage(Sprite sprite)
+    { imageSlot.transform.GetChild(0).GetComponent<Image>().sprite = sprite; }
+
+    public string getName()
+    { return nameSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text; }
 
     public void setName(string name)
-    {
-        nameSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name;
-    }
+    { nameSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = name; }
+
+    public string getCount()
+    { return countSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text; }
 
     public void setCount(string count)
     {
         int itemCount = inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName());
         countSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemCount + "/" + count;
     }
+
+    public Item getItem()
+    { return item; }
 
     public void setItem(Item item)
     { this.item = item; }

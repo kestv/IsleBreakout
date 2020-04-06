@@ -4,31 +4,34 @@ using UnityEngine;
 
 public class ShipRecipeController : MonoBehaviour
 {
+    //-----------------------VARIABLES-----------------------
     public DependencyManager manager;
     public ShipBuilder shipBuilder;
 
     public List<CraftingRecipe> recipes;
     public GameObject slotPrefab;
 
+    //---------------------UNITY METHODS---------------------
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         shipBuilder = manager.getShipBuilder();
-        recipes = shipBuilder.GetActiveRecipes();
+        recipes = shipBuilder.UpdateActiveRecipes();
         InitRecipes();
     }
 
+    //------------------------METHODS------------------------
     public void RemoveRecipe(CraftingRecipe recipe)
     {
         recipes.Remove(recipe);
 
-        foreach(Transform child in transform)
+        foreach (Transform child in transform)
         {
-            if(child.GetComponent<ShipSlotController>().getRecipe() == recipe)
+            if (child.GetComponent<ShipSlotController>().getRecipe() == recipe)
             {
                 Destroy(child.gameObject);
             }
-        }        
+        }
     }
 
     public void InitRecipes()
@@ -45,9 +48,16 @@ public class ShipRecipeController : MonoBehaviour
         }
     }
 
+    //------------------------GET/SET------------------------
     public CraftingRecipe getRecipe(int index)
     { return recipes[index]; }
 
-    public void setRecipe(List<CraftingRecipe> recipes)
+    public void setRecipe(CraftingRecipe recipe, int index)
+    { this.recipes[index] = recipe; }
+
+    public List<CraftingRecipe> getRecipes()
+    { return recipes; }
+
+    public void setRecipes(List<CraftingRecipe> recipes)
     { this.recipes = recipes; }
 }
