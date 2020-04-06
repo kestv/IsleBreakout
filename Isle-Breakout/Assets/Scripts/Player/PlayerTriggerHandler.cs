@@ -6,12 +6,15 @@ using TMPro;
 public class PlayerTriggerHandler : MonoBehaviour
 {
     public DependencyManager manager;
+    public GameObject player;
     public PlayerInventory inventory;
     public GameObject canvas;
     public GameObject messagePanel;
     public GameObject messagePanelText;
     public GameObject item;
     public GameObject trigger;
+
+    public GameObject shipCanvas;
 
     private void Start()
     {
@@ -21,6 +24,9 @@ public class PlayerTriggerHandler : MonoBehaviour
         messagePanel = canvas.transform.Find("UI_MessagePanel").gameObject;
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
         item = null;
+
+        shipCanvas = manager.getShipCrafting();
+        player = manager.getPlayer();
     }
 
     private void Update()
@@ -38,10 +44,22 @@ public class PlayerTriggerHandler : MonoBehaviour
                         trigger.GetComponent<ChestSettings>().getChestPanel().SetActive(true);
                         messagePanel.SetActive(false);
                         break;
+                    case "craft":
+                        shipCanvas.SetActive(true);
+                        messagePanel.SetActive(false);
+                        player.GetComponent<PlayerMovementController>().enabled = false;
+                        ChangeMainCanvasState(false);
+                        break;
                     default:
                         break;
                 }
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            shipCanvas.SetActive(false);
+            player.GetComponent<PlayerMovementController>().enabled = true;
+            ChangeMainCanvasState(true);
         }
     }
 
@@ -67,6 +85,12 @@ public class PlayerTriggerHandler : MonoBehaviour
             messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open chest with <#ffffff>'F'</color>";
             messagePanel.SetActive(true);
         }
+        if(other.tag == "craft")
+        {
+            trigger = other.gameObject;
+            messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open ship repair window with <#ffffff>'F'</color>";
+            messagePanel.SetActive(true);
+        }
 
     }
 
@@ -80,6 +104,12 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             other.GetComponent<ChestSettings>().getChestPanel().SetActive(false);
         }
+        if (other.tag == "craft")
+        {
+            trigger = null;
+            shipCanvas.SetActive(false);
+            player.GetComponent<PlayerMovementController>().enabled = true;
+        }
         messagePanel.SetActive(false);
         trigger = null;
     }
@@ -92,5 +122,10 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             trigger = go;
         }        
+    }
+
+    public void ChangeMainCanvasState(bool state)
+    {
+        canvas.GetComponent<Canvas>().enabled = state;
     }
 }

@@ -34,7 +34,12 @@ public class ShipPartSlotController : MonoBehaviour
         ItemSettings settings = item.requiredItem.GetComponent<ItemSettings>();
         setSprite(settings.getSprite());
         setName(settings.getName());
-        setCount(item.count.ToString());    //TODO\
+        setCount(item.count.ToString());
+    }
+
+    public void RefreshSlotCount()
+    {
+        setCount(item.count.ToString());
     }
 
     public void setSprite(Sprite sprite)

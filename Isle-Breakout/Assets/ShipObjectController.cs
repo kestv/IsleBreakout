@@ -19,7 +19,7 @@ public class ShipObjectController : MonoBehaviour
 
     public void setChild(GameObject go)
     {
-        GameObject child = Instantiate(go);
+        GameObject child = Instantiate(go.GetComponent<ItemSettings>().getModel());
         child.transform.SetParent(transform, false);
         rotator.setObject(child);
     }

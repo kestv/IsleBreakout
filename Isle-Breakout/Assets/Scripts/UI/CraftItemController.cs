@@ -62,12 +62,15 @@ public class CraftItemController : MonoBehaviour
 
     public void FormatCountText()
     {
-        for (int i = 0; i < slotPanel.transform.childCount; i++)
+        if (slotPanel)
         {
-            CraftItemSlotController slotCtrl = slotPanel.transform.GetChild(i).GetComponent<CraftItemSlotController>();
-            Item item = recipe.getMaterials()[i];
-            slotCtrl.setSlotCountText(string.Format("{0}/{1}", inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName()), item.count));
-        }
+            for (int i = 0; i < slotPanel.transform.childCount; i++)
+            {
+                CraftItemSlotController slotCtrl = slotPanel.transform.GetChild(i).GetComponent<CraftItemSlotController>();
+                Item item = recipe.getMaterials()[i];
+                slotCtrl.setSlotCountText(string.Format("{0}/{1}", inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName()), item.count));
+            }
+        }        
     }
 
     public Sprite getSprite()

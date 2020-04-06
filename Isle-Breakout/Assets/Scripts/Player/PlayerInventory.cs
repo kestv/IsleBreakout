@@ -10,6 +10,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     public GameObject canvas;
     public GameObject inventoryPanel;
     public GameObject craftingPanel;
+    public GameObject shipPartPanel;
     public bool inventoryFull;
     public int itemCount;
 
@@ -20,6 +21,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         canvas = manager.getCanvas();
         inventoryPanel = canvas.transform.Find("UI_InventoryPanel").gameObject;
         craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
+        shipPartPanel = manager.getShipCrafting().transform.GetChild(0).GetChild(0).GetChild(3).GetChild(0).gameObject;
 
         inventorySize = manager.getInventorySize();
         for (int i = 0; i < inventorySize; i++)
@@ -48,7 +50,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
                 inventoryFull = true;
             }
 
-            RefreshCraftingPanel();
+            RefreshCountPanels();
         }
     }
 
@@ -74,7 +76,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         {
             inventory[index] = go;
         }
-        RefreshCraftingPanel();
+        RefreshCountPanels();
     }
 
     public void SwapItems(int index1, int index2)
@@ -105,7 +107,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
             go.transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
             go.SetActive(true);
             Remove(index);
-            RefreshCraftingPanel();
+            RefreshCountPanels();
         }
     }
 
@@ -117,7 +119,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         inventoryFull = false;
         canvas.transform.Find("UI_InventoryPanel").GetChild(index).GetChild(0).gameObject.SetActive(false);
         Destroy(go);
-        RefreshCraftingPanel();
+        RefreshCountPanels();
     }
 
     public void Remove(int index)
@@ -211,9 +213,17 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         return count;        
     }
 
-    public void RefreshCraftingPanel()
+    public void RefreshCountPanels()
     {       
         craftingPanel.transform.GetChild(0).GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
         craftingPanel.transform.GetChild(1).GetComponent<CraftItemController>().FormatCountText();
+
+        if(shipPartPanel.transform.childCount >= 0)
+        {
+            foreach (Transform child in shipPartPanel.transform)
+            {
+                child.GetComponent<ShipPartSlotController>().RefreshSlotCount();
+            }
+        }        
     }
 }

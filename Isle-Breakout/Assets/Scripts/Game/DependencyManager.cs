@@ -6,8 +6,11 @@ public class DependencyManager : MonoBehaviour
 {
     public GameObject player;
     public GameObject canvas;
-    public GameObject itemList;
+    public GameObject itemList;    
     public int inventorySize;
+
+    public GameObject shipCrafting;
+    public ShipBuilder shipBuilder;
 
     private void Awake()
     {
@@ -25,8 +28,13 @@ public class DependencyManager : MonoBehaviour
         player.GetComponent<PlayerStatsController>().enabled = false;
         player.GetComponent<SpellController>().enabled = false;
         canvas = Instantiate(canvas);
+        canvas.transform.GetChild(2).gameObject.SetActive(false);
         inventorySize = 6;
         itemList = Instantiate(itemList);
+
+        shipCrafting = Instantiate(shipCrafting);
+        shipCrafting.SetActive(false);
+        shipBuilder = GameObject.Find("SHIP").GetComponent<ShipBuilder>();
     }
 
     public GameObject getPlayer()
@@ -52,4 +60,16 @@ public class DependencyManager : MonoBehaviour
 
     public void setItemList(GameObject itemList)
     { this.itemList = itemList; }
+
+    public GameObject getShipCrafting()
+    { return shipCrafting; }
+
+    public void setShipCrafting(GameObject shipCrafting)
+    { this.shipCrafting = shipCrafting; }
+
+    public ShipBuilder getShipBuilder()
+    { return shipBuilder; }
+
+    public void setShipBuilder(ShipBuilder shipBuilder)
+    { this.shipBuilder = shipBuilder; }
 }
