@@ -109,6 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Ship Ramp
-  description: 
+  description: Wooden ramp used as a support for building your ship.
   sprite: {fileID: 0}
   model: {fileID: 4507814570945625170, guid: 667cd420a7b9fbd479daa2bbcad50495, type: 3}

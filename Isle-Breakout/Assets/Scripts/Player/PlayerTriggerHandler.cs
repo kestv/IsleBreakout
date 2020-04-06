@@ -15,6 +15,7 @@ public class PlayerTriggerHandler : MonoBehaviour
     public GameObject trigger;
 
     public GameObject shipCanvas;
+    public ShipPartController shipPartCtrl;
 
     private void Start()
     {
@@ -26,6 +27,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         item = null;
 
         shipCanvas = manager.getShipCrafting();
+        shipPartCtrl = shipCanvas.transform.GetChild(0).GetChild(0).GetChild(3).GetComponent<ShipPartController>();
         player = manager.getPlayer();
     }
 
@@ -46,6 +48,7 @@ public class PlayerTriggerHandler : MonoBehaviour
                         break;
                     case "craft":
                         shipCanvas.SetActive(true);
+                        shipPartCtrl.RefreshRecipes();
                         messagePanel.SetActive(false);
                         player.GetComponent<PlayerMovementController>().enabled = false;
                         ChangeMainCanvasState(false);

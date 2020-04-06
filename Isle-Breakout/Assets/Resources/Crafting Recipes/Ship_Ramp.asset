@@ -12,5 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4e507a84fce924296dcf3a2bf14f58, type: 3}
   m_Name: Ship_Ramp
   m_EditorClassIdentifier: 
-  materials: []
-  craftedItem: {fileID: 0}
+  materials:
+  - requiredItem: {fileID: 5588204171165673449, guid: 103f0d706e454c74aad3a93d3fc9edad,
+      type: 3}
+    count: 0
+  craftedItem: {fileID: 1277500657566384847, guid: b4977fafc60751a43b0d9e75bda4d456,
+    type: 3}

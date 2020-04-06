@@ -15,7 +15,7 @@ public class ShipRecipeController : MonoBehaviour
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         shipBuilder = manager.getShipBuilder();
         recipes = shipBuilder.GetActiveRecipes();
-        LoadRecipe();
+        InitRecipes();
     }
 
     public void RemoveRecipe(CraftingRecipe recipe)
@@ -31,31 +31,16 @@ public class ShipRecipeController : MonoBehaviour
         }        
     }
 
-    public void RemoveRecipe(CraftingRecipe recipe, int index)
-    {
-        recipes.Remove(recipe);
-        Destroy(transform.GetChild(index).gameObject);
-    }
-
-    public void LoadRecipe()
+    public void InitRecipes()
     {
         if (recipes != null)
         {
-            //foreach (CraftingRecipe recipe in recipes)
-            //{
-            //    GameObject slot = Instantiate(slotPrefab);
-            //    slot.transform.SetParent(transform, false);
-            //    ShipSlotController slotController = slot.GetComponent<ShipSlotController>();
-            //    slotController.setRecipe(recipe);
-            //}
-
-            for (int i = 0; i < recipes.Count; i++)
+            foreach (CraftingRecipe recipe in recipes)
             {
                 GameObject slot = Instantiate(slotPrefab);
                 slot.transform.SetParent(transform, false);
                 ShipSlotController slotController = slot.GetComponent<ShipSlotController>();
-                slotController.setRecipe(recipes[i]);
-                slotController.setRecipeIndex(i);
+                slotController.setRecipe(recipe);
             }
         }
     }

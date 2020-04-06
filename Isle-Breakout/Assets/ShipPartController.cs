@@ -22,7 +22,7 @@ public class ShipPartController : MonoBehaviour
         shipBuilder = manager.getShipBuilder();
     }
 
-    public void InitSlots(CraftingRecipe recipe, int recipeIndex)
+    public void InitSlots(CraftingRecipe recipe)
     {
         foreach(Transform child in transform.GetChild(0))
         {
@@ -30,7 +30,6 @@ public class ShipPartController : MonoBehaviour
         }
 
         this.recipe = recipe;
-        this.recipeIndex = recipeIndex;
        
         foreach (Item item in recipe.getMaterials())
         {
@@ -51,25 +50,26 @@ public class ShipPartController : MonoBehaviour
 
             shipRecipeCtrl.RemoveRecipe(recipe);
 
-            //Concurrency
-            if (shipRecipeCtrl.transform.childCount > 1)
-            {
-                if (shipRecipeCtrl.transform.GetChild(0).GetComponent<ShipSlotController>().getNameText() !=
-                    recipe.craftedItem.GetComponent<ItemSettings>().getName())
-                {
-                    shipRecipeCtrl.transform.GetChild(0).GetComponent<ShipSlotController>().UpdateUI();
-                }
-                else
-                {
-                    shipRecipeCtrl.transform.GetChild(1).GetComponent<ShipSlotController>().UpdateUI();
-                }
-            }
-            else
-            {
-                shipRecipeCtrl.setRecipe(shipBuilder.GetActiveRecipes());
-                shipRecipeCtrl.LoadRecipe();
-            }
+            manager.getPlayer().GetComponent<PlayerMovementController>().enabled = true;
+            manager.getCanvas().GetComponent<Canvas>().enabled = true;
+            LoadStartingRecipe();
+            transform.root.gameObject.SetActive(false);
         }
+    }
+
+    public void LoadStartingRecipe()
+    {
+        shipRecipeCtrl.transform.GetChild(0).GetComponent<ShipSlotController>().UpdateUI();
+    }
+
+    public void RefreshRecipes()
+    {
+        if (shipRecipeCtrl.transform.childCount < 1)
+        {
+            shipRecipeCtrl.setRecipe(shipBuilder.GetActiveRecipes());
+            shipRecipeCtrl.InitRecipes();            
+        }
+        //LoadStartingRecipe();
     }
 
     public void setRecipe(CraftingRecipe recipe)

@@ -33,8 +33,19 @@ public class DependencyManager : MonoBehaviour
         itemList = Instantiate(itemList);
 
         shipCrafting = Instantiate(shipCrafting);
-        shipCrafting.SetActive(false);
+        //shipCrafting.SetActive(false);
         shipBuilder = GameObject.Find("SHIP").GetComponent<ShipBuilder>();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(MyCoroutine());
+    }
+
+    IEnumerator MyCoroutine()
+    {
+        yield return 100;    //Wait one frame
+        shipCrafting.SetActive(false);
     }
 
     public GameObject getPlayer()

@@ -33,6 +33,8 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
         shipPartCtrl = transform.root.GetChild(0).GetChild(0).Find("UI_ShipRecipePartPanel").GetComponent<ShipPartController>();
         shipObjectCtrl = transform.root.GetChild(0).GetChild(0).Find("UI_ShipObjectPanel").GetComponent<ShipObjectController>();
 
+        UpdateUI();
+
     }
 
     public CraftingRecipe getRecipe()
@@ -67,7 +69,7 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
 
     public void UpdateUI()
     {
-        shipPartCtrl.InitSlots(recipe, recipeIndex);
+        shipPartCtrl.InitSlots(recipe);
         shipObjectCtrl.InitObject(recipe.craftedItem);
     }
 }

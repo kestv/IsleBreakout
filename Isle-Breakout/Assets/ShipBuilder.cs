@@ -28,7 +28,6 @@ public class ShipBuilder : MonoBehaviour
     public void BuildPart(GameObject go)
     {
         GameObject part = Instantiate(go, currentTier.transform);
-        //part.transform.SetParent(currentTier.transform);
     }
 
     public void RemoveRecipe(CraftingRecipe recipe)
