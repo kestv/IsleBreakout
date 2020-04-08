@@ -70,6 +70,10 @@ public class ShipPartController : MonoBehaviour
             shipRecipeCtrl.setRecipes(shipBuilder.UpdateActiveRecipes());
             shipRecipeCtrl.InitRecipes();
         }
+        else
+        {
+            LoadStartingRecipe();
+        }
     }
 
     //------------------------GET/SET------------------------

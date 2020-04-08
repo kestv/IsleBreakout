@@ -109,6 +109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Ship Carcass
-  description: 
+  description: Every ship needs a sturdy carcass if you don't want to sink.
   sprite: {fileID: 0}
   model: {fileID: 1358874335889150989, guid: 1c4f8b84d8eb64649a10575caf19d1d1, type: 3}

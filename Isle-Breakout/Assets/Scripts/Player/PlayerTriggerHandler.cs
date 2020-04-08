@@ -112,6 +112,7 @@ public class PlayerTriggerHandler : MonoBehaviour
             trigger = null;
             shipCanvas.SetActive(false);
             player.GetComponent<PlayerMovementController>().enabled = true;
+            ChangeMainCanvasState(true);
         }
         messagePanel.SetActive(false);
         trigger = null;

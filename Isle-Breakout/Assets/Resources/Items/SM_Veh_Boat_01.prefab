@@ -595,7 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: 0
   itemName: Ship
-  description: 
+  description: Ahoy! Sail away~
   sprite: {fileID: 0}
   model: {fileID: 4370239543138166172, guid: 08779e863792a7846bff4626f4b34374, type: 3}
 --- !u!1 &1660363497791249441

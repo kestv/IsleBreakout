@@ -60,8 +60,11 @@ public class ShipPartSlotController : MonoBehaviour
 
     public void setCount(string count)
     {
-        int itemCount = inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName());
-        countSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemCount + "/" + count;
+        if (inventory)
+        {
+            int itemCount = inventory.ItemCount(item.requiredItem.GetComponent<ItemSettings>().getName());
+            countSlot.transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = itemCount + "/" + count;
+        }
     }
 
     public Item getItem()
