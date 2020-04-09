@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class PetController : MonoBehaviour
 {
-    public bool tamed;
-    public float speed;
+    const int OFFENSIVE_PET = 1;
+    const int DEFENSIVE_PET = 2;
+
+    public int type;
+    bool tamed;
+    float speed;
+    public float damage;
+    public float attackCooldown;
     GameObject player;
     EnemyAnimationController animations;
+    PlayerCombatController playerCtrl;
+
+    public float bonusStrength;
+    public float bonusSpeed;
+    public float bonusWisdom;
+
+    float attackTime;
     void Start()
     {
         player = GameObject.Find("PlayerInstance");
         tamed = false;
         animations = GetComponent<EnemyAnimationController>();
+        playerCtrl = player.GetComponent<PlayerCombatController>();
     }
 
     // Update is called once per frame
@@ -20,8 +34,41 @@ public class PetController : MonoBehaviour
     {
         if (tamed)
         {
-            FollowPlayer();
+            if (type == OFFENSIVE_PET && playerCtrl.inCombat)
+            {
+                var target = playerCtrl.GetTarget();
+                if (target != null)
+                {
+                    transform.LookAt(target.transform);
+                    if (Vector3.Distance(target.transform.position, transform.position) > 3f)
+                    {
+                        MoveTowardsTarget(target);
+                    }
+                    else if (Time.time - attackTime > attackCooldown)
+                    {
+                        AttackTarget(target);
+                    }
+                    else animations.isIdling(true);
+                }
+            }
+            else
+            {
+                FollowPlayer();
+            }
         }
+    }
+
+    public void MoveTowardsTarget(GameObject target)
+    {
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, player.GetComponent<PlayerMovementController>().speed * Time.deltaTime);
+        animations.isRunning(true);
+    }
+
+    public void AttackTarget(GameObject target)
+    {
+        animations.isAttacking(true);
+        target.GetComponent<EnemyHealthController>().doDamage(damage);
+        attackTime = Time.time;
     }
 
     float GetDistance()
@@ -32,7 +79,6 @@ public class PetController : MonoBehaviour
     void FollowPlayer()
     {
         var distance = GetDistance();
-        Debug.Log(distance);
         if (distance <= 6)
         {
             animations.isIdling(true);
@@ -51,5 +97,23 @@ public class PetController : MonoBehaviour
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
             animations.isRunning(true);
         }
+    }
+
+    public void SetTamed()
+    {
+        tamed = true;
+        GetComponent<EnemyWander>().enabled = false;
+        player.GetComponent<PlayerStatsController>().strength += bonusStrength;
+        player.GetComponent<PlayerStatsController>().speed += bonusSpeed;
+        player.GetComponent<PlayerStatsController>().wisdom += bonusWisdom;
+    }
+
+    public void SetUntamed()
+    {
+        tamed = false;
+        GetComponent<EnemyWander>().enabled = true;
+        player.GetComponent<PlayerStatsController>().strength -= bonusStrength;
+        player.GetComponent<PlayerStatsController>().speed -= bonusSpeed;
+        player.GetComponent<PlayerStatsController>().wisdom -= bonusWisdom;
     }
 }

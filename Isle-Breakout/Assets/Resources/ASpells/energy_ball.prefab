@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 65604217640661994}
   - component: {fileID: 54674166311131586}
   - component: {fileID: 111889018376725686}
+  - component: {fileID: -36747037868460925}
   m_Layer: 0
   m_Name: energy_ball
   m_TagString: Untagged
@@ -5340,6 +5341,22 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &-36747037868460925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607489160101874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8f217d33539ec418bd2fb6fe083031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 1104eecbb6aebee46bb137d0abe6546f, type: 3}
+  name: Energy ball
+  cooldown: 4
+  type: 1
 --- !u!1 &1799161408891886
 GameObject:
   m_ObjectHideFlags: 0

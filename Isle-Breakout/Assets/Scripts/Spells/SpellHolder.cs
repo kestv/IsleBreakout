@@ -12,6 +12,7 @@ public class SpellHolder : MonoBehaviour
     {
         cooldown = false;
         image = GetComponent<Image>();
+        image.sprite = spell.GetComponent<SpellInfo>().image;
     }
 
     // Update is called once per frame
@@ -19,13 +20,14 @@ public class SpellHolder : MonoBehaviour
     {
         if(cooldown && image != null)
         {
-            image.fillAmount += 1f/spell.GetComponent<ProjectileMoveScript>().cooldown * Time.deltaTime;
+            image.fillAmount += 1f/spell.GetComponent<SpellInfo>().cooldown * Time.deltaTime;
             if (image.fillAmount >= 1) cooldown = false;
         }
     }
 
-    public void setSpell(GameObject spell, Sprite sprite)
+    public void SetSpell(GameObject spell)
     {
-        GetComponent<SpriteRenderer>().sprite = sprite;
+        image.sprite = spell.GetComponent<SpellInfo>().image;
+        this.spell = spell;
     }
 }

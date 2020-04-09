@@ -14319,6 +14319,7 @@ GameObject:
   - component: {fileID: 114348427670048902}
   - component: {fileID: 65349250874573500}
   - component: {fileID: 54677033593034642}
+  - component: {fileID: -8686165503997939418}
   m_Layer: 0
   m_Name: fire_arrow
   m_TagString: Untagged
@@ -14398,6 +14399,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &-8686165503997939418
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391574063814312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8f217d33539ec418bd2fb6fe083031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 4c1082fef8088de4cae9c218f921339f, type: 3}
+  name: Fire arrow
+  cooldown: 4
+  type: 1
 --- !u!1 &1399422420123134
 GameObject:
   m_ObjectHideFlags: 0

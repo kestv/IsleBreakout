@@ -19,7 +19,7 @@ public class PlayerMovementController : MonoBehaviour
         isRunning = false;
         camTransform = cam.transform;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         transform.eulerAngles = new Vector3(0, camTransform.eulerAngles.y, 0);
         //transform.Rotate(-30, 0, 0);
@@ -30,12 +30,14 @@ public class PlayerMovementController : MonoBehaviour
         }
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
-        
 
-        Vector3 move = transform.right * x + transform.forward * z;
-        if(Vector3.zero != move)
-            transform.rotation = Quaternion.LookRotation(move);
-        controller.Move(move * speed * Time.deltaTime);
+        Vector3 rot = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z / (Mathf.Abs(x) + Mathf.Abs(z));
+        if (Vector3.zero != rot)
+        {
+            transform.rotation = Quaternion.LookRotation(rot);
+            controller.Move(move * speed * Time.deltaTime);
+        }
 
         velocity.y += gravity * Time.deltaTime;
 

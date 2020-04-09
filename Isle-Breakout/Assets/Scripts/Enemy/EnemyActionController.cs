@@ -26,13 +26,15 @@ public class EnemyActionController : MonoBehaviour
     //Attack rate
     float attackRate = 2.0f;
     public float fallBackDistance = 30f;
-
+    public bool gotAttacked;
+    float attackTime;
     public bool busy;
 
     public EnemyAnimationController animations;
 
     void Start()
     {
+        gotAttacked = false;
         animations = GetComponent<EnemyAnimationController>();
         busy = false;
         player = GameObject.FindGameObjectWithTag("Player");
@@ -66,6 +68,14 @@ public class EnemyActionController : MonoBehaviour
                     break;
             }
         }
+        //In order to follow player for some time and not fallback instantly
+        if(gotAttacked)
+        {
+            if(Time.time - attackTime > 10f)
+            {
+                gotAttacked = false;
+            }
+        }
 
         if (!playerSpotted)
         {
@@ -86,7 +96,7 @@ public class EnemyActionController : MonoBehaviour
         if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
         {
             followPlayer(target);
-            if (getDistance(target) > fallBackDistance)
+            if (getDistance(target) > fallBackDistance && !gotAttacked)
             {
                 playerSpotted = false;
             }
@@ -115,20 +125,23 @@ public class EnemyActionController : MonoBehaviour
     void followPlayer(GameObject player)
     {
         busy = true;
-        if (getDistance(player) > 1.5f)
+        if (!player.GetComponent<PlayerHealthController>().isDead())
         {
-            action = IS_RUNNING;
-            transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
-            var _direction = (player.transform.position - transform.position).normalized;
-            var _lookRotation = Quaternion.LookRotation(_direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
-            //This is for cooldown before attacking if target met;
-            lastAttack = Time.time - 1.5f;
-        }
-        else
-        {
-            action = IS_IDLING;
-            attack(target);
+            if (getDistance(player) > 1.5f)
+            {
+                action = IS_RUNNING;
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                var _direction = (player.transform.position - transform.position).normalized;
+                var _lookRotation = Quaternion.LookRotation(_direction);
+                transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
+                //This is for cooldown before attacking if target met;
+                lastAttack = Time.time - 1.5f;
+            }
+            else
+            {
+                action = IS_IDLING;
+                attack(target);
+            }
         }
     }
 
@@ -148,7 +161,7 @@ public class EnemyActionController : MonoBehaviour
 
     void goBackToCamp()
     {
-        if (spawnPos.x != 0 && !GetComponent<EnemyWander>().busy)
+        if (spawnPos.x != 0 && GetComponent<EnemyWander>() != null && !GetComponent<EnemyWander>().busy)
         {
             action = IS_RUNNING;
             transform.position = Vector3.MoveTowards(transform.position, spawnPos, speed * Time.deltaTime);
@@ -156,6 +169,13 @@ public class EnemyActionController : MonoBehaviour
             var _lookRotation = Quaternion.LookRotation(_direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, _lookRotation, Time.deltaTime * speed);
         }
+    }
+
+    public void GotAttacked()
+    {
+        gotAttacked = true;
+        attackTime = Time.time;
+        playerSpotted = true;
     }
 
     public void isRunning(bool isRunning)

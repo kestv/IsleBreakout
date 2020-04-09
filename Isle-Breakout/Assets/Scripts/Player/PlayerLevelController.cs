@@ -6,16 +6,22 @@ using UnityEngine.UI;
 public class PlayerLevelController : MonoBehaviour
 {
     public float levelRate;
-    public int level;
+    public float level;
     public float currentExperiencePoints;
     public float requiredExperiencePoints;
+    public float totalXp;
 
     public void Start()
     {
+        level = Player.level;
+        totalXp = Player.xp;
+        GetComponent<PlayerCombatController>().levelField.GetComponent<Text>().text = level.ToString();
         CombatEventHandler.Instance.onEnemyDeath += GetExperience;
     }
+
     public void GetExperience(float amount)
     {
+        totalXp += amount;
         currentExperiencePoints += amount;
         UIEventHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();
@@ -23,6 +29,7 @@ public class PlayerLevelController : MonoBehaviour
     //For events
     public void GetExperience(float amount, int id)
     {
+        totalXp += amount;
         currentExperiencePoints += amount;
         UIEventHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();

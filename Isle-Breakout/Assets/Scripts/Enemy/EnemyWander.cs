@@ -19,6 +19,9 @@ public class EnemyWander : MonoBehaviour
 
     public float rotation;
     float distance;
+    bool canStart;
+    float startTime;
+    float startWait;
 
     float lastRot = 0;
     Vector3 lastPos;
@@ -26,6 +29,9 @@ public class EnemyWander : MonoBehaviour
     EnemyAnimationController animations;
     void Start()
     {
+        canStart = false;
+        startTime = Time.time;
+        startWait = Random.Range(1, 5);
         busy = true;
         lastRot = transform.rotation.y;
         startingPosition = transform.position;
@@ -37,11 +43,32 @@ public class EnemyWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(actions != null)
+        if (canStart)
         {
-            if (!actions.busy)
+            if (actions != null)
             {
-                busy = true;
+                if (!actions.busy)
+                {
+                    busy = true;
+                    switch (state)
+                    {
+                        case READY:
+                            CalculateRotation();
+                            break;
+                        case WANDERING:
+                            Wander();
+                            break;
+                        case WAITING:
+                            Wait();
+                            break;
+                        default:
+                            break;
+                    }
+                }
+                else busy = false;
+            }
+            else
+            {
                 switch (state)
                 {
                     case READY:
@@ -57,23 +84,12 @@ public class EnemyWander : MonoBehaviour
                         break;
                 }
             }
-            else busy = false;
         }
         else
         {
-            switch (state)
+            if(Time.time - startTime > startWait)
             {
-                case READY:
-                    CalculateRotation();
-                    break;
-                case WANDERING:
-                    Wander();
-                    break;
-                case WAITING:
-                    Wait();
-                    break;
-                default:
-                    break;
+                canStart = true;
             }
         }
     }
@@ -82,8 +98,7 @@ public class EnemyWander : MonoBehaviour
     {
         distance = Vector3.Distance(transform.position, startingPosition);
         rotation = Random.Range(0, 360);
-        transform.LookAt(startingPosition);
-        if (Mathf.Abs(transform.eulerAngles.y - rotation) < 45 || Mathf.Abs(transform.eulerAngles.y - rotation) > 305)
+        if (Mathf.Abs(transform.eulerAngles.y - rotation) > 90 || Mathf.Abs(transform.eulerAngles.y - rotation) > 270)
         {
             transform.eulerAngles = new Vector3(0, rotation, 0);
             lastRot = rotation;
@@ -91,7 +106,6 @@ public class EnemyWander : MonoBehaviour
             animations.isWalking(true);
             startedWalking = Time.time;
         }
-        Debug.Log(distance);
     }
 
     void Wander()

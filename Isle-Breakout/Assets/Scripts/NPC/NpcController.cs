@@ -18,4 +18,10 @@ public class NpcController : MonoBehaviour
     {
         nameTag.GetComponent<TextMesh>().text = name;
     }
+
+    private void Start()
+    {
+        conversationText = GameObject.Find("ConversationText");
+        conversationButton = GameObject.Find("ConversationButton");
+    }
 }

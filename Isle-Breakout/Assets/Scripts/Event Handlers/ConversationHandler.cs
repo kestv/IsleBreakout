@@ -37,8 +37,6 @@ public class ConversationHandler : MonoBehaviour
 
     public void StartConversation(int ID, List<string> conversations, string name, List<Quest> quests)
     {
-        Debug.Log("StartConversation");
-        
         questAcceptButton.SetActive(false);
         if (quests.Count > 0)
             foreach (var quest in quests)
@@ -57,15 +55,15 @@ public class ConversationHandler : MonoBehaviour
         this.name.GetComponent<Text>().text = name;
         i = 1;
         text.GetComponent<Text>().text = this.conversations[0];
-        if (this.conversations.Count - i > 1)
+        if (this.conversations.Count - i >= 1)
         {
             buttonText.GetComponent<Text>().text = "Next";
         }
+        else buttonText.GetComponent<Text>().text = "Close";
     }
 
     public void Iterate()
     {
-        Debug.Log(conversations.Count);
         if (i < conversations.Count - 1)
         {
             buttonText.GetComponent<Text>().text = "Next";

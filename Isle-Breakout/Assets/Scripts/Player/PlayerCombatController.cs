@@ -8,6 +8,7 @@ public class PlayerCombatController : MonoBehaviour
 {
     bool isTriggering;
     public bool isAttacking;
+    public bool inCombat;
     //Attack cooldown
     float lastAttack = 0;
     //Attack rate
@@ -19,6 +20,7 @@ public class PlayerCombatController : MonoBehaviour
 
     SpellController spellController;
     public GameObject arrow;
+    public float range;
 
     bool isRangedWeapon;
 
@@ -60,6 +62,8 @@ public class PlayerCombatController : MonoBehaviour
         meleeWeapon = GameObject.Find("MeleeWeapon");
         rangeWeapon = GameObject.Find("RangeWeapon");
         rangeWeapon.SetActive(false);
+
+        inCombat = false;
     }
 
     void SetWeapon(bool ranged)
@@ -76,32 +80,29 @@ public class PlayerCombatController : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Tab))
         {
+            ResetTarget();
             findTarget();
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(target == null)
             {
+                ResetTarget();
                 findTarget();
             }
             else
             {
+                inCombat = true;
                 isAttacking = true;
             }
         }
         if (Input.GetKeyDown(KeyCode.Q))
         {
-            if(target != null)
-            {
-                spellController.castSpell(target, slot1.GetComponent<SpellHolder>());
-            }
+            spellController.CastSpell(target, slot1.GetComponent<SpellHolder>());
         }
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if (target != null)
-            {
-                spellController.castSpell(target, slot2.GetComponent<SpellHolder>());
-            }
+            spellController.CastSpell(target, slot2.GetComponent<SpellHolder>());
         }
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -119,6 +120,7 @@ public class PlayerCombatController : MonoBehaviour
                 target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
                 enemyHealthBar.SetActive(false);
                 target = null;
+                inCombat = false;
             }
         }
 
@@ -157,7 +159,7 @@ public class PlayerCombatController : MonoBehaviour
                         }
                         else
                         {
-                            if(getDistance(target) < 10f)
+                            if(getDistance(target) <= range)
                             AttackFromRange();
                         }
                     }
@@ -174,29 +176,35 @@ public class PlayerCombatController : MonoBehaviour
     }
     void findTarget()
     {
+        float dist = 21;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemy in enemies)
         {
+            var distance = getDistance(enemy);
             if (!enemy.GetComponent<EnemyHealthController>().isDead())
             {
-                if (getDistance(enemy) < 20)
+                if (distance < 20 && distance < dist)
                 {
                     target = enemy;
-                    target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
-
-                    target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
-                    target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
-                    enemyHealthBar.SetActive(true);
-                    enemyHealthBar.GetComponent<HealthController>().player = target;
-                    enemyHealthBar.GetComponent<Slider>().value = target.GetComponent<EnemyHealthController>().health;
-                    return;
+                    dist = distance;
                 }
                 else
                 {
-                    target = null;
+                    //target = null;
                     isAttacking = false;
                 }
             }
+        }
+        if (target != null)
+        {
+            target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
+            enemyHealthBar.GetComponent<Slider>().value = target.GetComponent<EnemyHealthController>().health;
+            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
+            target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
+            
+            enemyHealthBar.SetActive(true);
+            enemyHealthBar.GetComponent<HealthController>().player = target;
+            
         }
     }
 
@@ -207,9 +215,26 @@ public class PlayerCombatController : MonoBehaviour
 
     void killedTarget(float xp, int id)
     {
+        inCombat = false;
         target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
         target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
         enemyHealthBar.SetActive(false);
         target = null;
+    }
+
+    void ResetTarget()
+    {
+        enemyHealthBar.SetActive(false);
+        enemyHealthBar.GetComponent<HealthController>().player = null;
+        if (target != null)
+        {
+            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
+            target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
+        }
+    }
+
+    public GameObject GetTarget()
+    {
+        return target;
     }
 }

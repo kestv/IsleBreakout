@@ -21,7 +21,6 @@ public class ProjectileMoveScript : MonoBehaviour {
 
     public float damage;
     public float actualDamage;
-    public float cooldown;
 void Start () {
         
 		if (accuracy != 100) {
@@ -77,7 +76,6 @@ void Start () {
     void collisionDetected() {
         if (!collided) {
 			collided = true;
-            Debug.Log(actualDamage);
             target.GetComponent<EnemyHealthController>().doDamage(actualDamage);
 
 			if (shotSFX != null && GetComponent<AudioSource>()) {

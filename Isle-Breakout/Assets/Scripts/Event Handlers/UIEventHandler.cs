@@ -8,6 +8,9 @@ public class UIEventHandler : MonoBehaviour
     public delegate void OnRewardReceive();
     public OnRewardReceive onRewardReceive;
     public GameObject rewardObject;
+    public GameObject rewardUI;
+    public GameObject infoMessage;
+    float lastMessage;
     public static UIEventHandler Instance { get; private set; }
 
     private void Awake()
@@ -21,9 +24,12 @@ public class UIEventHandler : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        rewardObject = GameObject.Find("Reward");
     }
-
+    private void Start()
+    {
+        rewardObject.SetActive(false);
+        rewardUI.SetActive(false);
+    }
     public void DisplayReward(string reward, bool levelUp)
     {
         rewardObject.SetActive(true);
@@ -32,5 +38,22 @@ public class UIEventHandler : MonoBehaviour
         else rewardObject.GetComponent<Text>().color = Color.green;
         rewardObject.GetComponent<Text>().text = levelUp ? reward : "+ " + reward;
         rewardObject.GetComponent<ScrollController>().StartMoving();
+    }
+    
+    public void DisplaySpellReward(GameObject spell)
+    {
+        rewardUI.SetActive(true);
+        rewardUI.GetComponent<SpellRewardController>().SetSpell(spell);
+    }
+
+    public void DisplayMessage(string message)
+    {
+        if (Time.time - lastMessage > 1)
+        {
+            infoMessage.SetActive(true);
+            infoMessage.GetComponent<Text>().text = message;
+            infoMessage.GetComponent<ScrollController>().StartMoving();
+            lastMessage = Time.time;
+        }
     }
 }

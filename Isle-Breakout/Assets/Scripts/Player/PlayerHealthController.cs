@@ -27,10 +27,7 @@ public class PlayerHealthController : MonoBehaviour
             if(transform.tag == "Player")
             {
                 transform.GetComponent<PlayerMovementController>().enabled = false;
-            }
-            else if(transform.tag == "Enemy")
-            {
-                transform.GetComponent<EnemyActionController>().enabled = false;
+                transform.GetComponent<PlayerCombatController>().enabled = false;
             }
         }
         hungerBar.value -= 0.02f;

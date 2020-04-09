@@ -14676,6 +14676,7 @@ GameObject:
   - component: {fileID: 198302984453370694}
   - component: {fileID: 65138394354385980}
   - component: {fileID: 54780134100305680}
+  - component: {fileID: 3279146614264702449}
   m_Layer: 0
   m_Name: thunder_ball
   m_TagString: Untagged
@@ -19543,3 +19544,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &3279146614264702449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823173409967616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8f217d33539ec418bd2fb6fe083031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: ff42a689ad961fd4b9da0a00643acce7, type: 3}
+  name: Thunder ball
+  cooldown: 4
+  type: 1

@@ -18,10 +18,6 @@ public class EnemyHealthController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        if(healthBar != null)
-        {
-            healthBar.GetComponent<Slider>().value = health;
-        }
         isDead();
     }
 
@@ -29,7 +25,8 @@ public class EnemyHealthController : EnemyController
     {
         health -= amount;
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
-        if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().playerSpotted = true;
+        healthBar.GetComponent<Slider>().value = health;
+        if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().GotAttacked();
     }
 
     public float getHealth()
@@ -41,9 +38,12 @@ public class EnemyHealthController : EnemyController
     {
         if (health <= 0)
         {
+            GetComponent<EnemyDeath>().dead = true;
             transform.GetComponent<Animator>().SetBool("isDead", true);
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
+            if(transform.GetComponent<EnemyWander>() != null)
+                transform.GetComponent<EnemyWander>().enabled = false;
             if (!dead)
             {
                 CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);

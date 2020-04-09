@@ -150,7 +150,8 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65611723, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
 --- !u!4 &7314360614501089302 stripped
 Transform:
@@ -361,7 +362,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: VikingEnemy (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65611723, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
 --- !u!4 &1143193436868832379 stripped
 Transform:
@@ -484,7 +486,8 @@ PrefabInstance:
       propertyPath: m_WarningMessage
       value: 
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 65611723, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 42b7f2087b4063147be88c4cbc7517a3, type: 3}
 --- !u!4 &1143193436730270139 stripped
 Transform:

@@ -17,7 +17,6 @@ public class ButtonHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
     
     public void closeWindow()

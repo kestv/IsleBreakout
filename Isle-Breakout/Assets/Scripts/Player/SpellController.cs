@@ -4,43 +4,129 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
+    public const int OFFENSIVE_SPELL = 1;
+    public const int NEUTRAL_SPELL = 2;
+
     public float range;
     public GameObject castPoint;
     public GameObject arrowCastPoint;
     float lastCast;
+    GameObject currentPet;
+    GameObject pet;
+    bool triggering;
+
+    SpellHolder slot1;
+    SpellHolder slot2;
     void Start()
     {
+        triggering = false;
         lastCast = 0;
+        slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
+        slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
     }
 
-    void Update()
+    public void SetSpell(GameObject spell, int slot)
     {
+        if (slot == 1)
+        {
+            slot1.GetComponent<SpellHolder>().SetSpell(spell);
+        }
+        else if (slot == 2)
+        {
+            slot2.GetComponent<SpellHolder>().SetSpell(spell);
+        }
     }
-    
+
+    public string GetSpellName(int slot)
+    {
+        if (slot == 1)
+        {
+            return slot1.GetComponent<SpellHolder>().spell.GetComponent<SpellInfo>().name;
+        }
+        else if (slot == 2)
+        {
+            return slot2.GetComponent<SpellHolder>().spell.GetComponent<SpellInfo>().name;
+        }
+        else return "";
+    }
+
+    public bool IsSlotTaken(int slot)
+    {
+        if (slot == 1)
+        {
+            if (slot1.GetComponent<SpellHolder>().spell != null)
+                return true;
+            else
+                return false;
+        }
+        else if (slot == 2)
+        {
+            if (slot2.GetComponent<SpellHolder>().spell != null)
+                return true;
+            else
+                return false;
+        }
+        return false;
+    }
+
     public void CastArrow(GameObject target, GameObject arrow)
     {
-        if(Vector3.Distance(transform.position, target.transform.position) <= 15)
+        if (Vector3.Distance(transform.position, target.transform.position) <= 15)
         {
             StartCoroutine(IECastArrow(target, arrow));
         }
     }
-    public void castSpell(GameObject target, SpellHolder spellHolder)
-    {
-        if (Time.time - lastCast > spellHolder.spell.GetComponent<ProjectileMoveScript>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
-        {
-            lastCast = Time.time;
-            //GetComponent<Animator>().Play("SpellCast");
-            spellHolder.cooldown = true;
-            if(spellHolder.image != null)
-                spellHolder.image.fillAmount = 0f;
-            StartCoroutine(waitCoroutine(target, spellHolder.spell));
-            //var item = Instantiate(spell, castPoint.transform.position, Quaternion.identity);
-            //item.GetComponent<ProjectileMoveScript>().target = target;
-            //lastCast = Time.time;
-        }
 
+    public void TamePet()
+    {
+        Debug.Log("TAMING");
+        var ui = UIEventHandler.Instance;
+        if (triggering && pet != null)
+        {
+            var chance = Random.Range(0, 100);
+            if (chance >= 50)
+            {
+                if(currentPet != null)
+                    currentPet.GetComponent<PetController>().SetUntamed();
+                pet.GetComponent<PetController>().SetTamed();
+                currentPet = pet;
+                ui.DisplayMessage("Pet tamed successfully");
+            }
+            else
+            {
+                ui.DisplayMessage("Pet got away");
+            }
+        }
+        else ui.DisplayMessage("You are too far away");
     }
-    
+
+    public void CastSpell(GameObject target, SpellHolder spellHolder)
+    {
+        var type = spellHolder.spell.GetComponent<SpellInfo>().type;
+        switch (type)
+        {
+            case OFFENSIVE_SPELL:
+                if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
+                {
+                    GetComponent<PlayerCombatController>().inCombat = true;
+                    lastCast = Time.time;
+                    spellHolder.cooldown = true;
+                    if (spellHolder.image != null)
+                        spellHolder.image.fillAmount = 0f;
+                    Debug.Log("Casting spell");
+                    StartCoroutine(waitCoroutine(target, spellHolder.spell));
+                }
+                else if(target == null)
+                {
+                    UIEventHandler.Instance.DisplayMessage("Target something first");
+                }
+                break;
+            case NEUTRAL_SPELL:
+                TamePet();
+                break;
+        }
+    }
+
     IEnumerator IECastArrow(GameObject target, GameObject arrow)
     {
         yield return new WaitForSeconds(0.5f);
@@ -60,5 +146,23 @@ public class SpellController : MonoBehaviour
         item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;
         item.GetComponent<ProjectileMoveScript>().target = target;
         GetComponent<PlayerMovementController>().enabled = true;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Pet")
+        {
+            pet = other.gameObject;
+            triggering = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Pet")
+        {
+            pet = null;
+            triggering = false;
+        }
     }
 }

@@ -13,7 +13,9 @@ public class Quest : MonoBehaviour
     public string Name;
     public bool Completed = false;
     public bool Active = false;
-    //TODO add items reward
+
+    public GameObject spellReward;
+    public GameObject itemReward;
 
     public GameObject questName;
     public GameObject questObjective;
@@ -30,7 +32,6 @@ public class Quest : MonoBehaviour
 
     public void init(int id)
     {
-        Debug.Log("subscribing");
         NpcEventHandler.Instance._onTalkedToNpc += DisplayEvaluation;
         NpcEventHandler.Instance.afterTalkedToNpc += CheckGoals;
         NpcEventHandler.Instance.onTalkedToNpc += _DisplayEvaluation;
@@ -41,7 +42,6 @@ public class Quest : MonoBehaviour
 
     public void CheckGoals()
     {
-        Debug.Log("CheckGoals");
         if(goals.All(x => x.completed == true))
         {
             if (Active && !Completed)
@@ -86,6 +86,14 @@ public class Quest : MonoBehaviour
         {
             player.GetComponent<PlayerLevelController>().GetExperience(Experience);
 
+        }
+        if(spellReward != null)
+        {
+            UIEventHandler.Instance.DisplaySpellReward(spellReward);
+        }
+        if(itemReward != null)
+        {
+            //TODO item rewards
         }
     }
 

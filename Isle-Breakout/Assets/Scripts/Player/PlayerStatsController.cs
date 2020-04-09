@@ -44,6 +44,7 @@ public class PlayerStatsController : MonoBehaviour
         statsWindow = GameObject.Find("Stats");
 
         remainingPoints = GetComponent<PlayerLevelController>().level;
+        statsWindow.SetActive(false);
     }
 
     void improveStrength(float value)
@@ -77,21 +78,16 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.K))
+    public void Open()
+    { 
+        if(statsWindow.activeSelf)
         {
-            if(statsWindow.activeSelf)
-            {
-                statsWindow.SetActive(false);
-            }
-            else
-            {
-                statsWindow.SetActive(true);
-            }
-            
+            statsWindow.SetActive(false);
         }
-        remainingValue.text = remainingPoints.ToString();
+        else
+        {
+            remainingValue.text = remainingPoints.ToString();
+            statsWindow.SetActive(true);
+        }        
     }
 }

@@ -3549,6 +3549,7 @@ GameObject:
   - component: {fileID: 65611723}
   - component: {fileID: -224047371850991228}
   - component: {fileID: 2101466869}
+  - component: {fileID: -5455985258015562394}
   m_Layer: 0
   m_Name: VikingEnemy
   m_TagString: Enemy
@@ -3565,7 +3566,7 @@ Transform:
   m_GameObject: {fileID: 5203176831837364250}
   m_LocalRotation: {x: 0, y: 0.9999556, z: -0, w: -0.009424517}
   m_LocalPosition: {x: 272.69885, y: 20.042297, z: -273.0821}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4384134404987936770}
   - {fileID: 4396289559179834963}
@@ -3616,6 +3617,7 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 10
   fallBackDistance: 15
+  gotAttacked: 0
   busy: 0
   animations: {fileID: 0}
 --- !u!114 &5203176830580262085
@@ -3723,3 +3725,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec6d48f68a638b468b8f555dcc22f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5455985258015562394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203176831837364250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dead: 0

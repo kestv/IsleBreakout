@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 114739553554106530}
   - component: {fileID: 54541909365624938}
   - component: {fileID: 135759175376650130}
+  - component: {fileID: 8476808163378820178}
   m_Layer: 0
   m_Name: energy_sword
   m_TagString: Untagged
@@ -91,6 +92,22 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.12
   m_Center: {x: 0, y: 0, z: 1.56}
+--- !u!114 &8476808163378820178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1040889220841686}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe8f217d33539ec418bd2fb6fe083031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 21300000, guid: 52bc4c452c87bcf4ca6ee9b9fb89687c, type: 3}
+  name: Energy sword
+  cooldown: 4
+  type: 1
 --- !u!1 &1483243347452742
 GameObject:
   m_ObjectHideFlags: 0

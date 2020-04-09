@@ -30,6 +30,7 @@ public class EnemyAnimationController : MonoBehaviour
     {
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
         {
+            Debug.Log("HEYO");
             transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
             transform.GetComponent<Animator>().SetBool("isRunning", !isAttacking);
             transform.GetComponent<Animator>().SetBool("isIdling", !isAttacking);

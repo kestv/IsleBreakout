@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: adb84e30e02715445aeb9959894e3b4d, type: 3}
   m_Name: ColorGrading
   m_EditorClassIdentifier: 
-  active: 0
+  active: 1
   enabled:
     overrideState: 1
-    value: 0
+    value: 1
   gradingMode:
     overrideState: 1
     value: 1
@@ -52,20 +52,20 @@ MonoBehaviour:
     overrideState: 0
     value: 1
   temperature:
-    overrideState: 1
-    value: 5
+    overrideState: 0
+    value: 10
   tint:
     overrideState: 0
-    value: 54
+    value: 15
   colorFilter:
     overrideState: 0
-    value: {r: 2, g: 1.9991027, b: 1.990566, a: 1}
+    value: {r: 1.3848647, g: 2.1468866, b: 2.6449668, a: 1}
   hueShift:
     overrideState: 0
-    value: 147
+    value: 6
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 10
   brightness:
     overrideState: 0
     value: 0
@@ -74,7 +74,7 @@ MonoBehaviour:
     value: 0.5
   contrast:
     overrideState: 1
-    value: -31
+    value: -20
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -748,7 +748,7 @@ MonoBehaviour:
       - 0.984375
       - 0.9921875
   hueVsHueCurve:
-    overrideState: 0
+    overrideState: 1
     value:
       curve:
         serializedVersion: 2
@@ -1329,10 +1329,10 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 0
+    value: 1
   threshold:
     overrideState: 0
-    value: 1
+    value: 0.59
   softKnee:
     overrideState: 0
     value: 0.714
@@ -1346,8 +1346,8 @@ MonoBehaviour:
     overrideState: 0
     value: 0
   color:
-    overrideState: 0
-    value: {r: 1, g: 1, b: 1, a: 1}
+    overrideState: 1
+    value: {r: 0.9528302, g: 0.93384004, b: 0.28315237, a: 1}
   fastMode:
     overrideState: 0
     value: 0
@@ -1385,7 +1385,7 @@ MonoBehaviour:
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.25
+    value: 0.34
   smoothness:
     overrideState: 1
     value: 0.25
@@ -1418,3 +1418,32 @@ MonoBehaviour:
   - {fileID: -6723933625951011772}
   - {fileID: -25275155292304906}
   - {fileID: -3203655571658197654}
+  - {fileID: 2508824466266245610}
+--- !u!114 &2508824466266245610
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 556797029e73b2347956b6579e77e05b, type: 3}
+  m_Name: DepthOfField
+  m_EditorClassIdentifier: 
+  active: 0
+  enabled:
+    overrideState: 1
+    value: 1
+  focusDistance:
+    overrideState: 0
+    value: 10
+  aperture:
+    overrideState: 0
+    value: 3.3
+  focalLength:
+    overrideState: 0
+    value: 39.24
+  kernelSize:
+    overrideState: 1
+    value: 2
