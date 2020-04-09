@@ -25,7 +25,7 @@ public class PanelObjectRotator : MonoBehaviour, IBeginDragHandler, IDragHandler
         var delta = Input.mousePosition.x - lastFramePosition;
         lastFramePosition = Input.mousePosition.x;
 
-        go.transform.RotateAround(transform.position, transform.up, delta * sensitivity);
+        go.transform.RotateAround(go.transform.position, go.transform.up, delta * sensitivity);
     }
 
     public GameObject getObject()

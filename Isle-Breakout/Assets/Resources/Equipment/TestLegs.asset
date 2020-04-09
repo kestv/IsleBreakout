@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acadfa35b9a445744ae3d9670c801a62, type: 3}
+  m_Name: TestLegs
+  m_EditorClassIdentifier: 
+  hips: {fileID: 4300756, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  legRight: {fileID: 4300848, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  legLeft: {fileID: 4300808, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  strength: 4
+  wisdom: 3
+  speed: 2
+  hp: 1
