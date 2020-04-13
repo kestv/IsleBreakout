@@ -34,6 +34,7 @@ public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         }
 
         panelCtrl.transform.position = new Vector2(eventData.position.x + moveRight, eventData.position.y + moveUp);
+        Destroy(infoPanel, 1.5f);
 
     }
 

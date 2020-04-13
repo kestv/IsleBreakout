@@ -36,7 +36,7 @@ public class CraftHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerEx
         }
 
         panelCtrl.transform.position = new Vector2(eventData.position.x + moveRight, eventData.position.y + moveUp);
-
+        Destroy(infoPanel, 1.5f);
     }
 
     public void TerminatePanel()
