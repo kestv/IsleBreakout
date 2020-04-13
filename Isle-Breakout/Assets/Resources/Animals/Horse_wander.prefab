@@ -658,13 +658,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  tamed: 0
-  speed: 1
   damage: 0
   attackCooldown: 0
   bonusStrength: 0
-  bonusSpeed: 0
+  bonusSpeed: 5
   bonusWisdom: 0
+  bonusHealth: 0
 --- !u!65 &-3830003120167028312
 BoxCollider:
   m_ObjectHideFlags: 0

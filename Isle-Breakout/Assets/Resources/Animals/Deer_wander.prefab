@@ -6419,14 +6419,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4022b3c4b1d5e3142a753f01bbe6d069, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  tamed: 0
-  speed: 1
+  type: 1
   damage: 0
   attackCooldown: 0
-  bonusStrength: 0
+  bonusStrength: 5
   bonusSpeed: 0
   bonusWisdom: 0
+  bonusHealth: 0
 --- !u!65 &4632861333390287808
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -2706,7 +2706,7 @@ Transform:
   m_GameObject: {fileID: 2231315459621211557}
   m_LocalRotation: {x: 0, y: 0.9999556, z: -0, w: -0.009424517}
   m_LocalPosition: {x: 418, y: 7.2, z: -431.53}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 2231315459620748657}
   - {fileID: 2231315459620844423}
@@ -2770,6 +2770,7 @@ MonoBehaviour:
   - Thank you for visiting me
   conversationText: {fileID: 0}
   conversationButton: {fileID: 0}
+  nameTag: {fileID: 0}
   quests: []
 --- !u!1 &2231315459621213823
 GameObject:

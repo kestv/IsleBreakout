@@ -5386,12 +5386,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
-  tamed: 0
-  damage: 10
+  damage: 5
   attackCooldown: 3
-  bonusStrength: 5
-  bonusSpeed: 5
-  bonusWisdom: 5
+  bonusStrength: 0
+  bonusSpeed: 0
+  bonusWisdom: 0
+  bonusHealth: 0
 --- !u!114 &6658314321038377494
 MonoBehaviour:
   m_ObjectHideFlags: 0
