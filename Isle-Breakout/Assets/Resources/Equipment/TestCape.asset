@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TestCape
   m_EditorClassIdentifier: 
   cape: {fileID: 4301174, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  strength: 0
-  wisdom: 0
-  speed: 0
-  hp: 0
+  strength: 1
+  wisdom: 2
+  speed: 3
+  hp: 4

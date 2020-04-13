@@ -28,11 +28,12 @@ public class SlotController : MonoBehaviour, IDropHandler
             if (!transform.GetChild(0).gameObject.activeSelf)
             {
                 //Move item
-                DragHandler.itemBeingDragged.transform.GetChild(0).transform.parent = transform.GetChild(0);
+                DragHandler.itemBeingDragged.transform.GetChild(0).transform.SetParent(transform.GetChild(0));
                 transform.GetChild(0).GetComponent<Image>().sprite = DragHandler.itemBeingDragged.GetComponent<Image>().sprite;
                 transform.GetChild(0).gameObject.SetActive(true);
                 DragHandler.movedToEmptySlot = true;
 
+                //Was the item in chest?
                 if (!DragHandler.isItemInChest)
                 {
                     if (isChest)
@@ -50,6 +51,7 @@ public class SlotController : MonoBehaviour, IDropHandler
                     {
                         inventory.ChangeItem(transform.GetChild(0).GetChild(0).gameObject, slotIndex);
                     }
+
                 }
             }
             else
@@ -79,7 +81,7 @@ public class SlotController : MonoBehaviour, IDropHandler
                         inventory.ChangeItem(transform.GetChild(0).GetChild(0).gameObject, slotIndex);
                     }
                 }
-            }            
+            }
         }
 
         DragHandler.itemBeingDragged.transform.SetParent(DragHandler.startParent);

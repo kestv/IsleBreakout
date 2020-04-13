@@ -6,7 +6,6 @@ public class RecipeController : MonoBehaviour
 {
     public DependencyManager manager;
     public List<CraftingRecipe> recipes;
-    public GameObject itemList;
     public PlayerInventory inventory;
     public GameObject slotPrefab;
 
@@ -14,7 +13,6 @@ public class RecipeController : MonoBehaviour
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         inventory = manager.getPlayer().GetComponent<PlayerInventory>();
-        itemList = manager.getItemList();
 
         foreach(CraftingRecipe recipe in recipes)
         {

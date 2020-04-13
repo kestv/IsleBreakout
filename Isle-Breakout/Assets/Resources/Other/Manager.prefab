@@ -1,0 +1,57 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &760235058484117437
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 760235058484117435}
+  - component: {fileID: 760235058484117436}
+  m_Layer: 0
+  m_Name: Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &760235058484117435
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760235058484117437}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 567.827, y: 91.72302, z: 4.8955407}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &760235058484117436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760235058484117437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4991f27d6f494a541b6e1c88f7b4b17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 789886572439412201, guid: 970735789fb28954892cd49df43a1251, type: 3}
+  canvas: {fileID: 1982256521706089029, guid: a500ae0da735bc3479de2c9aadc30a98, type: 3}
+  inventorySize: 0
+  shipCrafting: {fileID: 3460190580375256272, guid: fa34750a18b327041992d3ce7c249cdc,
+    type: 3}
+  shipBuilder: {fileID: 0}
+  equipPanel: {fileID: 0}
+  equipSlotPanelController: {fileID: 0}
+  playerModel: {fileID: 0}
+  playerUIModel: {fileID: 0}
+  canvasPlayerRenderer: {fileID: 3251383272421016832, guid: b92570674f7a0b145b3d047977e4e088,
+    type: 3}

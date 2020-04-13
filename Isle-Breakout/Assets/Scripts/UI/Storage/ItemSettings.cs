@@ -6,11 +6,15 @@ using UnityEditor;
 
 public class ItemSettings : MonoBehaviour
 {
-    public int itemID;          //Item display name
+    public int itemID;          //Item ID
     public string itemName;     //Item name used in scripts
     public string description;  //Item description
     public Sprite sprite;       //Item sprite (image) used for item containers such as inventory or chests  
     public GameObject model;  //Item model used in UI (different scale, position, pivot, etc.)
+
+    [SerializeField]
+    ScriptableObject equip;
+
 
     //--------------------------------------
     public int getItemID()
@@ -42,5 +46,10 @@ public class ItemSettings : MonoBehaviour
 
     public void setModel(GameObject model)
     { this.model = model; }
-    //--------------------------------------
+
+    public ScriptableObject getEquip()
+    { return equip; }
+
+    public void setEquip(ScriptableObject equip)
+    { this.equip = equip; }
 }

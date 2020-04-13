@@ -438,10 +438,10 @@ RectTransform:
   m_Father: {fileID: 6135999412006217441}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -0.000018358, y: 104}
-  m_SizeDelta: {x: 218.46, y: -379.23}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 98.1}
+  m_SizeDelta: {x: 218.46, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6135999412571395285
 CanvasRenderer:
@@ -499,7 +499,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 300, y: 100}
+  m_CellSize: {x: 218, y: 20}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -515,7 +515,6 @@ GameObject:
   - component: {fileID: 6135999413616972200}
   - component: {fileID: 6135999413616972215}
   - component: {fileID: 6135999413616972214}
-  - component: {fileID: 3601912666012732487}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -633,18 +632,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &3601912666012732487
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6135999413616972212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e511dd2c5bddfcb44bf726b66c8895e7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6135999413666727018
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +742,7 @@ GameObject:
   - component: {fileID: 6135999413718662019}
   - component: {fileID: 6135999413718662018}
   - component: {fileID: 6135999413718662017}
+  - component: {fileID: 3776672796989223254}
   m_Layer: 5
   m_Name: UI_CraftItemImagePanel
   m_TagString: Untagged
@@ -842,3 +830,23 @@ MonoBehaviour:
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!114 &3776672796989223254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6135999413718662031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d397be5651b14334cb41b4cbac4cbdd0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipe: {fileID: 0}
+  item: {fileID: 0}
+  infoPanelPrefab: {fileID: 4194313526582695431, guid: 6af5510213fb2a14587025002a45817e,
+    type: 3}
+  panelCtrl: {fileID: 0}
+  infoPanel: {fileID: 0}
+  moveRight: 0
+  moveUp: 0

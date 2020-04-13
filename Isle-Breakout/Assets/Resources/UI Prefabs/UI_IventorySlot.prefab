@@ -91,6 +91,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   inventory: {fileID: 0}
   slotIndex: 0
+  isChest: 0
 --- !u!114 &8366681092966817257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,6 +129,8 @@ GameObject:
   - component: {fileID: 7501105983974493796}
   - component: {fileID: 2162653159131310230}
   - component: {fileID: 8947891980626937072}
+  - component: {fileID: 3155783975087852892}
+  - component: {fileID: 5447586054385424036}
   m_Layer: 5
   m_Name: UI_InventorySlotImage
   m_TagString: Untagged
@@ -216,3 +219,37 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &3155783975087852892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037331689930355547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3e09cb502fe6b24386613c5f6aea1fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 0}
+  inventory: {fileID: 0}
+  itemBeingClicked: {fileID: 0}
+--- !u!114 &5447586054385424036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7037331689930355547}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bafc926d5030a042ba6a353d8c15851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  infoPanelPrefab: {fileID: 4194313526582695431, guid: 6af5510213fb2a14587025002a45817e,
+    type: 3}
+  panelCtrl: {fileID: 0}
+  infoPanel: {fileID: 0}
+  moveRight: 0
+  moveUp: 65

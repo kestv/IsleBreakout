@@ -147,6 +147,19 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         //DestroyItem()
     }
 
+    public int FindItemIndex(GameObject item)
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if(inventory[i] == item)
+            {
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     public bool isSlotEmpty(int index)
     {
         return inventory[index] == null;

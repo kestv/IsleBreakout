@@ -84,4 +84,10 @@ public class CraftItemController : MonoBehaviour
 
     public void setText(string text)
     { this.text.GetComponent<TextMeshProUGUI>().text = text; }
+
+    public CraftingRecipe getRecipe()
+    { return recipe; }
+
+    public void setRecipe(CraftingRecipe recipe)
+    { this.recipe = recipe; }
 }

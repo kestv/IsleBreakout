@@ -14,7 +14,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     public static bool movedToSlot;
     public static bool movedToEmptySlot;
     public static bool isItemInChest;
-    
+
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
@@ -23,15 +23,15 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     }
 
     public void OnBeginDrag(PointerEventData eventData)
-    {       
+    {
         isItemInChest = transform.parent.GetComponent<SlotController>().getIsChest();
+        parentSlotIndex = transform.parent.GetComponent<SlotController>().getSlotIndex();
         movedToSlot = false;
         movedToEmptySlot = false;
         itemBeingDragged = gameObject;
         startParent = transform.parent;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
-        parentSlotIndex = transform.parent.GetComponent<SlotController>().getSlotIndex();
-        itemBeingDragged.transform.SetParent(transform.root);
+        itemBeingDragged.transform.SetParent(transform.root);        
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -41,6 +41,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
 
     public void OnEndDrag(PointerEventData eventData)
     {
+
         if (movedToSlot)
         {
             if (movedToEmptySlot)
@@ -64,7 +65,7 @@ public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
                 go.transform.position = new Vector3(playerPosition.position.x, playerPosition.position.y, playerPosition.position.z);
                 go.SetActive(true);
             }
-            
+
             gameObject.SetActive(false);
         }
 
