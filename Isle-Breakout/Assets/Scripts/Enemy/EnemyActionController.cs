@@ -37,7 +37,7 @@ public class EnemyActionController : MonoBehaviour
         gotAttacked = false;
         animations = GetComponent<EnemyAnimationController>();
         busy = false;
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.Find("PlayerInstance");
         target = player;
         playerSpotted = false;
         StartCoroutine(Landing());
@@ -127,7 +127,7 @@ public class EnemyActionController : MonoBehaviour
         busy = true;
         if (!player.GetComponent<PlayerHealthController>().isDead())
         {
-            if (getDistance(player) > 1.5f)
+            if (getDistance(player) > 2.5f)
             {
                 action = IS_RUNNING;
                 transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);

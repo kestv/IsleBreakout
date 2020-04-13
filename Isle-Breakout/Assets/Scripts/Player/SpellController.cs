@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SpellController : MonoBehaviour
 {
@@ -17,12 +18,32 @@ public class SpellController : MonoBehaviour
 
     SpellHolder slot1;
     SpellHolder slot2;
+
+    public GameObject castBar;
+    public GameObject bar;
+    float startedCasting;
+    float castTime = 2f;
+
     void Start()
     {
+        startedCasting = 0;
+        castBar.SetActive(false);
         triggering = false;
         lastCast = 0;
         slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
         slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
+    }
+
+    private void Update()
+    {
+        if (Time.time - startedCasting <= castTime)
+        {
+            bar.GetComponent<Image>().fillAmount += 1f / castTime * Time.deltaTime;
+        }
+        else if(castBar.activeSelf == true)
+        { 
+            castBar.SetActive(false);
+        }
     }
 
     public void SetSpell(GameObject spell, int slot)
@@ -108,13 +129,7 @@ public class SpellController : MonoBehaviour
             case OFFENSIVE_SPELL:
                 if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
                 {
-                    GetComponent<PlayerCombatController>().inCombat = true;
-                    lastCast = Time.time;
-                    spellHolder.cooldown = true;
-                    if (spellHolder.image != null)
-                        spellHolder.image.fillAmount = 0f;
-                    Debug.Log("Casting spell");
-                    StartCoroutine(waitCoroutine(target, spellHolder.spell));
+                    StartCoroutine(CastingSpell(spellHolder, target));
                 }
                 else if(target == null)
                 {
@@ -146,6 +161,24 @@ public class SpellController : MonoBehaviour
         item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;
         item.GetComponent<ProjectileMoveScript>().target = target;
         GetComponent<PlayerMovementController>().enabled = true;
+    }
+
+    IEnumerator CastingSpell(SpellHolder spellHolder, GameObject target)
+    {
+        bar.GetComponent<Image>().fillAmount = 0;
+        castBar.SetActive(true);
+        startedCasting = Time.time;
+        yield return new WaitForSeconds(castTime);
+        if (Time.time - startedCasting >= castTime)
+        {
+            GetComponent<PlayerCombatController>().inCombat = true;
+            lastCast = Time.time;
+            spellHolder.cooldown = true;
+            if (spellHolder.image != null)
+                spellHolder.image.fillAmount = 0f;
+            Debug.Log("Casting spell");
+            StartCoroutine(waitCoroutine(target, spellHolder.spell));
+        }
     }
 
     private void OnTriggerEnter(Collider other)

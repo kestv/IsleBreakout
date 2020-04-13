@@ -19,6 +19,7 @@ public class PetController : MonoBehaviour
     public float bonusStrength;
     public float bonusSpeed;
     public float bonusWisdom;
+    public float bonusHealth;
 
     float attackTime;
     void Start()
@@ -103,17 +104,13 @@ public class PetController : MonoBehaviour
     {
         tamed = true;
         GetComponent<EnemyWander>().enabled = false;
-        player.GetComponent<PlayerStatsController>().strength += bonusStrength;
-        player.GetComponent<PlayerStatsController>().speed += bonusSpeed;
-        player.GetComponent<PlayerStatsController>().wisdom += bonusWisdom;
+        player.GetComponent<PlayerStatsController>().AddBonuses(bonusStrength, bonusSpeed, bonusWisdom);
     }
 
     public void SetUntamed()
     {
         tamed = false;
         GetComponent<EnemyWander>().enabled = true;
-        player.GetComponent<PlayerStatsController>().strength -= bonusStrength;
-        player.GetComponent<PlayerStatsController>().speed -= bonusSpeed;
-        player.GetComponent<PlayerStatsController>().wisdom -= bonusWisdom;
+        player.GetComponent<PlayerStatsController>().AddBonuses(-bonusStrength, -bonusSpeed, -bonusWisdom);
     }
 }

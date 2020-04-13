@@ -5,11 +5,11 @@ using UnityEngine;
 public class KillGoal : Goal
 {
     int enemyId;
-    public KillGoal(string description, bool completed, int currentAmount, int requiredAmount, int enemyId)
+    public KillGoal(string description, int requiredAmount, int enemyId)
     {
         this.description = description;
-        this.completed = completed;
-        this.currentAmount = currentAmount;
+        this.completed = false;
+        this.currentAmount = 0;
         this.requiredAmount = requiredAmount;
         this.enemyId = enemyId;
     }

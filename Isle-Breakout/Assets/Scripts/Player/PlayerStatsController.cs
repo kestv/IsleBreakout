@@ -47,7 +47,7 @@ public class PlayerStatsController : MonoBehaviour
         statsWindow.SetActive(false);
     }
 
-    void improveStrength(float value)
+    public void improveStrength(float value)
     {
         if (remainingPoints > 0)
         {
@@ -57,7 +57,7 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
 
-    void improveSpeed(float value)
+    public void improveSpeed(float value)
     {
         if (remainingPoints > 0)
         {
@@ -68,7 +68,7 @@ public class PlayerStatsController : MonoBehaviour
         }
     }
 
-    void improveWisdom(float value)
+    public void improveWisdom(float value)
     {
         if (remainingPoints > 0)
         {
@@ -76,6 +76,16 @@ public class PlayerStatsController : MonoBehaviour
             wisdom += value;
             wisdomValue.text = wisdom.ToString();
         }
+    }
+
+    public void AddBonuses(float strength, float speed, float wisdom)
+    {
+        this.strength += strength;
+        strengthValue.text = strength.ToString();
+        this.speed += speed;
+        speedValue.text = speed.ToString();
+        this.wisdom += wisdom;
+        wisdomValue.text = wisdom.ToString();
     }
 
     public void Open()
