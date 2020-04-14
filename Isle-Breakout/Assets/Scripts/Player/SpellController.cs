@@ -32,6 +32,8 @@ public class SpellController : MonoBehaviour
         lastCast = 0;
         slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
         slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
+        castPoint = GameObject.Find("SpellCast");
+        arrowCastPoint = GameObject.Find("RangeWeapon");
     }
 
     private void Update()
