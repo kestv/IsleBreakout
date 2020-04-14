@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!135 &-1714648372927802530
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1015634337824110004}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.3261088
+  m_Center: {x: 0, y: 0.3489395, z: 0.074872375}
 --- !u!122 &455040541
 Halo:
   m_ObjectHideFlags: 0
@@ -25,7 +38,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: Gold
+  itemName: Torso
   description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae
     odio pulvinar, rutrum odio a, imperdiet tellus. Pellentesque pellentesque accumsan
     nib.
@@ -104,7 +117,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64271815703323572, guid: 0643624d73670a34a85c08095cb6f6bc, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 0643624d73670a34a85c08095cb6f6bc, type: 3}
 --- !u!1 &1015634337824110004 stripped
 GameObject:

@@ -2947,8 +2947,8 @@ MonoBehaviour:
   armUpperLeft: {fileID: 8653431895531951454}
   armLowerRight: {fileID: 8653335525890840746}
   armLowerLeft: {fileID: 8653223028776437250}
-  handRight: {fileID: 8652800669251871898}
-  handLeft: {fileID: 8652687196108960966}
+  handRight: {fileID: 8651969412893980136}
+  handLeft: {fileID: 8651962968354917752}
   hips: {fileID: 8653119576704333830}
   legRight: {fileID: 8651969412893980136}
   legLeft: {fileID: 8651962968354917752}
@@ -4007,6 +4007,41 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5115383487720943141, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5115574849862761913, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5121229017824640211, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300848, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+    - target: {fileID: 5121558385101995903, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300648, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+    - target: {fileID: 5123986829702759081, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300808, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+    - target: {fileID: 5124112221371283481, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300756, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+    - target: {fileID: 5124260959511960037, guid: 380fe146616bb4c47825faf2c9ffaba5,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300720, guid: 038320a534bd8b444b43734860d1a211, type: 3}
     - target: {fileID: 9088077740403021252, guid: 380fe146616bb4c47825faf2c9ffaba5,
         type: 3}
       propertyPath: m_Name
@@ -4068,9 +4103,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4533371593848762835}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8652570103267801326 stripped
+--- !u!1 &8653428439738092718 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5115490872603085117, guid: 380fe146616bb4c47825faf2c9ffaba5,
+  m_CorrespondingSourceObject: {fileID: 5115774868602338685, guid: 380fe146616bb4c47825faf2c9ffaba5,
     type: 3}
   m_PrefabInstance: {fileID: 4533371593848762835}
   m_PrefabAsset: {fileID: 0}
@@ -4092,18 +4127,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4533371593848762835}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8652800669251871898 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5115290034227287369, guid: 380fe146616bb4c47825faf2c9ffaba5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4533371593848762835}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &8652687196108960966 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5115315512063460629, guid: 380fe146616bb4c47825faf2c9ffaba5,
-    type: 3}
-  m_PrefabInstance: {fileID: 4533371593848762835}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8653119576704333830 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5116031017303607765, guid: 380fe146616bb4c47825faf2c9ffaba5,
@@ -4122,9 +4145,9 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4533371593848762835}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8653428439738092718 stripped
+--- !u!1 &8652570103267801326 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 5115774868602338685, guid: 380fe146616bb4c47825faf2c9ffaba5,
+  m_CorrespondingSourceObject: {fileID: 5115490872603085117, guid: 380fe146616bb4c47825faf2c9ffaba5,
     type: 3}
   m_PrefabInstance: {fileID: 4533371593848762835}
   m_PrefabAsset: {fileID: 0}
