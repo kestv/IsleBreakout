@@ -187,9 +187,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b514bf7ba6ae55a47a69bc8d470c91a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chestPanel: {fileID: 6156399294037096422, guid: e32227fb08c86434c8c681be8a6b7254,
+  chestPanelPrefab: {fileID: 6156399294037096422, guid: e32227fb08c86434c8c681be8a6b7254,
     type: 3}
+  chestPanel: {fileID: 0}
   chestSize: 48
+  items: []
 --- !u!135 &6222885975856241931
 SphereCollider:
   m_ObjectHideFlags: 0
