@@ -100,4 +100,22 @@ public class PlayerStatsController : MonoBehaviour
             statsWindow.SetActive(true);
         }        
     }
+
+    public void updateStrength(float value)
+    {
+        strength += value;
+        //strengthValue.text = strength.ToString();
+    }
+
+    public void updateSpeed(float value)
+    {
+        speed += value;
+        //speedValue.text = speed.ToString();
+    }
+
+    public void updateWisdom(float value)
+    {
+        wisdom += value;
+        //wisdomValue.text = wisdom.ToString();
+    }
 }

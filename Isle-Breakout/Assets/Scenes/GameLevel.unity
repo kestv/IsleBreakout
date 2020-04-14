@@ -11511,6 +11511,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Water
       objectReference: {fileID: 0}
+    - target: {fileID: 933361975912258519, guid: 76623d998c412d645b9f19b9374e719c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 933361975912258523, guid: 76623d998c412d645b9f19b9374e719c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14725,7 +14730,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1152750086
 Transform:
   m_ObjectHideFlags: 0
