@@ -24,7 +24,6 @@ public class PlayerCombatController : MonoBehaviour
 
     bool isRangedWeapon;
 
-    public GameObject levelField;
     GameObject enemyHealthBar;
     GameObject slot1;
     GameObject slot2;
@@ -43,7 +42,6 @@ public class PlayerCombatController : MonoBehaviour
     {
         meleeWeapon = GameObject.Find("MeleeWeapon");
         rangeWeapon = GameObject.Find("RangeWeapon");
-        levelField = GameObject.Find("Level");
         controller = GetComponent<CharacterController>();
         CombatEventHandler.Instance.onEnemyDeath += killedTarget;
         spellController = GetComponent<SpellController>();
