@@ -20,7 +20,6 @@ public class EnemyGenerator : MonoBehaviour
         for (int i = 0; i < campsToSpawn; i++)
         {
             threshold = Random.Range(0, camps.Count - 1);
-            Debug.Log(threshold);
             var campPlace = Random.Range(0, campAreas.Count - 1);
             var camp = Instantiate(camps[threshold], campAreas[campPlace].transform.position, Quaternion.identity);
             if (camp != null)

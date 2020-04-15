@@ -26,6 +26,8 @@ public class SpellController : MonoBehaviour
 
     void Start()
     {
+        castBar = GameObject.Find("CastBar");
+        bar = GameObject.Find("Bar");
         startedCasting = 0;
         castBar.SetActive(false);
         triggering = false;

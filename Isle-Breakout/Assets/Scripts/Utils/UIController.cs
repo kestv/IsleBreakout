@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     bool menuOpen;
     void Start()
     {
+        menu = GameObject.Find("Menu");
         menu.SetActive(false);
         menuOpen = false;
         Time.timeScale = 1f;

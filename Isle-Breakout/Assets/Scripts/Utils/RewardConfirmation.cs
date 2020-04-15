@@ -16,6 +16,7 @@ public class RewardConfirmation : MonoBehaviour
 
     private void Start()
     {
+        player = GameObject.Find("PlayerInstance");
         gameObject.SetActive(false);
         spellCtrl = player.GetComponent<SpellController>();
         text = GetComponent<Text>();

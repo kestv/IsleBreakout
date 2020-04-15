@@ -41,6 +41,9 @@ public class PlayerCombatController : MonoBehaviour
 
     void Start()
     {
+        meleeWeapon = GameObject.Find("MeleeWeapon");
+        rangeWeapon = GameObject.Find("RangeWeapon");
+        levelField = GameObject.Find("Level");
         controller = GetComponent<CharacterController>();
         CombatEventHandler.Instance.onEnemyDeath += killedTarget;
         spellController = GetComponent<SpellController>();
@@ -48,7 +51,7 @@ public class PlayerCombatController : MonoBehaviour
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
         enemyHealthBar.SetActive(false);
-        levelField = GameObject.Find("Level");
+        
         enemyHealthBar.SetActive(false);
         slot1 = GameObject.Find("Slot1");
         slot2 = GameObject.Find("Slot2");
@@ -59,8 +62,7 @@ public class PlayerCombatController : MonoBehaviour
         meleeSelect = GameObject.Find("SelectMelee");
         rangeSelect.SetActive(false);
 
-        meleeWeapon = GameObject.Find("MeleeWeapon");
-        rangeWeapon = GameObject.Find("RangeWeapon");
+        
         rangeWeapon.SetActive(false);
 
         inCombat = false;

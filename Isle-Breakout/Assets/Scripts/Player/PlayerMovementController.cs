@@ -16,6 +16,7 @@ public class PlayerMovementController : MonoBehaviour
     bool isGrounded;
     private void Start()
     {
+        cam = GameObject.Find("Main Camera");
         isRunning = false;
         camTransform = cam.transform;
     }

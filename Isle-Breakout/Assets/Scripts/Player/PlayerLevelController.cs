@@ -11,11 +11,14 @@ public class PlayerLevelController : MonoBehaviour
     public float requiredExperiencePoints;
     public float totalXp;
 
+    GameObject levelField;
+
     public void Start()
     {
+        levelField = GameObject.Find("Level");
         level = Player.level;
         totalXp = Player.xp;
-        GetComponent<PlayerCombatController>().levelField.GetComponent<Text>().text = level.ToString();
+        levelField.GetComponent<Text>().text = level.ToString();
         CombatEventHandler.Instance.onEnemyDeath += GetExperience;
     }
 
@@ -52,7 +55,7 @@ public class PlayerLevelController : MonoBehaviour
 
         //TODO bad position
         var hpCanvas = GetComponent<PlayerHealthController>().getHealthbarCanvas();
-        GetComponent<PlayerCombatController>().levelField.GetComponent<Text>().text = level.ToString();
+        levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().remainingPoints++;
 
         UIEventHandler.Instance.DisplayReward("Level up!", true);

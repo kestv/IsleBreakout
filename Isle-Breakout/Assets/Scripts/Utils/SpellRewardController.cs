@@ -15,6 +15,7 @@ public class SpellRewardController : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.Find("PlayerInstance");
         gameObject.SetActive(false);
         spellCtrl = player.GetComponent<SpellController>();
     }

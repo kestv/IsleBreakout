@@ -17,6 +17,7 @@ public class CameraMovement : MonoBehaviour
     Quaternion rotation;
     void Start()
     {
+        lookAt = GameObject.Find("PlayerInstance").transform;
         rotation = Quaternion.Euler(currentY, currentX * sensitivityX, 0);
         camTransform = transform;
         cam = Camera.main;
