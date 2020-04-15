@@ -29,6 +29,7 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: a44263f5fdd824c4995a457c978c696f, type: 3}
   model: {fileID: 0}
+  dropChance: 80
   equip: {fileID: 0}
 --- !u!1001 &3917018067900540235
 PrefabInstance:

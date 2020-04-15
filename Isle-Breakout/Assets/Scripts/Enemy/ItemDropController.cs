@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ItemDropController : MonoBehaviour
 {
-    public GameObject item;
+    public List<GameObject> dropItems;
     void Start()
     {
     }
@@ -14,8 +14,22 @@ public class ItemDropController : MonoBehaviour
     {
         if(GetComponent<EnemyHealthController>().isDead())
         {
-            Instantiate(item, transform.position, transform.rotation);
-            enabled = false;
+            StartCoroutine(DropItems());
         }
+    }
+
+    IEnumerator DropItems()
+    {
+        enabled = false;
+        foreach (var item in dropItems)
+        {
+            var dropChance = item.GetComponent<ItemSettings>().dropChance;
+            var chance = Random.Range(1, 100);
+            if (chance < dropChance)
+            {
+                Instantiate(item, transform.position + new Vector3(Random.Range(-2,2),0,Random.Range(-2,2)), transform.rotation);
+            }
+        }
+        yield return 0;
     }
 }

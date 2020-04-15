@@ -38,7 +38,7 @@ public class ScrollController : MonoBehaviour
     public void StartMoving()
     {
         gameObject.SetActive(true);
-        transform.position = startPosition;
+        transform.position = new Vector3(transform.position.x, startPosition.y);
         startTime = Time.time;
         active = true;
     }

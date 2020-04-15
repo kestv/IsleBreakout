@@ -40,13 +40,21 @@ public class Quest : MonoBehaviour
         questGiverId = id;
     }
 
-    public void CheckGoals()
+    public void CheckGoals(int npcID)
     {
         if(goals.All(x => x.completed == true))
         {
-            if (Active && !Completed)
+            if (Active && !Completed && questGiverId == npcID)
             {
-                CompleteQuest();
+                if (itemReward != null && player.GetComponent<PlayerInventory>().inventoryFull)
+                {
+                    UIEventHandler.Instance.DisplayMessage("Inventory is full");
+                }
+                else
+                {
+                    Debug.Log("Inside complete");
+                    CompleteQuest();
+                } 
             }
         }
     }
@@ -85,7 +93,6 @@ public class Quest : MonoBehaviour
         if (Experience != 0)
         {
             player.GetComponent<PlayerLevelController>().GetExperience(Experience);
-
         }
         if(spellReward != null)
         {
@@ -93,13 +100,15 @@ public class Quest : MonoBehaviour
         }
         if(itemReward != null)
         {
-            //TODO item rewards
+            var inv = player.GetComponent<PlayerInventory>();
+            inv.AddItem(itemReward);
         }
+        RemoveQuest();
     }
 
     public void ActivateQuest()
     {
-
+        goals.ForEach(x => x.Init());
         questName = (Instantiate(Resources.Load("QuestName"), GameObject.Find("QuestList").transform) as GameObject);
         questObjective = (Instantiate(Resources.Load("QuestObjective"), GameObject.Find("QuestList").transform) as GameObject);
         questName.transform.position = questPosition.transform.position;
@@ -127,5 +136,12 @@ public class Quest : MonoBehaviour
     {
         questName.GetComponent<Text>().color = color;
         questObjective.GetComponent<Text>().color = color;
+    }
+
+    public void RemoveQuest()
+    {
+        questPosition.transform.position = questName.transform.position;
+        Destroy(questName);
+        Destroy(questObjective);
     }
 }

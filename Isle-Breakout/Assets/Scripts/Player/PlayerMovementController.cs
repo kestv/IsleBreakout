@@ -40,8 +40,11 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         velocity.y += gravity * Time.deltaTime;
+        if (!isGrounded)
+        {
+            controller.Move(velocity * Time.deltaTime);
+        }
 
-        controller.Move(velocity * Time.deltaTime);
         if(x != 0 || z != 0 || isRunning)
         {
             GetComponent<Animator>().SetBool("Running", true);

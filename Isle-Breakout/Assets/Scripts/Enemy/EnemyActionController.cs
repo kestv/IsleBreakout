@@ -13,21 +13,26 @@ public class EnemyActionController : MonoBehaviour
     const int IS_IDLING = 1;
     const int IS_RUNNING = 2;
     const int IS_ATTACKING = 3;
+
     //Position where enemy spot is
     public Vector3 spawnPos;
+
     //Trigger if player was found
     public bool playerSpotted;
-    //Targets which player to follow
-    public GameObject target;
+
     //Attack cooldown
     float lastAttack = 0;
+
     //Damage that enemy does
     public float damage;
+
     //Attack rate
     float attackRate = 2.0f;
+
     public float fallBackDistance = 30f;
     public bool gotAttacked;
     float attackTime;
+    float followTime;
     public bool busy;
 
     public EnemyAnimationController animations;
@@ -38,7 +43,6 @@ public class EnemyActionController : MonoBehaviour
         animations = GetComponent<EnemyAnimationController>();
         busy = false;
         player = GameObject.Find("PlayerInstance");
-        target = player;
         playerSpotted = false;
         StartCoroutine(Landing());
     }
@@ -49,6 +53,7 @@ public class EnemyActionController : MonoBehaviour
         spawnPos = transform.position;
         if(GetComponent<EnemyWander>() != null)
             GetComponent<EnemyWander>().enabled = true;
+        attackTime = 0f;
     }
 
     void Update()
@@ -68,21 +73,24 @@ public class EnemyActionController : MonoBehaviour
                     break;
             }
         }
-        //In order to follow player for some time and not fallback instantly
-        if(gotAttacked)
+
+        if(gotAttacked && Time.time - attackTime < followTime)
         {
-            if(Time.time - attackTime > 10f)
-            {
-                gotAttacked = false;
-            }
+            followPlayer(player);
+        }
+        else
+        {
+            gotAttacked = false;
         }
 
         if (!playerSpotted)
         {
             action = IS_IDLING;
             distance = getDistance(player);
-            if (distance < 10)
+            if (distance < 8)
             {
+                attackTime = Time.time;
+                followTime = UnityEngine.Random.Range(5, 10);
                 busy = true;
                 playerSpotted = true;
             }
@@ -90,13 +98,17 @@ public class EnemyActionController : MonoBehaviour
             {
                 playerSpotted = false;
             }
-
         }
 
-        if ((playerSpotted && !target.GetComponent<PlayerHealthController>().isDead()))
+        if (playerSpotted && Time.time - attackTime > followTime)
         {
-            followPlayer(target);
-            if (getDistance(target) > fallBackDistance && !gotAttacked)
+            playerSpotted = false;
+        }
+
+        if ((playerSpotted && !player.GetComponent<PlayerHealthController>().isDead()))
+        {
+            followPlayer(player);
+            if (getDistance(player) > fallBackDistance && !gotAttacked)
             {
                 playerSpotted = false;
             }
@@ -140,12 +152,10 @@ public class EnemyActionController : MonoBehaviour
             else
             {
                 action = IS_IDLING;
-                attack(target);
+                attack(player);
             }
         }
     }
-
-
 
     void attack(GameObject target)
     {
@@ -153,6 +163,7 @@ public class EnemyActionController : MonoBehaviour
         if (lastAttack + attackRate < Time.time)
         {
             lastAttack = Time.time;
+            attackTime = lastAttack;
             action = IS_ATTACKING;
             target.GetComponent<PlayerHealthController>().doDamage(damage);
         }
@@ -174,8 +185,9 @@ public class EnemyActionController : MonoBehaviour
     public void GotAttacked()
     {
         gotAttacked = true;
-        attackTime = Time.time;
         playerSpotted = true;
+        attackTime = Time.time;
+        followTime = UnityEngine.Random.Range(1, 5);
     }
 
     public void isRunning(bool isRunning)
@@ -197,6 +209,4 @@ public class EnemyActionController : MonoBehaviour
     {
         animations.isWalking(isWalking);
     }
-
-
 }

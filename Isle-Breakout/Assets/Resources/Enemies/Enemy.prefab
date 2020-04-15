@@ -3230,9 +3230,9 @@ MonoBehaviour:
   player: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
   playerSpotted: 0
-  target: {fileID: 0}
   damage: 10
   fallBackDistance: 15
+  gotAttacked: 0
   busy: 0
   animations: {fileID: 0}
 --- !u!114 &8422565565892463127
@@ -3247,7 +3247,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935766fa473d057429e8273787e8a394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 7854903988374793049, guid: 97417c6a718bd5940b048a38335a991b, type: 3}
+  dropItems:
+  - {fileID: 3917018067900416441, guid: cee3aa50aca00b8448eee8a0587e32e4, type: 3}
+  - {fileID: 6301488033319005396, guid: 720c3e62d1f891c4ab7395eefe9dd83d, type: 3}
 --- !u!114 &238866820
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,13 @@ public class PlayerTriggerHandler : MonoBehaviour
     public GameObject shipCanvas;
     public ShipPartController shipPartCtrl;
 
+    //NPC
+    public GameObject info;
+    int ID = 0;
+    List<string> conversations;
+    List<Quest> quests;
+    string npcName;
+
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
@@ -53,6 +60,13 @@ public class PlayerTriggerHandler : MonoBehaviour
                         player.GetComponent<PlayerMovementController>().enabled = false;
                         ChangeMainCanvasState(false);
                         break;
+                    case "Npc":
+                        NpcEventHandler.Instance.onTalkedToNpc(ID, conversations, npcName, quests);
+                        if (NpcEventHandler.Instance._onTalkedToNpc != null)
+                        {
+                            NpcEventHandler.Instance._onTalkedToNpc();
+                        }
+                        break;
                     default:
                         break;
                 }
@@ -68,54 +82,76 @@ public class PlayerTriggerHandler : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "item")
+        if (other.tag != "Untagged")
         {
-            trigger = other.gameObject;
-            string itemName = other.GetComponent<ItemSettings>().getName();
-            if (itemName != "")
+            if (other.tag == "item")
             {
-                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up <#ffffff>" + itemName + "</color> with <#ffffff>'F'</color>";
+                trigger = other.gameObject;
+                string itemName = other.GetComponent<ItemSettings>().getName();
+                if (itemName != "")
+                {
+                    messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up <#ffffff>" + itemName + "</color> with <#ffffff>'F'</color>";
+                }
+                else
+                {
+                    messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up " + "item" + " with 'F'";
+                }
+                messagePanel.SetActive(true);
             }
-            else
+            if (other.tag == "chest")
             {
-                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Pick up " + "item" + " with 'F'";
+                trigger = other.gameObject;
+                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open chest with <#ffffff>'F'</color>";
+                messagePanel.SetActive(true);
             }
-            messagePanel.SetActive(true);
+            if (other.tag == "craft")
+            {
+                trigger = other.gameObject;
+                messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open ship repair window with <#ffffff>'F'</color>";
+                messagePanel.SetActive(true);
+            }
+            if (other.tag == "Npc")
+            {
+                var npcCtrl = other.gameObject.GetComponent<NpcController>();
+                if (npcCtrl != null)
+                {
+                    trigger = other.gameObject;
+                    ID = npcCtrl.ID;
+                    conversations = npcCtrl.conversations;
+                    npcName = npcCtrl.name;
+                    quests = npcCtrl.quests;
+                    messagePanelText.GetComponent<TextMeshProUGUI>().text = string.Format("Talk to {0} with <#ffffff>'F'</color>", npcName);
+                    messagePanel.SetActive(true);
+                }
+            }
         }
-        if(other.tag == "chest")
-        {
-            trigger = other.gameObject;
-            messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open chest with <#ffffff>'F'</color>";
-            messagePanel.SetActive(true);
-        }
-        if(other.tag == "craft")
-        {
-            trigger = other.gameObject;
-            messagePanelText.GetComponent<TextMeshProUGUI>().text = "Open ship repair window with <#ffffff>'F'</color>";
-            messagePanel.SetActive(true);
-        }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "item")
-        {            
-            trigger = null;
-        }
-        if (other.tag == "chest")
+        if (other.tag != "Untagged")
         {
-            other.GetComponent<ChestSettings>().getChestPanel().SetActive(false);
+            if (other.tag == "item")
+            {
+                trigger = null;
+            }
+            if (other.tag == "chest")
+            {
+                other.GetComponent<ChestSettings>().getChestPanel().SetActive(false);
+            }
+            if (other.tag == "craft")
+            {
+                trigger = null;
+                shipCanvas.SetActive(false);
+                player.GetComponent<PlayerMovementController>().enabled = true;
+                ChangeMainCanvasState(true);
+            }
+            if (other.gameObject.tag == "Npc")
+            {
+                trigger = null;
+            }
+            messagePanel.SetActive(false);
         }
-        if (other.tag == "craft")
-        {
-            trigger = null;
-            shipCanvas.SetActive(false);
-            player.GetComponent<PlayerMovementController>().enabled = true;
-            ChangeMainCanvasState(true);
-        }
-        messagePanel.SetActive(false);
-        trigger = null;
     }
 
     public void PickUpItem()

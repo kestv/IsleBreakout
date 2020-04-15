@@ -10,8 +10,6 @@ public class FarmRescueQuest : Quest
         this.goals.Add(new KillGoal("Kill all enemies", 3, 3));
         this.Experience = 100;
 
-        this.goals.ForEach(g => g.Init());
-
         this.questGiverId = GetComponent<NpcController>().ID;
     }
 }

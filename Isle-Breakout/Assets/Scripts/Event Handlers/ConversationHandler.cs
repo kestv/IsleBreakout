@@ -19,6 +19,8 @@ public class ConversationHandler : MonoBehaviour
     List<string> conversations;
     List<Quest> quests;
 
+    int npcID;
+
     public void Awake()
     {
         conversation = GameObject.Find("Conversation");
@@ -37,6 +39,7 @@ public class ConversationHandler : MonoBehaviour
 
     public void StartConversation(int ID, List<string> conversations, string name, List<Quest> quests)
     {
+        npcID = ID;
         questAcceptButton.SetActive(false);
         if (quests.Count > 0)
             foreach (var quest in quests)
@@ -81,7 +84,7 @@ public class ConversationHandler : MonoBehaviour
         else
         {
             conversation.SetActive(false);
-            NpcEventHandler.Instance.afterTalkedToNpc();
+            NpcEventHandler.Instance.afterTalkedToNpc(npcID);
         }
     }
     public void AcceptQuest()

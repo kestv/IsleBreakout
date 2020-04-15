@@ -7,10 +7,8 @@ public class SlayerQuest : Quest
     public void Start()
     {
         this.init(GetComponent<NpcController>().ID);
-        this.goals.Add(new KillGoal("Kill 5 enemies", 3, 1));
+        this.goals.Add(new KillGoal("Kill 5 enemies", 3, 3));
         this.Experience = 50;
-
-        this.goals.ForEach(g => g.Init());
 
         this.questGiverId = GetComponent<NpcController>().ID;
     }

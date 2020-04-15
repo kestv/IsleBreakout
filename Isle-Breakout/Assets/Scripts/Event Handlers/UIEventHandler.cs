@@ -11,6 +11,8 @@ public class UIEventHandler : MonoBehaviour
     public GameObject rewardUI;
     public GameObject infoMessage;
     float lastMessage;
+    public GameObject damageMessage;
+    Vector3 damageStartingPosition;
     public static UIEventHandler Instance { get; private set; }
 
     private void Awake()
@@ -29,6 +31,9 @@ public class UIEventHandler : MonoBehaviour
     {
         rewardObject.SetActive(false);
         rewardUI.SetActive(false);
+        damageMessage.SetActive(false);
+        infoMessage.SetActive(false);
+        damageStartingPosition = damageMessage.transform.position;
     }
     public void DisplayReward(string reward, bool levelUp)
     {
@@ -55,5 +60,14 @@ public class UIEventHandler : MonoBehaviour
             infoMessage.GetComponent<ScrollController>().StartMoving();
             lastMessage = Time.time;
         }
+    }
+
+    public void DisplayDamage(float damage)
+    {
+        damageMessage.transform.position = damageStartingPosition;
+        damageMessage.transform.Translate(Random.Range(-20, 20), 0, 0);
+        damageMessage.SetActive(true);
+        damageMessage.GetComponent<Text>().text = damage.ToString();
+        damageMessage.GetComponent<ScrollController>().StartMoving();
     }
 }

@@ -94,15 +94,11 @@ public class SpellController : MonoBehaviour
 
     public void CastArrow(GameObject target, GameObject arrow)
     {
-        if (Vector3.Distance(transform.position, target.transform.position) <= 15)
-        {
-            StartCoroutine(IECastArrow(target, arrow));
-        }
+        StartCoroutine(IECastArrow(target, arrow));
     }
 
     public void TamePet()
     {
-        Debug.Log("TAMING");
         var ui = UIEventHandler.Instance;
         if (triggering && pet != null)
         {
@@ -146,7 +142,7 @@ public class SpellController : MonoBehaviour
 
     IEnumerator IECastArrow(GameObject target, GameObject arrow)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1f);
         var item = Instantiate(arrow, arrowCastPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
         item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;

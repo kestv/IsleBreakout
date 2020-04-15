@@ -159,8 +159,10 @@ public class PlayerCombatController : MonoBehaviour
                         }
                         else
                         {
-                            if(getDistance(target) <= range)
-                            AttackFromRange();
+                            if (getDistance(target) <= range)
+                            {
+                                AttackFromRange();
+                            }
                         }
                     }
                 }

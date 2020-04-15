@@ -20,7 +20,7 @@ public class EnemyDeath : MonoBehaviour
             deathTime = Time.time;
             waiting = false;
         }
-        else if(dead && (Time.time - deathTime >= 2))
+        else if(dead && (Time.time - deathTime >= 4))
         {
             Destroy(gameObject);
         }

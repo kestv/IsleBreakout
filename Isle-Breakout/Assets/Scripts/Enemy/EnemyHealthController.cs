@@ -10,8 +10,10 @@ public class EnemyHealthController : EnemyController
     public GameObject targetSprite;
     public float health;
     bool dead = false;
+    bool counted;
     void Start()
     {
+        counted = false;
         timer = Time.time;
     }
 
@@ -19,6 +21,12 @@ public class EnemyHealthController : EnemyController
     void Update()
     {
         isDead();
+        if (dead && !counted)
+        {
+            CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
+            CombatEventHandler.Instance.afterEnemyDeath();
+            counted = true;
+        }
     }
 
     public void doDamage(float amount)
@@ -27,6 +35,7 @@ public class EnemyHealthController : EnemyController
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
         healthBar.GetComponent<Slider>().value = health;
         if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().GotAttacked();
+        UIEventHandler.Instance.DisplayDamage(amount);
     }
 
     public float getHealth()
@@ -44,11 +53,7 @@ public class EnemyHealthController : EnemyController
             transform.GetComponent<EnemyHealthController>().enabled = false;
             if(transform.GetComponent<EnemyWander>() != null)
                 transform.GetComponent<EnemyWander>().enabled = false;
-            if (!dead)
-            {
-                CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
-                CombatEventHandler.Instance.afterEnemyDeath();
-            }
+            
             dead = true;
             return true;
         }

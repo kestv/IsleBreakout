@@ -12,6 +12,8 @@ public class ItemSettings : MonoBehaviour
     public Sprite sprite;       //Item sprite (image) used for item containers such as inventory or chests  
     public GameObject model;  //Item model used in UI (different scale, position, pivot, etc.)
 
+    public float dropChance;
+
     [SerializeField]
     ScriptableObject equip;
 
@@ -52,4 +54,6 @@ public class ItemSettings : MonoBehaviour
 
     public void setEquip(ScriptableObject equip)
     { this.equip = equip; }
+
+    
 }

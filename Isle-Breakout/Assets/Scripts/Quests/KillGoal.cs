@@ -17,11 +17,13 @@ public class KillGoal : Goal
     public override void Init()
     {
         CombatEventHandler.Instance.onEnemyDeath += EnemyDied;
+        currentAmount = 0;
         base.Init();
     }
 
     public void EnemyDied(float xp, int id)
     {
+        Debug.Log("LOL");
         if (enemyId == id)
         {
             this.currentAmount++;
