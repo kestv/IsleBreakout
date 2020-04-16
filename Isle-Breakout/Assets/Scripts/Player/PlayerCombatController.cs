@@ -23,6 +23,7 @@ public class PlayerCombatController : MonoBehaviour
     public float range;
 
     bool isRangedWeapon;
+    bool isRangedWeaponEquipped;
 
     GameObject enemyHealthBar;
     GameObject slot1;
@@ -239,4 +240,7 @@ public class PlayerCombatController : MonoBehaviour
     {
         return target;
     }
+
+    public void setIsRangedWeaponEquipped(bool state)
+    { isRangedWeaponEquipped = state; }
 }

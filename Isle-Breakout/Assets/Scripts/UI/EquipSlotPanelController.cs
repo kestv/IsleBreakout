@@ -9,8 +9,8 @@ public class EquipSlotPanelController : MonoBehaviour
     public Transform legsSlot;
     public Transform shouldersSlot;
     public Transform capeSlot;
-    public Transform primaryWeaponSlot;
-    public Transform secondaryWeaponSlot;
+    public Transform meleeWeaponSlot;
+    public Transform rangedWeaponSlot;
 
     private void Start()
     {
@@ -19,8 +19,8 @@ public class EquipSlotPanelController : MonoBehaviour
         legsSlot            = transform.GetChild(2);
         shouldersSlot       = transform.GetChild(3);
         capeSlot            = transform.GetChild(4);
-        primaryWeaponSlot   = transform.GetChild(5);
-        secondaryWeaponSlot = transform.GetChild(6);
+        meleeWeaponSlot     = transform.GetChild(5);
+        rangedWeaponSlot    = transform.GetChild(6);
     }
 
     public Transform getSlot(string slotType)
@@ -37,12 +37,10 @@ public class EquipSlotPanelController : MonoBehaviour
                 return shouldersSlot;
             case "Cape":
                 return capeSlot;
-            //case "Helmet":
-            //    return helmetSlot;
-            //    break;
-            //case "Helmet":
-            //    return helmetSlot;
-            //    break;
+            case "MeleeWeapon":
+                return meleeWeaponSlot;
+            case "RangedWeapon":
+                return rangedWeaponSlot;
             default:
                 break;
         }
@@ -65,9 +63,9 @@ public class EquipSlotPanelController : MonoBehaviour
     public Transform getCapeSlot()
     { return capeSlot; }
 
-    public Transform getPrimaryWeaponSlot()
-    { return primaryWeaponSlot; }
+    public Transform getMeleeWeaponSlot()
+    { return meleeWeaponSlot; }
 
-    public Transform getSecondaryWeaponSlot()
-    { return secondaryWeaponSlot; }
+    public Transform getRangedWeaponSlot()
+    { return rangedWeaponSlot; }
 }

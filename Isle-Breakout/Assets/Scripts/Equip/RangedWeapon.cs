@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class Cape : ScriptableObject, IArmor
+public class RangedWeapon : ScriptableObject, IArmor
 {
-    [Header("Cape meshes")]
+    [Header("Ranged weapon meshes")]
     [SerializeField]
-    private Mesh cape;
+    private Mesh rangedWeapon;
 
     [Header("Stats")]
     [SerializeField]
@@ -22,7 +22,7 @@ public class Cape : ScriptableObject, IArmor
     public List<Mesh> getMeshes()
     {
         List<Mesh> meshes = new List<Mesh>();
-        meshes.Add(cape);
+        meshes.Add(rangedWeapon);
         return meshes;
     }
 
@@ -48,6 +48,6 @@ public class Cape : ScriptableObject, IArmor
 
     public string getType()
     {
-        return "Cape";
+        return "RangedWeapon";
     }
 }

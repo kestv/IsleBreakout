@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlayerStatsController : MonoBehaviour
 {
     GameObject statsWindow;
+    public float hp;
     public float strength;
     public float speed;
     public float wisdom;
@@ -104,18 +105,20 @@ public class PlayerStatsController : MonoBehaviour
     public void updateStrength(float value)
     {
         strength += value;
-        //strengthValue.text = strength.ToString();
     }
 
     public void updateSpeed(float value)
     {
         speed += value;
-        //speedValue.text = speed.ToString();
     }
 
     public void updateWisdom(float value)
     {
         wisdom += value;
-        //wisdomValue.text = wisdom.ToString();
+    }
+
+    public void updateHP(float value)
+    {
+        hp += value;
     }
 }

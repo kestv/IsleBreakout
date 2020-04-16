@@ -11,8 +11,6 @@ public class EquipSlotController : MonoBehaviour
     public ArmorEquipper playerInstanceModel;
     public ArmorEquipper playerUIModel;
 
-    public string equipType;
-
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();

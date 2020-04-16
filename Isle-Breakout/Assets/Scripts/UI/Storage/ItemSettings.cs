@@ -10,7 +10,7 @@ public class ItemSettings : MonoBehaviour
     public string itemName;     //Item name used in scripts
     public string description;  //Item description
     public Sprite sprite;       //Item sprite (image) used for item containers such as inventory or chests  
-    public GameObject model;  //Item model used in UI (different scale, position, pivot, etc.)
+    public GameObject model;    //Item model used in UI (different scale, position, pivot, etc.)
 
     public float dropChance;
 

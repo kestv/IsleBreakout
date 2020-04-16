@@ -3,34 +3,44 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ArmorEquipper : MonoBehaviour
-{ 
-    public Transform playerModel;   //Modular_Characters
+{
+    private DependencyManager manager;
+
+    [Header("Attack refrences")]
+    [SerializeField] private Transform playerModel;   //Modular_Characters
+    [SerializeField] private bool isRenderer;         //Is the script on a player renderer
 
     [Header("HEAD")]
-    public GameObject hair;
-    public GameObject mask;
-    public GameObject helmet;
+    [SerializeField] private GameObject hair;
+    [SerializeField] private GameObject mask;
+    [SerializeField] private GameObject helmet;
 
     [Header("CAPE")]
-    public GameObject cape;
+    [SerializeField] private GameObject cape;
 
     [Header("SHOULDERS")]
-    public GameObject shoulderRight;
-    public GameObject shoulderLeft;
+    [SerializeField] private GameObject shoulderRight;
+    [SerializeField] private GameObject shoulderLeft;
 
     [Header("TORSO")]
-    public GameObject torso;
-    public GameObject armUpperRight;
-    public GameObject armUpperLeft;
-    public GameObject armLowerRight;
-    public GameObject armLowerLeft;
-    public GameObject handRight;
-    public GameObject handLeft;
+    [SerializeField] private GameObject torso;
+    [SerializeField] private GameObject armUpperRight;
+    [SerializeField] private GameObject armUpperLeft;
+    [SerializeField] private GameObject armLowerRight;
+    [SerializeField] private GameObject armLowerLeft;
+    [SerializeField] private GameObject handRight;
+    [SerializeField] private GameObject handLeft;
 
     [Header("LEGS")]
-    public GameObject hips;
-    public GameObject legRight;
-    public GameObject legLeft;
+    [SerializeField] private GameObject hips;
+    [SerializeField] private GameObject legRight;
+    [SerializeField] private GameObject legLeft;
+
+    [Header("MELEE WEAPON")]
+    [SerializeField] private GameObject meleeWeapon;
+
+    [Header("RANGED WEAPON")]
+    [SerializeField] private GameObject rangedWeapon;
 
     //Default TORSO meshes
     private Mesh defaultTorso;
@@ -46,40 +56,10 @@ public class ArmorEquipper : MonoBehaviour
     private Mesh defaultLegRight;
     private Mesh defaultLegLeft;
 
-    public Helmet helm;
-    public Torso tors;
-    public Legs leg;
-    public Cape cap;
-    public Shoulders should;
-
     private void Start()
     {
+        manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         InitDefaultMeshes();
-        //Equip(helm);
-        //Equip(tors);
-        //Equip(leg);
-        //Equip(cap);
-        //Equip(should);
-    }
-
-    public void EQP()
-    {
-        Debug.Log("EQUIPPED");
-        Equip(helm);
-        Equip(tors);
-        Equip(leg);
-        Equip(cap);
-        Equip(should);
-    }
-
-    public void UNEQP()
-    {
-        Debug.Log("UNEQUIPPED");
-        Unequip(helm);
-        Unequip(tors);
-        Unequip(leg);
-        Unequip(cap);
-        Unequip(should);
     }
 
     public void InitDefaultMeshes()
@@ -108,35 +88,23 @@ public class ArmorEquipper : MonoBehaviour
         go.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh;
     }
 
-    //TODO CLEAN UP METHODS
-    public void AddStats(IArmor equipment)
+    public void EditStats(IArmor equipment, bool increase)
     {
         PlayerStatsController ctrl = transform.root.GetComponent<PlayerStatsController>();
-        PlayerStatsPanelController panelCtrl = GameObject.Find("Manager").GetComponent<DependencyManager>().getEquipPanel().transform.GetChild(0).GetChild(3).GetComponent<PlayerStatsPanelController>();
+        PlayerStatsPanelController panelCtrl = manager.getEquipPanel().transform.GetChild(0).GetChild(3).GetComponent<PlayerStatsPanelController>();
 
-        if(ctrl != null)
+        int modifier = 1;
+        if (!increase)
         {
-            ctrl.updateStrength(equipment.getStrength());
-            ctrl.updateSpeed(equipment.getSpeed());
-            ctrl.updateWisdom(equipment.getWisdom());
-
-            panelCtrl.UpdateStats();
+            modifier *= -1;
         }
-    }
 
-    public void RemoveStats(IArmor equipment)
-    {
-        PlayerStatsController ctrl = transform.root.GetComponent<PlayerStatsController>();
-        PlayerStatsPanelController panelCtrl = GameObject.Find("Manager").GetComponent<DependencyManager>().getEquipPanel().transform.GetChild(0).GetChild(3).GetComponent<PlayerStatsPanelController>();
+        ctrl.updateStrength(equipment.getStrength() * modifier);
+        ctrl.updateSpeed(equipment.getSpeed() * modifier);
+        ctrl.updateWisdom(equipment.getWisdom() * modifier);
+        ctrl.updateHP(equipment.getHP() * modifier);
 
-        if (ctrl != null)
-        {
-            ctrl.updateStrength(equipment.getStrength() * -1);
-            ctrl.updateSpeed(equipment.getSpeed() * -1);
-            ctrl.updateWisdom(equipment.getWisdom() * -1);
-
-            panelCtrl.UpdateStats();
-        }
+        panelCtrl.UpdateStats();
     }
 
     public void Equip(IArmor equipment)
@@ -163,11 +131,25 @@ public class ArmorEquipper : MonoBehaviour
             case Legs legs:
                 EquipLegs(meshes);
                 break;
+            case MeleeWeapon meleeWeapon:
+                EquipMeleeWeapon(meshes);
+                break;
+            case RangedWeapon rangedWeapon:
+                EquipRangedWeapon(meshes);
+                break;
             default:
                 break;
         }
 
-        AddStats(equipment);
+        if (!isRenderer)
+        {
+            EditStats(equipment, true);
+        }
+        else
+        {
+            PlayerStatsPanelController panelCtrl = manager.getEquipPanel().transform.GetChild(0).GetChild(3).GetComponent<PlayerStatsPanelController>();
+            panelCtrl.UpdateStats();
+        }
     }
 
     public void Unequip(IArmor equipment)
@@ -192,17 +174,31 @@ public class ArmorEquipper : MonoBehaviour
             case Legs legs:
                 UnequipLegs();
                 break;
+            case MeleeWeapon meleeWeapon:
+                UnequipMeleeWeapon();
+                break;
+            case RangedWeapon rangedWeapon:
+                UnequipRangedWeapon();
+                break;
             default:
                 break;
         }
 
-        RemoveStats(equipment);
+        if (!isRenderer)
+        {
+            EditStats(equipment, false);
+        }
+        else
+        {
+            PlayerStatsPanelController panelCtrl = manager.getEquipPanel().transform.GetChild(0).GetChild(3).GetComponent<PlayerStatsPanelController>();
+            panelCtrl.UpdateStats();
+        }
     }
 
     public void EquipItem(GameObject target, Mesh mesh)
     {
         target.SetActive(true);
-        target.GetComponent<SkinnedMeshRenderer>().sharedMesh = mesh;
+        SetObjectMesh(target, mesh);
     }
 
     public void UnequipItem(GameObject target)
@@ -213,6 +209,16 @@ public class ArmorEquipper : MonoBehaviour
     public void UnequipItem(GameObject target, Mesh defaultMesh)
     {
         SetObjectMesh(target, defaultMesh);
+    }
+
+    public void EquipWeapon(GameObject target, Mesh mesh)
+    {
+        target.GetComponent<MeshFilter>().mesh = mesh;
+    }
+
+    public void UnequipWeapon(GameObject target)
+    {
+        target.GetComponent<MeshFilter>().mesh = null;
     }
 
     public void EquipMask(List<Mesh> meshes)
@@ -293,5 +299,35 @@ public class ArmorEquipper : MonoBehaviour
         UnequipItem(hips, defaultHips);
         UnequipItem(legRight, defaultLegRight);
         UnequipItem(legLeft, defaultLegLeft);
+    }
+
+    public void EquipMeleeWeapon(List<Mesh> meshes)
+    {
+        EquipWeapon(meleeWeapon, meshes[0]);
+    }
+
+    public void UnequipMeleeWeapon()
+    {
+        UnequipWeapon(meleeWeapon);
+    }
+
+    public void EquipRangedWeapon(List<Mesh> meshes)
+    {
+        EquipItem(rangedWeapon, meshes[0]);
+
+        if (!isRenderer)
+        {
+            GetComponent<PlayerCombatController>().setIsRangedWeaponEquipped(true);
+        }        
+    }
+
+    public void UnequipRangedWeapon()
+    {
+        UnequipItem(rangedWeapon, null);
+
+        if (!isRenderer)
+        {
+            GetComponent<PlayerCombatController>().setIsRangedWeaponEquipped(false);
+        }
     }
 }
