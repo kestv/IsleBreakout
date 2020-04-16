@@ -26,7 +26,8 @@ public class KillGoal : Goal
         Debug.Log("LOL");
         if (enemyId == id)
         {
-            this.currentAmount++;
+            if(currentAmount < requiredAmount)
+                this.currentAmount++;
             Evaluate();
         }
     }

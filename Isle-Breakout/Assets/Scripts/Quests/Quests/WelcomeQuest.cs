@@ -9,10 +9,5 @@ public class WelcomeQuest : Quest
     {
         this.init(GetComponent<NpcController>().ID);
         this.goals.Add(new TalkGoal("Starting quest", false, npcIdToTalk));
-        this.Experience = 50;
-
-        this.goals.ForEach(g => g.Init());
-
-
     }
 }

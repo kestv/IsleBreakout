@@ -1719,9 +1719,9 @@ GameObject:
   - component: {fileID: 230474693885393886}
   - component: {fileID: 230474693885393883}
   - component: {fileID: 230474693885393882}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: FarmAttacker
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1735,7 +1735,7 @@ Transform:
   m_GameObject: {fileID: 230474693885516528}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.9393616, y: 10.394908, z: -100.292816}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 230474693885691176}
   - {fileID: 230474693885753080}
@@ -1814,7 +1814,9 @@ MonoBehaviour:
   name: Farm Attacker
   healthBar: {fileID: 0}
   targetSprite: {fileID: 6988007974943617330}
-  health: 0
+  health: 100
+  dead: 0
+  playerCtrl: {fileID: 0}
 --- !u!114 &230474693885393886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1830,7 +1832,6 @@ MonoBehaviour:
   player: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
   playerSpotted: 0
-  target: {fileID: 0}
   damage: 10
   fallBackDistance: 15
   gotAttacked: 0
