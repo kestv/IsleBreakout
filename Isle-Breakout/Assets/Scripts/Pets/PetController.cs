@@ -41,6 +41,7 @@ public class PetController : MonoBehaviour
                 if (target != null)
                 {
                     transform.LookAt(target.transform);
+                    transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
                     if (Vector3.Distance(target.transform.position, transform.position) > 3f)
                     {
                         MoveTowardsTarget(target);

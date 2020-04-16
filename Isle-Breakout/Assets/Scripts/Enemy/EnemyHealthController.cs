@@ -9,10 +9,13 @@ public class EnemyHealthController : EnemyController
     float timer;
     public GameObject targetSprite;
     public float health;
-    bool dead = false;
+    public bool dead;
     bool counted;
+    public PlayerCombatController playerCtrl;
     void Start()
     {
+        playerCtrl = GameObject.Find("PlayerInstance").GetComponent<PlayerCombatController>();
+        dead = false;
         counted = false;
         timer = Time.time;
     }
@@ -21,12 +24,6 @@ public class EnemyHealthController : EnemyController
     void Update()
     {
         isDead();
-        if (dead && !counted)
-        {
-            CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
-            CombatEventHandler.Instance.afterEnemyDeath();
-            counted = true;
-        }
     }
 
     public void doDamage(float amount)
@@ -51,9 +48,13 @@ public class EnemyHealthController : EnemyController
             transform.GetComponent<Animator>().SetBool("isDead", true);
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
-            if(transform.GetComponent<EnemyWander>() != null)
+            if (transform.GetComponent<EnemyWander>() != null)
                 transform.GetComponent<EnemyWander>().enabled = false;
-            
+            if (!dead)
+            {
+                CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
+                CombatEventHandler.Instance.afterEnemyDeath();
+            }
             dead = true;
             return true;
         }
