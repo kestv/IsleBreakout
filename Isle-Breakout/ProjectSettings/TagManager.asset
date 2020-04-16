@@ -11,6 +11,10 @@ TagManager:
   - Campfire
   - Npc
   - Pet
+  - craft
+  - chest
+  - Water
+  - resource
   layers:
   - Default
   - TransparentFX

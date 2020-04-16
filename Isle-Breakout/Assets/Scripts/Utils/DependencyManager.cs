@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DependencyManager : MonoBehaviour
 {
@@ -17,27 +18,18 @@ public class DependencyManager : MonoBehaviour
     public ArmorEquipper playerUIModel;
     public GameObject canvasPlayerRenderer;
 
+    public GameObject resourceGatherImage;
+
     private void Awake()
     {
         player = GameObject.Find("PlayerInstance");
-        //player = Instantiate(player, new Vector3(394, 9, -408), player.transform.rotation);
-        
-        //GameObject.Find("Main Camera").GetComponent<CameraMovement>().lookAt = player.transform;
-        //player.GetComponent<PlayerMovementController>().cam = GameObject.Find("Main Camera");
-        //player.GetComponent<PlayerHealthController>().enabled = false;
-        //player.GetComponent<PlayerCombatController>().enabled = false;
-        //player.GetComponent<Animator>().enabled = false;
-        //player.GetComponent<PlayerSkillController>().enabled = false;
-        //player.GetComponent<PlayerLevelController>().enabled = false;
-        //player.GetComponent<PlayerSkillController>().enabled = false;
-        //player.GetComponent<TriggerController>().enabled = false;
-        //player.GetComponent<PlayerStatsController>().enabled = false;
-        //player.GetComponent<SpellController>().enabled = false;
         canvas = Instantiate(canvas);
         canvas.transform.GetChild(2).gameObject.SetActive(false);
 
         equipPanel = canvas.transform.GetChild(3).gameObject;
         equipSlotPanelController = equipPanel.transform.GetChild(0).GetChild(2).GetComponent<EquipSlotPanelController>();
+
+        resourceGatherImage = canvas.transform.GetChild(4).GetChild(0).gameObject;
 
         inventorySize = 6;
 
@@ -60,6 +52,7 @@ public class DependencyManager : MonoBehaviour
         yield return 100;    //Wait one frame
         shipCrafting.SetActive(false);        
         canvas.transform.GetChild(3).gameObject.SetActive(false);
+        resourceGatherImage.transform.parent.gameObject.SetActive(false);
     }
 
     public GameObject getPlayer()
@@ -106,4 +99,10 @@ public class DependencyManager : MonoBehaviour
 
     public GameObject getCanvasPlayerRenderer()
     { return canvasPlayerRenderer; }
+
+    public GameObject getResourceGatherImage()
+    { return resourceGatherImage; }
+
+    public void setResourceGatherImage(GameObject resourceGatherImage)
+    { this.resourceGatherImage = resourceGatherImage; }
 }
