@@ -5,11 +5,15 @@ using UnityEngine;
 public class ShipObjectController : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
+    private DependencyManager manager;
+    public GameObject shipRenderer;
     public PanelObjectRotator rotator;
 
     //---------------------UNITY METHODS---------------------
     private void Start()
     {
+        manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
+        shipRenderer = manager.getCanvasShipRenderer();
         rotator = GetComponent<PanelObjectRotator>();
     }
 
@@ -23,15 +27,15 @@ public class ShipObjectController : MonoBehaviour
     public void setChild(GameObject go)
     {
         GameObject child = Instantiate(go.GetComponent<ItemSettings>().getModel());
-        child.transform.SetParent(transform, false);
+        child.transform.SetParent(shipRenderer.transform.GetChild(0).GetChild(0), false);
         rotator.setObject(child);
     }
 
     public void removeChild()
     {
-        if (transform.childCount > 0)
+        if(shipRenderer.transform.GetChild(0).GetChild(0).childCount > 0)
         {
-            Destroy(transform.GetChild(0).gameObject);
+            Destroy(shipRenderer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
             rotator.setObject(null);
         }
     }

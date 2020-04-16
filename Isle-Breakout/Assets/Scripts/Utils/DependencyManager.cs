@@ -11,6 +11,7 @@ public class DependencyManager : MonoBehaviour
 
     public GameObject shipCrafting;
     public ShipBuilder shipBuilder;
+    public GameObject canvasShipRenderer;
 
     public GameObject equipPanel;
     public EquipSlotPanelController equipSlotPanelController;
@@ -33,13 +34,14 @@ public class DependencyManager : MonoBehaviour
 
         inventorySize = 6;
 
-        shipCrafting = Instantiate(shipCrafting);
-        //shipCrafting.SetActive(false);
+        shipCrafting = canvas.transform.GetChild(5).gameObject;
         shipBuilder = GameObject.Find("SHIP").GetComponent<ShipBuilder>();
 
         canvasPlayerRenderer = Instantiate(canvasPlayerRenderer);
         playerModel = player.GetComponent<ArmorEquipper>();
         playerUIModel = canvasPlayerRenderer.transform.GetChild(0).GetChild(0).GetComponent<ArmorEquipper>();
+
+        canvasShipRenderer = Instantiate(canvasShipRenderer);
     }
 
     private void Start()
@@ -105,4 +107,7 @@ public class DependencyManager : MonoBehaviour
 
     public void setResourceGatherImage(GameObject resourceGatherImage)
     { this.resourceGatherImage = resourceGatherImage; }
+
+    public GameObject getCanvasShipRenderer()
+    { return canvasShipRenderer; }
 }

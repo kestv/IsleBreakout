@@ -20,8 +20,9 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();        
         canvas = manager.getCanvas();
         inventoryPanel = canvas.transform.Find("UI_InventoryPanel").gameObject;
-        craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
-        shipPartPanel = manager.getShipCrafting().transform.GetChild(0).GetChild(0).GetChild(3).GetChild(0).gameObject;
+        //craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
+        craftingPanel = canvas.transform.GetChild(2).gameObject;
+        shipPartPanel = manager.getShipCrafting().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
 
         inventorySize = manager.getInventorySize();
         for (int i = 0; i < inventorySize; i++)
@@ -231,10 +232,11 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         craftingPanel.transform.GetChild(0).GetChild(0).GetComponent<RecipeController>().RefreshRecipeAvailability();
         craftingPanel.transform.GetChild(1).GetComponent<CraftItemController>().FormatCountText();
 
-        if(shipPartPanel.transform.childCount >= 0)
+        if(shipPartPanel.transform.GetChild(0).childCount >= 0)
         {
-            foreach (Transform child in shipPartPanel.transform)
+            foreach (Transform child in shipPartPanel.transform.GetChild(0))
             {
+                Debug.Log("Child: " + child);
                 child.GetComponent<ShipPartSlotController>().RefreshSlotCount();
             }
         }        

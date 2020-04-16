@@ -14,8 +14,10 @@ public class PlayerTriggerHandler : MonoBehaviour
     public GameObject item;
     public GameObject trigger;
 
-    public GameObject shipCanvas;
+    public GameObject shipCrafting;
     public ShipPartController shipPartCtrl;
+    public ShipRecipeController shipRecipeCtrl;
+    public Transform shipBuilder;
 
     public List<GameObject> triggers;
 
@@ -35,8 +37,10 @@ public class PlayerTriggerHandler : MonoBehaviour
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
         item = null;
 
-        shipCanvas = manager.getShipCrafting();
-        shipPartCtrl = shipCanvas.transform.GetChild(0).GetChild(0).GetChild(3).GetComponent<ShipPartController>();
+        shipCrafting = manager.getShipCrafting();
+        shipPartCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipePartPanel().GetComponent<ShipPartController>();
+        shipRecipeCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipeScrollPanel().GetChild(0).GetComponent<ShipRecipeController>();
+        shipBuilder = manager.getShipBuilder().transform;
         player = manager.getPlayer();
 
         triggers = new List<GameObject>();
@@ -58,11 +62,12 @@ public class PlayerTriggerHandler : MonoBehaviour
                         messagePanel.SetActive(false);
                         break;
                     case "craft":
-                        shipCanvas.SetActive(true);
-                        shipPartCtrl.RefreshRecipes();
-                        messagePanel.SetActive(false);
-                        player.GetComponent<PlayerMovementController>().enabled = false;
-                        ChangeMainCanvasState(false);
+                        if (!shipBuilder.GetChild(shipBuilder.childCount - 1).GetChild(shipBuilder.GetChild(shipBuilder.childCount - 1).childCount - 1).gameObject.activeSelf)
+                        {
+                            shipCrafting.SetActive(true);
+                            shipPartCtrl.RefreshRecipes();
+                            messagePanel.SetActive(false);
+                        }
                         break;
                     case "resource":
                         if (!inventory.isFull())
@@ -89,7 +94,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            shipCanvas.SetActive(false);
+            shipCrafting.SetActive(false);
             player.GetComponent<PlayerMovementController>().enabled = true;
             ChangeMainCanvasState(true);
             UpdateTriggerMessage();
@@ -110,8 +115,11 @@ public class PlayerTriggerHandler : MonoBehaviour
         }
         if (other.tag == "craft")
         {
-            triggers.Add(other.gameObject);
-            SetMessagePanelText(other.gameObject);
+            if (!shipBuilder.GetChild(shipBuilder.childCount - 1).GetChild(shipBuilder.GetChild(shipBuilder.childCount - 1).childCount - 1).gameObject.activeSelf)
+            {
+                triggers.Add(other.gameObject);
+                SetMessagePanelText(other.gameObject);
+            }
         }
         if (other.tag == "resource")
         {
@@ -147,7 +155,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         if (other.tag == "craft")
         {
             triggers.Remove(other.gameObject);
-            shipCanvas.SetActive(false);
+            shipCrafting.SetActive(false);
             player.GetComponent<PlayerMovementController>().enabled = true;
             ChangeMainCanvasState(true);
         }
