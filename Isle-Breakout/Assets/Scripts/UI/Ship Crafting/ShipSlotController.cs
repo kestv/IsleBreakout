@@ -30,8 +30,8 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
         setNamePanelText(nameText);
         setDescriptionPanelText(descriptionText);
 
-        shipPartCtrl = transform.root.GetChild(0).GetChild(0).GetChild(3).GetComponent<ShipPartController>();
-        shipObjectCtrl = transform.root.GetChild(0).GetChild(0).GetChild(1).GetComponent<ShipObjectController>();
+        shipPartCtrl = transform.root.GetChild(5).GetComponent<ShipRepair>().getRecipePartPanel().GetComponent<ShipPartController>();
+        shipObjectCtrl = transform.root.GetChild(5).GetComponent<ShipRepair>().getPartRenderer().GetComponent<ShipObjectController>();
 
         UpdateUI();
     }
@@ -44,7 +44,7 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
     //------------------------METHODS------------------------
     public void UpdateUI()
     {
-        shipPartCtrl.InitSlots(recipe);
+        shipPartCtrl.InitSlots(recipe);        
         shipObjectCtrl.InitObject(recipe.craftedItem);
     }
 

@@ -9,6 +9,7 @@ public class ShipPartController : MonoBehaviour
     public PlayerInventory inventory;
     public ShipBuilder shipBuilder;
 
+    public ShipRepair shipRepair;
     public CraftingRecipe recipe;
     public GameObject slotPrefab;
 
@@ -19,7 +20,8 @@ public class ShipPartController : MonoBehaviour
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         inventory = manager.getPlayer().GetComponent<PlayerInventory>();
-        shipRecipeCtrl = transform.root.GetChild(0).GetChild(0).Find("UI_ShipRecipeScrollPanel").GetChild(0).GetComponent<ShipRecipeController>();
+
+        shipRecipeCtrl = transform.root.GetChild(5).GetComponent<ShipRepair>().getRecipeScrollPanel().GetChild(0).GetComponent<ShipRecipeController>();
         shipBuilder = manager.getShipBuilder();
     }
 
@@ -52,9 +54,13 @@ public class ShipPartController : MonoBehaviour
             shipRecipeCtrl.RemoveRecipe(recipe);
             LoadStartingRecipe();
 
-            manager.getPlayer().GetComponent<PlayerMovementController>().enabled = true;
-            manager.getCanvas().GetComponent<Canvas>().enabled = true;
-            transform.root.gameObject.SetActive(false);
+            transform.root.GetChild(5).gameObject.SetActive(false);
+
+            Transform shipBuilderTransform = shipBuilder.transform;
+            if (!shipBuilderTransform.GetChild(shipBuilderTransform.childCount - 1).GetChild(shipBuilderTransform.GetChild(shipBuilderTransform.childCount - 1).childCount - 1).gameObject.activeSelf)
+            {
+                manager.getPlayer().GetComponent<PlayerTriggerHandler>().UpdateTriggerMessage();
+            }
         }
     }
 

@@ -26,8 +26,13 @@ TagManager:
   - 
   - PostProcessing
   - Ground
+<<<<<<< HEAD
   - Enemy
   - 
+=======
+  - PlayerRenderer
+  - ShipRenderer
+>>>>>>> a1a148977c440e3a6891bf13cf6fd337e2172e0f
   - 
   - 
   - 

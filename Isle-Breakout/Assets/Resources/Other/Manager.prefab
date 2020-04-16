@@ -49,9 +49,12 @@ MonoBehaviour:
   shipCrafting: {fileID: 3460190580375256272, guid: fa34750a18b327041992d3ce7c249cdc,
     type: 3}
   shipBuilder: {fileID: 0}
+  canvasShipRenderer: {fileID: 1038117993316755995, guid: 3f7265cf0b4cc2a4faf7bedcb7c5ea29,
+    type: 3}
   equipPanel: {fileID: 0}
   equipSlotPanelController: {fileID: 0}
   playerModel: {fileID: 0}
   playerUIModel: {fileID: 0}
   canvasPlayerRenderer: {fileID: 3251383272421016832, guid: b92570674f7a0b145b3d047977e4e088,
     type: 3}
+  resourceGatherImage: {fileID: 0}
