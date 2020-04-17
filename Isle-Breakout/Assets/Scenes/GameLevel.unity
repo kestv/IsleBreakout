@@ -16728,7 +16728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9c2c493c06c7a478ee782a0e6ef27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
+  spell: {fileID: 1961964258596952, guid: eca1ff6741def5a468081e17839fc91e, type: 3}
   image: {fileID: 0}
   cooldown: 0
 --- !u!4 &774583851 stripped
