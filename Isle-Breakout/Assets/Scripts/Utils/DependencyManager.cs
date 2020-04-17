@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class DependencyManager : MonoBehaviour
 {
     public GameObject player;
-    public GameObject canvas; 
+    public GameObject canvas;
+    public CanvasController canvasController;
     public int inventorySize;
 
     public GameObject shipCrafting;
@@ -25,6 +26,7 @@ public class DependencyManager : MonoBehaviour
     {
         player = GameObject.Find("PlayerInstance");
         canvas = Instantiate(canvas);
+        canvasController = canvas.GetComponent<CanvasController>();
         canvas.transform.GetChild(2).gameObject.SetActive(false);
 
         equipPanel = canvas.transform.GetChild(3).gameObject;
@@ -110,4 +112,7 @@ public class DependencyManager : MonoBehaviour
 
     public GameObject getCanvasShipRenderer()
     { return canvasShipRenderer; }
+
+    public CanvasController getCanvasController()
+    { return canvasController; }
 }

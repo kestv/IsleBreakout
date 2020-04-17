@@ -9,6 +9,7 @@ public class PlayerTriggerHandler : MonoBehaviour
     public GameObject player;
     public PlayerInventory inventory;
     public GameObject canvas;
+    public CanvasController canvasController;
     public GameObject messagePanel;
     public GameObject messagePanelText;
     public GameObject item;
@@ -33,6 +34,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         inventory = gameObject.GetComponent<PlayerInventory>();
         canvas = manager.getCanvas();
+        canvasController = manager.getCanvasController();
         messagePanel = canvas.transform.Find("UI_MessagePanel").gameObject;
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
         item = null;
@@ -58,15 +60,16 @@ public class PlayerTriggerHandler : MonoBehaviour
                         PickUpItem();
                         break;
                     case "chest":
-                        triggers[triggers.Count - 1].GetComponent<ChestSettings>().getChestPanel().SetActive(true);
-                        messagePanel.SetActive(false);
+                        ChestSettings chestSettings = triggers[triggers.Count - 1].GetComponent<ChestSettings>();
+                        canvasController.DisableAllPanelsExcept(chestSettings.getChestPanel().transform);
+                        chestSettings.getChestPanel().SetActive(true);                        
                         break;
                     case "craft":
                         if (!shipBuilder.GetChild(shipBuilder.childCount - 1).GetChild(shipBuilder.GetChild(shipBuilder.childCount - 1).childCount - 1).gameObject.activeSelf)
                         {
                             shipCrafting.SetActive(true);
                             shipPartCtrl.RefreshRecipes();
-                            messagePanel.SetActive(false);
+                            canvasController.DisableAllPanelsExcept(canvasController.getShipRepairPanel());
                         }
                         break;
                     case "resource":
@@ -91,13 +94,6 @@ public class PlayerTriggerHandler : MonoBehaviour
                         break;
                 }
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            shipCrafting.SetActive(false);
-            player.GetComponent<PlayerMovementController>().enabled = true;
-            ChangeMainCanvasState(true);
-            UpdateTriggerMessage();
         }
     }
 

@@ -236,7 +236,6 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         {
             foreach (Transform child in shipPartPanel.transform.GetChild(0))
             {
-                Debug.Log("Child: " + child);
                 child.GetComponent<ShipPartSlotController>().RefreshSlotCount();
             }
         }        

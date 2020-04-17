@@ -27,13 +27,11 @@ public class RecipeController : MonoBehaviour
     {
         transform.parent.parent.gameObject.SetActive(true);
         RefreshRecipeAvailability();
-        Debug.Log("OPEN");
     }
 
     public void Close()
     {
         transform.parent.parent.gameObject.SetActive(false);
-        Debug.Log("CLOSE");
     }
 
     public void RefreshRecipeAvailability()

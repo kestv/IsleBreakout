@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     public DependencyManager manager;
     public GameObject canvas;
+    public CanvasController canvasController;
 
     public GameObject craftingPanel;
     public RecipeController recipeCtrl;
@@ -17,6 +18,7 @@ public class PlayerInputController : MonoBehaviour
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         canvas = manager.getCanvas();
+        canvasController = manager.getCanvasController();
         craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
         equipPanel = canvas.transform.GetChild(3).gameObject;
         recipeCtrl = craftingPanel.transform.GetChild(0).GetChild(0).GetComponent<RecipeController>();
@@ -26,27 +28,29 @@ public class PlayerInputController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.C))
         {
-            bool isActive = !craftingPanel.activeSelf;
+            bool isActive = craftingPanel.activeSelf;
             if (isActive)
             {
-                //craftingPanel.SetActive(true);
-                recipeCtrl.Open();
+                recipeCtrl.Close();
             }
             else
             {
-                recipeCtrl.Close();
+                canvasController.DisableAllPanelsExcept(canvasController.getCraftingPanel());
+                recipeCtrl.Open();
+                
             }
         }
         if (Input.GetKeyDown(KeyCode.I))
         {
-            bool isActive = !equipPanel.activeSelf;
+            bool isActive = equipPanel.activeSelf;
             if (isActive)
             {
-                equipPanel.SetActive(true);
+                equipPanel.SetActive(false);
             }
             else
             {
-                equipPanel.SetActive(false);
+                canvasController.DisableAllPanelsExcept(canvasController.getEquipPanel());
+                equipPanel.SetActive(true);
             }
         }
     }
