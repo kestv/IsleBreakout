@@ -8,6 +8,7 @@ public class SpellHolder : MonoBehaviour
     public GameObject spell;
     public Image image;
     public bool cooldown;
+
     void Start()
     {
         cooldown = false;

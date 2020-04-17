@@ -68,5 +68,7 @@ public class SpellRewardController : MonoBehaviour
         spellSprite.GetComponent<Image>().sprite = spell.GetComponent<SpellInfo>().image;
         acquiredInfo.GetComponent<Text>().text = spell.GetComponent<SpellInfo>().name + " acquired";
         rewardInfo.SetActive(true);
+        rewardInfo.transform.GetChild(1).GetComponent<SpellHolder>().SetSpell(spell);
+
     }
 }
