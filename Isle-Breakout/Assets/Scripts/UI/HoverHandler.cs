@@ -45,6 +45,4 @@ public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
             Destroy(infoPanel);
         }
     }
-
-    
 }

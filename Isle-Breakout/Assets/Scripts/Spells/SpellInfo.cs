@@ -8,14 +8,13 @@ public class SpellInfo : MonoBehaviour
     public string name;
     public float cooldown;
     public int type;
-    void Start()
-    {
-        
-    }
+    
+    public Sprite getSprite()
+    { return image; }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public string getName()
+    { return name; }
+
+    public float getCooldown()
+    { return cooldown; }
 }

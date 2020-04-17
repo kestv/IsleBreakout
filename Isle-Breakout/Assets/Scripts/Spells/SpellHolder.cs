@@ -30,4 +30,7 @@ public class SpellHolder : MonoBehaviour
         image.sprite = spell.GetComponent<SpellInfo>().image;
         this.spell = spell;
     }
+
+    public GameObject getSpell()
+    { return spell; }
 }
