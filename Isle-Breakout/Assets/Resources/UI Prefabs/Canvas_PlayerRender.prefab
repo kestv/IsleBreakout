@@ -234,7 +234,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -358.67}
-  m_SizeDelta: {x: 100, y: 120}
+  m_SizeDelta: {x: 170, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!20 &3251383273128589084
 Camera:
@@ -246,7 +246,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.7122642, g: 1, b: 0.7921111, a: 0}
+  m_BackGroundColor: {r: 0.98989433, g: 1, b: 0.7137255, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -327,7 +327,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.75
+  m_Intensity: 1.2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -366,7 +366,7 @@ Light:
     serializedVersion: 2
     m_Bits: 1024
   m_RenderingLayerMask: 1
-  m_Lightmapping: 4
+  m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -476,17 +476,17 @@ PrefabInstance:
     - target: {fileID: 5788999240227584889, guid: 0088c8690be09f949a0fc20c8e0fa04b,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 5788999240227584889, guid: 0088c8690be09f949a0fc20c8e0fa04b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.84
+      value: -0.8
       objectReference: {fileID: 0}
     - target: {fileID: 5788999240227584889, guid: 0088c8690be09f949a0fc20c8e0fa04b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.85
+      value: 1.95
       objectReference: {fileID: 0}
     - target: {fileID: 5788999240227584889, guid: 0088c8690be09f949a0fc20c8e0fa04b,
         type: 3}

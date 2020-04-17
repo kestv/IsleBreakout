@@ -13,7 +13,7 @@ public class CanvasController : MonoBehaviour
 
     public void DisableAllPanelsExcept(Transform panel)
     {
-        for (int i = 0; i < transform.childCount; i++)
+        for (int i = 1; i < transform.childCount; i++)
         {
             if (transform.GetChild(i) != panel)
             {
