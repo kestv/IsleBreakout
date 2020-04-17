@@ -3362,7 +3362,7 @@ GameObject:
   - component: {fileID: 65611723}
   - component: {fileID: -224047371850991228}
   - component: {fileID: -5455985258015562394}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: VikingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3378,7 +3378,7 @@ Transform:
   m_GameObject: {fileID: 5203176831837364250}
   m_LocalRotation: {x: 0, y: 0.9999556, z: -0, w: -0.009424517}
   m_LocalPosition: {x: 272.69885, y: 20.042297, z: -273.0821}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4384134404987936770}
   - {fileID: 438120575}
@@ -3426,7 +3426,6 @@ MonoBehaviour:
   player: {fileID: 0}
   spawnPos: {x: 0, y: 0, z: 0}
   playerSpotted: 0
-  target: {fileID: 0}
   damage: 10
   fallBackDistance: 15
   gotAttacked: 0
@@ -3444,7 +3443,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 935766fa473d057429e8273787e8a394, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 7854903988374793049, guid: 97417c6a718bd5940b048a38335a991b, type: 3}
+  dropItems: []
 --- !u!114 &4384134404974206806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,6 +3463,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 4384134404987936797}
   health: 100
+  dead: 0
+  playerCtrl: {fileID: 0}
 --- !u!54 &65611724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3491,7 +3492,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.5028361, y: 1.9903873, z: 0.5388937}
+  m_Size: {x: 0.5028361, y: 2, z: 0.5388937}
   m_Center: {x: 0.016061326, y: 1.0023084, z: 0.011331518}
 --- !u!114 &65611723
 MonoBehaviour:

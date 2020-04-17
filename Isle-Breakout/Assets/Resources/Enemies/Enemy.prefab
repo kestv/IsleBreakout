@@ -3167,7 +3167,7 @@ GameObject:
   - component: {fileID: -1511341031896491703}
   - component: {fileID: -519369887754739637}
   - component: {fileID: 881512864381618589}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -3183,7 +3183,7 @@ Transform:
   m_GameObject: {fileID: 8422565564660575944}
   m_LocalRotation: {x: 0, y: 0.9999556, z: -0, w: -0.009424517}
   m_LocalPosition: {x: 0, y: 0, z: -5.58}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 8422565564660096540}
   - {fileID: 8422565564660125930}
@@ -3269,6 +3269,8 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 250441423}
   health: 100
+  dead: 0
+  playerCtrl: {fileID: 0}
 --- !u!65 &1410087112876974408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3280,7 +3282,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.65138954, y: 1.7512599, z: 0.423925}
+  m_Size: {x: 0.65138954, y: 2, z: 0.423925}
   m_Center: {x: 0.17430538, y: 0.92392427, z: -0.28803784}
 --- !u!54 &412363098
 Rigidbody:

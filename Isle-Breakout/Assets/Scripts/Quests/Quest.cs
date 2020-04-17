@@ -10,7 +10,7 @@ public class Quest : MonoBehaviour
     public List<Goal> goals = new List<Goal>();
     public List<string> conversations = new List<string>();
     public int Experience;
-    public string Name;
+    public string QuestName;
     public bool Completed = false;
     public bool Active = false;
 
@@ -78,7 +78,7 @@ public class Quest : MonoBehaviour
         if (Active)
         {
             SetQuestObjective("", true);
-            SetQuestName(name);
+            SetQuestName(QuestName);
             foreach (var goal in goals)
             {
                 SetQuestObjective(goal.currentAmount + "/" + goal.requiredAmount, false);
@@ -113,7 +113,7 @@ public class Quest : MonoBehaviour
         questObjective = (Instantiate(Resources.Load("QuestObjective"), GameObject.Find("QuestList").transform) as GameObject);
         questName.transform.position = questPosition.transform.position;
         questObjective.transform.position = questPosition.transform.position;
-        questObjective.transform.Translate(new Vector3(60, 0, 0));
+        questObjective.transform.Translate(new Vector3(150, 0, 0));
         Active = true;
         DisplayEvaluation();
         questPosition.transform.Translate(new Vector3(0, -30, 0));

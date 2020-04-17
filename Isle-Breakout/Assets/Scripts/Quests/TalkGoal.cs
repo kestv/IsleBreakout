@@ -14,6 +14,15 @@ public class TalkGoal : Goal
         this.requiredAmount = 1;
     }
 
+    public TalkGoal(string description, bool completed, int id, int requiredAmount)
+    {
+        this.description = description;
+        this.completed = completed;
+        this.npcId = id;
+        this.currentAmount = 0;
+        this.requiredAmount = requiredAmount;
+    }
+
     public override void Init()
     {
         NpcEventHandler.Instance.onTalkedToNpc += TalkedToNpc;
@@ -25,8 +34,13 @@ public class TalkGoal : Goal
         Debug.Log("TalkedToNpc");
         if (this.npcId == id)
         {
-            this.currentAmount = 1;
-            this.Complete();
+            if (this.requiredAmount == 1)
+            {
+                this.currentAmount = 1;
+                this.Complete();
+            }
+            else
+                this.currentAmount += 1;
         }
     }
 }

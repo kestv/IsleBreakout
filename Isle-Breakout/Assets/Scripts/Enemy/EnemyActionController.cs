@@ -74,15 +74,7 @@ public class EnemyActionController : MonoBehaviour
             }
         }
 
-        if(gotAttacked && Time.time - attackTime < followTime)
-        {
-            followPlayer(player);
-        }
-        else
-        {
-            gotAttacked = false;
-        }
-
+        //If idling, looking for action
         if (!playerSpotted)
         {
             action = IS_IDLING;
@@ -100,11 +92,24 @@ public class EnemyActionController : MonoBehaviour
             }
         }
 
+        //If it was attacked by player
+        if (gotAttacked && Time.time - attackTime < followTime)
+        {
+            playerSpotted = true;
+            followPlayer(player);
+        }
+        else
+        {
+            gotAttacked = false;
+        }
+
+        //Running too far loses target
         if (playerSpotted && Time.time - attackTime > followTime)
         {
             playerSpotted = false;
         }
 
+        //Normal situation, player spotted
         if ((playerSpotted && !player.GetComponent<PlayerHealthController>().isDead()))
         {
             followPlayer(player);
@@ -113,20 +118,22 @@ public class EnemyActionController : MonoBehaviour
                 playerSpotted = false;
             }
         }
-        else
+        else //Goes back to camp if lost
         {
             if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
             {
                 playerSpotted = false;
                 goBackToCamp();
             }
-            else if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
+            else 
+            //if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
             {
                 playerSpotted = false;
-                action = IS_IDLING;
+                isIdling(true);
                 busy = false;
             }
         }
+
     }
 
     float getDistance(GameObject target)
@@ -172,7 +179,8 @@ public class EnemyActionController : MonoBehaviour
 
     void goBackToCamp()
     {
-        if (spawnPos.x != 0 && GetComponent<EnemyWander>() != null && !GetComponent<EnemyWander>().busy)
+        var busy = GetComponent<EnemyWander>() ? GetComponent<EnemyWander>().busy : false;
+        if (spawnPos.x != 0 && !busy)
         {
             action = IS_RUNNING;
             transform.position = Vector3.MoveTowards(transform.position, spawnPos, speed * Time.deltaTime);
@@ -208,5 +216,10 @@ public class EnemyActionController : MonoBehaviour
     public void isWalking(bool isWalking)
     {
         animations.isWalking(isWalking);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        
     }
 }

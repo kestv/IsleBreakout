@@ -55,6 +55,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             strength += value;
             strengthValue.text = strength.ToString();
+            remainingValue.text = remainingPoints.ToString();
         }
     }
 
@@ -66,6 +67,7 @@ public class PlayerStatsController : MonoBehaviour
             speed += value;
             speedValue.text = speed.ToString();
             GetComponent<PlayerMovementController>().speed += speed/4;
+            remainingValue.text = remainingPoints.ToString();
         }
     }
 
@@ -76,6 +78,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             wisdom += value;
             wisdomValue.text = wisdom.ToString();
+            remainingValue.text = remainingPoints.ToString();
         }
     }
 
