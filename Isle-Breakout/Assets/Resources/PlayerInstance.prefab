@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2404468922128114028
 Transform:
   m_ObjectHideFlags: 0
@@ -1686,7 +1686,6 @@ GameObject:
   - component: {fileID: 214535691740133536}
   - component: {fileID: 2540292520080133191}
   - component: {fileID: 4176204554401788413}
-  - component: {fileID: 5799276834410737337}
   m_Layer: 0
   m_Name: PlayerInstance
   m_TagString: Player
@@ -1701,7 +1700,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966810254032483518}
-  m_LocalRotation: {x: 0, y: 0.48022285, z: 0, w: -0.87714654}
+  m_LocalRotation: {x: 0, y: -0.4802235, z: 0, w: 0.8771462}
   m_LocalPosition: {x: 0, y: 0, z: -305.5202}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_Children:
@@ -1713,7 +1712,7 @@ RectTransform:
   - {fileID: 796419368695229986}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -57.4, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 237.08661, y: 20.621292}
@@ -1873,7 +1872,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4966810254032483518}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2d2f50e6e7e2faf4b82be547a502841b, type: 3}
   m_Name: 
@@ -1917,8 +1916,10 @@ MonoBehaviour:
   messagePanelText: {fileID: 0}
   item: {fileID: 0}
   trigger: {fileID: 0}
-  shipCanvas: {fileID: 0}
+  shipCrafting: {fileID: 0}
   shipPartCtrl: {fileID: 0}
+  shipRecipeCtrl: {fileID: 0}
+  shipBuilder: {fileID: 0}
   triggers: []
   info: {fileID: 0}
 --- !u!114 &2423853350010960531
@@ -1979,6 +1980,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerModel: {fileID: 8655262965150188842, guid: 970735789fb28954892cd49df43a1251,
     type: 3}
+  isRenderer: 0
   hair: {fileID: 7719427333101878848}
   mask: {fileID: 7720038254588704102}
   helmet: {fileID: 7720193862987801272}
@@ -2001,11 +2003,6 @@ MonoBehaviour:
   legLeft: {fileID: 7720792837936986022}
   meleeWeapon: {fileID: 7217223113975552598}
   rangedWeapon: {fileID: 2507235775795322103}
-  helm: {fileID: 11400000, guid: cc583d798ae476d419d46932476e1590, type: 2}
-  tors: {fileID: 11400000, guid: c133c55115d2df5489d371786dec3a12, type: 2}
-  leg: {fileID: 11400000, guid: 4e45a4ec4af073442a2311506e1064a9, type: 2}
-  cap: {fileID: 11400000, guid: 24270d73c93224b4cb36f41160958b5f, type: 2}
-  should: {fileID: 11400000, guid: 52c049e73c0b8904ea44017319432b86, type: 2}
 --- !u!114 &4176204554401788413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2023,20 +2020,6 @@ MonoBehaviour:
   combatCtrl: {fileID: 8370830772231548530}
   movementCtrl: {fileID: 8919495712573501306}
   menu: {fileID: 0}
---- !u!136 &5799276834410737337
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966810254032483518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.8
-  m_Height: 1.85
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.92, z: 0}
 --- !u!1 &4966810254032483520
 GameObject:
   m_ObjectHideFlags: 0
@@ -4828,7 +4811,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7217223113975552598}
-  m_Mesh: {fileID: 0}
+  m_Mesh: {fileID: 4300000, guid: 089abf828fdceb44f9219e7b0bedbb9d, type: 3}
 --- !u!23 &7217223113977992808
 MeshRenderer:
   m_ObjectHideFlags: 0
