@@ -56,14 +56,13 @@ public class PlayerCombatController : MonoBehaviour
         slot2 = GameObject.Find("Slot2");
         slot3 = GameObject.Find("Slot3");
         slot4 = GameObject.Find("Slot4");
-
+        
         rangeSelect = GameObject.Find("SelectRange");
         meleeSelect = GameObject.Find("SelectMelee");
         rangeSelect.SetActive(false);
-
         
         rangeWeapon.SetActive(false);
-
+        slot4.SetActive(false);
         inCombat = false;
     }
 
@@ -111,7 +110,8 @@ public class PlayerCombatController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SetWeapon(true);
+            if(isRangedWeaponEquipped)
+                SetWeapon(true);
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -202,6 +202,8 @@ public class PlayerCombatController : MonoBehaviour
         {
             target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
             enemyHealthBar.GetComponent<Slider>().value = target.GetComponent<EnemyHealthController>().health;
+            enemyHealthBar.GetComponent<HealthController>().maxHealth = target.GetComponent<EnemyHealthController>().maxHealth;
+            enemyHealthBar.GetComponent<HealthController>().currentHealth = target.GetComponent<EnemyHealthController>().health;
             target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
             target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
             
@@ -242,5 +244,8 @@ public class PlayerCombatController : MonoBehaviour
     }
 
     public void setIsRangedWeaponEquipped(bool state)
-    { isRangedWeaponEquipped = state; }
+    { 
+        isRangedWeaponEquipped = state;
+        slot4.SetActive(state);
+    }
 }

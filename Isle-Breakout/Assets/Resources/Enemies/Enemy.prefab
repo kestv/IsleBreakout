@@ -3268,6 +3268,7 @@ MonoBehaviour:
   name: Attacker
   healthBar: {fileID: 0}
   targetSprite: {fileID: 250441423}
+  maxHealth: 100
   health: 100
   dead: 0
   playerCtrl: {fileID: 0}
