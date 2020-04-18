@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 98881326}
   - component: {fileID: 98881328}
   - component: {fileID: 98881327}
+  - component: {fileID: 98881329}
   m_Layer: 0
   m_Name: Camera
   m_TagString: Untagged
@@ -356,6 +357,21 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!114 &98881329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 98881325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1ee1c62c905bb24ea7c9cf3d9d40b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TraumaExponent: 1
+  MaximumAngularShake: {x: 5, y: 5, z: 5}
+  MaximumTranslationShake: {x: 0.75, y: 0.75, z: 0.75}
 --- !u!1001 &240980442
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1371,7 +1387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1398,10 +1414,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1941940985}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245b41809171b244ad893788e2dd244, type: 3}
+  m_Script: {fileID: 11500000, guid: acdf9753e4e98f443a329a038c047546, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera1: {fileID: 2133596868}
+  camera1: {fileID: 95418711}
   camera2: {fileID: 98881325}
 --- !u!1001 &2006769865
 PrefabInstance:

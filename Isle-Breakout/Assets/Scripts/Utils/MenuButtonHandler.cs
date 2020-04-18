@@ -50,6 +50,6 @@ public class MenuButtonHandler : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         SceneManager.LoadScene(1);
-        SceneManager.UnloadScene(0);
+        SceneManager.UnloadSceneAsync(0);
     }
 }

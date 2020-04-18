@@ -13,14 +13,15 @@ public class PlayerHealthController : MonoBehaviour
     float hunger;
 
     HealthController healthCtrl;
+
     void Start()
     {
-        healthCtrl = healthBarCanvas.GetComponent<HealthController>();
-        hunger = 100;
-        gettingWarm = false;
         healthBarCanvas = GameObject.Find("Healthbar");
         hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
         warmthBar = GameObject.Find("Warmth").GetComponent<Slider>();
+        healthCtrl = healthBarCanvas.GetComponent<HealthController>();
+        hunger = 100;
+        gettingWarm = false;
         timer = Time.time;
     }
 
