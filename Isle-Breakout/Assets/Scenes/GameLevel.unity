@@ -10735,6 +10735,14 @@ PrefabInstance:
       propertyPath: conversations.Array.data[2]
       value: Go and talk to him
       objectReference: {fileID: 0}
+    - target: {fileID: 1839748567, guid: a43715643a2018c43b597e79051422c1, type: 3}
+      propertyPath: questGiverId
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1839748568, guid: a43715643a2018c43b597e79051422c1, type: 3}
+      propertyPath: quests.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8422565564660061308, guid: a43715643a2018c43b597e79051422c1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -16708,6 +16716,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2063608780015739193}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &773495539 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1757928932, guid: a207364cb1340c141bbe61161082fa9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 2063608780015739193}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773495537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &773495541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16735,7 +16755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spell: {fileID: 1961964258596952, guid: eca1ff6741def5a468081e17839fc91e, type: 3}
-  image: {fileID: 0}
+  image: {fileID: 773495539}
   cooldown: 0
 --- !u!4 &774583851 stripped
 Transform:
@@ -25067,7 +25087,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1123638583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -44847,6 +44867,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 773506548, guid: a207364cb1340c141bbe61161082fa9e, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 992840350, guid: a207364cb1340c141bbe61161082fa9e, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -44907,6 +44931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4556481400893376241, guid: a207364cb1340c141bbe61161082fa9e,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5918708621262907972, guid: a207364cb1340c141bbe61161082fa9e,
         type: 3}
