@@ -17,7 +17,7 @@ public class RecipeController : MonoBehaviour
         foreach(CraftingRecipe recipe in recipes)
         {
             GameObject slot = Instantiate(slotPrefab);
-            slot.transform.SetParent(transform);
+            slot.transform.SetParent(transform, false);
             RecipeSlotController slotController = slot.GetComponent<RecipeSlotController>();
             slotController.setRecipe(recipe);
         }

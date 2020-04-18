@@ -17,7 +17,7 @@ public class InventoryPanelController : MonoBehaviour
         for (int i = 0; i < inventorySize; i++)
         {
             slotPrefab = Instantiate(slotPrefab);
-            slotPrefab.transform.SetParent(transform);
+            slotPrefab.transform.SetParent(transform, false);
             slotPrefab.GetComponent<SlotController>().setSlotIndex(i);
         }
     }

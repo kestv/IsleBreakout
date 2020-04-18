@@ -40,7 +40,7 @@ public class CraftItemController : MonoBehaviour
         foreach(Item item in recipe.getMaterials())
         {
             GameObject slot = Instantiate(slotPrefab);
-            slot.transform.SetParent(slotPanel.transform);
+            slot.transform.SetParent(slotPanel.transform, false);
             CraftItemSlotController slotController = slot.GetComponent<CraftItemSlotController>();
 
             ItemSettings itemSettings = item.requiredItem.GetComponent<ItemSettings>();

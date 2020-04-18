@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 6065be9a0aa4ee4448a64416a78e6a8e
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Lavigne
+  fontNames:
+  - Lavigne
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: f7f5997d12b01704da64e8b53b7f2c11, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

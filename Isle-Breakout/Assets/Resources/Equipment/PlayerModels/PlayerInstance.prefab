@@ -2779,7 +2779,6 @@ MonoBehaviour:
   target: {fileID: 0}
   arrow: {fileID: 0}
   range: 0
-  levelField: {fileID: 0}
 --- !u!114 &6036651468081100905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2792,6 +2791,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807703bd55d57b24a894b5f9b718761c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 0
   strength: 10
   speed: 20
   wisdom: 30
@@ -2866,12 +2866,17 @@ MonoBehaviour:
   player: {fileID: 0}
   inventory: {fileID: 0}
   canvas: {fileID: 0}
+  canvasController: {fileID: 0}
   messagePanel: {fileID: 0}
   messagePanelText: {fileID: 0}
   item: {fileID: 0}
   trigger: {fileID: 0}
-  shipCanvas: {fileID: 0}
+  shipCrafting: {fileID: 0}
   shipPartCtrl: {fileID: 0}
+  shipRecipeCtrl: {fileID: 0}
+  shipBuilder: {fileID: 0}
+  triggers: []
+  info: {fileID: 0}
 --- !u!114 &8101397509635939947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2920,6 +2925,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   canvas: {fileID: 0}
+  canvasController: {fileID: 0}
   craftingPanel: {fileID: 0}
   recipeCtrl: {fileID: 0}
   equipPanel: {fileID: 0}
@@ -2936,6 +2942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerModel: {fileID: 8655262965150188842}
+  isRenderer: 0
   hair: {fileID: 8652782769686332574}
   mask: {fileID: 8653424468943933368}
   helmet: {fileID: 8653549300182538342}
@@ -2952,11 +2959,8 @@ MonoBehaviour:
   hips: {fileID: 8653119576704333830}
   legRight: {fileID: 8651969412893980136}
   legLeft: {fileID: 8651962968354917752}
-  helm: {fileID: 11400000, guid: cc583d798ae476d419d46932476e1590, type: 2}
-  tors: {fileID: 11400000, guid: c133c55115d2df5489d371786dec3a12, type: 2}
-  leg: {fileID: 11400000, guid: 4e45a4ec4af073442a2311506e1064a9, type: 2}
-  cap: {fileID: 11400000, guid: 24270d73c93224b4cb36f41160958b5f, type: 2}
-  should: {fileID: 11400000, guid: 52c049e73c0b8904ea44017319432b86, type: 2}
+  meleeWeapon: {fileID: 0}
+  rangedWeapon: {fileID: 0}
 --- !u!1 &789886572439412203
 GameObject:
   m_ObjectHideFlags: 0
