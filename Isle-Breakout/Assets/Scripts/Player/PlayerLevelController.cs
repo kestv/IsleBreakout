@@ -54,7 +54,7 @@ public class PlayerLevelController : MonoBehaviour
         requiredExperiencePoints *= levelRate;
 
         //TODO bad position
-        var hpCanvas = GetComponent<PlayerHealthController>().getHealthbarCanvas();
+        var hpCanvas = GetComponent<PlayerHealthController>().GetHealthbarCanvas();
         levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().remainingPoints++;
 

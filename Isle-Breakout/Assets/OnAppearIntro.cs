@@ -7,25 +7,32 @@ public class OnAppearIntro : MonoBehaviour
 {
     public GameObject camera1;
     public GameObject camera2;
+    Animator animator;
     void Start()
     {
         camera2.SetActive(false);
-        GetComponent<Animator>().SetTrigger("FadeOut");
+        animator = GetComponent<Animator>();
+        animator.SetTrigger("FadeOut");
         StartCoroutine(Intro());
     }
 
     IEnumerator Intro()
     {
-        yield return new WaitForSeconds(5f);
-        GetComponent<Animator>().SetTrigger("FadeIn");
+        yield return new WaitForSeconds(10f);
+        animator.SetTrigger("FadeIn");
         yield return new WaitForSeconds(2f);
         camera1.SetActive(false);
         camera2.SetActive(true);
-        GetComponent<Animator>().SetTrigger("FadeOut");
-        yield return new WaitForSeconds(10f);
-        GetComponent<Animator>().SetTrigger("FadeIn");
-        yield return new WaitForSeconds(2f);
-        SceneManager.UnloadScene(1);
+        animator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(4f);
+        animator.SetTrigger("Blink");
+        yield return new WaitForSeconds(4f);
+        animator.SetTrigger("Blink");
+        yield return new WaitForSeconds(6f);
+        camera2.GetComponent<StressReceiver>().InduceStress(1);
+        animator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene(2);
+        SceneManager.UnloadSceneAsync(1);
     }
 }

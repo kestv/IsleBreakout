@@ -4,15 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - HealthBar
-  - Bullet
-  - Enemy
   - item
-  - Campfire
+  - Enemy
   - Npc
   - Pet
   - craft
+  - Campfire
   - chest
+  - HealthBar
+  - Bullet
   - Water
   - resource
   layers:
@@ -24,15 +24,10 @@ TagManager:
   - UI
   - 
   - 
-  - PostProcessing
-  - Ground
-<<<<<<< HEAD
-  - Enemy
   - 
-=======
-  - PlayerRenderer
-  - ShipRenderer
->>>>>>> a1a148977c440e3a6891bf13cf6fd337e2172e0f
+  - 
+  - 
+  - 
   - 
   - 
   - 
