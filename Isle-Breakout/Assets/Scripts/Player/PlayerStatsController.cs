@@ -20,7 +20,8 @@ public class PlayerStatsController : MonoBehaviour
     public Text speedValue;
     public Text wisdomValue;
     public Text remainingValue;
-    
+
+    PlayerHealthController healthCtrl;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,7 @@ public class PlayerStatsController : MonoBehaviour
         statsWindow = GameObject.Find("Stats");
 
         remainingPoints = GetComponent<PlayerLevelController>().level;
+        healthCtrl = GetComponent<PlayerHealthController>();
         statsWindow.SetActive(false);
     }
 
@@ -123,5 +125,20 @@ public class PlayerStatsController : MonoBehaviour
     public void updateHP(float value)
     {
         hp += value;
+    }
+
+    public void IncreaseMaxHealth(float value)
+    {
+        healthCtrl.IncreaseMaxHealth(value);
+    }
+
+    public void Heal(float value)
+    {
+        healthCtrl.Heal(value);
+    }
+
+    public void Eat(float value)
+    {
+        healthCtrl.Eat(value);
     }
 }

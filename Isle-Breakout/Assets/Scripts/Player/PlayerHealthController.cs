@@ -10,8 +10,13 @@ public class PlayerHealthController : MonoBehaviour
     public Slider warmthBar;
     bool gettingWarm;
     float timer;
+    float hunger;
+
+    HealthController healthCtrl;
     void Start()
     {
+        healthCtrl = healthBarCanvas.GetComponent<HealthController>();
+        hunger = 100;
         gettingWarm = false;
         healthBarCanvas = GameObject.Find("Healthbar");
         hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
@@ -22,7 +27,7 @@ public class PlayerHealthController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isDead())
+        if (IsDead())
         {
             transform.GetComponent<Animator>().SetBool("isDead", true);
             if(transform.tag == "Player")
@@ -31,45 +36,61 @@ public class PlayerHealthController : MonoBehaviour
                 transform.GetComponent<PlayerCombatController>().enabled = false;
             }
         }
-        hungerBar.value -= 0.02f;
-        if (gettingWarm == false)
-        {
-            warmthBar.value -= 0.02f;
-        }
-        else
-        {
-            warmthBar.value += 0.5f;
-        }
+        hunger -= 0.02f;
+        hungerBar.value = hunger;
+
         if(warmthBar.value <= 0 || hungerBar.value <= 0)
         {
             if(Time.time - timer >= 10)
             {
-                doDamage(5);
+                DoDamage(5);
                 timer = Time.time;
             }
         }
     }
 
-    public void doDamage(float amount)
+    public void DoDamage(float amount)
     {
-        healthBarCanvas.GetComponent<HealthController>().decreaseHealth(amount);
+        healthCtrl.DecreaseHealth(amount);
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
     }
     
-    public float getHealth()
+    public float GetHealth()
     {
-        return healthBarCanvas.GetComponent<HealthController>().getHealth();
+        return healthCtrl.GetHealth();
     }
 
-    public bool isDead()
+    public bool IsDead()
     {
-        if (healthBarCanvas.GetComponent<HealthController>().getHealth() <= 0) return true;
+        if (healthCtrl.GetHealth() <= 0) return true;
         else return false;
     }
 
-    public GameObject getHealthbarCanvas()
+    public GameObject GetHealthbarCanvas()
     {
         return healthBarCanvas;
+    }
+
+    public void IncreaseMaxHealth(float value)
+    {
+        healthCtrl.IncreaseMaxHeatlh(value);
+    }
+
+    public void Heal(float value)
+    {
+        healthCtrl.Heal(value);
+    }
+
+    public void Eat(float value)
+    {
+        hunger += value;
+        if(hunger > 100)
+        {
+            var remainder = hunger - 100;
+            hunger = 100;
+            Heal(remainder);
+        }
+
     }
     
     private void OnTriggerEnter(Collider col)

@@ -6,24 +6,42 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     public GameObject player;
-    public float startingHealth;
+    public float maxHealth;
+    public float currentHealth;
     float lastVisible;
-    GameObject obj;
+    float healthbarValue;
     public void Start()
     {
-        obj = gameObject;
-        obj.GetComponent<Slider>().value = startingHealth;
+        healthbarValue = GetComponent<Slider>().value;
+        currentHealth = maxHealth;
+        healthbarValue = currentHealth; 
     }
     public void Update()
     {
     }
-    public void decreaseHealth(float amount)
+    public void DecreaseHealth(float amount)
     {
-        obj.GetComponent<Slider>().value -= amount;
+        currentHealth -= amount;
+        healthbarValue = currentHealth;
     }
 
-    public float getHealth()
+    public float GetHealth()
     {
-        return obj.GetComponent<Slider>().value;
+        return currentHealth;
+    }
+
+    public void IncreaseMaxHeatlh(float value)
+    {
+        maxHealth = value;
+    }
+
+    public void Heal(float value)
+    {
+        currentHealth += value;
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
+        }
+        healthbarValue = currentHealth;
     }
 }

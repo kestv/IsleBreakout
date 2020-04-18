@@ -110,7 +110,7 @@ public class EnemyActionController : MonoBehaviour
         }
 
         //Normal situation, player spotted
-        if ((playerSpotted && !player.GetComponent<PlayerHealthController>().isDead()))
+        if ((playerSpotted && !player.GetComponent<PlayerHealthController>().IsDead()))
         {
             followPlayer(player);
             if (getDistance(player) > fallBackDistance && !gotAttacked)
@@ -144,7 +144,7 @@ public class EnemyActionController : MonoBehaviour
     void followPlayer(GameObject player)
     {
         busy = true;
-        if (!player.GetComponent<PlayerHealthController>().isDead())
+        if (!player.GetComponent<PlayerHealthController>().IsDead())
         {
             if (getDistance(player) > 2.5f)
             {
@@ -172,7 +172,7 @@ public class EnemyActionController : MonoBehaviour
             lastAttack = Time.time;
             attackTime = lastAttack;
             action = IS_ATTACKING;
-            target.GetComponent<PlayerHealthController>().doDamage(damage);
+            target.GetComponent<PlayerHealthController>().DoDamage(damage);
         }
         else action = IS_IDLING;
     }
