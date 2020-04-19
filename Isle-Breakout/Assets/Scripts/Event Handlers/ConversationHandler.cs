@@ -95,6 +95,7 @@ public class ConversationHandler : MonoBehaviour
     }
     public void AcceptQuest()
     {
+        NpcEventHandler.Instance.afterTalkedToNpc(npcID);
         foreach (var quest in quests)
         {
             if (quest.Completed == false && quest.Active == false)

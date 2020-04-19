@@ -11,6 +11,7 @@ public class Quest : MonoBehaviour
     public List<string> conversations = new List<string>();
     public int Experience;
     public string QuestName;
+
     public bool Completed = false;
     public bool Active = false;
 
@@ -36,8 +37,8 @@ public class Quest : MonoBehaviour
         NpcEventHandler.Instance.afterTalkedToNpc += CheckGoals;
         NpcEventHandler.Instance.onTalkedToNpc += _DisplayEvaluation;
         CombatEventHandler.Instance.afterEnemyDeath += DisplayEvaluation;
-
-        questGiverId = id;
+        if(questGiverId == 0)
+            questGiverId = id;
     }
 
     public void CheckGoals(int npcID)
@@ -101,7 +102,7 @@ public class Quest : MonoBehaviour
         if(itemReward != null)
         {
             var inv = player.GetComponent<PlayerInventory>();
-            inv.AddItem(itemReward);
+            inv.AddItem(Instantiate(itemReward));
         }
         RemoveQuest();
     }

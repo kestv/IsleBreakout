@@ -127,20 +127,30 @@ public class PlayerCombatController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
         {
             isAttacking = false;
+            transform.GetComponent<PlayerMovementController>().canAnimate = true;
         }
 
         if (isAttacking && target != null)
         {
+
             if (!isRangedWeapon && getDistance(target) > 2f)
             {
                 //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 10f * Time.deltaTime);
                 var pos = target.transform.position - transform.position;
                 pos = pos.normalized * GetComponent<PlayerMovementController>().speed;
-                controller.Move(pos * Time.deltaTime);
-                transform.GetComponent<PlayerMovementController>().isRunning = true;
+                if (!GetComponent<PlayerMovementController>().isRunning)
+                {
+                    controller.Move(pos * Time.deltaTime);
+                    transform.GetComponent<PlayerMovementController>().isRunning = true;
+                    GetComponent<Animator>().SetBool("Running", true);
+                    transform.GetComponent<PlayerMovementController>().canAnimate = false;
+                    transform.LookAt(target.transform);
+                }
+                
             }
             else
             {
+                GetComponent<Animator>().SetBool("Running", false);
                 transform.GetComponent<PlayerMovementController>().isRunning = false;
                 var damage = GetComponent<PlayerStatsController>().strength * 10 + this.damage;
 

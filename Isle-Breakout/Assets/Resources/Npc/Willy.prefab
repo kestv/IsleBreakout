@@ -2690,8 +2690,9 @@ GameObject:
   - component: {fileID: 2231315459613868185}
   - component: {fileID: 7644243916853415049}
   - component: {fileID: 7644243916813825717}
+  - component: {fileID: 6923454482064333426}
   m_Layer: 0
-  m_Name: Villager2
+  m_Name: Willy
   m_TagString: Npc
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2715,6 +2716,7 @@ Transform:
   - {fileID: 2231315459620789549}
   - {fileID: 2231315459620842165}
   - {fileID: 7644243915190947261}
+  - {fileID: 416398912608089245}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 181.08, z: 0}
@@ -2763,15 +2765,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 1
-  name: Vance Refrigeration
+  ID: 3
+  _name: Willy
   conversations:
-  - Hello there
-  - Thank you for visiting me
+  - Hello, nice to meet you
   conversationText: {fileID: 0}
   conversationButton: {fileID: 0}
-  nameTag: {fileID: 0}
+  nameTag: {fileID: 7104912946897317274}
   quests: []
+--- !u!114 &6923454482064333426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231315459621211557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questGiverId: 3
+  conversations:
+  - Hello my dear
+  - Thank you for visiting me
+  - If you don't mind..
+  - I would like you to do me a favour
+  - Could please kill these warriors
+  - They are ruining my beach
+  - I will award you with a weapon
+  Experience: 0
+  QuestName: Warriors
+  Completed: 0
+  Active: 0
+  spellReward: {fileID: 0}
+  itemReward: {fileID: 2504427649476227438, guid: 9a80bc469d623944292c4667a9b76eb5,
+    type: 3}
+  questName: {fileID: 0}
+  questObjective: {fileID: 0}
+  questPosition: {fileID: 0}
+  player: {fileID: 0}
 --- !u!1 &2231315459621213823
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,3 +3201,84 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &8964705564256508223
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2231315459620779793}
+    m_Modifications:
+    - target: {fileID: 2229475983345939621, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_Name
+      value: Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.84419495
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.53603625
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
+    - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2aae6493a9176e745a402131ebffdd5d, type: 3}
+--- !u!1 &7104912946897317274 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2229475983345939621, guid: 2aae6493a9176e745a402131ebffdd5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8964705564256508223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &416398912608089245 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
+    type: 3}
+  m_PrefabInstance: {fileID: 8964705564256508223}
+  m_PrefabAsset: {fileID: 0}
