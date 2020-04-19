@@ -1837,6 +1837,7 @@ MonoBehaviour:
   fallBackDistance: 15
   gotAttacked: 0
   busy: 0
+  scanDistance: 12
   animations: {fileID: 0}
 --- !u!114 &230474693885393883
 MonoBehaviour:

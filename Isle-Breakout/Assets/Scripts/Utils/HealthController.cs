@@ -49,4 +49,15 @@ public class HealthController : MonoBehaviour
         }
         healthbarValue.value = currentHealth;
     }
+
+    public void SetTarget(GameObject target)
+    {
+        
+        maxHealth = target.GetComponent<EnemyHealthController>().maxHealth;
+        currentHealth = target.GetComponent<EnemyHealthController>().health;
+        GetComponent<Slider>().maxValue = maxHealth;
+        GetComponent<Slider>().value = currentHealth;
+        gameObject.SetActive(true);
+        player = target;
+    }
 }

@@ -201,14 +201,9 @@ public class PlayerCombatController : MonoBehaviour
         if (target != null)
         {
             target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
-            enemyHealthBar.GetComponent<Slider>().value = target.GetComponent<EnemyHealthController>().health;
-            enemyHealthBar.GetComponent<HealthController>().maxHealth = target.GetComponent<EnemyHealthController>().maxHealth;
-            enemyHealthBar.GetComponent<HealthController>().currentHealth = target.GetComponent<EnemyHealthController>().health;
             target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
             target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
-            
-            enemyHealthBar.SetActive(true);
-            enemyHealthBar.GetComponent<HealthController>().player = target;
+            enemyHealthBar.GetComponent<HealthController>().SetTarget(target);
             
         }
     }

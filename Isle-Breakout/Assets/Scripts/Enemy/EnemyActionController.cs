@@ -34,6 +34,7 @@ public class EnemyActionController : MonoBehaviour
     float attackTime;
     float followTime;
     public bool busy;
+    public float scanDistance = 8;
 
     public EnemyAnimationController animations;
 
@@ -79,7 +80,7 @@ public class EnemyActionController : MonoBehaviour
         {
             action = IS_IDLING;
             distance = getDistance(player);
-            if (distance < 8)
+            if (distance < scanDistance)
             {
                 attackTime = Time.time;
                 followTime = UnityEngine.Random.Range(5, 10);
@@ -146,6 +147,7 @@ public class EnemyActionController : MonoBehaviour
         busy = true;
         if (!player.GetComponent<PlayerHealthController>().IsDead())
         {
+            transform.LookAt(player.transform);
             if (getDistance(player) > 2.5f)
             {
                 action = IS_RUNNING;

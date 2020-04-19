@@ -59,6 +59,8 @@ public class EnemyHealthController : EnemyController
                 CombatEventHandler.Instance.afterEnemyDeath();
             }
             dead = true;
+            GetComponent<Rigidbody>().isKinematic = true;
+            GetComponent<Collider>().enabled = false;
             return true;
         }
         else return false;
