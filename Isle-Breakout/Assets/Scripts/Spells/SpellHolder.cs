@@ -12,7 +12,6 @@ public class SpellHolder : MonoBehaviour
     void Start()
     {
         cooldown = false;
-        image = GetComponent<Image>();
         image.sprite = spell.GetComponent<SpellInfo>().image;
     }
 

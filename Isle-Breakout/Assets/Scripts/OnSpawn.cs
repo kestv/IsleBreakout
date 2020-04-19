@@ -4,9 +4,18 @@ using UnityEngine;
 
 public class OnSpawn : MonoBehaviour
 {
-    // Start is called before the first frame update
+    float timer;
     void Start()
     {
+        timer = Time.time;
         GetComponent<Animator>().SetTrigger("FadeOut");
+    }
+
+    private void Update()
+    {
+        if(Time.time - timer > 2.5f)
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

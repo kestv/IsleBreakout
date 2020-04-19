@@ -8,12 +8,14 @@ public class EnemyHealthController : EnemyController
     public GameObject healthBar;
     float timer;
     public GameObject targetSprite;
+    public float maxHealth;
     public float health;
     public bool dead;
     bool counted;
     public PlayerCombatController playerCtrl;
     void Start()
     {
+        health = maxHealth;
         playerCtrl = GameObject.Find("PlayerInstance").GetComponent<PlayerCombatController>();
         dead = false;
         counted = false;
@@ -31,6 +33,7 @@ public class EnemyHealthController : EnemyController
         health -= amount;
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
         healthBar.GetComponent<Slider>().value = health;
+        healthBar.GetComponent<HealthController>().currentHealth = health;
         if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().GotAttacked();
         UIEventHandler.Instance.DisplayDamage(amount);
     }

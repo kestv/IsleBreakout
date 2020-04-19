@@ -1814,6 +1814,7 @@ MonoBehaviour:
   name: Farm Attacker
   healthBar: {fileID: 0}
   targetSprite: {fileID: 6988007974943617330}
+  maxHealth: 100
   health: 100
   dead: 0
   playerCtrl: {fileID: 0}

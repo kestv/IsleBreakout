@@ -48,7 +48,7 @@ public class UIEventHandler : MonoBehaviour
     public void DisplaySpellReward(GameObject spell)
     {
         rewardUI.SetActive(true);
-        rewardUI.GetComponent<SpellRewardController>().SetSpell(spell);
+        rewardUI.GetComponent<SpellRewardController>().SetSpell(spell);        
     }
 
     public void DisplayMessage(string message)

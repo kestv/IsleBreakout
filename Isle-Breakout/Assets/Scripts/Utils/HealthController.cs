@@ -6,23 +6,26 @@ using UnityEngine.UI;
 public class HealthController : MonoBehaviour
 {
     public GameObject player;
+    public GameObject hpText;
+
     public float maxHealth;
     public float currentHealth;
     float lastVisible;
-    float healthbarValue;
+    Slider healthbarValue;
     public void Start()
     {
-        healthbarValue = GetComponent<Slider>().value;
+        healthbarValue = GetComponent<Slider>();
         currentHealth = maxHealth;
-        healthbarValue = currentHealth; 
+        healthbarValue.value = currentHealth; 
     }
     public void Update()
     {
+        hpText.GetComponent<Text>().text = string.Format("{0}/{1}", currentHealth, maxHealth);
     }
     public void DecreaseHealth(float amount)
     {
         currentHealth -= amount;
-        healthbarValue = currentHealth;
+        healthbarValue.value = currentHealth;
     }
 
     public float GetHealth()
@@ -42,6 +45,6 @@ public class HealthController : MonoBehaviour
         {
             currentHealth = maxHealth;
         }
-        healthbarValue = currentHealth;
+        healthbarValue.value = currentHealth;
     }
 }
