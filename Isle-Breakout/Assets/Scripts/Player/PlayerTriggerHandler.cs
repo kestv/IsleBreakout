@@ -135,6 +135,10 @@ public class PlayerTriggerHandler : MonoBehaviour
                 SetMessagePanelText(other.gameObject);
             }
         }
+        if(other.tag == "PirateShip")
+        {
+            other.GetComponent<ShipFloat>().enabled = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -162,6 +166,10 @@ public class PlayerTriggerHandler : MonoBehaviour
         if (other.gameObject.tag == "Npc")
         {
             triggers.Remove(other.gameObject);
+        }
+        if (other.tag == "PirateShip")
+        {
+            other.GetComponent<ShipFloat>().enabled = false;
         }
 
         UpdateTriggerMessage();
