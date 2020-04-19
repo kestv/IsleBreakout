@@ -18,7 +18,6 @@ public class PlayerHealthController : MonoBehaviour
     {
         healthBarCanvas = GameObject.Find("Healthbar");
         hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
-        warmthBar = GameObject.Find("Warmth").GetComponent<Slider>();
         healthCtrl = healthBarCanvas.GetComponent<HealthController>();
         hunger = 100;
         gettingWarm = false;
@@ -40,7 +39,7 @@ public class PlayerHealthController : MonoBehaviour
         hunger -= 0.02f;
         hungerBar.value = hunger;
 
-        if(warmthBar.value <= 0 || hungerBar.value <= 0)
+        if(hungerBar.value <= 0)
         {
             if(Time.time - timer >= 10)
             {

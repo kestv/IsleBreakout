@@ -15,8 +15,9 @@ public class HealthController : MonoBehaviour
     public void Start()
     {
         healthbarValue = GetComponent<Slider>();
+        healthbarValue.maxValue = maxHealth;
         currentHealth = maxHealth;
-        healthbarValue.value = currentHealth; 
+        healthbarValue.value = currentHealth;
     }
     public void Update()
     {
@@ -36,6 +37,7 @@ public class HealthController : MonoBehaviour
     public void IncreaseMaxHeatlh(float value)
     {
         maxHealth = value;
+        healthbarValue.maxValue = maxHealth;
     }
 
     public void Heal(float value)
