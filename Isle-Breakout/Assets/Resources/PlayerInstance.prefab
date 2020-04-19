@@ -1807,6 +1807,8 @@ MonoBehaviour:
   target: {fileID: 0}
   arrow: {fileID: 1170744857039610, guid: 1fcfcb93d7455e94bb4991c5ab289a41, type: 3}
   range: 20
+  meleeWeapon: {fileID: 4864248284905330788}
+  rangeWeapon: {fileID: 2404468922128114029}
 --- !u!114 &2152127699946426686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1912,6 +1914,7 @@ MonoBehaviour:
   player: {fileID: 4966810254032483518}
   inventory: {fileID: 2423853350010960531}
   canvas: {fileID: 0}
+  canvasController: {fileID: 0}
   messagePanel: {fileID: 0}
   messagePanelText: {fileID: 0}
   item: {fileID: 0}
@@ -1935,13 +1938,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  inventory: []
   inventorySize: 6
   canvas: {fileID: 0}
   inventoryPanel: {fileID: 0}
@@ -1963,6 +1960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   canvas: {fileID: 0}
+  canvasController: {fileID: 0}
   craftingPanel: {fileID: 0}
   recipeCtrl: {fileID: 0}
   equipPanel: {fileID: 0}

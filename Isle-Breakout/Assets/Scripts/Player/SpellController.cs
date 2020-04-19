@@ -10,7 +10,7 @@ public class SpellController : MonoBehaviour
 
     public float range;
     public GameObject castPoint;
-    public GameObject arrowCastPoint;
+    [SerializeField] private GameObject arrowCastPoint;
     float lastCast;
     GameObject currentPet;
     GameObject pet;
@@ -35,7 +35,6 @@ public class SpellController : MonoBehaviour
         slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
         slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
         castPoint = GameObject.Find("SpellCast");
-        arrowCastPoint = GameObject.Find("RangeWeapon");
     }
 
     private void Update()

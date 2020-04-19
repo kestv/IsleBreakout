@@ -125,6 +125,7 @@ public class PlayerStatsController : MonoBehaviour
     public void updateHP(float value)
     {
         hp += value;
+        IncreaseMaxHealth(value);
     }
 
     public void IncreaseMaxHealth(float value)

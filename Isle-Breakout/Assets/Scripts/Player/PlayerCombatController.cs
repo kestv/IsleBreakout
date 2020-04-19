@@ -34,15 +34,14 @@ public class PlayerCombatController : MonoBehaviour
     GameObject rangeSelect;
     GameObject meleeSelect;
 
-    GameObject meleeWeapon;
-    GameObject rangeWeapon;
+    [Header("Weapon refrences on player model")]
+    [SerializeField] GameObject meleeWeapon;
+    [SerializeField] GameObject rangeWeapon;
 
     CharacterController controller;
 
     void Start()
     {
-        meleeWeapon = GameObject.Find("MeleeWeapon");
-        rangeWeapon = GameObject.Find("RangeWeapon");
         controller = GetComponent<CharacterController>();
         CombatEventHandler.Instance.onEnemyDeath += killedTarget;
         spellController = GetComponent<SpellController>();
@@ -253,11 +252,11 @@ public class PlayerCombatController : MonoBehaviour
         var img = slot4.transform.GetChild(1).gameObject.GetComponent<Image>();
         if (state)
         {
-            img.color = new Color(255,255,255,255);
+            img.color = new Color32(255,255,255,255);
         }
         else
         {
-            img.color = new Color(0,0,0,100);
+            img.color = new Color32(0,0,0,100);
         }
     }
 }

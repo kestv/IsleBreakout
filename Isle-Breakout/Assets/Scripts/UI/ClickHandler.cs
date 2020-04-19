@@ -22,7 +22,19 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
 
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            ScriptableObject tempEqp = itemBeingClicked.transform.GetChild(0).GetComponent<ItemSettings>().getEquip();
+            GameObject item = itemBeingClicked.transform.GetChild(0).gameObject;
+            ItemConsumable consumable = item.GetComponent<ItemConsumable>();
+            ScriptableObject tempEqp = item.GetComponent<ItemSettings>().getEquip();
+
+            if(consumable != null)
+            {
+                consumable.Consume();
+
+                inventory.RemoveItem(transform.parent.GetSiblingIndex());
+                Destroy(item);
+                gameObject.SetActive(false);
+            }
+
             if (tempEqp != null)
             {
                 IArmor equip = (IArmor)tempEqp;
