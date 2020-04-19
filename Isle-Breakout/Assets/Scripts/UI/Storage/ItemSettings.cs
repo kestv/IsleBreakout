@@ -14,8 +14,7 @@ public class ItemSettings : MonoBehaviour
 
     public float dropChance;
 
-    [SerializeField]
-    ScriptableObject equip;
+    [SerializeField] ScriptableObject equip;
 
 
     //--------------------------------------
@@ -54,6 +53,4 @@ public class ItemSettings : MonoBehaviour
 
     public void setEquip(ScriptableObject equip)
     { this.equip = equip; }
-
-    
 }
