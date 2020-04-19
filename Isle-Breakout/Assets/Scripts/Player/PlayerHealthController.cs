@@ -36,7 +36,7 @@ public class PlayerHealthController : MonoBehaviour
                 transform.GetComponent<PlayerCombatController>().enabled = false;
             }
         }
-        hunger -= 0.02f;
+        hunger -= 0.01f;
         hungerBar.value = hunger;
 
         if(hungerBar.value <= 0)
