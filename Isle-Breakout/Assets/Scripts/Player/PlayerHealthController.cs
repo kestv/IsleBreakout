@@ -71,9 +71,14 @@ public class PlayerHealthController : MonoBehaviour
         return healthBarCanvas;
     }
 
+    public void ChangeMaxHealth(float value)
+    {
+        healthCtrl.ChangeMaxHealth(value);
+    }
+
     public void IncreaseMaxHealth(float value)
     {
-        healthCtrl.IncreaseMaxHeatlh(value);
+        healthCtrl.IncreaseMaxHealth(value);
     }
 
     public void Heal(float value)

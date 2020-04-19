@@ -34,9 +34,15 @@ public class HealthController : MonoBehaviour
         return currentHealth;
     }
 
-    public void IncreaseMaxHeatlh(float value)
+    public void ChangeMaxHealth(float value)
     {
         maxHealth = value;
+        healthbarValue.maxValue = maxHealth;
+    }
+
+    public void IncreaseMaxHealth(float value)
+    {
+        maxHealth += value;
         healthbarValue.maxValue = maxHealth;
     }
 
@@ -60,4 +66,12 @@ public class HealthController : MonoBehaviour
         gameObject.SetActive(true);
         player = target;
     }
+
+    public void InitHealth(float value)
+    {
+        healthbarValue.maxValue = value;
+        currentHealth = value;
+        healthbarValue.value = currentHealth;
+    }
+
 }
