@@ -62,7 +62,6 @@ public class PlayerCombatController : MonoBehaviour
         rangeSelect.SetActive(false);
         
         rangeWeapon.SetActive(false);
-        slot4.SetActive(false);
         inCombat = false;
     }
 
@@ -241,6 +240,14 @@ public class PlayerCombatController : MonoBehaviour
     public void setIsRangedWeaponEquipped(bool state)
     { 
         isRangedWeaponEquipped = state;
-        slot4.SetActive(state);
+        var img = slot4.transform.GetChild(1).gameObject.GetComponent<Image>();
+        if (state)
+        {
+            img.color = new Color(255,255,255,255);
+        }
+        else
+        {
+            img.color = new Color(0,0,0,100);
+        }
     }
 }

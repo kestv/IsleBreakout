@@ -28,6 +28,7 @@ public class SpellHolder : MonoBehaviour
     public void SetSpell(GameObject spell)
     {
         image.sprite = spell.GetComponent<SpellInfo>().image;
+        image.color = new Color(255, 255, 255, 255);
         this.spell = spell;
     }
 

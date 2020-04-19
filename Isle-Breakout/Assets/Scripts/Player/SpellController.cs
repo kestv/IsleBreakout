@@ -123,22 +123,25 @@ public class SpellController : MonoBehaviour
 
     public void CastSpell(GameObject target, SpellHolder spellHolder)
     {
-        var type = spellHolder.spell.GetComponent<SpellInfo>().type;
-        switch (type)
+        if (spellHolder.spell != null)
         {
-            case OFFENSIVE_SPELL:
-                if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
-                {
-                    StartCoroutine(CastingSpell(spellHolder, target));
-                }
-                else if(target == null)
-                {
-                    UIEventHandler.Instance.DisplayMessage("Target something first");
-                }
-                break;
-            case NEUTRAL_SPELL:
-                TamePet();
-                break;
+            var type = spellHolder.spell.GetComponent<SpellInfo>().type;
+            switch (type)
+            {
+                case OFFENSIVE_SPELL:
+                    if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
+                    {
+                        StartCoroutine(CastingSpell(spellHolder, target));
+                    }
+                    else if (target == null)
+                    {
+                        UIEventHandler.Instance.DisplayMessage("Target something first");
+                    }
+                    break;
+                case NEUTRAL_SPELL:
+                    TamePet();
+                    break;
+            }
         }
     }
 
