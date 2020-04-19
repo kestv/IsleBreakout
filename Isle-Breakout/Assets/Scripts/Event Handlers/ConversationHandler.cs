@@ -33,7 +33,13 @@ public class ConversationHandler : MonoBehaviour
 
     void Start()
     {
-        conversation.SetActive(false);
+        List<string> startConv = new List<string>();
+        startConv.Add("Woah, what happened?");
+        startConv.Add("I must have crashed..");
+        startConv.Add("But why?");
+        startConv.Add("Seems like I've been here already..");
+        startConv.Add("I might need a ship to get away from here");
+        StartConversation(-1, startConv, "", null);
         NpcEventHandler.Instance.onTalkedToNpc += StartConversation;
     }
 
@@ -41,7 +47,7 @@ public class ConversationHandler : MonoBehaviour
     {
         npcID = ID;
         questAcceptButton.SetActive(false);
-        if (quests.Count > 0)
+        if (quests != null && quests.Count > 0)
             foreach (var quest in quests)
             {
                 if (quest.Completed != true && quest.Active != true)
@@ -76,7 +82,7 @@ public class ConversationHandler : MonoBehaviour
         else if (i < conversations.Count)
         {
             buttonText.GetComponent<Text>().text = "Close";
-            if (quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false))
+            if (quests != null && quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false))
                 questAcceptButton.SetActive(true);
             text.GetComponent<Text>().text = conversations[i];
             i++;
