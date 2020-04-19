@@ -8,10 +8,16 @@ public class HoverHandlerSpell : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [Header("Info panel prefab")]
     [SerializeField] private GameObject spellInfoPanelPrefab;
 
+    private Transform infoCanvas;
     private SpellHolder spellHolder;
     private SpellInfo spell;    
     private SpellInfoPanelController panelCtrl;
     private GameObject infoPanel;
+
+    private void Start()
+    {
+        infoCanvas = GameObject.Find("Canvas_ItemInfo(Clone)").transform;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -30,7 +36,7 @@ public class HoverHandlerSpell : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
         if(spell != null)
         {
-            infoPanel = Instantiate(spellInfoPanelPrefab, transform.root);
+            infoPanel = Instantiate(spellInfoPanelPrefab, infoCanvas);
             panelCtrl = infoPanel.GetComponent<SpellInfoPanelController>();
             panelCtrl.InitPanel(spell);
         }

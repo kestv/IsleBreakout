@@ -43,8 +43,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4991f27d6f494a541b6e1c88f7b4b17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemInfoCanvas: {fileID: 372034679925354607, guid: f445dba85a66cac4a8d4fc04cc09bcc8,
+    type: 3}
   player: {fileID: 789886572439412201, guid: 970735789fb28954892cd49df43a1251, type: 3}
   canvas: {fileID: 1982256521706089029, guid: a500ae0da735bc3479de2c9aadc30a98, type: 3}
+  canvasController: {fileID: 0}
   inventorySize: 0
   shipCrafting: {fileID: 3460190580375256272, guid: fa34750a18b327041992d3ce7c249cdc,
     type: 3}

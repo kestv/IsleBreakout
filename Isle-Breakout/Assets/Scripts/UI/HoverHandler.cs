@@ -5,12 +5,18 @@ using UnityEngine.EventSystems;
 
 public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    public Transform infoCanvas;
     public GameObject item;
     public GameObject infoPanelPrefab;
     public ItemInfoPanelController panelCtrl;
     public GameObject infoPanel;
     public int moveRight;
     public int moveUp;
+
+    private void Start()
+    {
+        infoCanvas = GameObject.Find("Canvas_ItemInfo(Clone)").transform;
+    }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -28,7 +34,7 @@ public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
 
         if (item != null)
         {
-            infoPanel = Instantiate(infoPanelPrefab, transform.root);
+            infoPanel = Instantiate(infoPanelPrefab, infoCanvas);
             panelCtrl = infoPanel.GetComponent<ItemInfoPanelController>();
             panelCtrl.InitPanel(item.GetComponent<ItemSettings>());
         }

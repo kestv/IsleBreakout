@@ -71,8 +71,9 @@ MonoBehaviour:
 
     Speed:'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce5408b9bff7efd49b9bd1e132d6b753, type: 2}
+  m_sharedMaterial: {fileID: 3644413135034808067, guid: ce5408b9bff7efd49b9bd1e132d6b753,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -97,8 +98,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 8
-  m_fontSizeBase: 8
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -374,11 +375,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam vitae
-    odio pulvinar, rutrum odio a, imperdiet tellus. Pellentesque pellentesque accumsan
-    nibh
+    odio pulvinar, rutrum odio a, imperdiet tellus.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce5408b9bff7efd49b9bd1e132d6b753, type: 2}
+  m_sharedMaterial: {fileID: 3644413135034808067, guid: ce5408b9bff7efd49b9bd1e132d6b753,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -403,8 +404,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 9.6
-  m_fontSizeBase: 9.6
+  m_fontSize: 12
+  m_fontSizeBase: 12
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -444,10 +445,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 4194313527025415898}
-    characterCount: 158
+    characterCount: 118
     spriteCount: 0
-    spaceCount: 20
-    wordCount: 21
+    spaceCount: 16
+    wordCount: 17
     linkCount: 0
     lineCount: 3
     pageCount: 1
@@ -675,8 +676,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 102.31, y: 0.0012473}
-  m_SizeDelta: {x: 204.63, y: 45}
+  m_AnchoredPosition: {x: 102.31, y: -2.78}
+  m_SizeDelta: {x: 204.63, y: 39.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4194313527481885910
 CanvasRenderer:
@@ -706,8 +707,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: ITEM NAME
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ce5408b9bff7efd49b9bd1e132d6b753, type: 2}
+  m_sharedMaterial: {fileID: 3644413135034808067, guid: ce5408b9bff7efd49b9bd1e132d6b753,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1026,10 +1028,10 @@ RectTransform:
   m_Father: {fileID: 4194313527487044699}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 22.5, y: -22.5}
+  m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4194313528164815809
 CanvasRenderer:

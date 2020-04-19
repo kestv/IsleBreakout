@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DependencyManager : MonoBehaviour
 {
+    [SerializeField] private GameObject itemInfoCanvas;
+
     public GameObject player;
     public GameObject canvas;
     public CanvasController canvasController;
@@ -44,6 +46,8 @@ public class DependencyManager : MonoBehaviour
         playerUIModel = canvasPlayerRenderer.transform.GetChild(0).GetChild(0).GetComponent<ArmorEquipper>();
 
         canvasShipRenderer = Instantiate(canvasShipRenderer);
+
+        itemInfoCanvas = Instantiate(itemInfoCanvas);
     }
 
     private void Start()
@@ -115,4 +119,7 @@ public class DependencyManager : MonoBehaviour
 
     public CanvasController getCanvasController()
     { return canvasController; }
+
+    public GameObject getItemInfoCanvas()
+    { return itemInfoCanvas; }
 }

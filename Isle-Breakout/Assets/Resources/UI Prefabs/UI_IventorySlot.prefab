@@ -252,4 +252,4 @@ MonoBehaviour:
   panelCtrl: {fileID: 0}
   infoPanel: {fileID: 0}
   moveRight: 0
-  moveUp: 150
+  moveUp: 70
