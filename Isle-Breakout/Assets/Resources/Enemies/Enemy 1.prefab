@@ -3266,7 +3266,7 @@ MonoBehaviour:
   nameTag: {fileID: 252999904450130968}
   xp: 10
   id: 1
-  name: Attacker
+  _name: 
   healthBar: {fileID: 0}
   targetSprite: {fileID: 250441423}
   maxHealth: 100

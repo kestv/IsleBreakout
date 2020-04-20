@@ -5,18 +5,16 @@ using UnityEngine;
 public class TalkGoal : Goal
 {
     public int npcId;
-    public TalkGoal(string description, bool completed, int id)
+    public TalkGoal(bool completed, int id)
     {
-        this.description = description;
         this.completed = completed;
         this.npcId = id;
         this.currentAmount = 0;
         this.requiredAmount = 1;
     }
 
-    public TalkGoal(string description, bool completed, int id, int requiredAmount)
+    public TalkGoal(bool completed, int id, int requiredAmount)
     {
-        this.description = description;
         this.completed = completed;
         this.npcId = id;
         this.currentAmount = 0;

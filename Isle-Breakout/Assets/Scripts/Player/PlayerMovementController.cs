@@ -14,8 +14,10 @@ public class PlayerMovementController : MonoBehaviour
     public Transform groundCheck;
     public LayerMask layerMask;
     bool isGrounded;
+    public bool canAnimate;
     private void Start()
     {
+        canAnimate = true;
         cam = GameObject.Find("Main Camera");
         isRunning = false;
         camTransform = cam.transform;
@@ -46,10 +48,16 @@ public class PlayerMovementController : MonoBehaviour
             controller.Move(velocity * Time.deltaTime);
         }
 
-        if(x != 0 || z != 0 || isRunning)
+        if (x != 0 || z != 0)
         {
+            isRunning = true;
             GetComponent<Animator>().SetBool("Running", true);
         }
-        else GetComponent<Animator>().SetBool("Running", false);
+        else
+        {
+            isRunning = false;
+            if(canAnimate)
+                GetComponent<Animator>().SetBool("Running", false);
+        }
     }
 }

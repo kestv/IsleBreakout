@@ -5,9 +5,8 @@ using UnityEngine;
 public class KillGoal : Goal
 {
     int enemyId;
-    public KillGoal(string description, int requiredAmount, int enemyId)
+    public KillGoal(int requiredAmount, int enemyId)
     {
-        this.description = description;
         this.completed = false;
         this.currentAmount = 0;
         this.requiredAmount = requiredAmount;
@@ -23,7 +22,7 @@ public class KillGoal : Goal
 
     public void EnemyDied(float xp, int id)
     {
-        Debug.Log("LOL");
+        Debug.Log(enemyId + " " + id);
         if (enemyId == id)
         {
             if(currentAmount < requiredAmount)

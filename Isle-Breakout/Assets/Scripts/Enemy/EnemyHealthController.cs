@@ -15,6 +15,7 @@ public class EnemyHealthController : EnemyController
     public PlayerCombatController playerCtrl;
     void Start()
     {
+        this.nameTag.GetComponent<TextMesh>().text = this._name;
         health = maxHealth;
         playerCtrl = GameObject.Find("PlayerInstance").GetComponent<PlayerCombatController>();
         dead = false;

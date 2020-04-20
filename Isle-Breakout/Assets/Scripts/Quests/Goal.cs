@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Goal
 {
-    public string description;
     public bool completed;
     public int requiredAmount;
     public int currentAmount;
