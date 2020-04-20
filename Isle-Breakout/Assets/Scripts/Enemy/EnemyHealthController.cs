@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -27,6 +28,22 @@ public class EnemyHealthController : EnemyController
     void Update()
     {
         isDead();
+        CheckForNameTag();
+    }
+    float getDistance(Transform target)
+    {
+        return (Math.Abs(target.position.x - transform.position.x) + Math.Abs(target.position.z - transform.position.z));
+    }
+    void CheckForNameTag()
+    {
+        if(getDistance(playerCtrl.gameObject.transform) > 50 && nameTag.activeSelf == true)
+        {
+            nameTag.SetActive(false);
+        }
+        else if(getDistance(playerCtrl.gameObject.transform) < 50 && nameTag.activeSelf == false)
+        {
+            nameTag.SetActive(true);
+        }
     }
 
     public void doDamage(float amount)

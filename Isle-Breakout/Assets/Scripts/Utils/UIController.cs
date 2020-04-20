@@ -14,6 +14,7 @@ public class UIController : MonoBehaviour
     bool menuOpen;
     void Start()
     {
+        Debug.Log(gameObject.name);
         menu = GameObject.Find("Menu");
         menu.SetActive(false);
         menuOpen = false;
@@ -69,6 +70,6 @@ public class UIController : MonoBehaviour
     {
         SaveGame();
         SceneManager.LoadScene(0);
-        SceneManager.UnloadScene(1);
+        SceneManager.UnloadSceneAsync(1);
     }
 }
