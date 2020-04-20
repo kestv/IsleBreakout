@@ -36,7 +36,16 @@ public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHan
         {
             infoPanel = Instantiate(infoPanelPrefab, infoCanvas);
             panelCtrl = infoPanel.GetComponent<ItemInfoPanelController>();
-            panelCtrl.InitPanel(item.GetComponent<ItemSettings>());
+
+            ItemConsumable consumable = item.GetComponent<ItemConsumable>();
+            if (consumable != null)
+            {
+                panelCtrl.InitPanel(item.GetComponent<ItemSettings>(), consumable);
+            }
+            else
+            {
+                panelCtrl.InitPanel(item.GetComponent<ItemSettings>());
+            }            
         }
 
         panelCtrl.transform.position = new Vector2(eventData.position.x + moveRight, eventData.position.y + moveUp);

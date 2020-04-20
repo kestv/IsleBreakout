@@ -24,6 +24,14 @@ public class ItemInfoPanelController : MonoBehaviour
         setItemStatsText(settings.getEquip());
     }
 
+    public void InitPanel(ItemSettings settings, ItemConsumable consumable)
+    {
+        setItemName(settings.getName());
+        setSprite(settings.getSprite());
+        setDescriptionText(consumable.getConsumableStats());
+        setItemStatsText(settings.getEquip());
+    }
+
     public void setItemName(string name)
     {
         itemName.GetComponent<TextMeshProUGUI>().text = name;
