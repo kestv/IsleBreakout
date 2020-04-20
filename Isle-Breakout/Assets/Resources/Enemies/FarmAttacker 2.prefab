@@ -1719,6 +1719,8 @@ GameObject:
   - component: {fileID: 230474693885393886}
   - component: {fileID: 230474693885393883}
   - component: {fileID: 230474693885393882}
+  - component: {fileID: 1615201269537165374}
+  - component: {fileID: -9015124289398025195}
   m_Layer: 10
   m_Name: FarmAttacker 2
   m_TagString: Enemy
@@ -1864,6 +1866,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec6d48f68a638b468b8f555dcc22f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1615201269537165374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230474693885516528}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  busy: 0
+  startingPosition: {x: 0, y: 0, z: 0}
+  maxDistance: 5
+  waitTime: 5
+  startedWaiting: 0
+  state: 2
+  speed: 1
+  rotation: 0
+--- !u!114 &-9015124289398025195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230474693885516528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 935766fa473d057429e8273787e8a394, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dropItems: []
 --- !u!1 &230474693885517366
 GameObject:
   m_ObjectHideFlags: 0

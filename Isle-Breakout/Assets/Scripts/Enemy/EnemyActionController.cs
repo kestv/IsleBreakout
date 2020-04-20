@@ -119,7 +119,7 @@ public class EnemyActionController : MonoBehaviour
                 playerSpotted = false;
             }
         }
-        else //Goes back to camp if lost
+        else
         {
             if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
             {
