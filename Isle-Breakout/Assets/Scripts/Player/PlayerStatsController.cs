@@ -149,6 +149,6 @@ public class PlayerStatsController : MonoBehaviour
 
     public void UpdateRemainingPointsValue()
     {
-        remainingValue.text = "Remaining points - " + remainingPoints.ToString();
+        remainingValue.text = "Remaining skill points - " + remainingPoints.ToString();
     }
 }
