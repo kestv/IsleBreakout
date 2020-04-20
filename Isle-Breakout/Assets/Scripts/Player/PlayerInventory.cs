@@ -190,6 +190,18 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         return false;
     }
 
+    public int ContainsItemID(string name)
+    {
+        for (int i = 0; i < inventory.Count; i++)
+        {
+            if(inventory[i].GetComponent<ItemSettings>().getName() == name)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public bool RemoveItem(string name)
     {
         for (int i = 0; i < inventorySize; i++)

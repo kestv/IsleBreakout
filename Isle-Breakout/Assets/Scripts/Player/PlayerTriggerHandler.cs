@@ -90,6 +90,11 @@ public class PlayerTriggerHandler : MonoBehaviour
                             NpcEventHandler.Instance._onTalkedToNpc();
                         }
                         break;
+                    case "interactable":
+                        triggers[triggers.Count - 1].GetComponent<InteractableObject>().TransformToNewObject();
+                        triggers.RemoveAt(triggers.Count - 1);
+                        UpdateTriggerMessage();
+                        break;
                     default:
                         break;
                 }
@@ -139,6 +144,11 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             other.GetComponent<ShipFloat>().enabled = true;
         }
+        if (other.tag == "interactable")
+        {
+            triggers.Add(other.gameObject);
+            SetMessagePanelText(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -170,6 +180,10 @@ public class PlayerTriggerHandler : MonoBehaviour
         if (other.tag == "PirateShip")
         {
             other.GetComponent<ShipFloat>().enabled = false;
+        }
+        if(other.tag == "interactable")
+        {
+            triggers.Remove(other.gameObject);
         }
 
         UpdateTriggerMessage();
@@ -208,6 +222,9 @@ public class PlayerTriggerHandler : MonoBehaviour
                 break;
             case "Npc":
                 SetMessagePanelText("Talk to " + npcName + " with <#ffffff>'F'</color>");
+                break;
+            case "interactable":
+                SetMessagePanelText(go.GetComponent<InteractableObject>().getDisplaymessage());
                 break;
             default:
                 tagFound = false;
