@@ -24,6 +24,7 @@ public class SpellController : MonoBehaviour
     float startedCasting;
     float castTime = 2f;
 
+    Coroutine coroutine;
     void Start()
     {
         castBar = GameObject.Find("CastBar");
@@ -45,6 +46,11 @@ public class SpellController : MonoBehaviour
         }
         else if(castBar.activeSelf == true)
         { 
+            castBar.SetActive(false);
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            StopCoroutine(coroutine);
             castBar.SetActive(false);
         }
     }
@@ -130,7 +136,7 @@ public class SpellController : MonoBehaviour
                 case OFFENSIVE_SPELL:
                     if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
                     {
-                        StartCoroutine(CastingSpell(spellHolder, target));
+                        coroutine = StartCoroutine(CastingSpell(spellHolder, target));
                     }
                     else if (target == null)
                     {
@@ -153,7 +159,7 @@ public class SpellController : MonoBehaviour
         item.GetComponent<ProjectileMoveScript>().target = target;
     }
 
-    IEnumerator waitCoroutine(GameObject target, GameObject spell)
+    IEnumerator InstantiateSpell(GameObject target, GameObject spell)
     {
         GetComponent<PlayerMovementController>().enabled = false;
         GetComponent<Animator>().Play("SpellCast");
@@ -167,6 +173,7 @@ public class SpellController : MonoBehaviour
 
     IEnumerator CastingSpell(SpellHolder spellHolder, GameObject target)
     {
+        GetComponent<PlayerMovementController>().enabled = false;
         bar.GetComponent<Image>().fillAmount = 0;
         castBar.SetActive(true);
         startedCasting = Time.time;
@@ -179,7 +186,7 @@ public class SpellController : MonoBehaviour
             if (spellHolder.image != null)
                 spellHolder.image.fillAmount = 0f;
             Debug.Log("Casting spell");
-            StartCoroutine(waitCoroutine(target, spellHolder.spell));
+            StartCoroutine(InstantiateSpell(target, spellHolder.spell));
         }
     }
 
