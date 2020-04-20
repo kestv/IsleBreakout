@@ -27,4 +27,12 @@ public class ItemConsumable : MonoBehaviour
             playerHealthCtrl.Eat(restoreHunger);
         }
     }
+
+    public string getConsumableStats()
+    {
+        string text = "";
+        text += "HP: +" + restoreHP.ToString() + "\n";
+        text += "Hunger: +" + restoreHunger.ToString();
+        return text;
+    }
 }

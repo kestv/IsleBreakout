@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerStatsController : MonoBehaviour
 {
@@ -12,32 +13,34 @@ public class PlayerStatsController : MonoBehaviour
     public float wisdom;
     public float remainingPoints;
 
-    public GameObject strengthButton;
-    public GameObject speedButton;
-    public GameObject wisdomButton;
+    [SerializeField] private GameObject strengthButton;
+    [SerializeField] private GameObject speedButton;
+    [SerializeField] private GameObject wisdomButton;
 
-    public Text strengthValue;
-    public Text speedValue;
-    public Text wisdomValue;
-    public Text remainingValue;
+    public TextMeshProUGUI strengthValue;
+    public TextMeshProUGUI speedValue;
+    public TextMeshProUGUI wisdomValue;
+    public TextMeshProUGUI remainingValue;
 
     PlayerHealthController healthCtrl;
 
     // Start is called before the first frame update
     void Start()
     {
-        strengthValue = GameObject.Find("StrengthValue").GetComponent<Text>();
-        speedValue = GameObject.Find("SpeedValue").GetComponent<Text>();
-        wisdomValue = GameObject.Find("WisdomValue").GetComponent<Text>();
-        remainingValue = GameObject.Find("RemainingValue").GetComponent<Text>();
+        DependencyManager manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
+        Transform canvas = manager.getCanvas().transform;
+        strengthButton = canvas.GetChild(3).GetChild(0).GetChild(4).gameObject;
+        speedButton = canvas.GetChild(3).GetChild(0).GetChild(5).gameObject;
+        wisdomButton = canvas.GetChild(3).GetChild(0).GetChild(6).gameObject;
+
+        strengthValue   = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+        speedValue      = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+        wisdomValue     = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+        remainingValue  = canvas.GetChild(3).GetChild(0).GetChild(7).GetComponent<TextMeshProUGUI>();
 
         strength = float.Parse(GameObject.Find("StrengthValue").GetComponent<Text>().text);
         speed = float.Parse(GameObject.Find("SpeedValue").GetComponent<Text>().text);
         wisdom = float.Parse(GameObject.Find("WisdomValue").GetComponent<Text>().text);
-
-        strengthButton = GameObject.Find("StrengthButton");
-        speedButton = GameObject.Find("SpeedButton");
-        wisdomButton = GameObject.Find("WisdomButton");
 
         strengthButton.GetComponent<Button>().onClick.AddListener(delegate { improveStrength(1); });
         speedButton.GetComponent<Button>().onClick.AddListener(delegate { improveSpeed(1); });
@@ -48,6 +51,7 @@ public class PlayerStatsController : MonoBehaviour
         remainingPoints = GetComponent<PlayerLevelController>().level;
         healthCtrl = GetComponent<PlayerHealthController>();
         statsWindow.SetActive(false);
+        UpdateRemainingPointsValue();
     }
 
     public void improveStrength(float value)
@@ -57,7 +61,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             strength += value;
             strengthValue.text = strength.ToString();
-            remainingValue.text = remainingPoints.ToString();
+            UpdateRemainingPointsValue();
         }
     }
 
@@ -69,7 +73,7 @@ public class PlayerStatsController : MonoBehaviour
             speed += value;
             speedValue.text = speed.ToString();
             GetComponent<PlayerMovementController>().speed += speed/4;
-            remainingValue.text = remainingPoints.ToString();
+            UpdateRemainingPointsValue();
         }
     }
 
@@ -80,7 +84,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             wisdom += value;
             wisdomValue.text = wisdom.ToString();
-            remainingValue.text = remainingPoints.ToString();
+            UpdateRemainingPointsValue();
         }
     }
 
@@ -141,5 +145,10 @@ public class PlayerStatsController : MonoBehaviour
     public void Eat(float value)
     {
         healthCtrl.Eat(value);
+    }
+
+    public void UpdateRemainingPointsValue()
+    {
+        remainingValue.text = "Remaining points - " + remainingPoints.ToString();
     }
 }

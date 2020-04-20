@@ -57,6 +57,7 @@ public class PlayerLevelController : MonoBehaviour
         var hpCanvas = GetComponent<PlayerHealthController>().GetHealthbarCanvas();
         levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().remainingPoints++;
+        GetComponent<PlayerStatsController>().UpdateRemainingPointsValue();
 
         UIEventHandler.Instance.DisplayReward("Level up!", true);
     }
