@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 2301818}
   - component: {fileID: 8544040175092434508}
   m_Layer: 0
-  m_Name: SM_Prop_Chest_01
+  m_Name: Chest2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -98,7 +98,9 @@ MonoBehaviour:
     type: 3}
   chestPanel: {fileID: 0}
   chestSize: 0
-  items: []
+  items:
+  - {fileID: 7629647312893869256, guid: cfdea412711330f4c94a9939aacac4bd, type: 3}
+  - {fileID: 445756019839405310, guid: 48984f0939d762b4bbaa1c98597ad4c7, type: 3}
 --- !u!1 &156102
 GameObject:
   m_ObjectHideFlags: 0
