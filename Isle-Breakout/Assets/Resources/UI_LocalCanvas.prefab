@@ -821,7 +821,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9c2c493c06c7a478ee782a0e6ef27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
+  spell: {fileID: 1607489160101874, guid: 1220774a6e4cd454aa215fc9dfec7f4a, type: 3}
   image: {fileID: 921786687}
   cooldown: 0
 --- !u!114 &596418971
@@ -1007,7 +1007,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1123638583
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e9c2c493c06c7a478ee782a0e6ef27e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 0}
+  spell: {fileID: 1823173409967616, guid: 84c290aab3cd66e4c88d4c3ec436f578, type: 3}
   image: {fileID: 1165706779}
   cooldown: 0
 --- !u!114 &821332228

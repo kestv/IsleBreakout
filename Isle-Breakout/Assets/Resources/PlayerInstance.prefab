@@ -1740,6 +1740,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+  canAnimate: 0
 --- !u!95 &5713084870962035605
 Animator:
   serializedVersion: 3
@@ -1850,6 +1851,8 @@ MonoBehaviour:
   arrowCastPoint: {fileID: 2404468922128114029}
   castBar: {fileID: 0}
   bar: {fileID: 0}
+  tameItem: {fileID: 4161287894381245779, guid: 9096e628ccc37a44c9a5f2d7a96608ed,
+    type: 3}
 --- !u!114 &8508442381396217968
 MonoBehaviour:
   m_ObjectHideFlags: 0
