@@ -25,6 +25,9 @@ public class SpellController : MonoBehaviour
     float castTime = 2f;
 
     Coroutine coroutine;
+
+    PlayerInventory playerInventory;
+    public GameObject tameItem;
     void Start()
     {
         castBar = GameObject.Find("CastBar");
@@ -36,6 +39,8 @@ public class SpellController : MonoBehaviour
         slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
         slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
         castPoint = GameObject.Find("SpellCast");
+
+        playerInventory = GetComponent<PlayerInventory>();
     }
 
     private void Update()
@@ -104,24 +109,22 @@ public class SpellController : MonoBehaviour
         StartCoroutine(IECastArrow(target, arrow));
     }
 
-    public void TamePet()
+    public void TamePet(SpellHolder spellHolder)
     {
         var ui = UIEventHandler.Instance;
+        var tameItem = this.tameItem.GetComponent<ItemSettings>();
         if (triggering && pet != null)
         {
-            var chance = Random.Range(0, 100);
-            if (chance >= 50)
+            if (playerInventory.Contains(tameItem.getItemID()))
             {
-                if(currentPet != null)
-                    currentPet.GetComponent<PetController>().SetUntamed();
-                pet.GetComponent<PetController>().SetTamed();
-                currentPet = pet;
-                ui.DisplayMessage("Pet tamed successfully");
+                startedCasting = Time.time;
+                bar.GetComponent<Image>().fillAmount = 0;
+                castBar.SetActive(true);
+                playerInventory.ConsumeItem(tameItem.getItemID());
+                StartCoroutine(TamePet(ui));
+                
             }
-            else
-            {
-                ui.DisplayMessage("Pet got away");
-            }
+            else ui.DisplayMessage("You don't have food");
         }
         else ui.DisplayMessage("You are too far away");
     }
@@ -144,7 +147,7 @@ public class SpellController : MonoBehaviour
                     }
                     break;
                 case NEUTRAL_SPELL:
-                    TamePet();
+                    TamePet(spellHolder);
                     break;
             }
         }
@@ -187,6 +190,27 @@ public class SpellController : MonoBehaviour
                 spellHolder.image.fillAmount = 0f;
             Debug.Log("Casting spell");
             StartCoroutine(InstantiateSpell(target, spellHolder.spell));
+        }
+    }
+
+    IEnumerator TamePet(UIEventHandler ui)
+    {
+        yield return new WaitForSeconds(castTime);
+        if (Time.time - startedCasting >= castTime)
+        {
+            var chance = Random.Range(0, 100);
+            if (chance >= 50)
+            {
+                if (currentPet != null)
+                    currentPet.GetComponent<PetController>().SetUntamed();
+                pet.GetComponent<PetController>().SetTamed();
+                currentPet = pet;
+                ui.DisplayMessage("Pet tamed successfully");
+            }
+            else
+            {
+                ui.DisplayMessage("Pet got away");
+            }
         }
     }
 

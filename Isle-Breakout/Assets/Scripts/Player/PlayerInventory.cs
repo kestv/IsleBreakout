@@ -202,6 +202,33 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         return -1;
     }
 
+    public bool Contains(int id)
+    {
+        foreach (var item in inventory)
+        {
+            if(item != null && item.GetComponent<ItemSettings>() != null && item.GetComponent<ItemSettings>().getItemID().Equals(id))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public bool ConsumeItem(int id)
+    {
+        for (int i = 0; i < inventorySize; i++)
+        {
+            if (!isSlotEmpty(i))
+            {
+                if (inventory[i].GetComponent<ItemSettings>().getItemID().Equals(id))
+                {
+                    RemoveItem(i);
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
     public bool RemoveItem(string name)
     {
         for (int i = 0; i < inventorySize; i++)
