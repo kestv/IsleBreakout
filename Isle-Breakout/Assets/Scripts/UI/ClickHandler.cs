@@ -40,7 +40,7 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
                 IArmor equip = (IArmor)tempEqp;
 
 
-                Transform slot = manager.getequipSlotPanelController().getSlot(equip.GetType().ToString());
+                Transform slot = manager.getequipSlotPanelController().getSlot(equip.getType());
 
                 if (!slot.GetChild(0).gameObject.activeSelf)
                 {

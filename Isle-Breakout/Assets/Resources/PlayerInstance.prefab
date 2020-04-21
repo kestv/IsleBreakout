@@ -1982,23 +1982,20 @@ MonoBehaviour:
   playerModel: {fileID: 8655262965150188842, guid: 970735789fb28954892cd49df43a1251,
     type: 3}
   isRenderer: 0
+  head: {fileID: 7720720288975914360}
   hair: {fileID: 7719427333101878848}
   mask: {fileID: 7720038254588704102}
   helmet: {fileID: 7720193862987801272}
   cape: {fileID: 7720130879109342266}
-  shoulderRight: {fileID: 8652746804635557878, guid: 970735789fb28954892cd49df43a1251,
-    type: 3}
-  shoulderLeft: {fileID: 8653641717042269290, guid: 970735789fb28954892cd49df43a1251,
-    type: 3}
+  shoulderRight: {fileID: 7719324830411973928}
+  shoulderLeft: {fileID: 7720259505630639796}
   torso: {fileID: 7719219227865711152}
   armUpperRight: {fileID: 7720032905269229168}
   armUpperLeft: {fileID: 7720045115343613824}
   armLowerRight: {fileID: 7719983979968979572}
-  armLowerLeft: {fileID: 8653223028776437250, guid: 970735789fb28954892cd49df43a1251,
-    type: 3}
+  armLowerLeft: {fileID: 7719831840375127260}
   handRight: {fileID: 7719409497935519300}
-  handLeft: {fileID: 8652687196108960966, guid: 970735789fb28954892cd49df43a1251,
-    type: 3}
+  handLeft: {fileID: 7719367115187752472}
   hips: {fileID: 7719794557106029272}
   legRight: {fileID: 7720803637540884278}
   legLeft: {fileID: 7720792837936986022}

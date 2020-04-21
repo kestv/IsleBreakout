@@ -2683,6 +2683,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 0
+  canAnimate: 0
 --- !u!95 &95541309264892610
 Animator:
   serializedVersion: 3
@@ -2779,6 +2780,8 @@ MonoBehaviour:
   target: {fileID: 0}
   arrow: {fileID: 0}
   range: 0
+  meleeWeapon: {fileID: 0}
+  rangeWeapon: {fileID: 0}
 --- !u!114 &6036651468081100905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,6 +2823,7 @@ MonoBehaviour:
   arrowCastPoint: {fileID: 0}
   castBar: {fileID: 0}
   bar: {fileID: 0}
+  tameItem: {fileID: 0}
 --- !u!114 &4039611765318072615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2943,6 +2947,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerModel: {fileID: 8655262965150188842}
   isRenderer: 0
+  head: {fileID: 0}
   hair: {fileID: 8652782769686332574}
   mask: {fileID: 8653424468943933368}
   helmet: {fileID: 8653549300182538342}
@@ -4030,7 +4035,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300648, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+      objectReference: {fileID: 4300666, guid: 038320a534bd8b444b43734860d1a211, type: 3}
     - target: {fileID: 5123986829702759081, guid: 380fe146616bb4c47825faf2c9ffaba5,
         type: 3}
       propertyPath: m_Mesh
@@ -4045,7 +4050,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300720, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+      objectReference: {fileID: 4300738, guid: 038320a534bd8b444b43734860d1a211, type: 3}
     - target: {fileID: 9088077740403021252, guid: 380fe146616bb4c47825faf2c9ffaba5,
         type: 3}
       propertyPath: m_Name

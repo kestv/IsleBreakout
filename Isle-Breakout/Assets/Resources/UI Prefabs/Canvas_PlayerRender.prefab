@@ -3373,11 +3373,22 @@ PrefabInstance:
       propertyPath: isRenderer
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7717657601021516903, guid: 0088c8690be09f949a0fc20c8e0fa04b,
+        type: 3}
+      propertyPath: head
+      value: 
+      objectReference: {fileID: 1051837266997289875}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0088c8690be09f949a0fc20c8e0fa04b, type: 3}
 --- !u!4 &1050834023918455947 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5788999240227584889, guid: 0088c8690be09f949a0fc20c8e0fa04b,
+    type: 3}
+  m_PrefabInstance: {fileID: 6828556379742582770}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1051837266997289875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5790230211222869089, guid: 0088c8690be09f949a0fc20c8e0fa04b,
     type: 3}
   m_PrefabInstance: {fileID: 6828556379742582770}
   m_PrefabAsset: {fileID: 0}

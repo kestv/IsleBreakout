@@ -11,6 +11,7 @@ public class ArmorEquipper : MonoBehaviour
     [SerializeField] private bool isRenderer;         //Is the script on a player renderer
 
     [Header("HEAD")]
+    [SerializeField] private GameObject head;
     [SerializeField] private GameObject hair;
     [SerializeField] private GameObject mask;
     [SerializeField] private GameObject helmet;
@@ -223,11 +224,15 @@ public class ArmorEquipper : MonoBehaviour
 
     public void EquipMask(List<Mesh> meshes)
     {
+        head.SetActive(false);
+        hair.SetActive(false);
         EquipItem(mask, meshes[0]);
     }
 
     public void UnequipMask()
     {
+        head.SetActive(true);
+        hair.SetActive(true);
         UnequipItem(mask);
     }
 
@@ -239,7 +244,7 @@ public class ArmorEquipper : MonoBehaviour
 
     public void UnequipHelmet()
     {
-        hair.gameObject.SetActive(true);
+        hair.SetActive(true);
         UnequipItem(helmet);
     }
 

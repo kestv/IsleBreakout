@@ -48,6 +48,6 @@ public class Mask : ScriptableObject, IArmor
 
     public string getType()
     {
-        return "Mask";
+        return "Helmet";
     }
 }
