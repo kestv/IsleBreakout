@@ -155,11 +155,13 @@ public class SpellController : MonoBehaviour
 
     IEnumerator IECastArrow(GameObject target, GameObject arrow)
     {
+        GetComponent<PlayerMovementController>().enabled = false;
         yield return new WaitForSeconds(1f);
         var item = Instantiate(arrow, arrowCastPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
         item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;
         item.GetComponent<ProjectileMoveScript>().target = target;
+        GetComponent<PlayerMovementController>().enabled = true;
     }
 
     IEnumerator InstantiateSpell(GameObject target, GameObject spell)
