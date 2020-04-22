@@ -135,7 +135,7 @@ public class PlayerTriggerHandler : MonoBehaviour
                 triggers.Add(other.gameObject);
                 ID = npcCtrl.ID;
                 conversations = npcCtrl.conversations;
-                npcName = npcCtrl.name;
+                npcName = npcCtrl._name;
                 quests = npcCtrl.quests;
                 SetMessagePanelText(other.gameObject);
             }
