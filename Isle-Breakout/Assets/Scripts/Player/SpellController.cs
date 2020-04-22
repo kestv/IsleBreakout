@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SpellController : MonoBehaviour
 {
     public const int OFFENSIVE_SPELL = 1;
-    public const int NEUTRAL_SPELL = 2;
+    public const int TAME_SPELL = 2;
+    public const int RECALL_SPELL = 3;
 
     public float range;
     public GameObject castPoint;
@@ -28,6 +29,9 @@ public class SpellController : MonoBehaviour
 
     PlayerInventory playerInventory;
     public GameObject tameItem;
+
+    Vector3 lastRecallPos = new Vector3(0, 0, 0);
+
     void Start()
     {
         castBar = GameObject.Find("CastBar");
@@ -117,6 +121,7 @@ public class SpellController : MonoBehaviour
         {
             if (playerInventory.Contains(tameItem.getItemID()))
             {
+                spellHolder.cooldown = true;
                 startedCasting = Time.time;
                 bar.GetComponent<Image>().fillAmount = 0;
                 castBar.SetActive(true);
@@ -129,9 +134,30 @@ public class SpellController : MonoBehaviour
         else ui.DisplayMessage("You are too far away");
     }
 
+    public void Recall(SpellHolder spellHolder)
+    {
+        
+        if(lastRecallPos.y != 0)
+        {
+            if (!GetComponent<PlayerCombatController>().inCombat)
+            {
+                StartCoroutine(_Recall(spellHolder));
+            }
+            else
+            {
+                UIEventHandler.Instance.DisplayMessage("Cannot do that while in combat");
+            }
+        }
+        else
+        {
+            lastRecallPos = transform.position;
+            UIEventHandler.Instance.DisplayMessage("Recall position set");
+        }
+    }
+
     public void CastSpell(GameObject target, SpellHolder spellHolder)
     {
-        if (spellHolder.spell != null)
+        if (spellHolder.spell != null && !spellHolder.cooldown)
         {
             var type = spellHolder.spell.GetComponent<SpellInfo>().type;
             switch (type)
@@ -146,10 +172,17 @@ public class SpellController : MonoBehaviour
                         UIEventHandler.Instance.DisplayMessage("Target something first");
                     }
                     break;
-                case NEUTRAL_SPELL:
+                case TAME_SPELL:
                     TamePet(spellHolder);
                     break;
+                case RECALL_SPELL:
+                    Recall(spellHolder);
+                    break;
             }
+        }
+        else
+        {
+            UIEventHandler.Instance.DisplayMessage("Spell is on cooldown");
         }
     }
 
@@ -214,6 +247,22 @@ public class SpellController : MonoBehaviour
                 ui.DisplayMessage("Pet got away");
             }
         }
+    }
+
+    IEnumerator _Recall(SpellHolder spellHolder)
+    {
+        spellHolder.cooldown = true;
+        if (spellHolder.image != null)
+            spellHolder.image.fillAmount = 0f;
+        GetComponent<PlayerMovementController>().enabled = false;
+        GetComponent<PlayerCombatController>().enabled = false;
+        GetComponent<Animator>().Play("Recall");
+        yield return new WaitForSeconds(1f);
+        transform.position = lastRecallPos;
+        yield return new WaitForSeconds(0.5f);
+        GetComponent<PlayerMovementController>().enabled = true;
+        GetComponent<PlayerCombatController>().enabled = true;
+
     }
 
     private void OnTriggerEnter(Collider other)
