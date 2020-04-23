@@ -34,6 +34,8 @@ public class PlayerHealthController : MonoBehaviour
             {
                 transform.GetComponent<PlayerMovementController>().enabled = false;
                 transform.GetComponent<PlayerCombatController>().enabled = false;
+                transform.GetComponent<UIController>().EndGame();
+                enabled = false;
             }
         }
         hunger -= 0.01f;
