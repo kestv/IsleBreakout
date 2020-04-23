@@ -94,11 +94,11 @@ public class PlayerCombatController : MonoBehaviour
                 isAttacking = true;
             }
         }
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && Time.timeScale != 0f) //timeScale 0, kai GUI
         {
             spellController.CastSpell(target, slot1.GetComponent<SpellHolder>());
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && Time.timeScale != 0f)
         {
             spellController.CastSpell(target, slot2.GetComponent<SpellHolder>());
         }

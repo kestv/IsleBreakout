@@ -89,6 +89,16 @@ public class Quest : MonoBehaviour
         }
     }
 
+    public bool Evaluate()
+    {
+        foreach (var goal in goals)
+        {
+            if (goal.currentAmount >= goal.requiredAmount)
+                return true;
+        }
+        return false;
+    }
+
     public void GiveReward()
     {
         if (Experience != 0)

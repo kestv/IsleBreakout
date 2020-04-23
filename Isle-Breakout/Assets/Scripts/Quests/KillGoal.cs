@@ -23,9 +23,18 @@ public class KillGoal : Goal
     public void EnemyDied(float xp, int id)
     {
         Debug.Log(enemyId + " " + id);
-        if (enemyId == id)
+        if (enemyId >= 0)
         {
-            if(currentAmount < requiredAmount)
+            if (enemyId == id)
+            {
+                if (currentAmount < requiredAmount)
+                    this.currentAmount++;
+                Evaluate();
+            }
+        }
+        else
+        {
+            if (currentAmount < requiredAmount)
                 this.currentAmount++;
             Evaluate();
         }

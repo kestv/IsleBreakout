@@ -39,7 +39,8 @@ public class RewardConfirmation : MonoBehaviour
 
     public void Cancel()
     {
+        Time.timeScale = 1f;
+        reward.SetActive(false);
         gameObject.SetActive(false);
-        reward.SetActive(true);
     }
 }

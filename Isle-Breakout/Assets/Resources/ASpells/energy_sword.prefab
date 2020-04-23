@@ -60,9 +60,8 @@ MonoBehaviour:
   - {fileID: 1569439850632342}
   - {fileID: 1709201136063730}
   target: {fileID: 0}
-  damage: 20
+  damage: 30
   actualDamage: 0
-  cooldown: 2
 --- !u!54 &54541909365624938
 Rigidbody:
   m_ObjectHideFlags: 0

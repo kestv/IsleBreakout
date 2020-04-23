@@ -37,104 +37,129 @@ public class EnemyActionController : MonoBehaviour
     public float scanDistance = 8;
 
     public EnemyAnimationController animations;
+    EnemyWander wander;
+
+    //Performance
+    bool canStartWandering = false;
+    bool playerInRange = false;
 
     void Start()
     {
         gotAttacked = false;
         animations = GetComponent<EnemyAnimationController>();
+        wander = GetComponent<EnemyWander>();
         busy = false;
         player = GameObject.Find("PlayerInstance");
         playerSpotted = false;
         StartCoroutine(Landing());
+        InvokeRepeating("CheckIfInRange", 0.0f, 1.0f);
     }
 
     IEnumerator Landing()
     {
         yield return new WaitForSeconds(5f);
         spawnPos = transform.position;
-        if(GetComponent<EnemyWander>() != null)
-            GetComponent<EnemyWander>().enabled = true;
+        canStartWandering = true;
         attackTime = 0f;
+    }
+
+    //Performance
+    void CheckIfInRange()
+    {
+        playerInRange = getDistance(player) < 100 ? true : false;
     }
 
     void Update()
     {
-        if (busy)
+        if (playerInRange)
         {
-            switch (action)
+            if(wander != null && !wander.enabled && canStartWandering)
             {
-                case 1:
-                    isIdling(true);
-                    break;
-                case 2:
-                    isRunning(true);
-                    break;
-                case 3:
-                    isAttacking(true);
-                    break;
+                wander.enabled = true;
             }
-        }
-
-        //If idling, looking for action
-        if (!playerSpotted)
-        {
-            action = IS_IDLING;
-            distance = getDistance(player);
-            if (distance < scanDistance)
+            if (busy)
             {
-                attackTime = Time.time;
-                followTime = UnityEngine.Random.Range(5, 10);
-                busy = true;
+                switch (action)
+                {
+                    case 1:
+                        isIdling(true);
+                        break;
+                    case 2:
+                        isRunning(true);
+                        break;
+                    case 3:
+                        isAttacking(true);
+                        break;
+                }
+            }
+
+            //If idling, looking for action
+            if (!playerSpotted)
+            {
+                action = IS_IDLING;
+                distance = getDistance(player);
+                if (distance < scanDistance)
+                {
+                    attackTime = Time.time;
+                    followTime = UnityEngine.Random.Range(5, 10);
+                    busy = true;
+                    playerSpotted = true;
+                }
+                else
+                {
+                    playerSpotted = false;
+                }
+            }
+
+            //If it was attacked by player
+            if (gotAttacked && Time.time - attackTime < followTime)
+            {
                 playerSpotted = true;
+                followPlayer(player);
             }
             else
             {
+                gotAttacked = false;
+            }
+
+            //Running too far loses target
+            if (playerSpotted && Time.time - attackTime > followTime)
+            {
                 playerSpotted = false;
             }
-        }
 
-        //If it was attacked by player
-        if (gotAttacked && Time.time - attackTime < followTime)
-        {
-            playerSpotted = true;
-            followPlayer(player);
+            //Normal situation, player spotted
+            if ((playerSpotted && !player.GetComponent<PlayerHealthController>().IsDead()))
+            {
+                followPlayer(player);
+                if (getDistance(player) > fallBackDistance && !gotAttacked)
+                {
+                    playerSpotted = false;
+                }
+            }
+            else
+            {
+                if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
+                {
+                    playerSpotted = false;
+                    goBackToCamp();
+                }
+                else
+                //if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
+                {
+                    playerSpotted = false;
+                    isIdling(true);
+                    busy = false;
+                }
+            }
         }
         else
         {
-            gotAttacked = false;
-        }
-
-        //Running too far loses target
-        if (playerSpotted && Time.time - attackTime > followTime)
-        {
-            playerSpotted = false;
-        }
-
-        //Normal situation, player spotted
-        if ((playerSpotted && !player.GetComponent<PlayerHealthController>().IsDead()))
-        {
-            followPlayer(player);
-            if (getDistance(player) > fallBackDistance && !gotAttacked)
+            if(wander != null && wander.enabled)
             {
-                playerSpotted = false;
+                wander.enabled = false;
             }
         }
-        else
-        {
-            if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
-            {
-                playerSpotted = false;
-                goBackToCamp();
-            }
-            else 
-            //if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
-            {
-                playerSpotted = false;
-                isIdling(true);
-                busy = false;
-            }
-        }
-
     }
 
     float getDistance(GameObject target)
@@ -220,8 +245,19 @@ public class EnemyActionController : MonoBehaviour
         animations.isWalking(isWalking);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if(other.gameObject.tag.Equals("Player"))
+    //    {
+    //        playerInRange = true;
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.gameObject.tag.Equals("Player"))
+    //    {
+    //        playerInRange = false;
+    //    }
+    //}
 }

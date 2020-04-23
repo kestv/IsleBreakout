@@ -61,9 +61,8 @@ MonoBehaviour:
   - {fileID: 1513361363309030}
   - {fileID: 1724141218485398}
   target: {fileID: 0}
-  damage: 40
+  damage: 200
   actualDamage: 0
-  cooldown: 2
 --- !u!54 &54790643334099828
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,7 +105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 5e059cb254e166541b904f2e0dadfb5c, type: 3}
-  name: Energy ball
+  name: Legendary energy ball
   cooldown: 4
   type: 1
 --- !u!1 &1233283920887408

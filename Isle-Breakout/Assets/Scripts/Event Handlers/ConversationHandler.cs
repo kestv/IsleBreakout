@@ -21,6 +21,8 @@ public class ConversationHandler : MonoBehaviour
 
     int npcID;
 
+    bool questAvailable = true;
+
     public void Awake()
     {
         conversation = GameObject.Find("Conversation");
@@ -45,13 +47,21 @@ public class ConversationHandler : MonoBehaviour
 
     public void StartConversation(int ID, List<string> conversations, string name, List<Quest> quests)
     {
+        questAvailable = true;
         npcID = ID;
         questAcceptButton.SetActive(false);
         if (quests != null && quests.Count > 0)
-            foreach (var quest in quests)
+            for(int i = 0; i < quests.Count; i++)
             {
+                var quest = quests[i];
                 if (quest.Completed != true && quest.Active != true)
                 {
+                    if (i > 0 && quests[i - 1].Active == true && !quests[i - 1].Evaluate())
+                    {
+                        this.conversations = conversations;
+                        questAvailable = false;
+                        break;
+                    }
                     this.conversations = quest.conversations;
                     break;
                 }
@@ -82,7 +92,7 @@ public class ConversationHandler : MonoBehaviour
         else if (i < conversations.Count)
         {
             buttonText.GetComponent<Text>().text = "Close";
-            if (quests != null && quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false))
+            if (quests != null && quests.Count > 0 && quests.Find(q => q.Completed == false && q.Active == false) && questAvailable)
                 questAcceptButton.SetActive(true);
             text.GetComponent<Text>().text = conversations[i];
             i++;
