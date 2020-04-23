@@ -10,6 +10,7 @@ public class PlayerLevelController : MonoBehaviour
     public float currentExperiencePoints;
     public float requiredExperiencePoints;
     public float totalXp;
+    public float currentGameXp;
 
     GameObject levelField;
 
@@ -18,6 +19,7 @@ public class PlayerLevelController : MonoBehaviour
         levelField = GameObject.Find("Level");
         level = Player.level;
         totalXp = Player.xp;
+        currentGameXp = 0;
         levelField.GetComponent<Text>().text = level.ToString();
         CombatEventHandler.Instance.onEnemyDeath += GetExperience;
     }
@@ -25,6 +27,7 @@ public class PlayerLevelController : MonoBehaviour
     public void GetExperience(float amount)
     {
         totalXp += amount;
+        currentGameXp += amount;
         currentExperiencePoints += amount;
         UIEventHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();
@@ -33,6 +36,7 @@ public class PlayerLevelController : MonoBehaviour
     public void GetExperience(float amount, int id)
     {
         totalXp += amount;
+        currentGameXp += amount;
         currentExperiencePoints += amount;
         UIEventHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();

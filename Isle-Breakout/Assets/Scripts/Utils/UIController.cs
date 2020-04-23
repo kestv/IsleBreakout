@@ -1,7 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
@@ -12,8 +15,35 @@ public class UIController : MonoBehaviour
 
     public GameObject menu;
     bool menuOpen;
+
+    public GameObject panel;
+    public GameObject endGamePanel;
+    float timer;
+
+
+    public void EndGame()
+    {
+        StartCoroutine(InitEndGame());
+    }
+
+    IEnumerator InitEndGame()
+    {
+        panel.SetActive(true);
+        SaveGame(true);
+        yield return new WaitForSeconds(2f);
+        panel.GetComponent<OnSpawn>().FadeIn();
+        yield return new WaitForSeconds(4f);
+        endGamePanel.SetActive(true);
+        var text = endGamePanel.transform.GetChild(0).GetComponent<Text>();
+        var xp = GetComponent<PlayerLevelController>().currentGameXp;
+        var time = GetComponent<ProgressTracker>().GetTime();
+        TimeSpan timeSpan = time < 60 ? TimeSpan.FromSeconds(Convert.ToDouble(time + 60)) : TimeSpan.FromSeconds(Convert.ToDouble(time));
+        text.text = string.Format("Time spent: {0} h {1} min\nXp gained: {2}", timeSpan.Hours, timeSpan.Minutes - timeSpan.Hours * 60, xp);
+    }
+
     void Start()
     {
+        endGamePanel.SetActive(false);
         Debug.Log(gameObject.name);
         menu = GameObject.Find("Menu");
         menu.SetActive(false);
@@ -51,9 +81,11 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public void SaveGame()
+    public void SaveGame(bool ended)
     {
-        PlayerData player = new PlayerData(Player.name, levelCtrl.level, levelCtrl.totalXp, Player.id);
+        var n = ended ? 1 : 0;
+        var time = GetComponent<ProgressTracker>().GetTime();
+        PlayerData player = new PlayerData(Player.name, levelCtrl.level, levelCtrl.totalXp, Player.id, Player.totalGamesPlayed + n, Player.totalTimeSpent + time);
 
         DataSystem.Save(player);
     }
@@ -68,8 +100,7 @@ public class UIController : MonoBehaviour
 
     public void MainMenu()
     {
-        SaveGame();
+        SaveGame(false);
         SceneManager.LoadScene(0);
-        SceneManager.UnloadSceneAsync(1);
     }
 }

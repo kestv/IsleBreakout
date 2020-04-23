@@ -4,18 +4,25 @@ using UnityEngine;
 
 public class OnSpawn : MonoBehaviour
 {
-    float timer;
     void Start()
     {
-        timer = Time.time;
-        GetComponent<Animator>().SetTrigger("FadeOut");
+        FadeOut();
     }
 
-    private void Update()
+    public void FadeOut()
     {
-        if(Time.time - timer > 2.5f)
-        {
-            gameObject.SetActive(false);
-        }
+        StartCoroutine(Fade());
+    }
+
+    public void FadeIn()
+    {
+        GetComponent<Animator>().SetTrigger("FadeIn");
+    }
+
+    IEnumerator Fade()
+    {
+        GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(2.5f);
+        gameObject.SetActive(false);
     }
 }

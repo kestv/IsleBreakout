@@ -8,4 +8,6 @@ public static class Player
     public static string name;
     public static float level;
     public static float xp;
+    public static int totalGamesPlayed;
+    public static float totalTimeSpent;
 }

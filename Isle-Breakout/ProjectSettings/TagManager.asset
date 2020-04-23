@@ -17,6 +17,7 @@ TagManager:
   - resource
   - PirateShip
   - Prop
+  - interactable
   layers:
   - Default
   - TransparentFX
@@ -26,7 +27,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Enemy
   - 
   - 
   - 

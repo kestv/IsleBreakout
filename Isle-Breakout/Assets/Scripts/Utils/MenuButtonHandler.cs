@@ -32,6 +32,7 @@ public class MenuButtonHandler : MonoBehaviour
     {
         panel.SetActive(true);
         GetComponent<Animator>().SetTrigger("FadeIn");
+
         StartCoroutine(SwitchScenes());
     }
 
@@ -48,7 +49,7 @@ public class MenuButtonHandler : MonoBehaviour
 
     IEnumerator SwitchScenes()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(1);
         SceneManager.UnloadSceneAsync(0);
     }

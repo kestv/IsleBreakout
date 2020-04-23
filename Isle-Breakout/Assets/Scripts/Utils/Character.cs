@@ -50,6 +50,8 @@ public class Character : MonoBehaviour
             player.id = id;
             player.xp = 0;
             player.level = 1;
+            player.totalTimeSpent = 0;
+            player.totalGamesPlayed = 0;
             this.player = player;
             list.SetActive(false);
             nameEnter.SetActive(true);
