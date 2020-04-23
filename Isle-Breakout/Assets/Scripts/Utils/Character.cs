@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +10,8 @@ public class Character : MonoBehaviour
     public Text name;
     public Text xp;
     public Text level;
+    public Text time;
+    public Text games;
     public Text newCharacter;
     public Button deleteButton;
 
@@ -29,6 +32,9 @@ public class Character : MonoBehaviour
             name.text = player.name;
             xp.text = player.xp + " xp";
             level.text = player.level + " lvl";
+            TimeSpan timeSpan = TimeSpan.FromSeconds(player.totalTimeSpent);
+            time.text = string.Format("{0} h {1} min", timeSpan.Hours, timeSpan.Minutes - timeSpan.Hours * 60);
+            games.text = player.totalGamesPlayed.ToString() + " games";
             deleteButton.gameObject.SetActive(true);
         }
         else
@@ -37,6 +43,8 @@ public class Character : MonoBehaviour
             newCharacter.enabled = true;
             name.enabled = false;
             xp.enabled = false;
+            time.enabled = false;
+            games.enabled = false;
             level.enabled = false;
         }
         CharacterCreationHandler.Instance.onNameEntered += SetName;
@@ -64,6 +72,8 @@ public class Character : MonoBehaviour
             Player.name = player.name;
             Player.level = player.level;
             Player.xp = player.xp;
+            Player.totalGamesPlayed = player.totalGamesPlayed;
+            Player.totalTimeSpent = player.totalTimeSpent;
         }
         DataSystem.Save(player);
         RefreshUI();
@@ -79,9 +89,14 @@ public class Character : MonoBehaviour
             name.enabled = true;
             xp.enabled = true;
             level.enabled = true;
+            time.enabled = true;
+            games.enabled = true;
             name.text = player.name;
             xp.text = player.xp + " xp";
             level.text = player.level + " lvl";
+            TimeSpan timeSpan = TimeSpan.FromSeconds(player.totalTimeSpent);
+            time.text = string.Format("{0} h {1} min", timeSpan.Hours, timeSpan.Minutes - timeSpan.Hours * 60);
+            games.text = player.totalGamesPlayed.ToString() + " games";
         }
         else
         {
@@ -90,6 +105,8 @@ public class Character : MonoBehaviour
             name.enabled = false;
             xp.enabled = false;
             level.enabled = false;
+            time.enabled = false;
+            games.enabled = false;
         }
     }
 
