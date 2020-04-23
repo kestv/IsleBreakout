@@ -12,7 +12,7 @@ public class SpellInfoPanelController : MonoBehaviour
 
     [Header("Objects")]
     [SerializeField] private Transform itemSprite;
-    [SerializeField] private Transform itemName;    
+    [SerializeField] private Transform itemName;
     [SerializeField] private Transform itemDescription;
 
     private SpellHolder spellHolder;
@@ -21,7 +21,7 @@ public class SpellInfoPanelController : MonoBehaviour
     {
         setItemName(settings.getName());
         setSprite(settings.getSprite());
-        setDescriptionText(settings.getCooldown());
+        setDescriptionText(settings);
     }
 
     public void setItemName(string name)
@@ -34,8 +34,36 @@ public class SpellInfoPanelController : MonoBehaviour
         itemSprite.GetComponent<Image>().sprite = sprite;
     }
 
-    public void setDescriptionText(float cooldown)
+    public void setDescriptionText(SpellInfo info)
     {
-        itemDescription.GetComponent<TextMeshProUGUI>().text = "Cooldown: " + cooldown.ToString();
+        float cooldown = info.getCooldown();
+        float damage = info.getDamage();
+        int type = info.getType();
+
+        string text = "";
+        if (type > 0)
+        {
+            switch (type)
+            {
+                case 0:
+                    text += "Type: Offensive" + "\n";
+                    break;
+                default:
+                    text += "Type: Neutral" + "\n";
+                    break;
+            }
+        }
+
+        if (cooldown > 0)
+        {
+            text += "Coooldown: " + cooldown.ToString() + "\n";
+        }
+
+        if (damage > 0)
+        {
+            text += "Damage: " + damage.ToString();
+        }
+
+        itemDescription.GetComponent<TextMeshProUGUI>().text = text;
     }
 }
