@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8644768065941770669}
   - component: {fileID: 8644768065942985081}
   - component: {fileID: 8644768065943996607}
+  - component: {fileID: 6759549748522055342}
   m_Layer: 20
   m_Name: SHIP_SUPPLIES
   m_TagString: Untagged
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &6759549748522055342
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8644768065942024009}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9325392, y: 2.1986086, z: 0.9978535}
+  m_Center: {x: -0.00000011920929, y: 1.0993043, z: 0}

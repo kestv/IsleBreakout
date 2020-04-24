@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   materials:
   - requiredItem: {fileID: 187964, guid: 57710d14a5f818447b59f599007fcf0e, type: 3}
-    count: 0
+    count: 1
   - requiredItem: {fileID: 116954, guid: 93db9109327854c4d9a63e6f21c6ac1e, type: 3}
-    count: 0
+    count: 1
   - requiredItem: {fileID: 118958, guid: 2ce80be0ce7f0c243a43a99268428614, type: 3}
-    count: 0
+    count: 1
   craftedItem: {fileID: 6937597398166901499, guid: 6f7463e70e01c3548960dcb826a844b3,
     type: 3}
