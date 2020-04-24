@@ -8,17 +8,11 @@ public class ItemConsumable : MonoBehaviour
     [SerializeField] private float restoreHP;
     [SerializeField] private float restoreHunger;
 
-    private PlayerHealthController playerHealthCtrl;
-
-    private void Start()
-    {
-        DependencyManager manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
-        playerHealthCtrl = manager.getPlayer().GetComponent<PlayerHealthController>();
-    }
-
     public void Consume()
     {
-        if(restoreHP > 0)
+        PlayerHealthController playerHealthCtrl = GameObject.Find("Manager").GetComponent<DependencyManager>().getPlayer().GetComponent<PlayerHealthController>();
+
+        if (restoreHP > 0)
         {
             playerHealthCtrl.Heal(restoreHP);
         }
@@ -31,8 +25,16 @@ public class ItemConsumable : MonoBehaviour
     public string getConsumableStats()
     {
         string text = "";
-        text += "HP: +" + restoreHP.ToString() + "\n";
-        text += "Hunger: +" + restoreHunger.ToString();
+
+        if(restoreHP > 0)
+        {
+            text += "HP: +" + restoreHP.ToString() + "\n";
+        }
+        if(restoreHunger > 0)
+        {
+            text += "Hunger: +" + restoreHunger.ToString();
+        }
+        
         return text;
     }
 }

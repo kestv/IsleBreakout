@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1660363497793274157}
   m_Layer: 0
   m_Name: SM_Veh_BoatHead_03
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1660363497793293297}
   m_Layer: 0
   m_Name: SM_Veh_BoatHead_02
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -171,7 +171,7 @@ GameObject:
   - component: {fileID: 1660363497792947595}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Closed_03
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 1660363497792935615}
   m_Layer: 0
   m_Name: SM_Veh_Oars_01
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 1660363497793293527}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Open_04
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -408,7 +408,7 @@ GameObject:
   - component: {fileID: 1660363497793318377}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Closed_04
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -485,11 +485,11 @@ GameObject:
   - component: {fileID: 1660363497791028617}
   - component: {fileID: 1660363497792246849}
   - component: {fileID: 1660363497792946547}
-  - component: {fileID: 1724552193684748503}
   - component: {fileID: 2247009552908998299}
+  - component: {fileID: 4698944466834424345}
   m_Layer: 0
   m_Name: SM_Veh_Boat_01
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -517,6 +517,7 @@ Transform:
   - {fileID: 1660363497790974757}
   - {fileID: 1660363497790984239}
   - {fileID: 1660363497790974723}
+  - {fileID: 4132558524104208587}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -567,20 +568,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &1724552193684748503
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1660363497791233841}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 0a9014fc8da3f0f4cab7b4681c642ff4, type: 3}
 --- !u!114 &2247009552908998299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -598,6 +585,21 @@ MonoBehaviour:
   description: Ahoy! Sail away~
   sprite: {fileID: 0}
   model: {fileID: 4370239543138166172, guid: 08779e863792a7846bff4626f4b34374, type: 3}
+  dropChance: 0
+  equip: {fileID: 0}
+--- !u!65 &4698944466834424345
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660363497791233841}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9050999, y: 9.525817, z: 15.252142}
+  m_Center: {x: -0.03308916, y: 3.8326325, z: -0.25737}
 --- !u!1 &1660363497791249441
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +613,7 @@ GameObject:
   - component: {fileID: 1660363497792955917}
   m_Layer: 0
   m_Name: SM_Veh_BoatHead_01
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -690,7 +692,7 @@ GameObject:
   - component: {fileID: 1660363497793313715}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Closed_02
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -769,7 +771,7 @@ GameObject:
   - component: {fileID: 1660363497793297319}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Open_02
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -848,7 +850,7 @@ GameObject:
   - component: {fileID: 1660363497793292089}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Open_03
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -927,7 +929,7 @@ GameObject:
   - component: {fileID: 1660363497793319959}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Open_01
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1006,7 +1008,7 @@ GameObject:
   - component: {fileID: 1660363497793287577}
   m_Layer: 0
   m_Name: SM_Veh_Sail_Closed_01
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1072,3 +1074,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!1 &6246165566075730946
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4132558524104208587}
+  - component: {fileID: 8908470162027365653}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: ShipFinished
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4132558524104208587
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246165566075730946}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1660363497791028617}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &8908470162027365653
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6246165566075730946}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 6.11
+  m_Center: {x: 0, y: 0, z: 0}

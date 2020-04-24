@@ -95,6 +95,9 @@ public class PlayerTriggerHandler : MonoBehaviour
                         triggers.RemoveAt(triggers.Count - 1);
                         UpdateTriggerMessage();
                         break;
+                    case "ShipFinished":                        
+                        GetComponent<UIController>().EndGame();
+                        break;
                     default:
                         break;
                 }
@@ -149,6 +152,11 @@ public class PlayerTriggerHandler : MonoBehaviour
             triggers.Add(other.gameObject);
             SetMessagePanelText(other.gameObject);
         }
+        if(other.tag == "ShipFinished")
+        {
+            triggers.Add(other.gameObject);
+            SetMessagePanelText(other.gameObject);
+        }
     }
 
     private void OnTriggerExit(Collider other)
@@ -182,6 +190,10 @@ public class PlayerTriggerHandler : MonoBehaviour
             other.GetComponent<ShipFloat>().enabled = false;
         }
         if(other.tag == "interactable")
+        {
+            triggers.Remove(other.gameObject);
+        }
+        if (other.tag == "ShipFinished")
         {
             triggers.Remove(other.gameObject);
         }
@@ -225,6 +237,9 @@ public class PlayerTriggerHandler : MonoBehaviour
                 break;
             case "interactable":
                 SetMessagePanelText(go.GetComponent<InteractableObject>().getDisplaymessage());
+                break;
+            case "ShipFinished":
+                SetMessagePanelText("Escape the island! <#ffffff>'F'</color>");
                 break;
             default:
                 tagFound = false;

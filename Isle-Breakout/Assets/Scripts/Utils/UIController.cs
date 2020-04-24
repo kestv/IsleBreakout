@@ -28,6 +28,7 @@ public class UIController : MonoBehaviour
 
     IEnumerator InitEndGame()
     {
+        GameObject.Find("Manager").GetComponent<DependencyManager>().getCanvas().gameObject.SetActive(false);
         panel.SetActive(true);
         SaveGame(true);
         yield return new WaitForSeconds(2f);

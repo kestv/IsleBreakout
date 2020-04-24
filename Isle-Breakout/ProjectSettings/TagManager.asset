@@ -18,6 +18,7 @@ TagManager:
   - PirateShip
   - Prop
   - interactable
+  - ShipFinished
   layers:
   - Default
   - TransparentFX

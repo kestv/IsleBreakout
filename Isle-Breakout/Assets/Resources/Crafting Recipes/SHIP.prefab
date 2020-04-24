@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4460012279355664473}
   m_Layer: 0
   m_Name: Tier_3
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 4460012279533641050}
   m_Layer: 0
   m_Name: Tier_1
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 4460012280165317064}
   m_Layer: 0
   m_Name: Tier_2
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ GameObject:
   - component: {fileID: 4460012280172346815}
   m_Layer: 0
   m_Name: SHIP
-  m_TagString: Untagged
+  m_TagString: Prop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,6 +249,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7043862755169027759, guid: 5a3d32b14b896ab4693867b4820171f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a3d32b14b896ab4693867b4820171f7, type: 3}
 --- !u!4 &5613650385309284108 stripped
@@ -273,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1277500657566384847, guid: b4977fafc60751a43b0d9e75bda4d456,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
       objectReference: {fileID: 0}
     - target: {fileID: 1277500657566706763, guid: b4977fafc60751a43b0d9e75bda4d456,
         type: 3}
@@ -409,6 +419,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8636557918937123522, guid: b84a73ede3385a8439caaf937049f808,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b84a73ede3385a8439caaf937049f808, type: 3}
 --- !u!4 &4252009583021292780 stripped
@@ -488,6 +503,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660363497791233841, guid: 523f9f4c96e9c1447b234e3a56dadaec,
+        type: 3}
+      propertyPath: m_TagString
+      value: Prop
+      objectReference: {fileID: 0}
+    - target: {fileID: 4132558524104208587, guid: 523f9f4c96e9c1447b234e3a56dadaec,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8908470162027365653, guid: 523f9f4c96e9c1447b234e3a56dadaec,
+        type: 3}
+      propertyPath: m_Radius
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 523f9f4c96e9c1447b234e3a56dadaec, type: 3}

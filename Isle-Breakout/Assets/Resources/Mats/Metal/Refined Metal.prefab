@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 435496707112521175}
   - component: {fileID: 464511149862992433}
   - component: {fileID: 455264764389296975}
-  - component: {fileID: 495520900452135477}
   - component: {fileID: 1370231042696345664}
   - component: {fileID: 4555130386793883395}
+  - component: {fileID: 1453367952846317574}
   m_Layer: 0
   m_Name: Refined Metal
   m_TagString: item
@@ -82,20 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &495520900452135477
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 433314890170547849}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 43665142245684968, guid: 29f6c76746460814e9d7ae89f87e356a, type: 2}
 --- !u!122 &1370231042696345664
 Halo:
   m_ObjectHideFlags: 0
@@ -127,3 +113,16 @@ MonoBehaviour:
   model: {fileID: 0}
   dropChance: 0
   equip: {fileID: 0}
+--- !u!135 &1453367952846317574
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 433314890170547849}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.19
+  m_Center: {x: 0, y: 0, z: 0}
