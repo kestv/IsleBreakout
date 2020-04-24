@@ -64,7 +64,7 @@ public class ImageFiller : MonoBehaviour
             player.GetComponent<PlayerMovementController>().enabled = true;
             inventory.AddItem(Instantiate(item));
 
-            gameObject.transform.parent.gameObject.SetActive(false);
+            gameObject.SetActive(false);
             caller.GetComponent<ResourceGatherer>().OnMineSuccess();
 
             if (caller.GetComponent<ResourceGatherer>().getGatherCount() <= 0)

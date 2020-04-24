@@ -16,7 +16,7 @@ public class ResourceGatherer : MonoBehaviour
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
-        progressPanel = manager.getResourceGatherImage();
+        progressPanel = manager.getResourceGatherPanel();
 
         if (gatherCount <= 0)
         {
@@ -28,7 +28,7 @@ public class ResourceGatherer : MonoBehaviour
     {
         ImageFiller script = progressPanel.GetComponent<ImageFiller>();
         script.InitVariables(gameObject, gatherTime, gatherItem, gatherCount);
-        progressPanel.transform.parent.gameObject.SetActive(true);
+        progressPanel.SetActive(true);
     }
 
     public void InitCraftingBench()

@@ -5,99 +5,120 @@ using UnityEngine.UI;
 
 public class DependencyManager : MonoBehaviour
 {
+    [Header("UI Refrences")]
+    [SerializeField] private GameObject canvas;
     [SerializeField] private GameObject itemInfoCanvas;
 
-    public GameObject player;
-    public GameObject canvas;
-    public CanvasController canvasController;
-    public int inventorySize;
+    [Header("Player refrences")]
+    [SerializeField] private int inventorySize;
+    [SerializeField] private GameObject player;
 
-    public GameObject shipCrafting;
-    public ShipBuilder shipBuilder;
-    public GameObject canvasShipRenderer;
+    [Header("Renderers")]
+    [SerializeField] private GameObject canvasPlayerRenderer;
+    [SerializeField] private GameObject canvasShipRenderer;
 
-    public GameObject equipPanel;
-    public EquipSlotPanelController equipSlotPanelController;
-    public ArmorEquipper playerModel;
-    public ArmorEquipper playerUIModel;
-    public GameObject canvasPlayerRenderer;
+    [Header("Other refrences")]
+    [SerializeField] private ShipBuilder shipBuilder;
 
-    public GameObject resourceGatherImage;
+    //Children of UI_Canvas
+    private GameObject inventoryPanel;
+    private GameObject messagePanel;
+    private GameObject craftingPanel;
+    private GameObject equipPanel;
+    private GameObject resourceGatherPanel;
+    private GameObject shipRepairPanel;
+    private CanvasController canvasCtrl;
+
+    //Armor equippers
+    private ArmorEquipper playerModel;
+    private ArmorEquipper playerUIModel;
+    private EquipSlotPanelController equipSlotPanelController;
 
     private void Awake()
     {
-        player = GameObject.Find("PlayerInstance");
-        canvas = Instantiate(canvas);
-        canvasController = canvas.GetComponent<CanvasController>();
-        canvas.transform.GetChild(2).gameObject.SetActive(false);
+        canvasCtrl          = canvas.GetComponent<CanvasController>();
+        inventoryPanel      = canvasCtrl.getInventoryPanel().gameObject;
+        messagePanel        = canvasCtrl.getMessagePanel().gameObject;
+        craftingPanel       = canvasCtrl.getCraftingPanel().gameObject;
+        equipPanel          = canvasCtrl.getEquipPanel().gameObject;
+        resourceGatherPanel = canvasCtrl.getResourceGatherImage().gameObject;
+        shipRepairPanel     = canvasCtrl.getShipRepairPanel().gameObject;
 
-        equipPanel = canvas.transform.GetChild(3).gameObject;
+        craftingPanel.SetActive(false);
+        craftingPanel.GetComponent<Image>().enabled = true;
+
+        equipPanel.gameObject.SetActive(false);
+        equipPanel.GetComponent<Image>().enabled = true;
         equipSlotPanelController = equipPanel.transform.GetChild(0).GetChild(2).GetComponent<EquipSlotPanelController>();
 
-        resourceGatherImage = canvas.transform.GetChild(4).GetChild(0).gameObject;
-
-        inventorySize = 6;
-
-        shipCrafting = canvas.transform.GetChild(5).gameObject;
-        shipBuilder = GameObject.Find("SHIP").GetComponent<ShipBuilder>();
-
         canvasPlayerRenderer = Instantiate(canvasPlayerRenderer);
-        playerModel = player.GetComponent<ArmorEquipper>();
-        playerUIModel = canvasPlayerRenderer.transform.GetChild(0).GetChild(0).GetComponent<ArmorEquipper>();
-
         canvasShipRenderer = Instantiate(canvasShipRenderer);
+
+        playerModel = player.GetComponent<ArmorEquipper>();
+        playerUIModel = canvasPlayerRenderer.transform.GetChild(0).GetChild(0).GetComponent<ArmorEquipper>();        
 
         itemInfoCanvas = Instantiate(itemInfoCanvas);
     }
 
     private void Start()
     {
-        StartCoroutine(MyCoroutine());
+        StartCoroutine(Wait(100));
     }
 
-    IEnumerator MyCoroutine()
+    /// <summary>
+    /// Delays the call of methods inside this coroutine
+    /// </summary>
+    /// <param name="time">How long should the coroutine wait, value of int 100 waits 1 frame</param>
+    IEnumerator Wait(int time)
     {
-        yield return 100;    //Wait one frame
-        shipCrafting.SetActive(false);        
-        canvas.transform.GetChild(3).gameObject.SetActive(false);
-        resourceGatherImage.transform.parent.gameObject.SetActive(false);
+        yield return time;    //Wait one frame
+
+        shipRepairPanel.SetActive(false);
+        shipRepairPanel.GetComponent<Image>().enabled = true;
+        resourceGatherPanel.SetActive(false);
     }
-
-    public GameObject getPlayer()
-    { return player; }
-
-    public void setPlayer(GameObject player)
-    { this.player = player; }
 
     public GameObject getCanvas()
     { return canvas; }
 
-    public void setCanvas(GameObject canvas)
-    { this.canvas = canvas; }
+    public GameObject getItemInfoCanvas()
+    { return itemInfoCanvas; }
 
     public int getInventorySize()
     { return inventorySize; }
 
-    public void setInventorySize(int inventorySize)
-    { this.inventorySize = inventorySize; }
+    public GameObject getPlayer()
+    { return player; }
 
-    public GameObject getShipCrafting()
-    { return shipCrafting; }
+    public GameObject getCanvasPlayerRenderer()
+    { return canvasPlayerRenderer; }
 
-    public void setShipCrafting(GameObject shipCrafting)
-    { this.shipCrafting = shipCrafting; }
+    public GameObject getCanvasShipRenderer()
+    { return canvasShipRenderer; }
+
+    public CanvasController getCanvasController()
+    { return canvasCtrl; }
 
     public ShipBuilder getShipBuilder()
     { return shipBuilder; }
 
-    public void setShipBuilder(ShipBuilder shipBuilder)
-    { this.shipBuilder = shipBuilder; }
+    public GameObject getInventoryPanel()
+    { return inventoryPanel; }
+
+    public GameObject getMessagePanel()
+    { return messagePanel; }
+
+    public GameObject getCraftingPanel()
+    { return craftingPanel; }
 
     public GameObject getEquipPanel()
     { return equipPanel; }
 
-    public EquipSlotPanelController getequipSlotPanelController()
-    { return equipSlotPanelController; }
+    public GameObject getResourceGatherPanel()
+    { return resourceGatherPanel; }
+
+    public GameObject getShipRepairPanel()
+    { return shipRepairPanel; }
 
     public ArmorEquipper getPlayerEquipper()
     { return playerModel; }
@@ -105,21 +126,6 @@ public class DependencyManager : MonoBehaviour
     public ArmorEquipper getUIEquipper()
     { return playerUIModel; }
 
-    public GameObject getCanvasPlayerRenderer()
-    { return canvasPlayerRenderer; }
-
-    public GameObject getResourceGatherImage()
-    { return resourceGatherImage; }
-
-    public void setResourceGatherImage(GameObject resourceGatherImage)
-    { this.resourceGatherImage = resourceGatherImage; }
-
-    public GameObject getCanvasShipRenderer()
-    { return canvasShipRenderer; }
-
-    public CanvasController getCanvasController()
-    { return canvasController; }
-
-    public GameObject getItemInfoCanvas()
-    { return itemInfoCanvas; }
+    public EquipSlotPanelController getequipSlotPanelController()
+    { return equipSlotPanelController; }
 }

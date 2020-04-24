@@ -22,7 +22,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         inventoryPanel = canvas.transform.Find("UI_InventoryPanel").gameObject;
         //craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
         craftingPanel = canvas.transform.GetChild(2).gameObject;
-        shipPartPanel = manager.getShipCrafting().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
+        shipPartPanel = manager.getShipRepairPanel().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
 
         inventorySize = manager.getInventorySize();
         for (int i = 0; i < inventorySize; i++)

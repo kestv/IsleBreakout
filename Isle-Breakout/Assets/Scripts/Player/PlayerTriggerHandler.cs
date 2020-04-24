@@ -39,7 +39,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
         item = null;
 
-        shipCrafting = manager.getShipCrafting();
+        shipCrafting = manager.getShipRepairPanel();
         shipPartCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipePartPanel().GetComponent<ShipPartController>();
         shipRecipeCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipeScrollPanel().GetChild(0).GetComponent<ShipRecipeController>();
         shipBuilder = manager.getShipBuilder().transform;
