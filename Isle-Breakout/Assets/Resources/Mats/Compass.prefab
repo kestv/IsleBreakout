@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 72
-  itemName: Magic Compass
+  itemName: Compass
   description: This item will lead your way home, otherwise you could get lost
   sprite: {fileID: 21300000, guid: 3d4c842657184e944aa24097e7f0fd48, type: 3}
   model: {fileID: 0}

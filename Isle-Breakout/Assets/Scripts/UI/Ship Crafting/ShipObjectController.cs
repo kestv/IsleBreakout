@@ -33,10 +33,15 @@ public class ShipObjectController : MonoBehaviour
 
     public void removeChild()
     {
-        if(shipRenderer.transform.GetChild(0).GetChild(0).childCount > 0)
+        Transform modelPanel = shipRenderer.transform.GetChild(0).GetChild(0);
+
+        if (modelPanel.childCount > 0)
         {
-            Destroy(shipRenderer.transform.GetChild(0).GetChild(0).GetChild(0).gameObject);
-            rotator.setObject(null);
+            foreach(Transform child in modelPanel)
+            {
+                Destroy(child.gameObject);
+                rotator.setObject(null);
+            }
         }
     }
 }

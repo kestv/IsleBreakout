@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4370239543137905662}
   - component: {fileID: 4370239543139118270}
   - component: {fileID: 4370239543140175546}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Open_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 4370239543137919254}
   - component: {fileID: 4370239543139116260}
   - component: {fileID: 4370239543140208436}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Closed_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 4370239543139118828}
   - component: {fileID: 4370239543140154334}
   - component: {fileID: 4342078540593857146}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SHIP_FINISHED
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   - component: {fileID: 4370239543137853406}
   - component: {fileID: 4370239543139117384}
   - component: {fileID: 4370239543140177732}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Closed_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,7 +354,7 @@ GameObject:
   - component: {fileID: 4370239543137898888}
   - component: {fileID: 4370239543139164048}
   - component: {fileID: 4370239543140163850}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Open_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -433,7 +433,7 @@ GameObject:
   - component: {fileID: 4370239543137921666}
   - component: {fileID: 4370239543139235350}
   - component: {fileID: 4370239543140171156}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Open_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -512,7 +512,7 @@ GameObject:
   - component: {fileID: 4370239543137831150}
   - component: {fileID: 4370239543139154674}
   - component: {fileID: 4370239543140180254}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Closed_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 4370239543137873742}
   - component: {fileID: 4370239543139113088}
   - component: {fileID: 4370239543140146336}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_BoatHead_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -670,7 +670,7 @@ GameObject:
   - component: {fileID: 4370239543137863710}
   - component: {fileID: 4370239543139185188}
   - component: {fileID: 4370239543140219776}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_BoatHead_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -749,7 +749,7 @@ GameObject:
   - component: {fileID: 4370239543137898926}
   - component: {fileID: 4370239543139187314}
   - component: {fileID: 4370239543140169338}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Open_04
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -828,7 +828,7 @@ GameObject:
   - component: {fileID: 4370239543137848106}
   - component: {fileID: 4370239543139204726}
   - component: {fileID: 4370239543140133906}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Oars_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -907,7 +907,7 @@ GameObject:
   - component: {fileID: 4370239543137857730}
   - component: {fileID: 4370239543139204260}
   - component: {fileID: 4370239543140155174}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_Sail_Closed_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,7 +986,7 @@ GameObject:
   - component: {fileID: 4370239543137831278}
   - component: {fileID: 4370239543139171626}
   - component: {fileID: 4370239543140168028}
-  m_Layer: 11
+  m_Layer: 20
   m_Name: SM_Veh_BoatHead_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
