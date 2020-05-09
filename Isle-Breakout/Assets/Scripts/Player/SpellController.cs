@@ -5,13 +5,14 @@ using UnityEngine.UI;
 
 public class SpellController : MonoBehaviour
 {
-    public const int OFFENSIVE_SPELL = 1;
-    public const int TAME_SPELL = 2;
-    public const int RECALL_SPELL = 3;
+    const int OFFENSIVE_SPELL = 1;
+    const int TAME_SPELL = 2;
+    const int RECALL_SPELL = 3;
 
-    public float range;
-    public GameObject castPoint;
-    [SerializeField] private GameObject arrowCastPoint;
+    [SerializeField]
+    GameObject castPoint;
+    [SerializeField] 
+    GameObject arrowCastPoint;
     float lastCast;
     GameObject currentPet;
     GameObject pet;
@@ -20,15 +21,16 @@ public class SpellController : MonoBehaviour
     SpellHolder slot1;
     SpellHolder slot2;
 
-    public GameObject castBar;
-    public GameObject bar;
+    GameObject castBar;
+    GameObject bar;
     float startedCasting;
     float castTime = 2f;
 
     Coroutine coroutine;
 
     PlayerInventory playerInventory;
-    public GameObject tameItem;
+    [SerializeField]
+    GameObject tameItem;
 
     Vector3 lastRecallPos = new Vector3(0, 0, 0);
 
@@ -80,11 +82,11 @@ public class SpellController : MonoBehaviour
     {
         if (slot == 1)
         {
-            return slot1.GetComponent<SpellHolder>().spell.GetComponent<SpellInfo>().name;
+            return slot1.GetComponent<SpellHolder>().GetSpell().GetComponent<SpellInfo>().name;
         }
         else if (slot == 2)
         {
-            return slot2.GetComponent<SpellHolder>().spell.GetComponent<SpellInfo>().name;
+            return slot2.GetComponent<SpellHolder>().GetSpell().GetComponent<SpellInfo>().name;
         }
         else return "";
     }
@@ -93,14 +95,14 @@ public class SpellController : MonoBehaviour
     {
         if (slot == 1)
         {
-            if (slot1.GetComponent<SpellHolder>().spell != null)
+            if (slot1.GetComponent<SpellHolder>().GetSpell() != null)
                 return true;
             else
                 return false;
         }
         else if (slot == 2)
         {
-            if (slot2.GetComponent<SpellHolder>().spell != null)
+            if (slot2.GetComponent<SpellHolder>().GetSpell() != null)
                 return true;
             else
                 return false;
@@ -121,12 +123,12 @@ public class SpellController : MonoBehaviour
         {
             if (playerInventory.Contains(tameItem.getItemID()))
             {
-                spellHolder.cooldown = true;
+                spellHolder.SetOnCooldown(true);
                 startedCasting = Time.time;
                 bar.GetComponent<Image>().fillAmount = 0;
                 castBar.SetActive(true);
                 playerInventory.ConsumeItem(tameItem.getItemID());
-                StartCoroutine(TamePet(ui));
+                StartCoroutine(IETamePet(ui));
                 
             }
             else ui.DisplayMessage("You don't have food");
@@ -139,9 +141,9 @@ public class SpellController : MonoBehaviour
         
         if(lastRecallPos.y != 0)
         {
-            if (!GetComponent<PlayerCombatController>().inCombat)
+            if (!GetComponent<PlayerCombatController>().GetInCombat())
             {
-                StartCoroutine(_Recall(spellHolder));
+                StartCoroutine(IERecall(spellHolder));
             }
             else
             {
@@ -157,15 +159,15 @@ public class SpellController : MonoBehaviour
 
     public void CastSpell(GameObject target, SpellHolder spellHolder)
     {
-        if (spellHolder.spell != null && !spellHolder.cooldown)
+        if (spellHolder.GetSpell() != null && !spellHolder.IsOnCooldown())
         {
-            var type = spellHolder.spell.GetComponent<SpellInfo>().type;
+            var type = spellHolder.GetSpell().GetComponent<SpellInfo>().type;
             switch (type)
             {
                 case OFFENSIVE_SPELL:
-                    if (target != null && Time.time - lastCast > spellHolder.spell.GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
+                    if (target != null && Time.time - lastCast > spellHolder.GetSpell().GetComponent<SpellInfo>().cooldown && Vector3.Distance(transform.position, target.transform.position) <= 15)
                     {
-                        coroutine = StartCoroutine(CastingSpell(spellHolder, target));
+                        coroutine = StartCoroutine(IECastingSpell(spellHolder, target));
                     }
                     else if (target == null)
                     {
@@ -192,24 +194,24 @@ public class SpellController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         var item = Instantiate(arrow, arrowCastPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
-        item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;
-        item.GetComponent<ProjectileMoveScript>().target = target;
+        item.GetComponent<ProjectileMovement>().SetDamage(item.GetComponent<ProjectileMovement>().GetDamage() + GetComponent<PlayerStatsController>().GetWisdom() * 5);
+        item.GetComponent<ProjectileMovement>().SetTarget(target);
         GetComponent<PlayerMovementController>().enabled = true;
     }
 
-    IEnumerator InstantiateSpell(GameObject target, GameObject spell)
+    IEnumerator IEInstantiateSpell(GameObject target, GameObject spell)
     {
         GetComponent<PlayerMovementController>().enabled = false;
         GetComponent<Animator>().Play("SpellCast");
         yield return new WaitForSeconds(0.5f);
         var item = Instantiate(spell, castPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
-        item.GetComponent<ProjectileMoveScript>().actualDamage = item.GetComponent<ProjectileMoveScript>().damage + GetComponent<PlayerStatsController>().wisdom * 5;
-        item.GetComponent<ProjectileMoveScript>().target = target;
+        item.GetComponent<ProjectileMovement>().SetDamage(item.GetComponent<ProjectileMovement>().GetDamage() + GetComponent<PlayerStatsController>().GetWisdom() * 5);
+        item.GetComponent<ProjectileMovement>().SetTarget(target);
         GetComponent<PlayerMovementController>().enabled = true;
     }
 
-    IEnumerator CastingSpell(SpellHolder spellHolder, GameObject target)
+    IEnumerator IECastingSpell(SpellHolder spellHolder, GameObject target)
     {
         GetComponent<PlayerMovementController>().enabled = false;
         bar.GetComponent<Image>().fillAmount = 0;
@@ -218,17 +220,17 @@ public class SpellController : MonoBehaviour
         yield return new WaitForSeconds(castTime);
         if (Time.time - startedCasting >= castTime)
         {
-            GetComponent<PlayerCombatController>().inCombat = true;
+            GetComponent<PlayerCombatController>().SetInCombat(true);
             lastCast = Time.time;
-            spellHolder.cooldown = true;
-            if (spellHolder.image != null)
-                spellHolder.image.fillAmount = 0f;
+            spellHolder.SetOnCooldown(true);
+            if (spellHolder.GetImage() != null)
+                spellHolder.GetImage().fillAmount = 0f;
             Debug.Log("Casting spell");
-            StartCoroutine(InstantiateSpell(target, spellHolder.spell));
+            StartCoroutine(IEInstantiateSpell(target, spellHolder.GetSpell()));
         }
     }
 
-    IEnumerator TamePet(UIEventHandler ui)
+    IEnumerator IETamePet(UIEventHandler ui)
     {
         yield return new WaitForSeconds(castTime);
         if (Time.time - startedCasting >= castTime)
@@ -249,11 +251,11 @@ public class SpellController : MonoBehaviour
         }
     }
 
-    IEnumerator _Recall(SpellHolder spellHolder)
+    IEnumerator IERecall(SpellHolder spellHolder)
     {
-        spellHolder.cooldown = true;
-        if (spellHolder.image != null)
-            spellHolder.image.fillAmount = 0f;
+        spellHolder.SetOnCooldown(true);
+        if (spellHolder.GetImage() != null)
+            spellHolder.GetImage().fillAmount = 0f;
         GetComponent<PlayerMovementController>().enabled = false;
         GetComponent<PlayerCombatController>().enabled = false;
         GetComponent<Animator>().Play("Recall");

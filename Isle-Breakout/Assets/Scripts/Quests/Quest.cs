@@ -6,36 +6,36 @@ using UnityEngine.UI;
 
 public class Quest : MonoBehaviour
 {
-    public int questGiverId;
-    public List<Goal> goals = new List<Goal>();
-    public List<string> conversations = new List<string>();
-    public int Experience;
-    public string QuestName;
+    protected int questGiverId;
+    protected List<Goal> goals = new List<Goal>();
+    List<string> conversations = new List<string>();
+    int experience;
+    string questName;
 
-    public bool Completed = false;
-    public bool Active = false;
+    bool completed = false;
+    bool active = false;
 
-    public GameObject spellReward;
-    public GameObject itemReward;
-
-    public GameObject questName;
-    public GameObject questObjective;
-    public GameObject questPosition;
-    public GameObject player;
+    [SerializeField]GameObject spellReward;
+    [SerializeField]GameObject itemReward;
+ 
+    [SerializeField]GameObject questNameLabel;
+    [SerializeField]GameObject questObjective;
+    [SerializeField]GameObject questPosition;
+    [SerializeField]GameObject player;
 
     public void Awake()
     {
         player = GameObject.Find("PlayerInstance");
-        questName = GameObject.Find("QuestName");
+        questNameLabel = GameObject.Find("QuestName");
         questObjective = GameObject.Find("QuestObjective");
         questPosition = GameObject.Find("QuestPosition");
     }
 
-    public void init(int id)
+    public void Init(int id)
     {
-        NpcEventHandler.Instance._onTalkedToNpc += DisplayEvaluation;
-        NpcEventHandler.Instance.afterTalkedToNpc += CheckGoals;
-        NpcEventHandler.Instance.onTalkedToNpc += _DisplayEvaluation;
+        NpcMessagesHandler.Instance._onTalkedToNpc += DisplayEvaluation;
+        NpcMessagesHandler.Instance.afterTalkedToNpc += CheckGoals;
+        NpcMessagesHandler.Instance.onTalkedToNpc += _DisplayEvaluation;
         CombatEventHandler.Instance.afterEnemyDeath += DisplayEvaluation;
         if(questGiverId == 0)
             questGiverId = id;
@@ -43,9 +43,9 @@ public class Quest : MonoBehaviour
 
     public void CheckGoals(int npcID)
     {
-        if(goals.All(x => x.completed == true))
+        if(goals.All(x => x.IsCompleted() == true))
         {
-            if (Active && !Completed && questGiverId == npcID)
+            if (active && !completed && questGiverId == npcID)
             {
                 if (itemReward != null && player.GetComponent<PlayerInventory>().inventoryFull)
                 {
@@ -63,11 +63,11 @@ public class Quest : MonoBehaviour
     public void CompleteQuest()
     {
         GiveReward();
-        Completed = true;
-        Active = false;
-        NpcEventHandler.Instance.afterTalkedToNpc -= CheckGoals;
-        NpcEventHandler.Instance._onTalkedToNpc -= DisplayEvaluation;
-        NpcEventHandler.Instance.onTalkedToNpc -= _DisplayEvaluation;
+        completed = true;
+        active = false;
+        NpcMessagesHandler.Instance.afterTalkedToNpc -= CheckGoals;
+        NpcMessagesHandler.Instance._onTalkedToNpc -= DisplayEvaluation;
+        NpcMessagesHandler.Instance.onTalkedToNpc -= _DisplayEvaluation;
         CombatEventHandler.Instance.afterEnemyDeath -= DisplayEvaluation;
     }
     public void _DisplayEvaluation(int id, List<string> conversations, string name, List<Quest> quests)
@@ -76,14 +76,14 @@ public class Quest : MonoBehaviour
     }
     public void DisplayEvaluation()
     {
-        if (Active)
+        if (active)
         {
             SetQuestObjective("", true);
-            SetQuestName(QuestName);
+            SetQuestName(questName);
             foreach (var goal in goals)
             {
-                SetQuestObjective(goal.currentAmount + "/" + goal.requiredAmount, false);
-                if(goal.currentAmount >= goal.requiredAmount)
+                SetQuestObjective(goal.GetCurrentAmount() + "/" + goal.GetRequiredAmount(), false);
+                if(goal.GetCurrentAmount() >= goal.GetRequiredAmount())
                     SetQuestColor(Color.green);
             }
         }
@@ -93,7 +93,7 @@ public class Quest : MonoBehaviour
     {
         foreach (var goal in goals)
         {
-            if (goal.currentAmount >= goal.requiredAmount)
+            if (goal.GetCurrentAmount() >= goal.GetRequiredAmount())
                 return true;
         }
         return false;
@@ -101,9 +101,9 @@ public class Quest : MonoBehaviour
 
     public void GiveReward()
     {
-        if (Experience != 0)
+        if (experience != 0)
         {
-            player.GetComponent<PlayerLevelController>().GetExperience(Experience);
+            player.GetComponent<PlayerLevelController>().GetExperience(experience);
         }
         if(spellReward != null)
         {
@@ -120,19 +120,19 @@ public class Quest : MonoBehaviour
     public void ActivateQuest()
     {
         goals.ForEach(x => x.Init());
-        questName = (Instantiate(Resources.Load("QuestName"), GameObject.Find("QuestList").transform) as GameObject);
+        questNameLabel = (Instantiate(Resources.Load("QuestName"), GameObject.Find("QuestList").transform) as GameObject);
         questObjective = (Instantiate(Resources.Load("QuestObjective"), GameObject.Find("QuestList").transform) as GameObject);
-        questName.transform.position = questPosition.transform.position;
+        questNameLabel.transform.position = questPosition.transform.position;
         questObjective.transform.position = questPosition.transform.position;
         questObjective.transform.Translate(new Vector3(150, 0, 0));
-        Active = true;
+        active = true;
         DisplayEvaluation();
         questPosition.transform.Translate(new Vector3(0, -30, 0));
     }
 
     public void SetQuestName(string name)
     {
-        questName.GetComponent<Text>().text = name;
+        questNameLabel.GetComponent<Text>().text = name;
     }
 
     public void SetQuestObjective(string objective, bool reset)
@@ -145,14 +145,29 @@ public class Quest : MonoBehaviour
 
     public void SetQuestColor(Color color)
     {
-        questName.GetComponent<Text>().color = color;
+        questNameLabel.GetComponent<Text>().color = color;
         questObjective.GetComponent<Text>().color = color;
     }
 
     public void RemoveQuest()
     {
-        questPosition.transform.position = questName.transform.position;
-        Destroy(questName);
+        questPosition.transform.position = questNameLabel.transform.position;
+        Destroy(questNameLabel);
         Destroy(questObjective);
+    }
+
+    public bool IsCompleted()
+    {
+        return this.completed;
+    }
+
+    public bool IsActive()
+    {
+        return this.active;
+    }
+
+    public List<string> GetConversations()
+    {
+        return this.conversations;
     }
 }

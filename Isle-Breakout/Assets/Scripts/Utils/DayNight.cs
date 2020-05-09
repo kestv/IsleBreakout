@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class DayNight : MonoBehaviour
 {
-    public float speed;
+    [SerializeField]float speed;
     Light dayLight;
     Light nightLight;
     float startingIntensity;
     float startingNightIntensity;
-    public GameObject night;
+    [SerializeField]GameObject night;
     void Start()
     {
         nightLight = night.GetComponent<Light>();
@@ -20,8 +20,13 @@ public class DayNight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(new Vector3(Time.deltaTime*speed, 0, 0));
-        if((transform.eulerAngles.x > 0 && transform.eulerAngles.x < 90) || transform.eulerAngles.x > 355)
+        UpdateCycle();   
+    }
+
+    void UpdateCycle()
+    {
+        transform.Rotate(new Vector3(Time.deltaTime * speed, 0, 0));
+        if ((transform.eulerAngles.x > 0 && transform.eulerAngles.x < 90) || transform.eulerAngles.x > 355)
         {
             if (dayLight.intensity < startingIntensity)
             {

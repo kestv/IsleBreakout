@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class PlayerLevelController : MonoBehaviour
 {
-    public float levelRate;
-    public float level;
-    public float currentExperiencePoints;
-    public float requiredExperiencePoints;
-    public float totalXp;
-    public float currentGameXp;
+    float levelRate;
+    float level;
+    float currentExperiencePoints;
+    float requiredExperiencePoints;
+    float totalXp;
+    float currentGameXp;
 
     GameObject levelField;
 
@@ -60,9 +60,24 @@ public class PlayerLevelController : MonoBehaviour
         //TODO bad position
         var hpCanvas = GetComponent<PlayerHealthController>().GetHealthbarCanvas();
         levelField.GetComponent<Text>().text = level.ToString();
-        GetComponent<PlayerStatsController>().remainingPoints++;
+        GetComponent<PlayerStatsController>().IncreaseRemainingPoints(1);
         GetComponent<PlayerStatsController>().UpdateRemainingPointsValue();
 
         UIEventHandler.Instance.DisplayReward("Level up!", true);
+    }
+
+    public float GetLevel()
+    {
+        return this.level;
+    }
+
+    public float GetTotalXp()
+    {
+        return this.totalXp;
+    }
+
+    public float GetCurrentGameXp()
+    {
+        return this.currentGameXp;
     }
 }

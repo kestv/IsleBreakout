@@ -4,23 +4,32 @@ using UnityEngine;
 
 public class PlayerMovementController : MonoBehaviour
 {
-    public GameObject cam;
+    [SerializeField]
+    GameObject cam;
     Transform camTransform;
-    public bool isRunning;
-    public CharacterController controller;
-    public float speed = 8f;
-    public Vector3 velocity;
-    public float gravity = -15f;
-    public Transform groundCheck;
-    public LayerMask layerMask;
+    bool isRunning;
+    [SerializeField]
+    CharacterController controller;
+    [SerializeField]
+    float speed = 8f;
+    [SerializeField]
+    Vector3 velocity;
+    [SerializeField]
+    float gravity = -15f;
+    [SerializeField]
+    Transform groundCheck;
+    [SerializeField]
+    LayerMask layerMask;
     bool isGrounded;
-    public bool canAnimate;
+    bool canAnimate;
+    Animator animator;
     private void Start()
     {
         canAnimate = true;
         cam = GameObject.Find("Main Camera");
         isRunning = false;
         camTransform = cam.transform;
+        animator = GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
@@ -51,13 +60,43 @@ public class PlayerMovementController : MonoBehaviour
         if (x != 0 || z != 0)
         {
             isRunning = true;
-            GetComponent<Animator>().SetBool("Running", true);
+            animator.SetBool("Running", true);
         }
         else
         {
             isRunning = false;
             if(canAnimate)
-                GetComponent<Animator>().SetBool("Running", false);
+                animator.SetBool("Running", false);
         }
+    }
+
+    public bool GetIsRunning()
+    {
+        return isRunning;
+    }
+
+    public void SetIsRunning(bool isRunning)
+    {
+        this.isRunning = isRunning;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
+    }
+
+    public void AddSpeed(float speed)
+    {
+        this.speed += speed;
+    }
+
+    public void SetCanAnimate(bool canAnimate)
+    {
+        this.canAnimate = canAnimate;
     }
 }

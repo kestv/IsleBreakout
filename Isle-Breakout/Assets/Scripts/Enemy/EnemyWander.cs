@@ -7,17 +7,20 @@ public class EnemyWander : MonoBehaviour
     const int READY = 2;
     const int WANDERING = 3;
     const int WAITING = 4;
-    public bool busy;
 
-    public Vector3 startingPosition;
-    public float maxDistance = 10f;
-    public float waitTime = 2f;
-    public float startedWaiting;
+    bool busy;
+    Vector3 startingPosition;
+    [SerializeField]
+    float maxDistance = 10f;
+    [SerializeField]
+    float waitTime = 2f;
+    [SerializeField]
+    float speed = 1f;
+    float startedWaiting;
     float startedWalking;
-    public int state;
-    public float speed = 1f;
-
-    public float rotation;
+    int state = 2;
+    
+    float rotation;
     float distance;
     bool canStart;
     bool canWander;
@@ -44,7 +47,7 @@ public class EnemyWander : MonoBehaviour
         state = 2;
     }
 
-    bool isInRange(float range)
+    bool IsInRange(float range)
     {
         var pos1 = new Vector2(transform.position.x, transform.position.z);
         var pos2 = new Vector2(startingPosition.x, startingPosition.z);
@@ -57,7 +60,7 @@ public class EnemyWander : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!isInRange(20f) && canWander)
+        if (!IsInRange(20f) && canWander)
         {
             canWander = false;
         }
@@ -67,7 +70,7 @@ public class EnemyWander : MonoBehaviour
             {
                 if (actions != null)
                 {
-                    if (!actions.busy)
+                    if (!actions.IsBusy())
                     {
                         busy = true;
                         switch (state)
@@ -127,7 +130,7 @@ public class EnemyWander : MonoBehaviour
             transform.eulerAngles = new Vector3(0, rotation, 0);
             lastRot = rotation;
             state = WANDERING;
-            animations.isWalking(true);
+            animations.IsWalking(true);
             startedWalking = Time.time;
         }
     }
@@ -135,7 +138,7 @@ public class EnemyWander : MonoBehaviour
     void Wander()
     {
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-        if (!isInRange(maxDistance) && Time.time - startedWalking > 2f)
+        if (!IsInRange(maxDistance) && Time.time - startedWalking > 2f)
         {
             state = WAITING;
             startedWaiting = Time.time;
@@ -145,11 +148,11 @@ public class EnemyWander : MonoBehaviour
 
     void GoBackToStartingPosition()
     {
-        animations.isWalking(true);
+        animations.IsWalking(true);
         transform.LookAt(startingPosition);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-        if (isInRange(2f))
+        if (IsInRange(2f))
         {
             canWander = true;
         }
@@ -157,7 +160,7 @@ public class EnemyWander : MonoBehaviour
 
     void Wait()
     {
-        animations.isIdling(true);
+        animations.IsIdling(true);
         if (Time.time - startedWaiting > waitTime)
         {
             state = READY;
@@ -171,5 +174,10 @@ public class EnemyWander : MonoBehaviour
             state = WAITING;
             startedWaiting = Time.time;
         }
+    }
+
+    public bool IsBusy()
+    {
+        return this.busy;
     }
 }

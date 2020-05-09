@@ -84,10 +84,10 @@ public class PlayerTriggerHandler : MonoBehaviour
                         }
                         break;
                     case "Npc":
-                        NpcEventHandler.Instance.onTalkedToNpc(ID, conversations, npcName, quests);
-                        if (NpcEventHandler.Instance._onTalkedToNpc != null)
+                        NpcMessagesHandler.Instance.onTalkedToNpc(ID, conversations, npcName, quests);
+                        if (NpcMessagesHandler.Instance._onTalkedToNpc != null)
                         {
-                            NpcEventHandler.Instance._onTalkedToNpc();
+                            NpcMessagesHandler.Instance._onTalkedToNpc();
                         }
                         break;
                     case "interactable":
@@ -132,13 +132,13 @@ public class PlayerTriggerHandler : MonoBehaviour
         }
         if (other.tag == "Npc")
         {
-            var npcCtrl = other.gameObject.GetComponent<NpcController>();
+            var npcCtrl = other.gameObject.GetComponent<NPC>();
             if (npcCtrl != null)
             {
                 triggers.Add(other.gameObject);
-                ID = npcCtrl.ID;
-                conversations = npcCtrl.conversations;
-                npcName = npcCtrl._name;
+                ID = npcCtrl.GetId();
+                conversations = npcCtrl.GetConversations();
+                npcName = npcCtrl.GetName();
                 quests = npcCtrl.quests;
                 SetMessagePanelText(other.gameObject);
             }

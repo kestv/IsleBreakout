@@ -26,9 +26,9 @@ public class PlayerStatsPanelController : MonoBehaviour
 
     public void UpdateStats()
     {
-        UpdateStat(strenghtSlot, statsCtrl.strength.ToString());
-        UpdateStat(speedSlot, statsCtrl.speed.ToString());
-        UpdateStat(wisdomSlot, statsCtrl.wisdom.ToString());
+        UpdateStat(strenghtSlot, statsCtrl.GetStrength().ToString());
+        UpdateStat(speedSlot, statsCtrl.GetSpeed().ToString());
+        UpdateStat(wisdomSlot, statsCtrl.GetWisdom().ToString());
     }
 
     public void UpdateStat(Transform stat, string value)

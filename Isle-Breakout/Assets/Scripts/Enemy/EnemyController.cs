@@ -13,4 +13,9 @@ public class EnemyController : MonoBehaviour
     {
         
     }
+
+    public GameObject GetNameTag()
+    {
+        return this.nameTag;
+    }
 }

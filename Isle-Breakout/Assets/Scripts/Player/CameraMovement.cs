@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform lookAt;
+    Transform lookAt;
     Transform camTransform;
 
     private Camera cam;

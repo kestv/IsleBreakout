@@ -100,10 +100,10 @@ public class ArmorEquipper : MonoBehaviour
             modifier *= -1;
         }
 
-        ctrl.updateStrength(equipment.getStrength() * modifier);
-        ctrl.updateSpeed(equipment.getSpeed() * modifier);
-        ctrl.updateWisdom(equipment.getWisdom() * modifier);
-        ctrl.updateHP(equipment.getHP() * modifier);
+        ctrl.UpdateStrength(equipment.getStrength() * modifier);
+        ctrl.UpdateSpeed(equipment.getSpeed() * modifier);
+        ctrl.UpdateWisdom(equipment.getWisdom() * modifier);
+        ctrl.UpdateHP(equipment.getHP() * modifier);
 
         panelCtrl.UpdateStats();
     }
@@ -322,7 +322,7 @@ public class ArmorEquipper : MonoBehaviour
 
         if (!isRenderer)
         {
-            GetComponent<PlayerCombatController>().setIsRangedWeaponEquipped(true);
+            GetComponent<PlayerCombatController>().SetIsRangedWeaponEquipped(true);
         }        
     }
 
@@ -332,7 +332,7 @@ public class ArmorEquipper : MonoBehaviour
 
         if (!isRenderer)
         {
-            GetComponent<PlayerCombatController>().setIsRangedWeaponEquipped(false);
+            GetComponent<PlayerCombatController>().SetIsRangedWeaponEquipped(false);
         }
     }
 }

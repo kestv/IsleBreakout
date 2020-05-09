@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyDeath : MonoBehaviour
 {
-    public bool dead;
+    bool dead;
     bool waiting;
     float deathTime;
 
@@ -24,5 +24,10 @@ public class EnemyDeath : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void SetToDead(bool dead)
+    {
+        this.dead = dead;
     }
 }

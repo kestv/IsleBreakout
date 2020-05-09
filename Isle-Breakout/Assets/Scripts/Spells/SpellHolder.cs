@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class SpellHolder : MonoBehaviour
 {
-    public GameObject spell;
-    public Image image;
-    public bool cooldown;
+    [SerializeField]GameObject spell;
+    [SerializeField]Image image;
+    bool cooldown;
 
     void Start()
     {
@@ -32,6 +32,23 @@ public class SpellHolder : MonoBehaviour
         this.spell = spell;
     }
 
-    public GameObject getSpell()
-    { return spell; }
+    public GameObject GetSpell()
+    { 
+        return spell; 
+    }
+
+    public Image GetImage()
+    {
+        return this.image;
+    }
+
+    public bool IsOnCooldown()
+    {
+        return this.cooldown;
+    }
+
+    public void SetOnCooldown(bool cd)
+    {
+        this.cooldown = cd;
+    }
 }

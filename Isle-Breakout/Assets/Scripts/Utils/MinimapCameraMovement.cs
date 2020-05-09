@@ -13,6 +13,11 @@ public class MinimapCameraMovement : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        Move();   
+    }
+
+    void Move()
+    {
         var pos = player.transform.position;
         pos.y = 100;
         transform.position = pos;

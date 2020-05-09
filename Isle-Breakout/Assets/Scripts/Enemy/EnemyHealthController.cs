@@ -6,14 +6,17 @@ using UnityEngine.UI;
 
 public class EnemyHealthController : EnemyController
 {
-    public GameObject healthBar;
+    [SerializeField]
+    GameObject healthBar;
     float timer;
-    public GameObject targetSprite;
-    public float maxHealth;
-    public float health;
-    public bool dead;
+    [SerializeField]
+    GameObject targetSprite;
+    [SerializeField]
+    float maxHealth;
+    float health;
+    bool dead;
     bool counted;
-    public PlayerCombatController playerCtrl;
+    PlayerCombatController playerCtrl;
     void Start()
     {
         this.nameTag.GetComponent<TextMesh>().text = this._name;
@@ -27,45 +30,45 @@ public class EnemyHealthController : EnemyController
     // Update is called once per frame
     void Update()
     {
-        isDead();
+        IsDead();
         CheckForNameTag();
     }
-    float getDistance(Transform target)
+    float GetDistance(Transform target)
     {
         return (Math.Abs(target.position.x - transform.position.x) + Math.Abs(target.position.z - transform.position.z));
     }
     void CheckForNameTag()
     {
-        if(getDistance(playerCtrl.gameObject.transform) > 50 && nameTag.activeSelf == true)
+        if(GetDistance(playerCtrl.gameObject.transform) > 50 && nameTag.activeSelf == true)
         {
             nameTag.SetActive(false);
         }
-        else if(getDistance(playerCtrl.gameObject.transform) < 50 && nameTag.activeSelf == false)
+        else if(GetDistance(playerCtrl.gameObject.transform) < 50 && nameTag.activeSelf == false)
         {
             nameTag.SetActive(true);
         }
     }
 
-    public void doDamage(float amount)
+    public void DoDamage(float amount)
     {
         health -= amount;
         transform.GetComponent<Animator>().SetTrigger("isDamaged");
         healthBar.GetComponent<Slider>().value = health;
-        healthBar.GetComponent<HealthController>().currentHealth = health;
-        if (!GetComponent<EnemyActionController>().playerSpotted) GetComponent<EnemyActionController>().GotAttacked();
+        healthBar.GetComponent<UIHealthController>().SetCurrentHealth(health);
+        if (!GetComponent<EnemyActionController>().IsPlayerSpotted()) GetComponent<EnemyActionController>().GotAttacked();
         UIEventHandler.Instance.DisplayDamage(amount);
     }
 
-    public float getHealth()
+    public float GetHealth()
     {
         return health;
     }
 
-    public bool isDead()
+    public bool IsDead()
     {
         if (health <= 0)
         {
-            GetComponent<EnemyDeath>().dead = true;
+            GetComponent<EnemyDeath>().SetToDead(true);
             transform.GetComponent<Animator>().SetBool("isDead", true);
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
@@ -84,8 +87,23 @@ public class EnemyHealthController : EnemyController
         else return false;
     }
 
-    public GameObject getHealthbarCanvas()
+    public GameObject GetHealthbarCanvas()
     {
         return healthBar;
+    }
+
+    public GameObject GetTargetSprite()
+    {
+        return this.targetSprite;
+    }
+
+    public float GetMaxHealth()
+    {
+        return this.maxHealth;
+    }
+
+    public void SetHealthBar(GameObject healthBar)
+    {
+        this.healthBar = healthBar;
     }
 }

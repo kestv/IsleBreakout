@@ -42,7 +42,7 @@ public class UIEventHandler : MonoBehaviour
             rewardObject.GetComponent<Text>().color = Color.yellow;
         else rewardObject.GetComponent<Text>().color = Color.green;
         rewardObject.GetComponent<Text>().text = levelUp ? reward : "+ " + reward;
-        rewardObject.GetComponent<ScrollController>().StartMoving();
+        rewardObject.GetComponent<MessagesScroller>().StartMoving();
     }
     
     public void DisplaySpellReward(GameObject spell)
@@ -57,7 +57,7 @@ public class UIEventHandler : MonoBehaviour
         {
             infoMessage.SetActive(true);
             infoMessage.GetComponent<Text>().text = message;
-            infoMessage.GetComponent<ScrollController>().StartMoving();
+            infoMessage.GetComponent<MessagesScroller>().StartMoving();
             lastMessage = Time.time;
         }
     }
@@ -68,6 +68,6 @@ public class UIEventHandler : MonoBehaviour
         damageMessage.transform.Translate(Random.Range(-20, 20), 0, 0);
         damageMessage.SetActive(true);
         damageMessage.GetComponent<Text>().text = damage.ToString();
-        damageMessage.GetComponent<ScrollController>().StartMoving();
+        damageMessage.GetComponent<MessagesScroller>().StartMoving();
     }
 }
