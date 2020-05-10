@@ -36,7 +36,7 @@ public class Quest : MonoBehaviour
         NpcMessagesHandler.Instance._onTalkedToNpc += DisplayEvaluation;
         NpcMessagesHandler.Instance.afterTalkedToNpc += CheckGoals;
         NpcMessagesHandler.Instance.onTalkedToNpc += _DisplayEvaluation;
-        CombatEventHandler.Instance.afterEnemyDeath += DisplayEvaluation;
+        CombatHandler.Instance.afterEnemyDeath += DisplayEvaluation;
         if(questGiverId == 0)
             questGiverId = id;
     }
@@ -49,7 +49,7 @@ public class Quest : MonoBehaviour
             {
                 if (itemReward != null && player.GetComponent<PlayerInventory>().inventoryFull)
                 {
-                    UIEventHandler.Instance.DisplayMessage("Inventory is full");
+                    UIHandler.Instance.DisplayMessage("Inventory is full");
                 }
                 else
                 {
@@ -68,7 +68,7 @@ public class Quest : MonoBehaviour
         NpcMessagesHandler.Instance.afterTalkedToNpc -= CheckGoals;
         NpcMessagesHandler.Instance._onTalkedToNpc -= DisplayEvaluation;
         NpcMessagesHandler.Instance.onTalkedToNpc -= _DisplayEvaluation;
-        CombatEventHandler.Instance.afterEnemyDeath -= DisplayEvaluation;
+        CombatHandler.Instance.afterEnemyDeath -= DisplayEvaluation;
     }
     public void _DisplayEvaluation(int id, List<string> conversations, string name, List<Quest> quests)
     {
@@ -107,7 +107,7 @@ public class Quest : MonoBehaviour
         }
         if(spellReward != null)
         {
-            UIEventHandler.Instance.DisplaySpellReward(spellReward);
+            UIHandler.Instance.DisplaySpellReward(spellReward);
         }
         if(itemReward != null)
         {

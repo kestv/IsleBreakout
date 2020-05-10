@@ -15,7 +15,7 @@ public class KillGoal : Goal
 
     public override void Init()
     {
-        CombatEventHandler.Instance.onEnemyDeath += EnemyDied;
+        CombatHandler.Instance.onEnemyDeath += EnemyDied;
         currentAmount = 0;
         base.Init();
     }
