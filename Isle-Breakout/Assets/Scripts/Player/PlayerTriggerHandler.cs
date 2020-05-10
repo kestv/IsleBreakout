@@ -12,8 +12,6 @@ public class PlayerTriggerHandler : MonoBehaviour
     private CanvasController canvasController;
     private GameObject messagePanel;
     private GameObject messagePanelText;
-    private GameObject item;
-    private GameObject trigger;
 
     private GameObject shipCrafting;
     private ShipPartController shipPartCtrl;
@@ -37,7 +35,6 @@ public class PlayerTriggerHandler : MonoBehaviour
         canvasController = manager.getCanvasController();
         messagePanel = canvas.transform.Find("UI_MessagePanel").gameObject;
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
-        item = null;
 
         shipCrafting = manager.getShipRepairPanel();
         shipPartCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipePartPanel().GetComponent<ShipPartController>();
