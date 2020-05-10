@@ -5,11 +5,12 @@ using UnityEngine;
 public class ShipRecipeController : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
-    public DependencyManager manager;
-    public ShipBuilder shipBuilder;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject slotPrefab;
 
-    public List<CraftingRecipe> recipes;
-    public GameObject slotPrefab;
+    private List<CraftingRecipe> recipes;
+    private DependencyManager manager;
+    private ShipBuilder shipBuilder;
 
     //---------------------UNITY METHODS---------------------
     private void Start()

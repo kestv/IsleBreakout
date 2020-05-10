@@ -14,8 +14,8 @@ public struct Item
 [CreateAssetMenu]
 public class CraftingRecipe : ScriptableObject
 {
-    public List<Item> materials;    //Materials required to craft the item
-    public GameObject craftedItem;  //Item being crafted
+    [SerializeField] private List<Item> materials;    //Materials required to craft the item
+    [SerializeField] private GameObject craftedItem;  //Item being crafted
 
     public bool CanCraft(IItemContainer itemContainer)
     {

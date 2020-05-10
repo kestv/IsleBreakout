@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour, IItemContainer
 {
-    public DependencyManager manager;
-    public List<GameObject> inventory;
-    public int inventorySize;
-    public GameObject canvas;
-    public GameObject inventoryPanel;
-    public GameObject craftingPanel;
-    public GameObject shipPartPanel;
-    public bool inventoryFull;
-    public int itemCount;
-
+    private DependencyManager manager;
+    private List<GameObject> inventory;
+    private int inventorySize;
+    private GameObject canvas;
+    private GameObject inventoryPanel;
+    private GameObject craftingPanel;
+    private GameObject shipPartPanel;
+    private bool inventoryFull;
+    private int itemCount;
 
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();        
         canvas = manager.getCanvas();
-        inventoryPanel = canvas.transform.Find("UI_InventoryPanel").gameObject;
-        //craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
+        inventoryPanel = canvas.GetComponent<CanvasController>().getInventoryPanel().gameObject;
         craftingPanel = canvas.transform.GetChild(2).gameObject;
         shipPartPanel = manager.getShipRepairPanel().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
 
         inventorySize = manager.getInventorySize();
+        inventory = new List<GameObject>();
         for (int i = 0; i < inventorySize; i++)
         {
             inventory.Add(null);
@@ -118,7 +117,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         inventory[index] = null;
         itemCount--;
         inventoryFull = false;
-        canvas.transform.Find("UI_InventoryPanel").GetChild(index).GetChild(0).gameObject.SetActive(false);
+        inventoryPanel.transform.GetChild(index).GetChild(0).gameObject.SetActive(false);
         Destroy(go);
         RefreshCountPanels();
     }
@@ -139,13 +138,6 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
             inventoryPanel.gameObject.GetComponent<InventoryPanelController>().ChangeImageActiveState(false, index);
             Destroy(go);
         }
-    }
-
-    public void UseItem(int index)
-    {
-        //TODO: Implement
-        //ItemFunctionCall()
-        //DestroyItem()
     }
 
     public int FindItemIndex(GameObject item)

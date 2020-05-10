@@ -7,16 +7,16 @@ using UnityEngine.EventSystems;
 public class ShipSlotController : MonoBehaviour, IPointerClickHandler
 {
     //-----------------------VARIABLES-----------------------
-    public CraftingRecipe recipe;
+    private CraftingRecipe recipe;
 
-    public GameObject namePanel;
-    public GameObject descriptionPanel;
+    private GameObject namePanel;
+    private GameObject descriptionPanel;
 
-    public string nameText;
-    public string descriptionText;
+    private string nameText;
+    private string descriptionText;
 
-    public ShipPartController shipPartCtrl;
-    public ShipObjectController shipObjectCtrl;
+    private ShipPartController shipPartCtrl;
+    private ShipObjectController shipObjectCtrl;
 
     //---------------------UNITY METHODS---------------------
     private void Start()
@@ -24,8 +24,8 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
         namePanel = transform.GetChild(0).gameObject;
         descriptionPanel = transform.GetChild(1).gameObject;
 
-        nameText = recipe.craftedItem.GetComponent<ItemSettings>().getName();
-        descriptionText = recipe.craftedItem.GetComponent<ItemSettings>().getDescription();
+        nameText = recipe.getCraftedItem().GetComponent<ItemSettings>().getName();
+        descriptionText = recipe.getCraftedItem().GetComponent<ItemSettings>().getDescription();
 
         setNamePanelText(nameText);
         setDescriptionPanelText(descriptionText);
@@ -45,7 +45,7 @@ public class ShipSlotController : MonoBehaviour, IPointerClickHandler
     public void UpdateUI()
     {
         shipPartCtrl.InitSlots(recipe);        
-        shipObjectCtrl.InitObject(recipe.craftedItem);
+        shipObjectCtrl.InitObject(recipe.getCraftedItem());
     }
 
     //------------------------GET/SET------------------------

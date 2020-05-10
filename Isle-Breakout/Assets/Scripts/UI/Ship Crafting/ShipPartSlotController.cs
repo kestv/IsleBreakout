@@ -7,14 +7,14 @@ using TMPro;
 public class ShipPartSlotController : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
-    public DependencyManager manager;
-    public PlayerInventory inventory;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
 
-    public GameObject imageSlot;
-    public GameObject nameSlot;
-    public GameObject countSlot;
+    private GameObject imageSlot;
+    private GameObject nameSlot;
+    private GameObject countSlot;
 
-    public Item item;
+    private Item item;
 
     //---------------------UNITY METHODS---------------------
     private void Start()

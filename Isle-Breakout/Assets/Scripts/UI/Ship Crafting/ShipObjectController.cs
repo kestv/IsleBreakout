@@ -6,8 +6,8 @@ public class ShipObjectController : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
     private DependencyManager manager;
-    public GameObject shipRenderer;
-    public PanelObjectRotator rotator;
+    private GameObject shipRenderer;
+    private PanelObjectRotator rotator;
 
     //---------------------UNITY METHODS---------------------
     private void Start()

@@ -7,17 +7,17 @@ public class Helmet : ScriptableObject, IArmor
 {
     [Header("Helmet meshes")]
     [SerializeField]
-    public Mesh helmet;
+    private Mesh helmet;
 
     [Header("Stats")]
     [SerializeField]
-    public float strength;
+    private float strength;
     [SerializeField]
-    public float wisdom;
+    private float wisdom;
     [SerializeField]
-    public float speed;
+    private float speed;
     [SerializeField]
-    public float hp;
+    private float hp;
 
     public List<Mesh> getMeshes()
     {
