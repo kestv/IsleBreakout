@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class InventoryPanelController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public GameObject slotPrefab;
-    public int inventorySize;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject slotPrefab;
+
+    private DependencyManager manager;
+    private int inventorySize;
 
     private void Start()
     {

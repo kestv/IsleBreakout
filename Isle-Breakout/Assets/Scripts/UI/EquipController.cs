@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class EquipController : MonoBehaviour
 {
-    public DependencyManager manager;
+    private DependencyManager manager;
 
-    public GameObject playerModel;
-    public GameObject equipSlotSpritePanel;    
-    public GameObject equipSlotPanel;
+    private GameObject playerModel;
+    private GameObject equipSlotSpritePanel;
+    private GameObject equipSlotPanel;
 
     private void Start()
     {

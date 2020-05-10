@@ -5,13 +5,15 @@ using UnityEngine.EventSystems;
 
 public class CraftHoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public CraftingRecipe recipe;
-    public GameObject item;
-    public GameObject infoPanelPrefab;
-    public ItemInfoPanelController panelCtrl;
-    public GameObject infoPanel;
-    public int moveRight;
-    public int moveUp;
+    [Header("Prefabs & Settings")]
+    [SerializeField] private GameObject infoPanelPrefab;
+    [SerializeField] private int moveRight;
+    [SerializeField] private int moveUp;
+
+    private CraftingRecipe recipe;
+    private GameObject item;
+    private ItemInfoPanelController panelCtrl;
+    private GameObject infoPanel;    
 
     public void OnPointerEnter(PointerEventData eventData)
     {

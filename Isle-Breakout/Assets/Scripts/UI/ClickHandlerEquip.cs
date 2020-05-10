@@ -7,9 +7,9 @@ using UnityEngine.EventSystems;
 
 public class ClickHandlerEquip : MonoBehaviour, IPointerClickHandler
 {
-    public DependencyManager manager;
-    public PlayerInventory inventory;
-    public GameObject itemBeingClicked;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
+    private GameObject itemBeingClicked;
 
     private void Start()
     {

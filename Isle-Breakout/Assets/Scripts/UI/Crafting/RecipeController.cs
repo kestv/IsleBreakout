@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class RecipeController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public List<CraftingRecipe> recipes;
-    public PlayerInventory inventory;
-    public GameObject slotPrefab;
+    [Header("Recipes & Prefabs")]
+    [SerializeField] private List<CraftingRecipe> recipes;
+    [SerializeField] private GameObject slotPrefab;
+
+    private DependencyManager manager;
+    private PlayerInventory inventory;
 
     private void Start()
     {

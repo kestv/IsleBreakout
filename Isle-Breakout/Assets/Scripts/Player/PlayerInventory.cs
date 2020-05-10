@@ -13,12 +13,14 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     private GameObject shipPartPanel;
     private bool inventoryFull;
     private int itemCount;
+    private CanvasController canvasCtrl;
 
     private void Start()
     {
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();        
         canvas = manager.getCanvas();
-        inventoryPanel = canvas.GetComponent<CanvasController>().getInventoryPanel().gameObject;
+        canvasCtrl = canvas.GetComponent<CanvasController>();
+        inventoryPanel = canvasCtrl.getInventoryPanel().gameObject;
         craftingPanel = canvas.transform.GetChild(2).gameObject;
         shipPartPanel = manager.getShipRepairPanel().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
 
@@ -43,7 +45,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
             go.SetActive(false);
 
             //Disable message panel
-            canvas.transform.Find("UI_MessagePanel").gameObject.SetActive(false);            
+            canvasCtrl.getMessagePanel().gameObject.SetActive(false);            
 
             if (itemCount == inventorySize)
             {

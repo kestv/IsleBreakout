@@ -5,12 +5,12 @@ using TMPro;
 
 public class PlayerStatsPanelController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public PlayerStatsController statsCtrl;
+    private DependencyManager manager;
+    private PlayerStatsController statsCtrl;
 
-    public Transform strenghtSlot;
-    public Transform speedSlot;
-    public Transform wisdomSlot;
+    private Transform strenghtSlot;
+    private Transform speedSlot;
+    private Transform wisdomSlot;
 
     private void Start()
     {

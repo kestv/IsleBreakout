@@ -6,18 +6,15 @@ using UnityEditor;
 
 public class ItemSettings : MonoBehaviour
 {
-    public int itemID;          //Item ID
-    public string itemName;     //Item name used in scripts
-    public string description;  //Item description
-    public Sprite sprite;       //Item sprite (image) used for item containers such as inventory or chests  
-    public GameObject model;    //Item model used in UI (different scale, position, pivot, etc.)
+    [Header("Item settings")]
+    [SerializeField] private int itemID;            //Item ID used for indentification
+    [SerializeField] private string itemName;       //Item name used in scripts
+    [SerializeField] private string description;    //Item description
+    [SerializeField] private Sprite sprite;         //Item sprite (image) used for item containers such as inventory or chests  
+    [SerializeField] private GameObject model;      //Item model used in UI (different scale, position, pivot, etc.)
+    [SerializeField] ScriptableObject equip;        //Item equipment component
+    [SerializeField] private float dropChance;      //Item drop chance
 
-    public float dropChance;
-
-    [SerializeField] ScriptableObject equip;
-
-
-    //--------------------------------------
     public int getItemID()
     { return itemID; }
 
@@ -53,4 +50,10 @@ public class ItemSettings : MonoBehaviour
 
     public void setEquip(ScriptableObject equip)
     { this.equip = equip; }
+
+    public float getDropChance()
+    { return dropChance; }
+
+    public void setDropChance(float dropChance)
+    { this.dropChance = dropChance; }
 }

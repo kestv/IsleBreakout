@@ -5,13 +5,15 @@ using UnityEngine.EventSystems;
 
 public class HoverHandler : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public Transform infoCanvas;
-    public GameObject item;
-    public GameObject infoPanelPrefab;
-    public ItemInfoPanelController panelCtrl;
-    public GameObject infoPanel;
-    public int moveRight;
-    public int moveUp;
+    [Header("Prefabs & Settings")]
+    [SerializeField] private GameObject infoPanelPrefab;
+    [SerializeField] private int moveRight;
+    [SerializeField] private int moveUp;
+
+    private Transform infoCanvas;
+    private GameObject item;    
+    private ItemInfoPanelController panelCtrl;
+    private GameObject infoPanel;    
 
     private void Start()
     {

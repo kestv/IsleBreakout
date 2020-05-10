@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
-    public DependencyManager manager;
-    public PlayerInventory inventory;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
     public static GameObject itemBeingDragged;
     public static Transform startParent;
     public static int parentSlotIndex;

@@ -6,10 +6,10 @@ using UnityEngine.EventSystems;
 
 public class SlotController : MonoBehaviour, IDropHandler
 {
-    public DependencyManager manager;
-    public PlayerInventory inventory;
-    public int slotIndex;
-    public bool isChest;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
+    private int slotIndex;
+    private bool isChest;
 
     private void Start()
     {

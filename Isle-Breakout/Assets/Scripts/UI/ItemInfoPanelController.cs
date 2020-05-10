@@ -7,14 +7,14 @@ using TMPro;
 public class ItemInfoPanelController : MonoBehaviour
 {
     [Header("Panels")]
-    public Transform descriptionPanel;
-    public Transform statsPanel;
+    [SerializeField] private Transform descriptionPanel;
+    [SerializeField] private Transform statsPanel;
 
     [Header("Objects")]
-    public Transform itemName;
-    public Transform itemSprite;
-    public Transform itemDescription;
-    public Transform itemStats;
+    [SerializeField] private Transform itemName;
+    [SerializeField] private Transform itemSprite;
+    [SerializeField] private Transform itemDescription;
+    [SerializeField] private Transform itemStats;
 
     public void InitPanel(ItemSettings settings)
     {

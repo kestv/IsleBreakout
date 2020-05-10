@@ -8,21 +8,21 @@ using UnityEngine.EventSystems;
 public class RecipeSlotController : MonoBehaviour, IPointerClickHandler
 {
     //------------------------Variables----------------------
-    public DependencyManager manager;
-    public PlayerInventory inventory;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
 
-    public GameObject slotSprite;
-    public GameObject slotText;
-    public GameObject slotDarkPanel;
+    private GameObject slotSprite;
+    private GameObject slotText;
+    private GameObject slotDarkPanel;
 
-    public CraftingRecipe recipe;
-    public Sprite sprite;
-    public string text;
+    private CraftingRecipe recipe;
+    private Sprite sprite;
+    private string text;
 
-    public GameObject craftItemPanel;
-    public CraftItemController craftItemCtrl;
+    private GameObject craftItemPanel;
+    private CraftItemController craftItemCtrl;
 
-    public bool recipeAvailable;
+    private bool recipeAvailable;
 
     //------------------------Methods------------------------
     private void Start()
