@@ -5,11 +5,14 @@ using UnityEngine.UI;
 
 public class ChestSettings : MonoBehaviour
 {
-    public GameObject chestPanelPrefab;
-    public GameObject chestPanel;
-    public int chestSize;
+    [Header("Chest Settings")]
+    [SerializeField] private GameObject chestPanelPrefab;
+    [SerializeField] private int chestSize;
 
-    public List<GameObject> items;
+    [Header("Items in chest")]
+    [SerializeField] private List<GameObject> items;
+
+    private GameObject chestPanel;    
 
     private void Start()
     {
@@ -17,7 +20,7 @@ public class ChestSettings : MonoBehaviour
         chestPanel.GetComponent<ChestPanelController>().InitializeChest(chestSize);
         chestPanel.SetActive(false);
 
-        AddItemToChest(items); ;
+        AddItemToChest(items);
     }
 
     public void AddItemToChest(List<GameObject> items)

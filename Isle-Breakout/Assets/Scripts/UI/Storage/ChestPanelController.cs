@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class ChestPanelController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public GameObject slotPrefab;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject slotPrefab;
+
+    private DependencyManager manager;
 
     private void Start()
     {

@@ -23,7 +23,7 @@ public class ItemDropController : MonoBehaviour
         enabled = false;
         foreach (var item in dropItems)
         {
-            var dropChance = item.GetComponent<ItemSettings>().dropChance;
+            var dropChance = item.GetComponent<ItemSettings>().getDropChance();
             var chance = Random.Range(1, 100);
             if (chance < dropChance)
             {

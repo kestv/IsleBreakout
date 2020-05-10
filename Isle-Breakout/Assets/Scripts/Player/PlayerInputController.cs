@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public GameObject canvas;
-    public CanvasController canvasController;
-
-    public GameObject craftingPanel;
-    public RecipeController recipeCtrl;
-    public GameObject equipPanel;
-    
-    
+    private DependencyManager manager;
+    private GameObject canvas;
+    private CanvasController canvasController;
+    private GameObject craftingPanel;
+    private RecipeController recipeCtrl;
+    private GameObject equipPanel;      
 
     private void Start()
     {

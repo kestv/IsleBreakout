@@ -5,15 +5,15 @@ using UnityEngine;
 public class ShipPartController : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
-    public DependencyManager manager;
-    public PlayerInventory inventory;
-    public ShipBuilder shipBuilder;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject slotPrefab;
 
-    public ShipRepair shipRepair;
-    public CraftingRecipe recipe;
-    public GameObject slotPrefab;
+    private DependencyManager manager;
+    private PlayerInventory inventory;
+    private ShipBuilder shipBuilder;
 
-    public ShipRecipeController shipRecipeCtrl;
+    private CraftingRecipe recipe;
+    private ShipRecipeController shipRecipeCtrl;
 
     //---------------------UNITY METHODS---------------------
     private void Start()

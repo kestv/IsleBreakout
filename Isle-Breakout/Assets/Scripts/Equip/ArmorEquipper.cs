@@ -73,6 +73,7 @@ public class ArmorEquipper : MonoBehaviour
         defaultArmLowerLeft = GetObjectMesh(armLowerLeft);
         defaultHandRight = GetObjectMesh(handRight);
         defaultHandLeft = GetObjectMesh(handLeft);
+
         //Legs
         defaultHips = GetObjectMesh(hips);
         defaultLegRight = GetObjectMesh(legRight);

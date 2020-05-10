@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EquipSlotPanelController : MonoBehaviour
 {
-    public Transform helmetSlot;
-    public Transform torsoSlot;
-    public Transform legsSlot;
-    public Transform shouldersSlot;
-    public Transform capeSlot;
-    public Transform meleeWeaponSlot;
-    public Transform rangedWeaponSlot;
+    private Transform helmetSlot;
+    private Transform torsoSlot;
+    private Transform legsSlot;
+    private Transform shouldersSlot;
+    private Transform capeSlot;
+    private Transform meleeWeaponSlot;
+    private Transform rangedWeaponSlot;
 
     private void Start()
     {

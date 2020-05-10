@@ -5,10 +5,11 @@ using UnityEngine.EventSystems;
 
 public class PanelObjectRotator : MonoBehaviour, IBeginDragHandler, IDragHandler
 {
-    public GameObject go;
+    [Header("Object that will be rotated")]
+    [SerializeField] private GameObject go;
 
-    public float lastFramePosition;
-    public float sensitivity;
+    private float lastFramePosition;
+    private float sensitivity;
 
     private void Start()
     {

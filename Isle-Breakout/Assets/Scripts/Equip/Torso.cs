@@ -7,19 +7,19 @@ public class Torso : ScriptableObject, IArmor
 {
     [Header("Torso meshes")]
     [SerializeField]
-    public Mesh torso;
+    private Mesh torso;
     [SerializeField]
-    public Mesh armUpperRight;
+    private Mesh armUpperRight;
     [SerializeField]
-    public Mesh armUpperLeft;
+    private Mesh armUpperLeft;
     [SerializeField]
-    public Mesh armLowerRight;
+    private Mesh armLowerRight;
     [SerializeField]
-    public Mesh armLowerLeft;
+    private Mesh armLowerLeft;
     [SerializeField]
-    public Mesh handRight;
+    private Mesh handRight;
     [SerializeField]
-    public Mesh handLeft;
+    private Mesh handLeft;
 
     [Header("Stats")]
     [SerializeField]

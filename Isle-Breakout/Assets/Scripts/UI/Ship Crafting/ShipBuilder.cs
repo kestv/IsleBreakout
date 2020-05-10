@@ -5,16 +5,16 @@ using UnityEngine;
 public class ShipBuilder : MonoBehaviour
 {
     //-----------------------VARIABLES-----------------------
-    public List<CraftingRecipe> recipes_1;
-    public List<CraftingRecipe> recipes_2;
-    public List<CraftingRecipe> recipes_3;
+    [SerializeField] private List<CraftingRecipe> recipes_1;
+    [SerializeField] private List<CraftingRecipe> recipes_2;
+    [SerializeField] private List<CraftingRecipe> recipes_3;
 
-    public GameObject tier_1;
-    public GameObject tier_2;
-    public GameObject tier_3;
+    private GameObject tier_1;
+    private GameObject tier_2;
+    private GameObject tier_3;
 
-    public List<CraftingRecipe> activeRecipes;
-    public GameObject activeTier;
+    private List<CraftingRecipe> activeRecipes;
+    private GameObject activeTier;
 
     //---------------------UNITY METHODS---------------------
     private void Start()

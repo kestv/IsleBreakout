@@ -35858,22 +35858,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 4
-  conversations:
-  - These enemies ruined my farm
-  - Would help me kill them?
-  Experience: 100
-  QuestName: Farm attackers
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 0}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  enemyId: 1
-  reqAmount: 4
 --- !u!4 &837345940 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191891704948245449, guid: b3dcb9976b2becc4d8a720ed175a8442,
@@ -39183,22 +39173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20dcca5796fc904793b243b1b1a1f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 41
-  conversations:
-  - Hello stranger
-  - My friend Henry can't leave her farm
-  - Could you please bring some water to her?
-  Experience: 50
-  QuestName: Water to Henry
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 0}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  npcIdToTalk: 0
 --- !u!4 &927791365 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191891704948245449, guid: b3dcb9976b2becc4d8a720ed175a8442,
@@ -40636,24 +40616,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 74
-  conversations:
-  - For the last upgrade
-  - I require you to kill 100 of any kind of monsters
-  - I need you to prove me you are woth of it
-  Experience: 1000
-  QuestName: Monsters
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 1157088314812518, guid: 2b98800eb2d081f4fa7a3598af604760,
     type: 3}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  enemyId: -1
-  reqAmount: 100
 --- !u!135 &948300268
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -40679,24 +40648,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 74
-  conversations:
-  - There is a Bully Goof in the desert town
-  - Kill him
-  - I will reward you with another Energy ball upgrade
-  Experience: 0
-  QuestName: Bully Goof
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 1961964258596952, guid: ba44394998abfd74691113457d3c133f,
     type: 3}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  enemyId: 13
-  reqAmount: 1
 --- !u!114 &948300270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40709,25 +40667,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 74
-  conversations:
-  - Well done
-  - If you wish to upgrade your Energy ball
-  - There is a Skeleton Bo by the river
-  - I wish for his head
-  Experience: 0
-  QuestName: Skeleton Bo
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 1374267004960804, guid: 10a196906512b5141bfd56285ee6c562,
     type: 3}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  enemyId: 76
-  reqAmount: 1
 --- !u!114 &948300271
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40740,24 +40686,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 74
-  conversations:
-  - This is a magical place
-  - If you wish to learn Energy ball spell
-  - Kill 10 skeletons
-  Experience: 0
-  QuestName: Skeletons
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 1607489160101874, guid: 1220774a6e4cd454aa215fc9dfec7f4a,
     type: 3}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  enemyId: 75
-  reqAmount: 10
 --- !u!114 &948300272
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -40783,6 +40718,7 @@ MonoBehaviour:
   - {fileID: 948300270}
   - {fileID: 948300269}
   - {fileID: 948300267}
+  player: {fileID: 0}
 --- !u!4 &950854614 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6191891704948245449, guid: 997e2102707283a43881e9fd65568b66,
@@ -44239,23 +44175,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20dcca5796fc904793b243b1b1a1f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 5
-  conversations:
-  - Welcome to our town
-  - You should meet our smithers
-  - He is waiting for you
-  Experience: 0
-  QuestName: Smithers
-  Completed: 0
-  Active: 0
   spellReward: {fileID: 0}
   itemReward: {fileID: 2284139973753333884, guid: bbc2daeba415d5a42b1738c0182b6ab7,
     type: 3}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  npcIdToTalk: 5
 --- !u!4 &1003361338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4677938815812654, guid: 6a21095ad8e836e4380c08714034e052,

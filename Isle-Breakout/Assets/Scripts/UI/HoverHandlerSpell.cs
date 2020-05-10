@@ -32,7 +32,7 @@ public class HoverHandlerSpell : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void InitPanel(PointerEventData eventData)
     {
         spellHolder = GetComponent<SpellHolder>();
-        spell = spellHolder.getSpell().GetComponent<SpellInfo>();
+        spell = spellHolder.GetSpell().GetComponent<SpellInfo>();
 
         if(spell != null)
         {

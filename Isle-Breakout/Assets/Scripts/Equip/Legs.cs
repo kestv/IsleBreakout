@@ -7,11 +7,11 @@ public class Legs : ScriptableObject, IArmor
 {
     [Header("Leg meshes")]
     [SerializeField]
-    public Mesh hips;
+    private Mesh hips;
     [SerializeField]
-    public Mesh legRight;
+    private Mesh legRight;
     [SerializeField]
-    public Mesh legLeft;
+    private Mesh legLeft;
 
     [Header("Stats")]
     [SerializeField]

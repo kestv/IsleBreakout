@@ -6,13 +6,13 @@ using TMPro;
 
 public class CraftItemSlotController : MonoBehaviour
 {
-    public GameObject slotSprite;
-    public GameObject slotText;
-    public GameObject slotCountText;
+    private GameObject slotSprite;
+    private GameObject slotText;
+    private GameObject slotCountText;
 
-    public Sprite sprite;
-    public string text;
-    public string countText;
+    private Sprite sprite;
+    private string text;
+    private string countText;
 
     private void Start()
     {        

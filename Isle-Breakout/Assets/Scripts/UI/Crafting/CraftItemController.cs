@@ -6,14 +6,15 @@ using TMPro;
 
 public class CraftItemController : MonoBehaviour
 {
-    public DependencyManager manager;
-    public PlayerInventory inventory;
-    public CraftingRecipe recipe;
-    public GameObject sprite;
-    public GameObject text;
-    public GameObject slotPanel;
-    public GameObject slotPrefab;
-    public List<GameObject> slots;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject slotPrefab;
+
+    private DependencyManager manager;
+    private PlayerInventory inventory;
+    private CraftingRecipe recipe;
+    private GameObject sprite;
+    private GameObject text;
+    private GameObject slotPanel;
 
     private void Start()
     {

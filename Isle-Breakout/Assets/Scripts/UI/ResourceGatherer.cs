@@ -31,11 +31,6 @@ public class ResourceGatherer : MonoBehaviour
         progressPanel.SetActive(true);
     }
 
-    public void InitCraftingBench()
-    {
-
-    }
-
     public void OnMineSuccess()
     {
         gatherCount--;

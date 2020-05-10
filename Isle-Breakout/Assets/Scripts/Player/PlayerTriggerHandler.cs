@@ -5,29 +5,27 @@ using TMPro;
 
 public class PlayerTriggerHandler : MonoBehaviour
 {
-    public DependencyManager manager;
-    public GameObject player;
-    public PlayerInventory inventory;
-    public GameObject canvas;
-    public CanvasController canvasController;
-    public GameObject messagePanel;
-    public GameObject messagePanelText;
-    public GameObject item;
-    public GameObject trigger;
+    private DependencyManager manager;
+    private GameObject player;
+    private PlayerInventory inventory;
+    private GameObject canvas;
+    private CanvasController canvasController;
+    private GameObject messagePanel;
+    private GameObject messagePanelText;
 
-    public GameObject shipCrafting;
-    public ShipPartController shipPartCtrl;
-    public ShipRecipeController shipRecipeCtrl;
-    public Transform shipBuilder;
+    private GameObject shipCrafting;
+    private ShipPartController shipPartCtrl;
+    private ShipRecipeController shipRecipeCtrl;
+    private Transform shipBuilder;
 
-    public List<GameObject> triggers;
+    private List<GameObject> triggers;
 
     //NPC
-    public GameObject info;
-    int ID = 0;
-    List<string> conversations;
-    List<Quest> quests;
-    string npcName;
+    private GameObject info;
+    private int ID = 0;
+    private List<string> conversations;
+    private List<Quest> quests;
+    private string npcName;
 
     private void Start()
     {
@@ -37,7 +35,6 @@ public class PlayerTriggerHandler : MonoBehaviour
         canvasController = manager.getCanvasController();
         messagePanel = canvas.transform.Find("UI_MessagePanel").gameObject;
         messagePanelText = messagePanel.transform.GetChild(0).gameObject;
-        item = null;
 
         shipCrafting = manager.getShipRepairPanel();
         shipPartCtrl = shipCrafting.GetComponent<ShipRepair>().getRecipePartPanel().GetComponent<ShipPartController>();

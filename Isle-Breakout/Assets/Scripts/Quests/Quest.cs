@@ -47,7 +47,7 @@ public class Quest : MonoBehaviour
         {
             if (active && !completed && questGiverId == npcID)
             {
-                if (itemReward != null && player.GetComponent<PlayerInventory>().inventoryFull)
+                if (itemReward != null && player.GetComponent<PlayerInventory>().getInventoryFull())
                 {
                     UIHandler.Instance.DisplayMessage("Inventory is full");
                 }
