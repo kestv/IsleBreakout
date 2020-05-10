@@ -7,20 +7,24 @@ using UnityEngine.UI;
 public class PlayerCombatController : MonoBehaviour
 {
     bool isTriggering;
-    public bool isAttacking;
-    public bool inCombat;
+    bool isAttacking;
+    bool inCombat;
     //Attack cooldown
     float lastAttack = 0;
     //Attack rate
     float attackRate = 2.0f;
     //Damage that enemy does
-    public float damage;
+    [SerializeField]
+    float damage;
     GameObject[] enemies;
-    public GameObject target;
+    [SerializeField]
+    GameObject target;
 
     SpellController spellController;
-    public GameObject arrow;
-    public float range;
+    [SerializeField]
+    GameObject arrow;
+    [SerializeField]
+    float range;
 
     bool isRangedWeapon;
     bool isRangedWeaponEquipped;
@@ -39,12 +43,14 @@ public class PlayerCombatController : MonoBehaviour
     [SerializeField] GameObject rangeWeapon;
 
     CharacterController controller;
+    PlayerMovementController movementCtrl;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        CombatEventHandler.Instance.onEnemyDeath += killedTarget;
+        CombatEventHandler.Instance.onEnemyDeath += KilledTarget;
         spellController = GetComponent<SpellController>();
+        movementCtrl = GetComponent<PlayerMovementController>();
         isAttacking = false;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
@@ -79,14 +85,14 @@ public class PlayerCombatController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Tab))
         {
             ResetTarget();
-            findTarget();
+            FindTarget();
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
             if(target == null)
             {
                 ResetTarget();
-                findTarget();
+                FindTarget();
             }
             else
             {
@@ -115,8 +121,8 @@ public class PlayerCombatController : MonoBehaviour
         {
             if (target != null)
             {
-                target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
-                target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
+                target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
+                target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.black;
                 enemyHealthBar.SetActive(false);
                 target = null;
                 inCombat = false;
@@ -126,23 +132,23 @@ public class PlayerCombatController : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
         {
             isAttacking = false;
-            transform.GetComponent<PlayerMovementController>().canAnimate = true;
+            movementCtrl.SetCanAnimate(true);
         }
 
         if (isAttacking && target != null)
         {
 
-            if (!isRangedWeapon && getDistance(target) > 2f)
+            if (!isRangedWeapon && GetDistance(target) > 2f)
             {
                 //transform.position = Vector3.MoveTowards(transform.position, target.transform.position, 10f * Time.deltaTime);
                 var pos = target.transform.position - transform.position;
-                pos = pos.normalized * GetComponent<PlayerMovementController>().speed;
-                if (!GetComponent<PlayerMovementController>().isRunning)
+                pos = pos.normalized * movementCtrl.GetSpeed();
+                if (!movementCtrl.GetIsRunning())
                 {
                     controller.Move(pos * Time.deltaTime);
-                    transform.GetComponent<PlayerMovementController>().isRunning = true;
+                    movementCtrl.SetIsRunning(true);
                     GetComponent<Animator>().SetBool("Running", true);
-                    transform.GetComponent<PlayerMovementController>().canAnimate = false;
+                    movementCtrl.SetCanAnimate(false);
                     transform.LookAt(target.transform);
                 }
                 
@@ -150,25 +156,25 @@ public class PlayerCombatController : MonoBehaviour
             else
             {
                 GetComponent<Animator>().SetBool("Running", false);
-                transform.GetComponent<PlayerMovementController>().isRunning = false;
-                var damage = GetComponent<PlayerStatsController>().strength * 10 + this.damage;
+                movementCtrl.SetIsRunning(false);
+                var damage = GetComponent<PlayerStatsController>().GetStrength() * 10 + this.damage;
 
                 Vector3 direction = (target.transform.position - transform.position).normalized;
                 float dotProd = Vector3.Dot(direction, transform.forward);
 
                 if (dotProd > 0.95)
                 {
-                    if (lastAttack + attackRate < Time.time && !target.GetComponent<EnemyHealthController>().isDead())
+                    if (lastAttack + attackRate < Time.time && !target.GetComponent<EnemyHealthController>().IsDead())
                     {
                         lastAttack = Time.time;
                         if (!isRangedWeapon)
                         {
                             transform.GetComponent<Animator>().SetTrigger("isAttacking");
-                            target.GetComponent<EnemyHealthController>().doDamage(damage);
+                            target.GetComponent<EnemyHealthController>().DoDamage(damage);
                         }
                         else
                         {
-                            if (getDistance(target) <= range)
+                            if (GetDistance(target) <= range)
                             {
                                 AttackFromRange();
                             }
@@ -177,7 +183,7 @@ public class PlayerCombatController : MonoBehaviour
                 }
             }
         }
-        else transform.GetComponent<PlayerMovementController>().isRunning = false;
+        else movementCtrl.SetIsRunning(false);
     }
 
     void AttackFromRange()
@@ -185,14 +191,14 @@ public class PlayerCombatController : MonoBehaviour
         transform.GetComponent<Animator>().SetTrigger("isShooting");
         spellController.CastArrow(target, arrow);
     }
-    void findTarget()
+    void FindTarget()
     {
         float dist = 21;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         foreach (var enemy in enemies)
         {
-            var distance = getDistance(enemy);
-            if (!enemy.GetComponent<EnemyHealthController>().isDead())
+            var distance = GetDistance(enemy);
+            if (!enemy.GetComponent<EnemyHealthController>().IsDead())
             {
                 if (distance < 20 && distance < dist)
                 {
@@ -208,24 +214,25 @@ public class PlayerCombatController : MonoBehaviour
         }
         if (target != null)
         {
-            target.GetComponent<EnemyHealthController>().healthBar = enemyHealthBar;
-            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(true);
-            target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.red;
-            enemyHealthBar.GetComponent<HealthController>().SetTarget(target);
+            var eHCtrl = target.GetComponent<EnemyHealthController>();
+            eHCtrl.SetHealthBar(enemyHealthBar);
+            eHCtrl.GetTargetSprite().SetActive(true);
+            eHCtrl.GetNameTag().GetComponent<TextMesh>().color = Color.red;
+            enemyHealthBar.GetComponent<UIHealthController>().SetTarget(target);
             
         }
     }
 
-    float getDistance(GameObject target)
+    float GetDistance(GameObject target)
     {
         return Vector3.Distance(transform.position, target.transform.position);
     }
 
-    void killedTarget(float xp, int id)
+    void KilledTarget(float xp, int id)
     {
         inCombat = false;
-        target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
-        target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
+        target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
+        target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.black;
         enemyHealthBar.SetActive(false);
         target = null;
     }
@@ -233,11 +240,11 @@ public class PlayerCombatController : MonoBehaviour
     void ResetTarget()
     {
         enemyHealthBar.SetActive(false);
-        enemyHealthBar.GetComponent<HealthController>().player = null;
+        enemyHealthBar.GetComponent<UIHealthController>().SetPlayer(null);
         if (target != null)
         {
-            target.GetComponent<EnemyHealthController>().targetSprite.SetActive(false);
-            target.GetComponent<EnemyHealthController>().nameTag.GetComponent<TextMesh>().color = Color.black;
+            target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
+            target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.black;
         }
     }
 
@@ -246,7 +253,7 @@ public class PlayerCombatController : MonoBehaviour
         return target;
     }
 
-    public void setIsRangedWeaponEquipped(bool state)
+    public void SetIsRangedWeaponEquipped(bool state)
     { 
         isRangedWeaponEquipped = state;
         var img = slot4.transform.GetChild(1).gameObject.GetComponent<Image>();
@@ -258,5 +265,15 @@ public class PlayerCombatController : MonoBehaviour
         {
             img.color = new Color32(0,0,0,100);
         }
+    }
+
+    public bool GetInCombat()
+    {
+        return this.inCombat;
+    }
+
+    public void SetInCombat(bool inCombat)
+    {
+        this.inCombat = inCombat;
     }
 }

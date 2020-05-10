@@ -7,19 +7,19 @@ public class PetController : MonoBehaviour
     const int OFFENSIVE_PET = 1;
     const int DEFENSIVE_PET = 2;
 
-    public int type;
+    [SerializeField]int type;
     bool tamed;
     float speed;
-    public float damage;
-    public float attackCooldown;
+    [SerializeField]float damage;
+    [SerializeField]float attackCooldown;
     GameObject player;
     EnemyAnimationController animations;
     PlayerCombatController playerCtrl;
 
-    public float bonusStrength;
-    public float bonusSpeed;
-    public float bonusWisdom;
-    public float bonusHealth;
+    [SerializeField]float bonusStrength;
+    [SerializeField]float bonusSpeed;
+    [SerializeField]float bonusWisdom;
+    [SerializeField]float bonusHealth;
 
     float attackTime;
     void Start()
@@ -35,7 +35,7 @@ public class PetController : MonoBehaviour
     {
         if (tamed)
         {
-            if (type == OFFENSIVE_PET && playerCtrl.inCombat)
+            if (type == OFFENSIVE_PET && playerCtrl.GetInCombat())
             {
                 var target = playerCtrl.GetTarget();
                 if (target != null)
@@ -50,7 +50,7 @@ public class PetController : MonoBehaviour
                     {
                         AttackTarget(target);
                     }
-                    else animations.isIdling(true);
+                    else animations.IsIdling(true);
                 }
             }
             else
@@ -60,16 +60,16 @@ public class PetController : MonoBehaviour
         }
     }
 
-    public void MoveTowardsTarget(GameObject target)
+    void MoveTowardsTarget(GameObject target)
     {
-        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, player.GetComponent<PlayerMovementController>().speed * Time.deltaTime);
-        animations.isRunning(true);
+        transform.position = Vector3.MoveTowards(transform.position, target.transform.position, player.GetComponent<PlayerMovementController>().GetSpeed() * Time.deltaTime);
+        animations.IsRunning(true);
     }
 
-    public void AttackTarget(GameObject target)
+    void AttackTarget(GameObject target)
     {
-        animations.isAttacking(true);
-        target.GetComponent<EnemyHealthController>().doDamage(damage);
+        animations.IsAttacking(true);
+        target.GetComponent<EnemyHealthController>().DoDamage(damage);
         attackTime = Time.time;
     }
 
@@ -83,21 +83,21 @@ public class PetController : MonoBehaviour
         var distance = GetDistance();
         if (distance <= 6)
         {
-            animations.isIdling(true);
+            animations.IsIdling(true);
         }
         else if (distance > 6 && distance <= 10)
         {
             speed = 3f;
             transform.LookAt(player.transform);
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-            animations.isWalking(true);
+            animations.IsWalking(true);
         }
         else
         {
-            speed = player.GetComponent<PlayerMovementController>().speed - 1;
+            speed = player.GetComponent<PlayerMovementController>().GetSpeed() - 1;
             transform.LookAt(player.transform);
             transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
-            animations.isRunning(true);
+            animations.IsRunning(true);
         }
     }
 

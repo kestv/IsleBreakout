@@ -5,22 +5,21 @@ using UnityEngine.UI;
 
 public class PlayerHealthController : MonoBehaviour
 {
-    public GameObject healthBarCanvas;
-    public Slider hungerBar;
-    public Slider warmthBar;
-    bool gettingWarm;
+    GameObject healthBarCanvas;
+    Slider hungerBar;
     float timer;
     float hunger;
+    Animator animator;
 
-    HealthController healthCtrl;
+    UIHealthController healthCtrl;
 
     void Start()
     {
         healthBarCanvas = GameObject.Find("Healthbar");
         hungerBar = GameObject.Find("Hunger").GetComponent<Slider>();
-        healthCtrl = healthBarCanvas.GetComponent<HealthController>();
+        healthCtrl = healthBarCanvas.GetComponent<UIHealthController>();
+        animator = GetComponent<Animator>();
         hunger = 100;
-        gettingWarm = false;
         timer = Time.time;
     }
 
@@ -29,12 +28,12 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (IsDead())
         {
-            transform.GetComponent<Animator>().SetBool("isDead", true);
+            animator.SetBool("isDead", true);
             if(transform.tag == "Player")
             {
-                transform.GetComponent<PlayerMovementController>().enabled = false;
-                transform.GetComponent<PlayerCombatController>().enabled = false;
-                transform.GetComponent<UIController>().EndGame();
+                GetComponent<PlayerMovementController>().enabled = false;
+                GetComponent<PlayerCombatController>().enabled = false;
+                GetComponent<UIController>().EndGame();
                 enabled = false;
             }
         }
@@ -54,7 +53,7 @@ public class PlayerHealthController : MonoBehaviour
     public void DoDamage(float amount)
     {
         healthCtrl.DecreaseHealth(amount);
-        transform.GetComponent<Animator>().SetTrigger("isDamaged");
+        animator.SetTrigger("isDamaged");
     }
     
     public float GetHealth()
@@ -98,20 +97,5 @@ public class PlayerHealthController : MonoBehaviour
             Heal(remainder);
         }
 
-    }
-    
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.gameObject.tag == "Campfire")
-        {
-            gettingWarm = true;
-        }
-    }
-    private void OnTriggerExit(Collider col)
-    {
-        if (col.gameObject.tag == "Campfire")
-        {
-            gettingWarm = false;
-        }
     }
 }

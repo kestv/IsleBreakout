@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
-    public void isRunning(bool isRunning)
+    public void IsRunning(bool isRunning)
     {
         if (transform.GetComponent<Animator>().GetBool("isRunning") != true)
         {
@@ -15,7 +15,7 @@ public class EnemyAnimationController : MonoBehaviour
         }
     }
 
-    public void isIdling(bool isIdling)
+    public void IsIdling(bool isIdling)
     {
         if (transform.GetComponent<Animator>().GetBool("isIdling") != true)
         {
@@ -26,7 +26,7 @@ public class EnemyAnimationController : MonoBehaviour
         }
     }
 
-    public void isAttacking(bool isAttacking)
+    public void IsAttacking(bool isAttacking)
     {
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
         {
@@ -37,7 +37,7 @@ public class EnemyAnimationController : MonoBehaviour
         }
     }
 
-    public void isWalking(bool isWalking)
+    public void IsWalking(bool isWalking)
     {
         if (transform.GetComponent<Animator>().GetBool("isWalking") != true)
         {

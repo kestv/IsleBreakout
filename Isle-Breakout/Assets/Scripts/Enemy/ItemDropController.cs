@@ -12,7 +12,7 @@ public class ItemDropController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<EnemyHealthController>().isDead())
+        if(GetComponent<EnemyHealthController>().IsDead())
         {
             StartCoroutine(DropItems());
         }
