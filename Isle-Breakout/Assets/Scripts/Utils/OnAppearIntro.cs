@@ -5,18 +5,18 @@ using UnityEngine.SceneManagement;
 
 public class OnAppearIntro : MonoBehaviour
 {
-    public GameObject camera1;
-    public GameObject camera2;
+    [SerializeField]GameObject camera1;
+    [SerializeField]GameObject camera2;
     Animator animator;
     void Start()
     {
         camera2.SetActive(false);
         animator = GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
-        StartCoroutine(Intro());
+        StartCoroutine(IEIntro());
     }
 
-    IEnumerator Intro()
+    IEnumerator IEIntro()
     {
         yield return new WaitForSeconds(10f);
         animator.SetTrigger("FadeIn");

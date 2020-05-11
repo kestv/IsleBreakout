@@ -11,7 +11,7 @@ public class OnSpawn : MonoBehaviour
 
     public void FadeOut()
     {
-        StartCoroutine(Fade());
+        StartCoroutine(IEFade());
     }
 
     public void FadeIn()
@@ -19,7 +19,7 @@ public class OnSpawn : MonoBehaviour
         GetComponent<Animator>().SetTrigger("FadeIn");
     }
 
-    IEnumerator Fade()
+    IEnumerator IEFade()
     {
         GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(2.5f);
