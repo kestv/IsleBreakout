@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class KillQuest : Quest
 {
-    int enemyId;
-    int reqAmount;
+    [SerializeField]int enemyId;
+    [SerializeField]int reqAmount;
     public void Start()
     {
         InitializeQuest();

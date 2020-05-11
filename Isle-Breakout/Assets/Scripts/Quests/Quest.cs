@@ -8,13 +8,15 @@ public class Quest : MonoBehaviour
 {
     protected int questGiverId;
     protected List<Goal> goals = new List<Goal>();
-    List<string> conversations = new List<string>();
-    int experience;
-    string questName;
+    
+    
+    [SerializeField]string questName;
 
     bool completed = false;
     bool active = false;
 
+    [SerializeField]List<string> conversations = new List<string>();
+    [SerializeField]int experience;
     [SerializeField]GameObject spellReward;
     [SerializeField]GameObject itemReward;
  

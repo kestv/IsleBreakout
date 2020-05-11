@@ -9,11 +9,6 @@ public class EnemyController : MonoBehaviour
     public int id;
     public string _name;
 
-    public void Start()
-    {
-        
-    }
-
     public GameObject GetNameTag()
     {
         return this.nameTag;

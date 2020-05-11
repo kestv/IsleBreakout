@@ -6,45 +6,49 @@ public class EnemyAnimationController : MonoBehaviour
 {
     public void IsRunning(bool isRunning)
     {
+        var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isRunning") != true)
         {
-            transform.GetComponent<Animator>().SetBool("isRunning", isRunning);
-            transform.GetComponent<Animator>().SetBool("isIdling", !isRunning);
-            transform.GetComponent<Animator>().SetBool("isAttacking", !isRunning);
-            transform.GetComponent<Animator>().SetBool("isWalking", !isRunning);
+            anim.SetBool("isRunning", isRunning);
+            anim.SetBool("isIdling", !isRunning);
+            anim.SetBool("isAttacking", !isRunning);
+            anim.SetBool("isWalking", !isRunning);
         }
     }
 
     public void IsIdling(bool isIdling)
     {
-        if (transform.GetComponent<Animator>().GetBool("isIdling") != true)
+        var anim = transform.GetComponent<Animator>();
+        if (anim.GetBool("isIdling") != true)
         {
-            transform.GetComponent<Animator>().SetBool("isIdling", isIdling);
-            transform.GetComponent<Animator>().SetBool("isRunning", !isIdling);
-            transform.GetComponent<Animator>().SetBool("isAttacking", !isIdling);
-            transform.GetComponent<Animator>().SetBool("isWalking", !isIdling);
+            anim.SetBool("isIdling", isIdling);
+            anim.SetBool("isRunning", !isIdling);
+            anim.SetBool("isAttacking", !isIdling);
+            anim.SetBool("isWalking", !isIdling);
         }
     }
 
     public void IsAttacking(bool isAttacking)
     {
+        var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
         {
-            transform.GetComponent<Animator>().SetBool("isAttacking", isAttacking);
-            transform.GetComponent<Animator>().SetBool("isRunning", !isAttacking);
-            transform.GetComponent<Animator>().SetBool("isIdling", !isAttacking);
-            transform.GetComponent<Animator>().SetBool("isWalking", !isAttacking);
+            anim.SetBool("isAttacking", isAttacking);
+            anim.SetBool("isRunning", !isAttacking);
+            anim.SetBool("isIdling", !isAttacking);
+            anim.SetBool("isWalking", !isAttacking);
         }
     }
 
     public void IsWalking(bool isWalking)
     {
+        var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isWalking") != true)
         {
-            transform.GetComponent<Animator>().SetBool("isAttacking", !isWalking);
-            transform.GetComponent<Animator>().SetBool("isRunning", !isWalking);
-            transform.GetComponent<Animator>().SetBool("isIdling", !isWalking);
-            transform.GetComponent<Animator>().SetBool("isWalking", isWalking);
+            anim.SetBool("isAttacking", !isWalking);
+            anim.SetBool("isRunning", !isWalking);
+            anim.SetBool("isIdling", !isWalking);
+            anim.SetBool("isWalking", isWalking);
         }
     }
 }

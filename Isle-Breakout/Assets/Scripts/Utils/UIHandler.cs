@@ -5,8 +5,6 @@ using UnityEngine.UI;
 
 public class UIHandler : MonoBehaviour
 {
-    public delegate void OnRewardReceive();
-    public OnRewardReceive onRewardReceive;
     [SerializeField]GameObject rewardObject;
     [SerializeField]GameObject rewardUI;
     [SerializeField]GameObject infoMessage;
@@ -34,6 +32,11 @@ public class UIHandler : MonoBehaviour
         damageMessage.SetActive(false);
         infoMessage.SetActive(false);
         damageStartingPosition = damageMessage.transform.position;
+        lastMessage = 0;
+
+        UIHandler.Instance.DisplayMessage("Target something first");
+        UIHandler.Instance.DisplayDamage(0);
+        UIHandler.Instance.DisplayReward("", false);
     }
     public void DisplayReward(string reward, bool levelUp)
     {
@@ -51,9 +54,9 @@ public class UIHandler : MonoBehaviour
         rewardUI.GetComponent<SpellRewardController>().SetSpell(spell);        
     }
 
-    public void DisplayMessage(string message)
+    public void DisplayMessage(string message, bool force = false)
     {
-        if (Time.time - lastMessage > 1)
+        if (force || Time.time - lastMessage > 1)
         {
             infoMessage.SetActive(true);
             infoMessage.GetComponent<Text>().text = message;

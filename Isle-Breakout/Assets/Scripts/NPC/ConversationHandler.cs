@@ -73,6 +73,7 @@ public class ConversationHandler : MonoBehaviour
         conversation.SetActive(true);
         this.name.GetComponent<Text>().text = name;
         conversationIndex = 1;
+        if (this.conversations.Count == 0) this.conversations.Add("What do you want?");
         text.GetComponent<Text>().text = this.conversations[0];
         if (this.conversations.Count - conversationIndex >= 1)
         {

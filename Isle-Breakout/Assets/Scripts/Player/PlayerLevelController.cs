@@ -1,16 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PlayerLevelController : MonoBehaviour
 {
-    float levelRate;
-    float level;
-    float currentExperiencePoints;
-    float requiredExperiencePoints;
-    float totalXp;
-    float currentGameXp;
+    [SerializeField]float levelRate;
+    [SerializeField]float level;
+    [SerializeField]float currentExperiencePoints;
+    [SerializeField]float requiredExperiencePoints;
+    [SerializeField]float totalXp;
+    [SerializeField]float currentGameXp;
 
     GameObject levelField;
 
@@ -21,7 +22,7 @@ public class PlayerLevelController : MonoBehaviour
         totalXp = Player.xp;
         currentGameXp = 0;
         levelField.GetComponent<Text>().text = level.ToString();
-        CombatEventHandler.Instance.onEnemyDeath += GetExperience;
+        CombatHandler.Instance.onEnemyDeath += GetExperience;
     }
 
     public void GetExperience(float amount)
@@ -29,7 +30,7 @@ public class PlayerLevelController : MonoBehaviour
         totalXp += amount;
         currentGameXp += amount;
         currentExperiencePoints += amount;
-        UIEventHandler.Instance.DisplayReward(amount + " xp", false);
+        UIHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();
     }
     //For events
@@ -38,7 +39,7 @@ public class PlayerLevelController : MonoBehaviour
         totalXp += amount;
         currentGameXp += amount;
         currentExperiencePoints += amount;
-        UIEventHandler.Instance.DisplayReward(amount + " xp", false);
+        UIHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();
     }
 
@@ -52,7 +53,7 @@ public class PlayerLevelController : MonoBehaviour
 
     public void LevelUp()
     {
-        UIEventHandler.Instance.DisplayReward("Level up!", true);
+        UIHandler.Instance.DisplayReward("Level up!", true);
         level += 1;
         currentExperiencePoints -= requiredExperiencePoints;
         requiredExperiencePoints *= levelRate;
@@ -63,7 +64,7 @@ public class PlayerLevelController : MonoBehaviour
         GetComponent<PlayerStatsController>().IncreaseRemainingPoints(1);
         GetComponent<PlayerStatsController>().UpdateRemainingPointsValue();
 
-        UIEventHandler.Instance.DisplayReward("Level up!", true);
+        UIHandler.Instance.DisplayReward("Level up!", true);
     }
 
     public float GetLevel()

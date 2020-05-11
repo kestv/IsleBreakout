@@ -6,13 +6,10 @@ using UnityEngine.UI;
 
 public class EnemyHealthController : EnemyController
 {
-    [SerializeField]
-    GameObject healthBar;
+    [SerializeField]GameObject healthBar;
     float timer;
-    [SerializeField]
-    GameObject targetSprite;
-    [SerializeField]
-    float maxHealth;
+    [SerializeField]GameObject targetSprite;
+    [SerializeField]float maxHealth;
     float health;
     bool dead;
     bool counted;
@@ -56,7 +53,7 @@ public class EnemyHealthController : EnemyController
         healthBar.GetComponent<Slider>().value = health;
         healthBar.GetComponent<UIHealthController>().SetCurrentHealth(health);
         if (!GetComponent<EnemyActionController>().IsPlayerSpotted()) GetComponent<EnemyActionController>().GotAttacked();
-        UIEventHandler.Instance.DisplayDamage(amount);
+        UIHandler.Instance.DisplayDamage(amount);
     }
 
     public float GetHealth()
@@ -74,10 +71,10 @@ public class EnemyHealthController : EnemyController
             transform.GetComponent<EnemyHealthController>().enabled = false;
             if (transform.GetComponent<EnemyWander>() != null)
                 transform.GetComponent<EnemyWander>().enabled = false;
-            if (!dead)
+            if (dead == false)
             {
-                CombatEventHandler.Instance.onEnemyDeath(this.xp, this.id);
-                CombatEventHandler.Instance.afterEnemyDeath();
+                CombatHandler.Instance.onEnemyDeath(this.xp, this.id);
+                CombatHandler.Instance.afterEnemyDeath();
             }
             dead = true;
             GetComponent<Rigidbody>().isKinematic = true;

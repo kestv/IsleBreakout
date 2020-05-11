@@ -61,8 +61,11 @@ public class SpellController : MonoBehaviour
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
-            StopCoroutine(coroutine);
-            castBar.SetActive(false);
+            if (coroutine != null)
+            {
+                StopCoroutine(coroutine);
+                castBar.SetActive(false);
+            }
         }
     }
 
@@ -117,7 +120,7 @@ public class SpellController : MonoBehaviour
 
     public void TamePet(SpellHolder spellHolder)
     {
-        var ui = UIEventHandler.Instance;
+        var ui = UIHandler.Instance;
         var tameItem = this.tameItem.GetComponent<ItemSettings>();
         if (triggering && pet != null)
         {
@@ -147,13 +150,13 @@ public class SpellController : MonoBehaviour
             }
             else
             {
-                UIEventHandler.Instance.DisplayMessage("Cannot do that while in combat");
+                UIHandler.Instance.DisplayMessage("Cannot do that while in combat");
             }
         }
         else
         {
             lastRecallPos = transform.position;
-            UIEventHandler.Instance.DisplayMessage("Recall position set");
+            UIHandler.Instance.DisplayMessage("Recall position set", true);
         }
     }
 
@@ -171,7 +174,7 @@ public class SpellController : MonoBehaviour
                     }
                     else if (target == null)
                     {
-                        UIEventHandler.Instance.DisplayMessage("Target something first");
+                        UIHandler.Instance.DisplayMessage("Target something first");
                     }
                     break;
                 case TAME_SPELL:
@@ -184,7 +187,7 @@ public class SpellController : MonoBehaviour
         }
         else
         {
-            UIEventHandler.Instance.DisplayMessage("Spell is on cooldown");
+            UIHandler.Instance.DisplayMessage("Spell is on cooldown");
         }
     }
 
@@ -230,7 +233,7 @@ public class SpellController : MonoBehaviour
         }
     }
 
-    IEnumerator IETamePet(UIEventHandler ui)
+    IEnumerator IETamePet(UIHandler ui)
     {
         yield return new WaitForSeconds(castTime);
         if (Time.time - startedCasting >= castTime)

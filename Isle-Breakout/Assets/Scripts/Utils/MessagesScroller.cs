@@ -11,7 +11,7 @@ public class MessagesScroller : MonoBehaviour
     void Start()
     {
         active = false;
-        startPosition = transform.position;
+        startPosition = transform.localPosition;
         gameObject.SetActive(false);
     }
 
@@ -27,7 +27,7 @@ public class MessagesScroller : MonoBehaviour
     public void StartMoving()
     {
         gameObject.SetActive(true);
-        transform.position = new Vector3(transform.position.x, startPosition.y);
+        transform.localPosition = new Vector3(transform.localPosition.x, startPosition.y);
         startTime = Time.time;
         active = true;
     }

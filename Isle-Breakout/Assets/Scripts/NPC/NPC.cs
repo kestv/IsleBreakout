@@ -35,6 +35,10 @@ public class NPC : MonoBehaviour
     }
     void CheckForNameTag()
     {
+        if(nameTag == null)
+        {
+            print("hoho");
+        }
         if (GetDistance(player.transform) > 50 && nameTag.activeSelf == true)
         {
             nameTag.SetActive(false);

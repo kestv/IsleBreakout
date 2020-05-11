@@ -2288,10 +2288,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4677938815812654}
   - component: {fileID: 95560493210536004}
-  - component: {fileID: 1992043813776652865}
   - component: {fileID: 7356626843003116796}
   - component: {fileID: 4455466724045732905}
   - component: {fileID: 4988022340712551394}
+  - component: {fileID: 1421161105174174777}
   m_Layer: 0
   m_Name: Chi
   m_TagString: Npc
@@ -2341,27 +2341,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1992043813776652865
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607527550670310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 72
-  _name: Chi
-  conversations: []
-  conversationText: {fileID: 0}
-  conversationButton: {fileID: 0}
-  nameTag: {fileID: 4006493546041696896}
-  quests:
-  - {fileID: 7356626843003116796}
-  - {fileID: 4455466724045732905}
 --- !u!114 &7356626843003116796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2374,26 +2353,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20dcca5796fc904793b243b1b1a1f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 72
-  conversations:
-  - Good evening, sir
-  - I see you are a brave man
-  - Would you mind helping me?
-  - I've lost my brother
-  - His name is Ho
-  - Will you accept to find him?
-  - I will reward you with a 100xp
-  Experience: 100
-  QuestName: 
-  Completed: 0
-  Active: 0
+  conversations: []
+  experience: 0
   spellReward: {fileID: 0}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  npcIdToTalk: 74
+  npcIdToTalk: 0
 --- !u!114 &4455466724045732905
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2406,24 +2374,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 0
-  conversations:
-  - Thank you..
-  - I've been aware I will never find him..
-  - Now, I'd like you to kill my enemies
-  - They have dealth with my ancestors
-  - And took away my city
-  - Kill 10 of them
-  - I will grant you Recall spell
-  - It's from our wizard ancestors
-  Experience: 0
-  QuestName: 
-  Completed: 0
-  Active: 0
+  conversations: []
+  experience: 0
   spellReward: {fileID: 8531074622947949980, guid: 5eb7991c831168942bfba66a59ecde70,
     type: 3}
   itemReward: {fileID: 0}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
@@ -2442,6 +2398,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1421161105174174777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607527550670310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ed82f74e53fd34c81b3c2865598150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: NPC
+  conversations:
+  - What do you want?
+  conversationText: {fileID: 0}
+  conversationButton: {fileID: 0}
+  nameTag: {fileID: 4006493546041696896}
+  quests: []
 --- !u!1 &1611376298888912
 GameObject:
   m_ObjectHideFlags: 0

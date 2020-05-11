@@ -2288,8 +2288,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4677938815812654}
   - component: {fileID: 95560493210536004}
-  - component: {fileID: -7336778562185433603}
   - component: {fileID: 756358059756839123}
+  - component: {fileID: 1439378010911901793}
   m_Layer: 0
   m_Name: Juan
   m_TagString: Npc
@@ -2339,25 +2339,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &-7336778562185433603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607527550670310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 71
-  _name: Juan
-  conversations: []
-  conversationText: {fileID: 0}
-  conversationButton: {fileID: 0}
-  nameTag: {fileID: 4592774533921478118}
-  quests: []
 --- !u!135 &756358059756839123
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2371,6 +2352,26 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1439378010911901793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607527550670310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ed82f74e53fd34c81b3c2865598150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: NPC
+  conversations:
+  - What do you want?
+  conversationText: {fileID: 0}
+  conversationButton: {fileID: 0}
+  nameTag: {fileID: 4592774533921478118}
+  quests: []
 --- !u!1 &1611376298888912
 GameObject:
   m_ObjectHideFlags: 0

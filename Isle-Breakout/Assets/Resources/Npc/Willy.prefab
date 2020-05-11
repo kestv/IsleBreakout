@@ -2689,8 +2689,8 @@ GameObject:
   - component: {fileID: 2231315459620779793}
   - component: {fileID: 2231315459613868185}
   - component: {fileID: 7644243916853415049}
-  - component: {fileID: 7644243916813825717}
   - component: {fileID: 6923454482064333426}
+  - component: {fileID: 3214754951617085251}
   m_Layer: 0
   m_Name: Willy
   m_TagString: Npc
@@ -2753,26 +2753,6 @@ CapsuleCollider:
   m_Height: 5.3377333
   m_Direction: 1
   m_Center: {x: -0.0029292107, y: 1.799478, z: 0.024477959}
---- !u!114 &7644243916813825717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2231315459621211557}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 3
-  _name: Willy
-  conversations:
-  - Hello, nice to meet you
-  conversationText: {fileID: 0}
-  conversationButton: {fileID: 0}
-  nameTag: {fileID: 7104912946897317274}
-  quests: []
 --- !u!114 &6923454482064333426
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2785,26 +2765,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  questGiverId: 3
-  conversations:
-  - Hello my dear
-  - Thank you for visiting me
-  - If you don't mind..
-  - I would like you to do me a favour
-  - Could please kill these warriors
-  - They are ruining my beach
-  - I will award you with a weapon
-  Experience: 0
-  QuestName: Warriors
-  Completed: 0
-  Active: 0
+  conversations: []
+  experience: 0
   spellReward: {fileID: 0}
   itemReward: {fileID: 2504427649476227438, guid: 9a80bc469d623944292c4667a9b76eb5,
     type: 3}
-  questName: {fileID: 0}
+  questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
+  enemyId: 0
+  reqAmount: 0
+--- !u!114 &3214754951617085251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2231315459621211557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ed82f74e53fd34c81b3c2865598150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: NPC
+  conversations:
+  - What do you want?
+  conversationText: {fileID: 0}
+  conversationButton: {fileID: 0}
+  nameTag: {fileID: 7104912946897317274}
+  quests: []
 --- !u!1 &2231315459621213823
 GameObject:
   m_ObjectHideFlags: 0

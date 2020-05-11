@@ -1674,18 +1674,17 @@ GameObject:
   - component: {fileID: 8919495712573501306}
   - component: {fileID: 5713084870962035605}
   - component: {fileID: 7945475410196993653}
-  - component: {fileID: 8617083100452167567}
   - component: {fileID: 8370830772231548530}
   - component: {fileID: 2152127699946426686}
   - component: {fileID: 5628261739196621298}
   - component: {fileID: 8508442381396217968}
-  - component: {fileID: 8508442381396217970}
   - component: {fileID: 8998810956852759949}
   - component: {fileID: 6358586662360072967}
   - component: {fileID: 2423853350010960531}
   - component: {fileID: 214535691740133536}
   - component: {fileID: 2540292520080133191}
   - component: {fileID: 4176204554401788413}
+  - component: {fileID: 1580733345}
   m_Layer: 0
   m_Name: PlayerInstance
   m_TagString: Player
@@ -1731,7 +1730,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cam: {fileID: 0}
-  isRunning: 0
   controller: {fileID: 8998810956852759949}
   speed: 8
   velocity: {x: 0, y: -1061.9768, z: 0}
@@ -1740,7 +1738,6 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
-  canAnimate: 0
 --- !u!95 &5713084870962035605
 Animator:
   serializedVersion: 3
@@ -1772,24 +1769,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a404e2bc6fdd04aae04719ccb5dc3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthBarCanvas: {fileID: 0}
-  hungerBar: {fileID: 0}
-  warmthBar: {fileID: 0}
---- !u!114 &8617083100452167567
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966810254032483518}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09b3d906ec9eba84089519f0cfd0e7ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  polymorphModel: {fileID: 6319170174792272074}
-  model: {fileID: 0}
-  isPolymorphed: 0
 --- !u!114 &8370830772231548530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1802,8 +1781,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b411fb821a97b9a43aab315085cdf04b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isAttacking: 0
-  inCombat: 1
   damage: 50
   target: {fileID: 0}
   arrow: {fileID: 1170744857039610, guid: 1fcfcb93d7455e94bb4991c5ab289a41, type: 3}
@@ -1822,11 +1799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807703bd55d57b24a894b5f9b718761c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 0
-  strength: 0
-  speed: 0
-  wisdom: 0
-  remainingPoints: 0
   strengthButton: {fileID: 0}
   speedButton: {fileID: 0}
   wisdomButton: {fileID: 0}
@@ -1846,11 +1818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62949c6ba60ba8d41b2a013f1411a8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
   castPoint: {fileID: 5250767550348312005}
   arrowCastPoint: {fileID: 2404468922128114029}
-  castBar: {fileID: 0}
-  bar: {fileID: 0}
   tameItem: {fileID: 4161287894381245779, guid: 9096e628ccc37a44c9a5f2d7a96608ed,
     type: 3}
 --- !u!114 &8508442381396217968
@@ -1870,19 +1839,7 @@ MonoBehaviour:
   currentExperiencePoints: 0
   requiredExperiencePoints: 50
   totalXp: 0
---- !u!114 &8508442381396217970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4966810254032483518}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2d2f50e6e7e2faf4b82be547a502841b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  info: {fileID: 0}
+  currentGameXp: 0
 --- !u!143 &8998810956852759949
 CharacterController:
   m_ObjectHideFlags: 0
@@ -1913,21 +1870,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd2653be8852e41a8ec34d4b52931e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  player: {fileID: 4966810254032483518}
-  inventory: {fileID: 2423853350010960531}
-  canvas: {fileID: 0}
-  canvasController: {fileID: 0}
-  messagePanel: {fileID: 0}
-  messagePanelText: {fileID: 0}
-  item: {fileID: 0}
-  trigger: {fileID: 0}
-  shipCrafting: {fileID: 0}
-  shipPartCtrl: {fileID: 0}
-  shipRecipeCtrl: {fileID: 0}
-  shipBuilder: {fileID: 0}
-  triggers: []
-  info: {fileID: 0}
 --- !u!114 &2423853350010960531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1940,15 +1882,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0af6feaada36447489d50d23dca64296, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  inventory: []
-  inventorySize: 6
-  canvas: {fileID: 0}
-  inventoryPanel: {fileID: 0}
-  craftingPanel: {fileID: 0}
-  shipPartPanel: {fileID: 0}
-  inventoryFull: 0
-  itemCount: 0
 --- !u!114 &214535691740133536
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1961,12 +1894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e52233fb7ffbd40824ee69eb107c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  canvas: {fileID: 0}
-  canvasController: {fileID: 0}
-  craftingPanel: {fileID: 0}
-  recipeCtrl: {fileID: 0}
-  equipPanel: {fileID: 0}
 --- !u!114 &2540292520080133191
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,11 +1940,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b90c6aa9c4e5c624e8e92c3c168b9dcf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statsCtrl: {fileID: 2152127699946426686}
-  levelCtrl: {fileID: 8508442381396217968}
-  combatCtrl: {fileID: 8370830772231548530}
-  movementCtrl: {fileID: 8919495712573501306}
-  menu: {fileID: 0}
+  panel: {fileID: 0}
+  endGamePanel: {fileID: 0}
+--- !u!114 &1580733345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4966810254032483518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567daacacae23574993d30708431ac6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4966810254032483520
 GameObject:
   m_ObjectHideFlags: 0

@@ -48,7 +48,7 @@ public class PlayerCombatController : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
-        CombatEventHandler.Instance.onEnemyDeath += KilledTarget;
+        CombatHandler.Instance.onEnemyDeath += KilledTarget;
         spellController = GetComponent<SpellController>();
         movementCtrl = GetComponent<PlayerMovementController>();
         isAttacking = false;
@@ -231,7 +231,11 @@ public class PlayerCombatController : MonoBehaviour
     void KilledTarget(float xp, int id)
     {
         inCombat = false;
-        target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
+        var sprite = target.GetComponent<EnemyHealthController>().GetTargetSprite();
+        if (sprite != null && sprite.activeSelf == true)
+        {
+            sprite.SetActive(false);
+        }
         target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.black;
         enemyHealthBar.SetActive(false);
         target = null;

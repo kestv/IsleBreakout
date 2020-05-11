@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TalkQuest : Quest
 {
-    int npcIdToTalk;
+    [SerializeField]int npcIdToTalk;
     public void Start()
     {
         InitializeQuest();

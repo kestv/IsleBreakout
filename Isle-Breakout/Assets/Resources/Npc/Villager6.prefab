@@ -1377,8 +1377,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6191891704948245449}
   - component: {fileID: 6191891704958077731}
-  - component: {fileID: 6437721433118055410}
   - component: {fileID: -8623445557795456700}
+  - component: {fileID: 4682890062849055801}
   m_Layer: 0
   m_Name: Villager6
   m_TagString: Npc
@@ -1427,26 +1427,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6437721433118055410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6191891704948560079}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39275b3a7ca17394ab955c9c0d0fca73, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ID: 3
-  name: Roofy
-  conversations:
-  - My goodies are the best!
-  conversationText: {fileID: 0}
-  conversationButton: {fileID: 0}
-  nameTag: {fileID: 5241550978334462257}
-  quests: []
 --- !u!65 &-8623445557795456700
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1460,6 +1440,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 1, z: 3}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4682890062849055801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6191891704948560079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03ed82f74e53fd34c81b3c2865598150, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ID: 0
+  _name: NPC
+  conversations:
+  - What do you want?
+  conversationText: {fileID: 0}
+  conversationButton: {fileID: 0}
+  nameTag: {fileID: 5241550978334462257}
+  quests: []
 --- !u!1 &6191891704948563695
 GameObject:
   m_ObjectHideFlags: 0
