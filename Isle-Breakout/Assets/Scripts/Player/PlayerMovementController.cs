@@ -26,6 +26,7 @@ public class PlayerMovementController : MonoBehaviour
     private void Start()
     {
         canAnimate = true;
+        if(cam == null)
         cam = GameObject.Find("Main Camera");
         isRunning = false;
         camTransform = cam.transform;
@@ -43,13 +44,7 @@ public class PlayerMovementController : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float z = Input.GetAxisRaw("Vertical");
 
-        Vector3 rot = transform.right * x + transform.forward * z;
-        Vector3 move = transform.right * x + transform.forward * z / (Mathf.Abs(x) + Mathf.Abs(z));
-        if (Vector3.zero != rot)
-        {
-            transform.rotation = Quaternion.LookRotation(rot);
-            controller.Move(move * speed * Time.deltaTime);
-        }
+        MovePlayer(x, z);
 
         velocity.y += gravity * Time.deltaTime;
         if (!isGrounded)
@@ -67,6 +62,17 @@ public class PlayerMovementController : MonoBehaviour
             isRunning = false;
             if(canAnimate)
                 animator.SetBool("Running", false);
+        }
+    }
+
+    public void MovePlayer(float x, float z)
+    {
+        Vector3 rot = transform.right * x + transform.forward * z;
+        Vector3 move = transform.right * x + transform.forward * z / (Mathf.Abs(x) + Mathf.Abs(z));
+        if (Vector3.zero != rot)
+        {
+            transform.rotation = Quaternion.LookRotation(rot);
+            controller.Move(move * speed * Time.deltaTime);
         }
     }
 
@@ -98,5 +104,11 @@ public class PlayerMovementController : MonoBehaviour
     public void SetCanAnimate(bool canAnimate)
     {
         this.canAnimate = canAnimate;
+    }
+
+    //TESTS PURPOSES
+    public void AssignController(CharacterController ctrl)
+    {
+        controller = ctrl;
     }
 }

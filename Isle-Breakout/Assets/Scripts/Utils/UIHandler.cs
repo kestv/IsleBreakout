@@ -33,10 +33,6 @@ public class UIHandler : MonoBehaviour
         infoMessage.SetActive(false);
         damageStartingPosition = damageMessage.transform.position;
         lastMessage = 0;
-
-        UIHandler.Instance.DisplayMessage("Target something first");
-        UIHandler.Instance.DisplayDamage(0);
-        UIHandler.Instance.DisplayReward("", false);
     }
     public void DisplayReward(string reward, bool levelUp)
     {

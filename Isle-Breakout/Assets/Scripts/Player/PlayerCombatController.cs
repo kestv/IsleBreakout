@@ -186,12 +186,12 @@ public class PlayerCombatController : MonoBehaviour
         else movementCtrl.SetIsRunning(false);
     }
 
-    void AttackFromRange()
+    public void AttackFromRange()
     {
         transform.GetComponent<Animator>().SetTrigger("isShooting");
         spellController.CastArrow(target, arrow);
     }
-    void FindTarget()
+    public void FindTarget()
     {
         float dist = 21;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
@@ -228,7 +228,7 @@ public class PlayerCombatController : MonoBehaviour
         return Vector3.Distance(transform.position, target.transform.position);
     }
 
-    void KilledTarget(float xp, int id)
+    public void KilledTarget(float xp, int id)
     {
         inCombat = false;
         var sprite = target.GetComponent<EnemyHealthController>().GetTargetSprite();
@@ -241,7 +241,7 @@ public class PlayerCombatController : MonoBehaviour
         target = null;
     }
 
-    void ResetTarget()
+    public void ResetTarget()
     {
         enemyHealthBar.SetActive(false);
         enemyHealthBar.GetComponent<UIHealthController>().SetPlayer(null);

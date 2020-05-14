@@ -76,4 +76,12 @@ public class UIHealthController : MonoBehaviour
     {
         this.player = player;
     }
+
+    //TESTS
+    public void AssignVariables(Slider slider, float health)
+    {
+        this.healthbarValue = slider;
+        maxHealth = 100;
+        currentHealth = health;
+    }
 }

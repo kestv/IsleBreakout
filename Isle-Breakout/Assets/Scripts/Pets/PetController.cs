@@ -114,4 +114,9 @@ public class PetController : MonoBehaviour
         GetComponent<EnemyWander>().enabled = true;
         player.GetComponent<PlayerStatsController>().AddBonuses(-bonusStrength, -bonusSpeed, -bonusWisdom);
     }
+
+    public bool IsTamed()
+    {
+        return this.tamed;
+    }
 }

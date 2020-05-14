@@ -35,7 +35,7 @@ public class TalkGoal : Goal
             if (this.requiredAmount == 1)
             {
                 this.currentAmount = 1;
-                this.Complete();
+                this.Evaluate();
             }
             else
                 this.currentAmount += 1;

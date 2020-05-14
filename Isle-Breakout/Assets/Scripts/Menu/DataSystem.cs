@@ -45,4 +45,15 @@ public static class DataSystem
             File.Delete(path);
         }
     }
+
+    //Testing purposes
+    public static bool SaveExists(int id)
+    {
+        string path = string.Format("{0}/{1}.save", Application.persistentDataPath, id);
+        if (File.Exists(path))
+        {
+            return true;
+        }
+        else return false;
+    }
 }

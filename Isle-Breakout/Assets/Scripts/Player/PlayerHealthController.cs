@@ -53,7 +53,8 @@ public class PlayerHealthController : MonoBehaviour
     public void DoDamage(float amount)
     {
         healthCtrl.DecreaseHealth(amount);
-        animator.SetTrigger("isDamaged");
+        if(animator != null)
+            animator.SetTrigger("isDamaged");
     }
     
     public float GetHealth()
@@ -97,5 +98,13 @@ public class PlayerHealthController : MonoBehaviour
             Heal(remainder);
         }
 
+    }
+
+    //TESTS
+    public void AssignVariables(Slider slider, float hunger, float health = 100)
+    {
+        healthCtrl = new UIHealthController();
+        healthCtrl.AssignVariables(slider, health);
+        this.hunger = hunger;
     }
 }

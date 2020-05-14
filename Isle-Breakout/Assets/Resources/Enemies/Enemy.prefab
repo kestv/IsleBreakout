@@ -3121,15 +3121,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 12
-  animations: {fileID: 0}
 --- !u!114 &8422565565892463127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3143,7 +3138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems:
-  - {fileID: 3917018067900416441, guid: cee3aa50aca00b8448eee8a0587e32e4, type: 3}
+  - {fileID: 2507799195256832982, guid: 25d3cb558ce1be0489769851ae84be0c, type: 3}
   - {fileID: 6301488033319005396, guid: 720c3e62d1f891c4ab7395eefe9dd83d, type: 3}
 --- !u!114 &238866820
 MonoBehaviour:
@@ -3164,9 +3159,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 250441423}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!65 &1410087112876974408
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3220,14 +3212,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 10
   waitTime: 2
-  startedWaiting: 0
-  state: 2
   speed: 1
-  rotation: 0
 --- !u!114 &881512864381618589
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3240,7 +3227,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
 --- !u!1 &8422565564660577554
 GameObject:
   m_ObjectHideFlags: 0

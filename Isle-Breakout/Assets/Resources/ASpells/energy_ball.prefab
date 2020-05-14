@@ -422,7 +422,6 @@ GameObject:
   - component: {fileID: 4730159595522024}
   - component: {fileID: 114515038581158254}
   - component: {fileID: 199081142237376256}
-  - component: {fileID: 114788196361203330}
   - component: {fileID: 198638885496516166}
   - component: {fileID: 65604217640661994}
   - component: {fileID: 54674166311131586}
@@ -465,8 +464,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
-  accuracy: 95
-  fireRate: 1.5
   muzzlePrefab: {fileID: 1463365761452998, guid: 658cb8ae4932a554c94e70096acb899c,
     type: 3}
   hitPrefab: {fileID: 1188432315835894, guid: 52ea9bc3247c4134aa5ac4c8eb45e774, type: 3}
@@ -477,7 +474,6 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 10
   actualDamage: 0
-  cooldown: 2
 --- !u!199 &199081142237376256
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -542,35 +538,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114788196361203330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1607489160101874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e272d634f40434b85fbf756732714d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: 1
-  speed: 1
-  duration: 1
-  loop: 1
-  prewarm: 0
-  lights: 1
-  trails: 1
-  changeColor: 1
-  newMaxColor: {r: 0, g: 0.6573818, b: 1, a: 1}
-  newMinColor: {r: 0, g: 0.49025083, b: 1, a: 1}
-  ParticleSystems:
-  - {fileID: 1607489160101874}
-  - {fileID: 1258718917892074}
-  - {fileID: 1276752287175734}
-  - {fileID: 1017523490065750}
-  - {fileID: 1866562611070220}
-  ActiveParticleSystems: 0101010101
 --- !u!198 &198638885496516166
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5357,6 +5324,7 @@ MonoBehaviour:
   name: Energy ball
   cooldown: 4
   type: 1
+  damage: 0
 --- !u!1 &1799161408891886
 GameObject:
   m_ObjectHideFlags: 0

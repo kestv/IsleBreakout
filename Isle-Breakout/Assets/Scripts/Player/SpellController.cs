@@ -118,7 +118,7 @@ public class SpellController : MonoBehaviour
         StartCoroutine(IECastArrow(target, arrow));
     }
 
-    public void TamePet(SpellHolder spellHolder)
+    public void TamePet(SpellHolder spellHolder, bool force = false)
     {
         var ui = UIHandler.Instance;
         var tameItem = this.tameItem.GetComponent<ItemSettings>();
@@ -131,7 +131,7 @@ public class SpellController : MonoBehaviour
                 bar.GetComponent<Image>().fillAmount = 0;
                 castBar.SetActive(true);
                 playerInventory.ConsumeItem(tameItem.getItemID());
-                StartCoroutine(IETamePet(ui));
+                StartCoroutine(IETamePet(ui, force));
                 
             }
             else ui.DisplayMessage("You don't have food");
@@ -233,12 +233,12 @@ public class SpellController : MonoBehaviour
         }
     }
 
-    IEnumerator IETamePet(UIHandler ui)
+    IEnumerator IETamePet(UIHandler ui, bool force) //Force - to prevent test failures
     {
         yield return new WaitForSeconds(castTime);
         if (Time.time - startedCasting >= castTime)
         {
-            var chance = Random.Range(0, 100);
+            var chance = force ? 100 : Random.Range(0, 100); //For testing purposes
             if (chance >= 50)
             {
                 if (currentPet != null)
@@ -286,5 +286,16 @@ public class SpellController : MonoBehaviour
             pet = null;
             triggering = false;
         }
+    }
+
+    //TESTS
+    public Vector3 GetRecallPos()
+    {
+        return this.lastRecallPos;
+    }
+
+    public void AddItemForPet()
+    {
+        playerInventory.AddItem(Instantiate(tameItem));
     }
 }

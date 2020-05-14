@@ -3056,6 +3056,7 @@ GameObject:
   - component: {fileID: 1677045732}
   - component: {fileID: 1839748567}
   - component: {fileID: 6801818554075358353}
+  - component: {fileID: 5386154827394392070}
   m_Layer: 0
   m_Name: Billy
   m_TagString: Npc
@@ -3130,15 +3131,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20dcca5796fc904793b243b1b1a1f78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversations: []
-  experience: 0
+  questName: Talk
+  conversations:
+  - test
+  - test
+  experience: 10000
   spellReward: {fileID: 0}
   itemReward: {fileID: 0}
   questNameLabel: {fileID: 0}
   questObjective: {fileID: 0}
   questPosition: {fileID: 0}
   player: {fileID: 0}
-  npcIdToTalk: 0
+  npcIdToTalk: 1
 --- !u!114 &6801818554075358353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3151,14 +3155,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03ed82f74e53fd34c81b3c2865598150, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ID: 0
+  ID: 1
   _name: NPC
   conversations:
   - What do you want?
   conversationText: {fileID: 0}
   conversationButton: {fileID: 0}
   nameTag: {fileID: 6832252646900508105}
-  quests: []
+  quests:
+  - {fileID: 1839748567}
+  - {fileID: 5386154827394392070}
+--- !u!114 &5386154827394392070
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422565564660575944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questName: Kill
+  conversations:
+  - test
+  experience: 10
+  spellReward: {fileID: 0}
+  itemReward: {fileID: 0}
+  questNameLabel: {fileID: 0}
+  questObjective: {fileID: 0}
+  questPosition: {fileID: 0}
+  player: {fileID: 0}
+  enemyId: 1
+  reqAmount: 1
 --- !u!1 &8422565564660577554
 GameObject:
   m_ObjectHideFlags: 0

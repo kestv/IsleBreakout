@@ -172,4 +172,12 @@ public class PlayerStatsController : MonoBehaviour
     {
         this.remainingPoints += points;
     }
+
+    //TESTS
+    public float GetRemainingPoints()
+    {
+        return this.remainingPoints;
+    }
+
+
 }

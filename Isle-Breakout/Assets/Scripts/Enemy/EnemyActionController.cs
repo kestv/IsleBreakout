@@ -274,4 +274,10 @@ public class EnemyActionController : MonoBehaviour
     //        playerInRange = false;
     //    }
     //}
+
+    //TESTS
+    public void SetPlayer(GameObject player)
+    {
+        this.player = player;
+    }
 }
