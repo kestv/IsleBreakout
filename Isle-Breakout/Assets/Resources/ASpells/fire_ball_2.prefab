@@ -24000,8 +24000,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 35
-  accuracy: 95
-  fireRate: 1
   muzzlePrefab: {fileID: 1056950820860086, guid: 6f3738ba95b11e94d823ca0763d6e26c,
     type: 3}
   hitPrefab: {fileID: 1576947433937734, guid: 3a1ab18e6861a8940aa332e72f024271, type: 3}
@@ -24015,7 +24013,6 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 30
   actualDamage: 0
-  cooldown: 2
 --- !u!54 &54307646593548836
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -24061,6 +24058,7 @@ MonoBehaviour:
   name: Fire ball
   cooldown: 4
   type: 1
+  damage: 0
 --- !u!1 &1915593564425164
 GameObject:
   m_ObjectHideFlags: 0

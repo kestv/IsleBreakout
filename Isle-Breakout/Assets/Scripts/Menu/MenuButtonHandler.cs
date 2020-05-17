@@ -13,6 +13,8 @@ public class MenuButtonHandler : MonoBehaviour
     GameObject options;
     [SerializeField]
     GameObject panel;
+
+    Coroutine co;
     void Start()
     {
         panel.SetActive(false);
@@ -34,10 +36,11 @@ public class MenuButtonHandler : MonoBehaviour
 
     public void EnterWorld()
     {
+        print("enter world");
         panel.SetActive(true);
         GetComponent<Animator>().SetTrigger("FadeIn");
 
-        StartCoroutine(IESwitchScenes());
+        co = StartCoroutine(IESwitchScenes());
     }
 
     public void Options()
@@ -53,8 +56,15 @@ public class MenuButtonHandler : MonoBehaviour
 
     IEnumerator IESwitchScenes()
     {
+        print("loading scene");
         yield return new WaitForSeconds(4f);
         SceneManager.LoadScene(1);
         SceneManager.UnloadSceneAsync(0);
+        StopCoroutine();
+    }
+
+    void StopCoroutine()
+    {
+        StopCoroutine(co);
     }
 }

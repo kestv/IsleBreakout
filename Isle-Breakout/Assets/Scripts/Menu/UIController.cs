@@ -102,7 +102,8 @@ public class UIController : MonoBehaviour
 
     public void MainMenu()
     {
-        SaveGame(false);
+        SaveGame(true);
         SceneManager.LoadScene(0);
+        SceneManager.UnloadSceneAsync(2);
     }
 }

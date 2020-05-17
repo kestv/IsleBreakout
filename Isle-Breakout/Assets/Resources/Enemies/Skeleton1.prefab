@@ -2362,15 +2362,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 8
-  animations: {fileID: 0}
 --- !u!114 &7727140215793484574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,9 +2385,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 3457677227220068286}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!114 &-1388427728228120106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,7 +2397,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
 --- !u!114 &8793482361122776858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,14 +2434,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 10
   waitTime: 5
-  startedWaiting: 0
-  state: 2
   speed: 3
-  rotation: 0
 --- !u!54 &306621180414495912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6099,6 +6085,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2229475983345939621, guid: 2aae6493a9176e745a402131ebffdd5d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8768034225940540834, guid: 2aae6493a9176e745a402131ebffdd5d,
         type: 3}

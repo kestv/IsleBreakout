@@ -6229,6 +6229,13 @@ MonoBehaviour:
   deleteButton: {fileID: 629949347}
   list: {fileID: 270477271}
   nameEnter: {fileID: 1745968715}
+  player:
+    name: 
+    level: 0
+    xp: 0
+    id: 0
+    totalGamesPlayed: 0
+    totalTimeSpent: 0
 --- !u!1 &1246088396
 GameObject:
   m_ObjectHideFlags: 0
@@ -6447,9 +6454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'go to sleep
-
-'
+  m_text: start game
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 960ca3d60fd0c174bbec44e304430f7e, type: 2}
   m_sharedMaterial: {fileID: -1067524409735870662, guid: 960ca3d60fd0c174bbec44e304430f7e,
@@ -6519,10 +6524,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1286575220}
-    characterCount: 12
+    characterCount: 10
     spriteCount: 0
-    spaceCount: 3
-    wordCount: 3
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -6747,6 +6752,13 @@ MonoBehaviour:
   deleteButton: {fileID: 716769365}
   list: {fileID: 270477271}
   nameEnter: {fileID: 1745968715}
+  player:
+    name: 
+    level: 0
+    xp: 0
+    id: 0
+    totalGamesPlayed: 0
+    totalTimeSpent: 0
 --- !u!114 &1340407344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8908,6 +8920,13 @@ MonoBehaviour:
   deleteButton: {fileID: 2120818892}
   list: {fileID: 270477271}
   nameEnter: {fileID: 1745968715}
+  player:
+    name: 
+    level: 0
+    xp: 0
+    id: 0
+    totalGamesPlayed: 0
+    totalTimeSpent: 0
 --- !u!114 &1740345424
 MonoBehaviour:
   m_ObjectHideFlags: 0

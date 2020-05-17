@@ -45,7 +45,7 @@ public class SpellInfoPanelController : MonoBehaviour
         {
             switch (type)
             {
-                case 0:
+                case 1:
                     text += "Type: Offensive" + "\n";
                     break;
                 default:
