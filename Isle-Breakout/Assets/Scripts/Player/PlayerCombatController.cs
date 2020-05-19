@@ -117,17 +117,6 @@ public class PlayerCombatController : MonoBehaviour
             if(isRangedWeaponEquipped)
                 SetWeapon(true);
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (target != null)
-            {
-                target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
-                target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.black;
-                enemyHealthBar.SetActive(false);
-                target = null;
-                inCombat = false;
-            }
-        }
 
         if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S))
         {
@@ -186,6 +175,14 @@ public class PlayerCombatController : MonoBehaviour
         else movementCtrl.SetIsRunning(false);
     }
 
+    public void CancelTarget()
+    {
+        target.GetComponent<EnemyHealthController>().GetTargetSprite().SetActive(false);
+        target.GetComponent<EnemyHealthController>().GetNameTag().GetComponent<TextMesh>().color = Color.green;
+        enemyHealthBar.SetActive(false);
+        target = null;
+        inCombat = false;
+    }
     public void AttackFromRange()
     {
         transform.GetComponent<Animator>().SetTrigger("isShooting");

@@ -80,6 +80,10 @@ public class UIController : MonoBehaviour
                     movementCtrl.enabled = false;
                 }
             }
+            else
+            {
+                combatCtrl.CancelTarget();
+            }
         }
     }
 
