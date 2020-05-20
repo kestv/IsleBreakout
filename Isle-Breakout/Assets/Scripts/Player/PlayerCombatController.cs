@@ -151,15 +151,14 @@ public class PlayerCombatController : MonoBehaviour
                 Vector3 direction = (target.transform.position - transform.position).normalized;
                 float dotProd = Vector3.Dot(direction, transform.forward);
 
-                if (dotProd > 0.95)
+                if (dotProd > 0.6)
                 {
                     if (lastAttack + attackRate < Time.time && !target.GetComponent<EnemyHealthController>().IsDead())
                     {
                         lastAttack = Time.time;
                         if (!isRangedWeapon)
                         {
-                            transform.GetComponent<Animator>().SetTrigger("isAttacking");
-                            target.GetComponent<EnemyHealthController>().DoDamage(damage);
+                            StartCoroutine(MeleeAttack());
                         }
                         else
                         {
@@ -173,6 +172,13 @@ public class PlayerCombatController : MonoBehaviour
             }
         }
         else movementCtrl.SetIsRunning(false);
+    }
+
+    IEnumerator MeleeAttack()
+    {
+        transform.GetComponent<Animator>().SetTrigger("isAttacking");
+        yield return new WaitForSeconds(0.5f);
+        target.GetComponent<EnemyHealthController>().DoDamage(damage);
     }
 
     public void CancelTarget()

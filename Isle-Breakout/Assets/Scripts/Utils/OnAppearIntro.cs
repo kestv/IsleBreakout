@@ -7,6 +7,7 @@ public class OnAppearIntro : MonoBehaviour
 {
     [SerializeField]GameObject camera1;
     [SerializeField]GameObject camera2;
+    [SerializeField] GameObject skipButton;
     Animator animator;
     void Start()
     {
@@ -14,6 +15,21 @@ public class OnAppearIntro : MonoBehaviour
         animator = GetComponent<Animator>();
         animator.SetTrigger("FadeOut");
         StartCoroutine(IEIntro());
+    }
+
+    public void SkipIntro()
+    {
+        StartCoroutine(ChangeScenes());
+        StopCoroutine(IEIntro());
+    }
+
+    IEnumerator ChangeScenes()
+    {
+        skipButton.SetActive(false);
+        animator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(2f);
+        SceneManager.LoadScene(2);
+        SceneManager.UnloadSceneAsync(1);
     }
 
     IEnumerator IEIntro()
@@ -30,9 +46,6 @@ public class OnAppearIntro : MonoBehaviour
         animator.SetTrigger("Blink");
         yield return new WaitForSeconds(6f);
         camera2.GetComponent<StressReceiver>().InduceStress(1);
-        animator.SetTrigger("FadeIn");
-        yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene(2);
-        SceneManager.UnloadSceneAsync(1);
+        StartCoroutine(ChangeScenes());
     }
 }

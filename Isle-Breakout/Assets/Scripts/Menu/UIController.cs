@@ -94,6 +94,8 @@ public class UIController : MonoBehaviour
         PlayerData player = new PlayerData(Player.name, levelCtrl.GetLevel(), levelCtrl.GetTotalXp(), Player.id, Player.totalGamesPlayed + n, Player.totalTimeSpent + time);
 
         DataSystem.Save(player);
+        Resume();
+        UIHandler.Instance.DisplayMessage("Saved");
     }
 
     public void Resume()

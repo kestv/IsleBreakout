@@ -288,4 +288,9 @@ public class PlayerTriggerHandler : MonoBehaviour
             triggers.Remove(go);
         }
     }
+
+    public List<GameObject> getTriggers()
+    {
+        return new List<GameObject>();
+    }
 }
