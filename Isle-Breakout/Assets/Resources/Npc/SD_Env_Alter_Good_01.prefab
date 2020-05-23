@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questName: Bully Goof
   conversations:
   - For the last upgrade
   - I wish you to kill Bully Goof
@@ -172,6 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questName: Skeleton Lord
   conversations:
   - My enemy Skeleton Lord must be dead
   experience: 0
@@ -196,6 +198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questName: Enemies
   conversations:
   - Very well
   - Next up, kill any 50 monsters
@@ -221,6 +224,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cca1fb6666f0d94ca87ce2286bfdc04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questName: Kill skeletons
   conversations:
   - It's been so long
   - My powers were sustained
@@ -256,7 +260,11 @@ MonoBehaviour:
   conversationText: {fileID: 0}
   conversationButton: {fileID: 0}
   nameTag: {fileID: 8674290586780245348}
-  quests: []
+  quests:
+  - {fileID: 7390958722653463693}
+  - {fileID: 7390958722653463692}
+  - {fileID: 7390958722653463695}
+  - {fileID: 7390958722653463689}
 --- !u!1001 &7390958723118950849
 PrefabInstance:
   m_ObjectHideFlags: 0

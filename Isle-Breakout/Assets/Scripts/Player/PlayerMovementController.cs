@@ -23,6 +23,7 @@ public class PlayerMovementController : MonoBehaviour
     bool isGrounded;
     bool canAnimate;
     Animator animator;
+    AudioManager audio;
     private void Start()
     {
         canAnimate = true;
@@ -31,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
         isRunning = false;
         camTransform = cam.transform;
         animator = GetComponent<Animator>();
+        audio = GetComponent<AudioManager>();
     }
     private void FixedUpdate()
     {
@@ -73,6 +75,17 @@ public class PlayerMovementController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(rot);
             controller.Move(move * speed * Time.deltaTime);
+            if (!audio.IsPlaying("Running"))
+            {
+                audio.Play("Running");
+            }
+        }
+        else
+        {
+            if (audio.IsPlaying("Running"))
+            {
+                audio.Stop("Running");
+            }
         }
     }
 
