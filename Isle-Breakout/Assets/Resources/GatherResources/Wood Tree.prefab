@@ -160,7 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gatherItem: {fileID: 6301488033319005396, guid: 720c3e62d1f891c4ab7395eefe9dd83d,
     type: 3}
-  gatherTime: 5
+  gatherTime: 3
   gatherCount: 3
 --- !u!135 &1794779742089706769
 SphereCollider:
