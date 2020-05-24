@@ -128,6 +128,7 @@ GameObject:
   - component: {fileID: -1013194454036233530}
   - component: {fileID: -8092699669052095677}
   - component: {fileID: -4982193146893351100}
+  - component: {fileID: -574223604632303182}
   m_Layer: 8
   m_Name: Samurai2
   m_TagString: Enemy
@@ -190,15 +191,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 12
-  animations: {fileID: 0}
 --- !u!114 &4357139493266684602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,9 +227,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 1969019945777206833}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!54 &-3987845111472935568
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -275,14 +268,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 10
   waitTime: 5
-  startedWaiting: 0
-  state: 2
   speed: 3
-  rotation: 0
 --- !u!114 &-8092699669052095677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,7 +295,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
+--- !u!114 &-574223604632303182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900720948005311859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: e40c9a6f0b3e8474087a429eb444a881, type: 3}
+    clipName: Punch
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 9b88de57957433f4da532c575813bc00, type: 3}
+    clipName: Running
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &5900720948005311921
 GameObject:
   m_ObjectHideFlags: 0

@@ -44,6 +44,7 @@ public class PlayerCombatController : MonoBehaviour
 
     CharacterController controller;
     PlayerMovementController movementCtrl;
+    AudioManager audioManager;
 
     void Start()
     {
@@ -51,6 +52,7 @@ public class PlayerCombatController : MonoBehaviour
         CombatHandler.Instance.onEnemyDeath += KilledTarget;
         spellController = GetComponent<SpellController>();
         movementCtrl = GetComponent<PlayerMovementController>();
+        audioManager = GetComponent<AudioManager>();
         isAttacking = false;
         enemies = GameObject.FindGameObjectsWithTag("Enemy");
         enemyHealthBar = GameObject.Find("EnemyHealthbar");
@@ -177,7 +179,17 @@ public class PlayerCombatController : MonoBehaviour
     IEnumerator MeleeAttack()
     {
         transform.GetComponent<Animator>().SetTrigger("isAttacking");
-        yield return new WaitForSeconds(0.5f);
+        if (meleeWeapon.activeSelf == true)
+        {
+            int type = UnityEngine.Random.Range(1, 3);
+            audioManager.Play(String.Format("Sword{0}", type));
+            yield return new WaitForSeconds(0.5f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(0.5f);
+            audioManager.Play("Punch");
+        }
         target.GetComponent<EnemyHealthController>().DoDamage(damage);
     }
 

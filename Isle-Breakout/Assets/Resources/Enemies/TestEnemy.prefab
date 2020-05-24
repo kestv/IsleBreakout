@@ -3061,6 +3061,7 @@ GameObject:
   - component: {fileID: -1511341031896491703}
   - component: {fileID: -519369887754739637}
   - component: {fileID: 881512864381618589}
+  - component: {fileID: -2385772299900166176}
   m_Layer: 8
   m_Name: TestEnemy
   m_TagString: Enemy
@@ -3227,6 +3228,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-2385772299900166176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8422565564660575944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: e40c9a6f0b3e8474087a429eb444a881, type: 3}
+    clipName: Punch
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 9b88de57957433f4da532c575813bc00, type: 3}
+    clipName: Running
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &8422565564660577554
 GameObject:
   m_ObjectHideFlags: 0

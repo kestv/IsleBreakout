@@ -1721,6 +1721,7 @@ GameObject:
   - component: {fileID: 230474693885393882}
   - component: {fileID: 1615201269537165374}
   - component: {fileID: -9015124289398025195}
+  - component: {fileID: 6710402072586852148}
   m_Layer: 8
   m_Name: FarmAttacker 2
   m_TagString: Enemy
@@ -1817,9 +1818,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 6988007974943617330}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!114 &230474693885393886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1832,15 +1830,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 12
-  animations: {fileID: 0}
 --- !u!114 &230474693885393883
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1853,7 +1846,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
 --- !u!114 &230474693885393882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1878,14 +1870,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 5
   waitTime: 5
-  startedWaiting: 0
-  state: 2
   speed: 1
-  rotation: 0
 --- !u!114 &-9015124289398025195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,6 +1886,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dropItems: []
+--- !u!114 &6710402072586852148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230474693885516528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: e40c9a6f0b3e8474087a429eb444a881, type: 3}
+    clipName: Punch
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 9b88de57957433f4da532c575813bc00, type: 3}
+    clipName: Running
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &230474693885517366
 GameObject:
   m_ObjectHideFlags: 0

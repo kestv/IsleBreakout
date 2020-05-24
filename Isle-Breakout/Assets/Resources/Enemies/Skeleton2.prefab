@@ -2292,6 +2292,7 @@ GameObject:
   - component: {fileID: 6414747063478345517}
   - component: {fileID: 306621180414495912}
   - component: {fileID: -2735577528442260428}
+  - component: {fileID: -4799435506272535519}
   m_Layer: 8
   m_Name: Skeleton2
   m_TagString: Enemy
@@ -2362,15 +2363,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 8
-  animations: {fileID: 0}
 --- !u!114 &7727140215793484574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2390,9 +2386,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 3457677227220068286}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!114 &-1388427728228120106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2405,7 +2398,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
 --- !u!114 &8793482361122776858
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2443,14 +2435,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 10
   waitTime: 5
-  startedWaiting: 0
-  state: 2
   speed: 3
-  rotation: 0
 --- !u!54 &306621180414495912
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2480,6 +2467,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.54854333, y: 2.2566144, z: 0.46466064}
   m_Center: {x: -0.019063335, y: 1.1143817, z: -0.03225708}
+--- !u!114 &-4799435506272535519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 645810897408628671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: e40c9a6f0b3e8474087a429eb444a881, type: 3}
+    clipName: Punch
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 9b88de57957433f4da532c575813bc00, type: 3}
+    clipName: Running
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1 &645810897408629089
 GameObject:
   m_ObjectHideFlags: 0

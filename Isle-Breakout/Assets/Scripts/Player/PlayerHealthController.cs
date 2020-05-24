@@ -95,9 +95,8 @@ public class PlayerHealthController : MonoBehaviour
         {
             var remainder = hunger - 100;
             hunger = 100;
-            Heal(remainder);
+            Heal(Mathf.CeilToInt(remainder));
         }
-
     }
 
     //TESTS

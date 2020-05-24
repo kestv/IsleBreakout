@@ -42,6 +42,7 @@ public class EnemyActionController : MonoBehaviour
 
     EnemyAnimationController animations;
     EnemyWander wander;
+    AudioManager audioManager;
 
     //Performance
     bool canStartWandering = false;
@@ -52,6 +53,7 @@ public class EnemyActionController : MonoBehaviour
         gotAttacked = false;
         animations = GetComponent<EnemyAnimationController>();
         wander = GetComponent<EnemyWander>();
+        audioManager = GetComponent<AudioManager>();
         busy = false;
         player = GameObject.Find("PlayerInstance");
         playerSpotted = false;
@@ -204,6 +206,7 @@ public class EnemyActionController : MonoBehaviour
             attackTime = lastAttack;
             action = IS_ATTACKING;
             target.GetComponent<PlayerHealthController>().DoDamage(damage);
+            audioManager.Play("Punch");
         }
         else action = IS_IDLING;
     }
@@ -232,11 +235,19 @@ public class EnemyActionController : MonoBehaviour
     public void IsRunning(bool isRunning)
     {
         animations.IsRunning(isRunning);
+        if(!audioManager.IsPlaying("Running"))
+        {
+            audioManager.Play("Running");
+        }
     }
 
     public void IsIdling(bool isIdling)
     {
         animations.IsIdling(isIdling);
+        if (audioManager.IsPlaying("Running"))
+        {
+            audioManager.Stop("Running");
+        }
     }
 
     public void IsAttacking(bool isAttacking)

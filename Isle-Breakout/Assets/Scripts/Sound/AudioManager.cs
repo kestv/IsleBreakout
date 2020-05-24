@@ -17,6 +17,7 @@ public class AudioManager : MonoBehaviour
             source.volume = s.GetVolume();
             source.pitch = s.GetPitch();
             source.loop = s.GetLoop();
+            source.spatialBlend = 1;
         }
     }
 

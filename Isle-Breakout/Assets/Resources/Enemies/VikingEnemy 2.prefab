@@ -3362,6 +3362,7 @@ GameObject:
   - component: {fileID: 65611723}
   - component: {fileID: -224047371850991228}
   - component: {fileID: -5455985258015562394}
+  - component: {fileID: -5975554799809106894}
   m_Layer: 8
   m_Name: VikingEnemy 2
   m_TagString: Enemy
@@ -3423,15 +3424,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71f8e7c93fa4ed4429860a1b773fcf8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  spawnPos: {x: 0, y: 0, z: 0}
-  playerSpotted: 0
   damage: 10
+  attackRate: 2
   fallBackDistance: 15
-  gotAttacked: 0
-  busy: 0
   scanDistance: 12
-  animations: {fileID: 0}
 --- !u!114 &5203176830580262085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3464,9 +3460,6 @@ MonoBehaviour:
   healthBar: {fileID: 0}
   targetSprite: {fileID: 4384134404987936797}
   maxHealth: 100
-  health: 100
-  dead: 0
-  playerCtrl: {fileID: 0}
 --- !u!54 &65611724
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3508,14 +3501,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  busy: 0
-  startingPosition: {x: 0, y: 0, z: 0}
   maxDistance: 10
   waitTime: 5
-  startedWaiting: 0
-  state: 2
   speed: 3
-  rotation: 0
 --- !u!114 &-224047371850991228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3540,7 +3528,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c75e003bc252b44e915c72e7501c297, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dead: 0
+--- !u!114 &-5975554799809106894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5203176831837364250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: e40c9a6f0b3e8474087a429eb444a881, type: 3}
+    clipName: Punch
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 9b88de57957433f4da532c575813bc00, type: 3}
+    clipName: Running
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
 --- !u!1001 &6854259531727084631
 PrefabInstance:
   m_ObjectHideFlags: 0
