@@ -46,9 +46,7 @@ public class DependencyManager : MonoBehaviour
 
         craftingPanel.SetActive(false);
         craftingPanel.GetComponent<Image>().enabled = true;
-
-        equipPanel.gameObject.SetActive(false);
-        equipPanel.GetComponent<Image>().enabled = true;
+        
         equipSlotPanelController = equipPanel.transform.GetChild(0).GetChild(2).GetComponent<EquipSlotPanelController>();
 
         canvasPlayerRenderer = Instantiate(canvasPlayerRenderer);
@@ -76,6 +74,8 @@ public class DependencyManager : MonoBehaviour
         shipRepairPanel.SetActive(false);
         shipRepairPanel.GetComponent<Image>().enabled = true;
         resourceGatherPanel.SetActive(false);
+        equipPanel.gameObject.SetActive(false);
+        equipPanel.GetComponent<Image>().enabled = true;
     }
 
     public GameObject getCanvas()

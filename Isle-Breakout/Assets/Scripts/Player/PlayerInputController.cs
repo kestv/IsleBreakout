@@ -16,8 +16,8 @@ public class PlayerInputController : MonoBehaviour
         manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         canvas = manager.getCanvas();
         canvasController = manager.getCanvasController();
-        craftingPanel = canvas.transform.Find("UI_CraftingPanel").gameObject;
-        equipPanel = canvas.transform.GetChild(3).gameObject;
+        craftingPanel = canvasController.getCraftingPanel().gameObject;
+        equipPanel = canvasController.getEquipPanel().gameObject;
         recipeCtrl = craftingPanel.transform.GetChild(0).GetChild(0).GetComponent<RecipeController>();
     }
 

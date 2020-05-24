@@ -43,4 +43,7 @@ public class RecipeController : MonoBehaviour
             child.GetComponent<RecipeSlotController>().SetRecipeAvailability();
         }        
     }
+
+    public List<CraftingRecipe> getRecipes()
+    { return recipes; }
 }

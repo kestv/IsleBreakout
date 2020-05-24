@@ -29,14 +29,16 @@ public class PlayerStatsController : MonoBehaviour
     {
         DependencyManager manager = GameObject.Find("Manager").GetComponent<DependencyManager>();
         Transform canvas = manager.getCanvas().transform;
-        strengthButton = canvas.GetChild(3).GetChild(0).GetChild(4).gameObject;
-        speedButton = canvas.GetChild(3).GetChild(0).GetChild(5).gameObject;
-        wisdomButton = canvas.GetChild(3).GetChild(0).GetChild(6).gameObject;
+        CanvasController ctrl = manager.getCanvasController();
+        Transform equipPanel = ctrl.getEquipPanel();
+        strengthButton = equipPanel.GetChild(0).GetChild(4).gameObject;
+        speedButton = equipPanel.GetChild(0).GetChild(5).gameObject;
+        wisdomButton = equipPanel.GetChild(0).GetChild(6).gameObject;
 
-        strengthValue   = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
-        speedValue      = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
-        wisdomValue     = canvas.GetChild(3).GetChild(0).GetChild(3).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
-        remainingValue  = canvas.GetChild(3).GetChild(0).GetChild(7).GetComponent<TextMeshProUGUI>();
+        strengthValue   = equipPanel.GetChild(0).GetChild(3).GetChild(0).GetChild(1).GetComponent<TextMeshProUGUI>();
+        speedValue      = equipPanel.GetChild(0).GetChild(3).GetChild(1).GetChild(1).GetComponent<TextMeshProUGUI>();
+        wisdomValue     = equipPanel.GetChild(0).GetChild(3).GetChild(2).GetChild(1).GetComponent<TextMeshProUGUI>();
+        remainingValue  = equipPanel.GetChild(0).GetChild(7).GetComponent<TextMeshProUGUI>();
 
         strength = float.Parse(GameObject.Find("StrengthValue").GetComponent<Text>().text);
         speed = float.Parse(GameObject.Find("SpeedValue").GetComponent<Text>().text);

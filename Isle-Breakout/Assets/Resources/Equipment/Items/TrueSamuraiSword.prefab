@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2330142}
   - component: {fileID: -3610297432439622960}
   - component: {fileID: -6645533136855643391}
+  - component: {fileID: 5569197606262902332}
   m_Layer: 0
   m_Name: TrueSamuraiSword
   m_TagString: item
@@ -107,8 +108,21 @@ Halo:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 171402}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Color:
     serializedVersion: 2
     rgba: 4278231807
   m_Size: 1.2
+--- !u!135 &5569197606262902332
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 171402}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.38316175
+  m_Center: {x: 0.0045925714, y: 0.24522793, z: 0.0018037972}

@@ -21,7 +21,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         canvas = manager.getCanvas();
         canvasCtrl = canvas.GetComponent<CanvasController>();
         inventoryPanel = canvasCtrl.getInventoryPanel().gameObject;
-        craftingPanel = canvas.transform.GetChild(2).gameObject;
+        craftingPanel = canvasCtrl.getCraftingPanel().gameObject;
         shipPartPanel = manager.getShipRepairPanel().GetComponent<ShipRepair>().getRecipePartPanel().gameObject;
 
         inventorySize = manager.getInventorySize();
@@ -273,4 +273,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
             }
         }        
     }
+
+    public List<GameObject> getInventory()
+    { return inventory; }
 }
