@@ -196,16 +196,16 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
         return -1;
     }
 
-    public bool Contains(int id)
+    public GameObject ContainsTameItem()
     {
         foreach (var item in inventory)
         {
-            if(item != null && item.GetComponent<ItemSettings>() != null && item.GetComponent<ItemSettings>().getItemID().Equals(id))
+            if (item != null && item.GetComponent<ItemSettings>() != null && item.tag.Equals("item"));
             {
-                return true;
+                return item;
             }
         }
-        return false;
+        return null;
     }
 
     public bool ConsumeItem(int id)

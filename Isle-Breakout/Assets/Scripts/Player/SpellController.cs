@@ -124,13 +124,14 @@ public class SpellController : MonoBehaviour
         var tameItem = this.tameItem.GetComponent<ItemSettings>();
         if (triggering && pet != null)
         {
-            if (playerInventory.Contains(tameItem.getItemID()))
+            var item = playerInventory.ContainsTameItem();
+            if (item != null)
             {
                 spellHolder.SetOnCooldown(true);
                 startedCasting = Time.time;
                 bar.GetComponent<Image>().fillAmount = 0;
                 castBar.SetActive(true);
-                playerInventory.ConsumeItem(tameItem.getItemID());
+                playerInventory.ConsumeItem(item.GetComponent<ItemSettings>().getItemID());
                 StartCoroutine(IETamePet(ui, force));
                 
             }

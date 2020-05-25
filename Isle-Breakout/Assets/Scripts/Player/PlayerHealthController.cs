@@ -48,6 +48,11 @@ public class PlayerHealthController : MonoBehaviour
                 timer = Time.time;
             }
         }
+
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            DoDamage(50);
+        }
     }
 
     public void DoDamage(float amount)

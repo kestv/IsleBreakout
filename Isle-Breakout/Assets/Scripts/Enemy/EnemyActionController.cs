@@ -72,7 +72,7 @@ public class EnemyActionController : MonoBehaviour
     //Performance
     void CheckIfInRange()
     {
-        playerInRange = GetDistance(player) < 100 ? true : false;
+        playerInRange = GetDistance(player) < 200 ? true : false;
     }
 
     void Update()
