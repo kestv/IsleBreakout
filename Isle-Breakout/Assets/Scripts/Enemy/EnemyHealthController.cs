@@ -66,7 +66,7 @@ public class EnemyHealthController : EnemyController
         if (health <= 0)
         {
             GetComponent<EnemyDeath>().SetToDead(true);
-            transform.GetComponent<Animator>().SetBool("isDead", true);
+            transform.GetComponent<Animator>().Play("Dead");
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
             if (transform.GetComponent<EnemyWander>() != null)

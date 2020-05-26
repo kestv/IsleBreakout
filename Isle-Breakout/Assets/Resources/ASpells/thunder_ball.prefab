@@ -14677,6 +14677,7 @@ GameObject:
   - component: {fileID: 65138394354385980}
   - component: {fileID: 54780134100305680}
   - component: {fileID: 3279146614264702449}
+  - component: {fileID: -7780237329090984892}
   m_Layer: 0
   m_Name: thunder_ball
   m_TagString: Untagged
@@ -14716,8 +14717,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 17
-  accuracy: 95
-  fireRate: 1
   muzzlePrefab: {fileID: 1237854105968354, guid: ec7165ff86195b145a4ffb514c186820,
     type: 3}
   hitPrefab: {fileID: 1351045683517926, guid: 97168fe28b3477b42895c650078ec8ef, type: 3}
@@ -14729,7 +14728,6 @@ MonoBehaviour:
   target: {fileID: 0}
   damage: 30
   actualDamage: 0
-  cooldown: 2
 --- !u!199 &199561757109601946
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -19560,3 +19558,30 @@ MonoBehaviour:
   name: Thunder ball
   cooldown: 4
   type: 1
+  sound:
+    audioClip: {fileID: 0}
+    clipName: 
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  damage: 0
+--- !u!114 &-7780237329090984892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1823173409967616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 54790643334099828}
   - component: {fileID: 135651659474931824}
   - component: {fileID: -5735479232982034008}
+  - component: {fileID: 8235414993420578090}
   m_Layer: 0
   m_Name: energy_ball_4
   m_TagString: Bullet
@@ -48,13 +49,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 45
-  accuracy: 95
-  fireRate: 2
   muzzlePrefab: {fileID: 1232470965182556, guid: 2765bd2d85d69614e8cc9a32c900b9d4,
     type: 3}
   hitPrefab: {fileID: 1245966705752388, guid: a2817e105c7676447a5a4ba002ae2c28, type: 3}
   shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
   trails:
   - {fileID: 1254810215673000}
   - {fileID: 1666458265320816}
@@ -106,8 +105,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 5e059cb254e166541b904f2e0dadfb5c, type: 3}
   name: Legendary energy ball
-  cooldown: 4
+  cooldown: 20
   type: 1
+  sound:
+    audioClip: {fileID: 8300000, guid: 9ebd0a9faf49ad04abb0d8474d266fd7, type: 3}
+    clipName: Release
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  damage: 150
+--- !u!114 &8235414993420578090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157088314812518}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1233283920887408
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4049607005190822109}
   - component: {fileID: 6092648263209597531}
+  - component: {fileID: 5507730110995132172}
   m_Layer: 0
   m_Name: recall
   m_TagString: Untagged
@@ -47,3 +48,30 @@ MonoBehaviour:
   name: Recall
   cooldown: 100
   type: 3
+  sound:
+    audioClip: {fileID: 0}
+    clipName: 
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  damage: 0
+--- !u!114 &5507730110995132172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8531074622947949980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

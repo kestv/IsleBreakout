@@ -1895,6 +1895,18 @@ MonoBehaviour:
     pitch: 1
     loop: 1
     source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 7d54a031d656ab04b80a40ccaba29f3a, type: 3}
+    clipName: Death
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &230474693885517366
 GameObject:
   m_ObjectHideFlags: 0

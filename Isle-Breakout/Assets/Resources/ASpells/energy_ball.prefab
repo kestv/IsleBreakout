@@ -427,6 +427,7 @@ GameObject:
   - component: {fileID: 54674166311131586}
   - component: {fileID: 111889018376725686}
   - component: {fileID: -36747037868460925}
+  - component: {fileID: 1078620865589583976}
   m_Layer: 0
   m_Name: energy_ball
   m_TagString: Untagged
@@ -468,7 +469,7 @@ MonoBehaviour:
     type: 3}
   hitPrefab: {fileID: 1188432315835894, guid: 52ea9bc3247c4134aa5ac4c8eb45e774, type: 3}
   shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
   trails:
   - {fileID: 1017523490065750}
   target: {fileID: 0}
@@ -5324,7 +5325,33 @@ MonoBehaviour:
   name: Energy ball
   cooldown: 4
   type: 1
-  damage: 0
+  sound:
+    audioClip: {fileID: 8300000, guid: 9ebd0a9faf49ad04abb0d8474d266fd7, type: 3}
+    clipName: Release
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  damage: 20
+--- !u!114 &1078620865589583976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607489160101874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1799161408891886
 GameObject:
   m_ObjectHideFlags: 0

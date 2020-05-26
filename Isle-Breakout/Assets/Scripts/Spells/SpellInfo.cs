@@ -8,6 +8,8 @@ public class SpellInfo : MonoBehaviour
     public string name;
     public float cooldown;
     public int type;
+    [SerializeField]
+    Sound sound;
 
     public float damage;
     
@@ -25,4 +27,9 @@ public class SpellInfo : MonoBehaviour
 
     public float getDamage()
     { return damage; }
+
+    public Sound GetSound()
+    {
+        return sound;
+    }
 }

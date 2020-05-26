@@ -24146,11 +24146,11 @@ GameObject:
   - component: {fileID: 4033515565896200}
   - component: {fileID: 114255666497802202}
   - component: {fileID: 199336869072877302}
-  - component: {fileID: 114802478370232090}
   - component: {fileID: 198969432181178134}
   - component: {fileID: 54013935248017186}
   - component: {fileID: 136707689597492628}
   - component: {fileID: -3528028906528775392}
+  - component: {fileID: -2375872437184704710}
   m_Layer: 0
   m_Name: energy_ball_3
   m_TagString: Untagged
@@ -24191,13 +24191,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 20
-  accuracy: 95
-  fireRate: 1
   muzzlePrefab: {fileID: 1232470965182556, guid: 2765bd2d85d69614e8cc9a32c900b9d4,
     type: 3}
   hitPrefab: {fileID: 1433295770268946, guid: f2b7a17ad19e3fc46abab6d7e9882725, type: 3}
   shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
   trails:
   - {fileID: 1565711884464822}
   target: {fileID: 0}
@@ -24267,37 +24265,6 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!114 &114802478370232090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1961964258596952}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e272d634f40434b85fbf756732714d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  size: 0.7
-  speed: 1
-  duration: 1
-  loop: 1
-  prewarm: 0
-  lights: 1
-  trails: 1
-  changeColor: 1
-  newMaxColor: {r: 0.09558821, g: 0.5883368, b: 1, a: 1}
-  newMinColor: {r: 0.102941155, g: 0.9257606, b: 1, a: 1}
-  ParticleSystems:
-  - {fileID: 1961964258596952}
-  - {fileID: 1817380185471750}
-  - {fileID: 1565711884464822}
-  - {fileID: 1309284738822082}
-  - {fileID: 1269334550801210}
-  - {fileID: 1038598287513830}
-  - {fileID: 1756932707178936}
-  ActiveParticleSystems: 01010101010101
 --- !u!198 &198969432181178134
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -29067,5 +29034,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 8c140fbd9bbc4774399fb6e0e0e1740a, type: 3}
   name: Supreme energy ball
-  cooldown: 4
+  cooldown: 12
   type: 1
+  sound:
+    audioClip: {fileID: 8300000, guid: 9ebd0a9faf49ad04abb0d8474d266fd7, type: 3}
+    clipName: Release
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  damage: 80
+--- !u!114 &-2375872437184704710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961964258596952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}

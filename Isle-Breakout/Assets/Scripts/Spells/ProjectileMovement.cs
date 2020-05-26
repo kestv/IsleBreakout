@@ -44,7 +44,6 @@ public class ProjectileMovement : MonoBehaviour {
                 CollisionDetected();
             }
         }
-        
     }
 
     void CollisionDetected() 
@@ -52,10 +51,7 @@ public class ProjectileMovement : MonoBehaviour {
         if (!collided) {
 			collided = true;
             target.GetComponent<EnemyHealthController>().DoDamage(actualDamage);
-
-			if (shotSFX != null && GetComponent<AudioSource>()) {
-				GetComponent<AudioSource> ().PlayOneShot (hitSFX);
-			}
+            target.GetComponent<AudioManager>().Play("Collision");
 
 			if (trails.Count > 0) {
 				for (int i = 0; i < trails.Count; i++) {

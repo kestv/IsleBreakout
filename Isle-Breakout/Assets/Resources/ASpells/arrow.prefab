@@ -152,6 +152,7 @@ GameObject:
   - component: {fileID: 65932595672012692}
   - component: {fileID: 54526025840063382}
   - component: {fileID: -7596191827990022453}
+  - component: {fileID: -7239328939014191275}
   m_Layer: 0
   m_Name: arrow
   m_TagString: Untagged
@@ -190,19 +191,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 45
-  accuracy: 95
-  fireRate: 4
   muzzlePrefab: {fileID: 1752905781611240, guid: a150ddd267ffc1b428ae91d94b828b02,
     type: 3}
   hitPrefab: {fileID: 1735349400919506, guid: a17580581e360e74db460cc3d5dc0396, type: 3}
   shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
   trails:
   - {fileID: 1048663460839562}
   target: {fileID: 0}
   damage: 50
   actualDamage: 0
-  cooldown: 1
 --- !u!199 &199073291066996958
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -5051,6 +5049,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe8f217d33539ec418bd2fb6fe083031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  name: 
+  cooldown: 0
+  type: 0
+  sound:
+    audioClip: {fileID: 0}
+    clipName: 
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
+  damage: 0
+--- !u!114 &-7239328939014191275
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1170744857039610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1355984127163962
 GameObject:
   m_ObjectHideFlags: 0

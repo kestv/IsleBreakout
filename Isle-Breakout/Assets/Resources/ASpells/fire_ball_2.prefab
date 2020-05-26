@@ -23965,6 +23965,7 @@ GameObject:
   - component: {fileID: 54307646593548836}
   - component: {fileID: 135447165041960418}
   - component: {fileID: 2282114200880750729}
+  - component: {fileID: 4521370661816887588}
   m_Layer: 0
   m_Name: fire_ball_2
   m_TagString: Bullet
@@ -24058,7 +24059,33 @@ MonoBehaviour:
   name: Fire ball
   cooldown: 4
   type: 1
+  sound:
+    audioClip: {fileID: 0}
+    clipName: 
+    volume: 0
+    pitch: 0
+    loop: 0
+    source: {fileID: 0}
   damage: 0
+--- !u!114 &4521370661816887588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846563170864394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1915593564425164
 GameObject:
   m_ObjectHideFlags: 0

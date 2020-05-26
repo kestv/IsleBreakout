@@ -19,6 +19,7 @@ public class EnemyDeath : MonoBehaviour
         {
             deathTime = Time.time;
             waiting = false;
+            GetComponent<AudioManager>().Play("Death");
         }
         else if(dead && (Time.time - deathTime >= 4))
         {

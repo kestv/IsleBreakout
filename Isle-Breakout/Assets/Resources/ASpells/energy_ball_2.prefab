@@ -4969,6 +4969,7 @@ GameObject:
   - component: {fileID: 65650860391879862}
   - component: {fileID: 54777970317930892}
   - component: {fileID: -1838202107341071329}
+  - component: {fileID: -7020708238848946408}
   m_Layer: 0
   m_Name: energy_ball_2
   m_TagString: Untagged
@@ -5007,13 +5008,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 25
-  accuracy: 95
-  fireRate: 2
   muzzlePrefab: {fileID: 1340992293834908, guid: a489afa43ee836647b6b99a9c38b6f13,
     type: 3}
   hitPrefab: {fileID: 1873612019324734, guid: 3a05a240950f1e34487f4917a33bf946, type: 3}
   shotSFX: {fileID: 0}
-  hitSFX: {fileID: 0}
+  hitSFX: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
   trails:
   - {fileID: 1264819656396196}
   target: {fileID: 0}
@@ -9869,8 +9868,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 8e9496f6382359e4babd47167295bac3, type: 3}
   name: Enhanced energy ball
-  cooldown: 4
+  cooldown: 6
   type: 1
+  sound:
+    audioClip: {fileID: 8300000, guid: 9ebd0a9faf49ad04abb0d8474d266fd7, type: 3}
+    clipName: Release
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  damage: 40
+--- !u!114 &-7020708238848946408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374267004960804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 3ad0788a629c56c428331bd2defec7cd, type: 3}
+    clipName: Collision
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
 --- !u!1 &1831172876973338
 GameObject:
   m_ObjectHideFlags: 0

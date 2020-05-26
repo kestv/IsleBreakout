@@ -31,6 +31,7 @@ public class SpellController : MonoBehaviour
     PlayerInventory playerInventory;
     [SerializeField]
     GameObject tameItem;
+    AudioManager audio;
 
     Vector3 lastRecallPos = new Vector3(0, 0, 0);
 
@@ -45,6 +46,7 @@ public class SpellController : MonoBehaviour
         slot1 = GameObject.Find("Slot1").GetComponent<SpellHolder>();
         slot2 = GameObject.Find("Slot2").GetComponent<SpellHolder>();
         castPoint = GameObject.Find("SpellCast");
+        audio = GetComponent<AudioManager>();
 
         playerInventory = GetComponent<PlayerInventory>();
     }
@@ -208,6 +210,8 @@ public class SpellController : MonoBehaviour
         GetComponent<PlayerMovementController>().enabled = false;
         GetComponent<Animator>().Play("SpellCast");
         yield return new WaitForSeconds(0.5f);
+        audio.Stop("Casting");
+        audio.Play("Release");
         var item = Instantiate(spell, castPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
         item.GetComponent<ProjectileMovement>().SetDamage(item.GetComponent<ProjectileMovement>().GetDamage() + GetComponent<PlayerStatsController>().GetWisdom() * 5);
@@ -221,7 +225,9 @@ public class SpellController : MonoBehaviour
         bar.GetComponent<Image>().fillAmount = 0;
         castBar.SetActive(true);
         startedCasting = Time.time;
+        audio.Play("Casting");
         yield return new WaitForSeconds(castTime);
+        
         if (Time.time - startedCasting >= castTime)
         {
             GetComponent<PlayerCombatController>().SetInCombat(true);
@@ -236,7 +242,9 @@ public class SpellController : MonoBehaviour
 
     IEnumerator IETamePet(UIHandler ui, bool force) //Force - to prevent test failures
     {
+        audio.Play("Casting");
         yield return new WaitForSeconds(castTime);
+        audio.Stop("Casting");
         if (Time.time - startedCasting >= castTime)
         {
             var chance = force ? 100 : Random.Range(0, 100); //For testing purposes
