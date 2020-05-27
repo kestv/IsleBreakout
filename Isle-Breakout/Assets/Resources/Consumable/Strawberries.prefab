@@ -11,8 +11,12 @@ GameObject:
   - component: {fileID: 499884}
   - component: {fileID: 3336456}
   - component: {fileID: 2349122}
+  - component: {fileID: 6915464450418252944}
+  - component: {fileID: -1732141764856613613}
+  - component: {fileID: -5058587693991079371}
+  - component: {fileID: 3938676634111415319}
   m_Layer: 0
-  m_Name: valgoma_gele
+  m_Name: Strawberries
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 118094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -79,3 +83,61 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &6915464450418252944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fd411ff37ee6844ba0bc25eb22b01e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 6
+  itemName: Strawberries
+  description: 
+  sprite: {fileID: 21300000, guid: 963a21a84cb09d643a1cbafcdcbabc33, type: 3}
+  model: {fileID: 0}
+  equip: {fileID: 0}
+  dropChance: 0
+--- !u!122 &-1732141764856613613
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118094}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4289689556
+  m_Size: 0.94
+--- !u!135 &-5058587693991079371
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118094}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.73
+  m_Center: {x: -0.0000019073486, y: -0.00000023841858, z: -0.0000019073486}
+--- !u!114 &3938676634111415319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a6927f1ce93df443818fd5df0a238cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  restoreHP: 0
+  restoreHunger: 10
