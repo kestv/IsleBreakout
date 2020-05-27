@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
@@ -10,9 +11,15 @@ public class AudioManager : MonoBehaviour
     [SerializeField]
     Sound[] background;
     int index;
-    AudioSource bgSource;
     float clipLength;
     float clipStartTime;
+    [SerializeField]
+    bool dontDestroyOnLoad;
+    [SerializeField]
+    float spatialBlend;
+    [SerializeField]
+    AudioMixerGroup mixer;
+    AudioSource bgSource;
     void Awake()
     {
         foreach (Sound s in sounds)
@@ -23,9 +30,14 @@ public class AudioManager : MonoBehaviour
             source.volume = s.GetVolume();
             source.pitch = s.GetPitch();
             source.loop = s.GetLoop();
-            source.spatialBlend = 1;
+            source.spatialBlend = spatialBlend;
+            if (mixer != null)
+                source.outputAudioMixerGroup = mixer;
         }
-
+        if(dontDestroyOnLoad)
+        {
+            DontDestroyOnLoad(gameObject);
+        }
         bgSource = gameObject.AddComponent<AudioSource>();
     }
 
@@ -77,7 +89,9 @@ public class AudioManager : MonoBehaviour
         source.volume = s.GetVolume();
         source.pitch = s.GetPitch();
         source.loop = s.GetLoop();
-        source.spatialBlend = 1;
+        source.spatialBlend = spatialBlend;
+        if (mixer != null)
+            source.outputAudioMixerGroup = mixer;
         source.Play();
         clipStartTime = Time.time;
         clipLength = source.clip.length;

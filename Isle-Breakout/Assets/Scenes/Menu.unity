@@ -1203,6 +1203,96 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 196919037}
   m_CullTransparentMesh: 0
+--- !u!1 &231148696
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 231148698}
+  - component: {fileID: 231148697}
+  m_Layer: 0
+  m_Name: Audio Source
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &231148697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231148696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: f0384c2909e9ebf499e72f48f4a3c713, type: 3}
+    clipName: Shake
+    volume: 1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: bd3a6bb6eeeeac045a6543659c265e77, type: 3}
+    clipName: Waves
+    volume: 1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  background:
+  - audioClip: {fileID: 8300000, guid: 1b93a96d8cb480b40b77730e0a4b93a6, type: 3}
+    clipName: Background1
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 3d1719e44c778224eb983b3135c3d859, type: 3}
+    clipName: Background2
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: fdaa4002c8e9da94cb1c368c056e984b, type: 3}
+    clipName: Background3
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 5387af9d6ddfb2e45957c4063ded6ac3, type: 3}
+    clipName: Background4
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: adeffcf5fd543bb4a991e8d0c56fea73, type: 3}
+    clipName: Background5
+    volume: 0.8
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  dontDestroyOnLoad: 1
+  spatialBlend: 0
+  mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+--- !u!4 &231148698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 231148696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 72.024506, y: -56.241966, z: -132.18538}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &231178765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1885,7 +1975,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Windowed
+  m_Text: Fullscreen
 --- !u!222 &418802767
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2193,8 +2283,8 @@ MonoBehaviour:
   m_FillRect: {fileID: 2025223138}
   m_HandleRect: {fileID: 123986724}
   m_Direction: 0
-  m_MinValue: 0
-  m_MaxValue: 1
+  m_MinValue: -80
+  m_MaxValue: 0
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -5738,10 +5828,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fe2e4ebe7ded4fae7c1b34146c0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
   menu: {fileID: 1151411796}
   options: {fileID: 2086996992}
   resolutionDropdown: {fileID: 480704238}
+  fullscreenDropdown: {fileID: 1647150653}
 --- !u!95 &1162417817
 Animator:
   serializedVersion: 3
@@ -8448,9 +8539,9 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Windowed
-      m_Image: {fileID: 0}
     - m_Text: Fullscreen
+      m_Image: {fileID: 0}
+    - m_Text: Windowed
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
