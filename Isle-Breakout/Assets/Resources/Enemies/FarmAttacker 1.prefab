@@ -1907,6 +1907,10 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  background: []
+  dontDestroyOnLoad: 0
+  spatialBlend: 1
+  mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
 --- !u!1 &230474693885517366
 GameObject:
   m_ObjectHideFlags: 0

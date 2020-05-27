@@ -96,17 +96,17 @@ public class UIController : MonoBehaviour
         DataSystem.Save(player);
         if (!ended)
         {
-            Resume();
+            Resume(ended);
             UIHandler.Instance.DisplayMessage("Saved");
         }
     }
 
-    public void Resume()
+    public void Resume(bool ended = false)
     {
         menu.SetActive(false);
         Time.timeScale = 1f;
         menuOpen = false;
-        movementCtrl.enabled = true;
+        movementCtrl.enabled = !ended;
     }
 
     public void MainMenu()

@@ -10,6 +10,7 @@ public class Settings : MonoBehaviour
     [SerializeField]GameObject menu;
     [SerializeField]GameObject options;
     [SerializeField]Dropdown resolutionDropdown;
+    [SerializeField] Dropdown fullscreenDropdown;
 
     Resolution[] resolutions;
 
@@ -23,7 +24,7 @@ public class Settings : MonoBehaviour
         for(int i = 0; i < resolutions.Length; i++)
         {
             string option = resolutions[i].width + " x " + resolutions[i].height;
-            if(resolutions[i].width >= 800)
+            if(resolutions[i].width >= 1200)
                 options.Add(option);
 
             if(resolutions[i].width == Screen.width &&
@@ -32,9 +33,15 @@ public class Settings : MonoBehaviour
                 currentResolutionIndex = i;
             }
         }
+        SetResolution(resolutions.Length - 1);
         resolutionDropdown.AddOptions(options);
-        resolutionDropdown.value = currentResolutionIndex;
+        resolutionDropdown.value = resolutions.Length - 1;
         resolutionDropdown.RefreshShownValue();
+
+        fullscreenDropdown.value = Screen.fullScreen ? 0 : 1;
+        fullscreenDropdown.RefreshShownValue();
+
+        
     }
 
     public void SetResolution(int resolutionIndex)
@@ -54,7 +61,7 @@ public class Settings : MonoBehaviour
 
     public void SetFullScreen(int fullscreen)
     {
-        if (fullscreen == 0)
+        if (fullscreen == 1)
             Screen.fullScreen = false;
         else 
             Screen.fullScreen = true;

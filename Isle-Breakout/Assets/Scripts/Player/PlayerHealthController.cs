@@ -28,7 +28,8 @@ public class PlayerHealthController : MonoBehaviour
     {
         if (IsDead())
         {
-            animator.SetBool("isDead", true);
+            animator.Play("Dead");
+            GetComponent<AudioManager>().Play("Dead");
             if(transform.tag == "Player")
             {
                 GetComponent<PlayerMovementController>().enabled = false;
