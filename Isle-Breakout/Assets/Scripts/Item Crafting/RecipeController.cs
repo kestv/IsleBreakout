@@ -29,6 +29,7 @@ public class RecipeController : MonoBehaviour
     {
         transform.parent.parent.gameObject.SetActive(true);
         RefreshRecipeAvailability();
+        manager.getAudioManager().Play("Open");
     }
 
     public void Close()

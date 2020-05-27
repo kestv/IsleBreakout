@@ -26609,6 +26609,11 @@ PrefabInstance:
       propertyPath: far clip plane
       value: 10000
       objectReference: {fileID: 0}
+    - target: {fileID: 3281516458160600733, guid: 064e91ae4394c5240a5d73c98e3d3c40,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 3281516458160600734, guid: 064e91ae4394c5240a5d73c98e3d3c40,
         type: 3}
       propertyPath: m_Name
@@ -82132,7 +82137,7 @@ PrefabInstance:
     - target: {fileID: 3982511738905335418, guid: a500ae0da735bc3479de2c9aadc30a98,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -149.99971
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 3982511738905335418, guid: a500ae0da735bc3479de2c9aadc30a98,
         type: 3}
@@ -82162,7 +82167,7 @@ PrefabInstance:
     - target: {fileID: 5630924207519160255, guid: a500ae0da735bc3479de2c9aadc30a98,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -121.14001
+      value: -121.14021
       objectReference: {fileID: 0}
     - target: {fileID: 5762050319477869476, guid: a500ae0da735bc3479de2c9aadc30a98,
         type: 3}

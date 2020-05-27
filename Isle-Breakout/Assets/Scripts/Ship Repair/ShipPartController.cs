@@ -61,6 +61,11 @@ public class ShipPartController : MonoBehaviour
             {
                 manager.getPlayer().GetComponent<PlayerTriggerHandler>().UpdateTriggerMessage();
             }
+            manager.getAudioManager().Play("CraftTrue");
+        }
+        else
+        {
+            manager.getAudioManager().Play("CraftFalse");
         }
     }
 

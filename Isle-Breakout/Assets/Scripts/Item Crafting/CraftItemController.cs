@@ -58,6 +58,11 @@ public class CraftItemController : MonoBehaviour
         {
             craftedItem = Instantiate(craftedItem);
             inventory.AddItem(craftedItem);
+            manager.getAudioManager().Play("CraftTrue");
+        }
+        else
+        {
+            manager.getAudioManager().Play("CraftFalse");
         }
     }
 
