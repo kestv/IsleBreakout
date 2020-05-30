@@ -121,7 +121,7 @@ public class PlayerStatsController : MonoBehaviour
     public void UpdateSpeed(float value)
     {
         speed += value;
-        GetComponent<PlayerMovementController>().AddSpeed(speed / 4);
+        GetComponent<PlayerMovementController>().AddSpeed(value / 4);
     }
 
     public void UpdateWisdom(float value)
