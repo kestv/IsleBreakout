@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4987508231212674671
+--- !u!1001 &2180030529254202933
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,13 +9,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1794779742089706769, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
-      propertyPath: m_Center.x
-      value: -0.05
+      propertyPath: m_Radius
+      value: 3.07
       objectReference: {fileID: 0}
     - target: {fileID: 1794779742089706769, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
-      propertyPath: m_Radius
-      value: 2.92
+      propertyPath: m_Center.x
+      value: -0.06
       objectReference: {fileID: 0}
     - target: {fileID: 8116075757375180134, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
@@ -75,28 +75,28 @@ PrefabInstance:
     - target: {fileID: 8120044479420614468, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
       propertyPath: m_Name
-      value: Wood Tree
+      value: Sturdy Wood Tree
       objectReference: {fileID: 0}
     - target: {fileID: 8121005356111412186, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
       propertyPath: gatherTime
-      value: 3
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8121005356111412186, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
       propertyPath: gatherCount
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8121005356111412186, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
       propertyPath: gatherItem
       value: 
-      objectReference: {fileID: 6301488033319005396, guid: 720c3e62d1f891c4ab7395eefe9dd83d,
+      objectReference: {fileID: 4681366584551562469, guid: e19b0810b5be6034b82ace2dfa574dee,
         type: 3}
     - target: {fileID: 8127764664305271356, guid: 3d02edfb05c501e48a42e6a4f261a978,
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 98ac0bced6d736543aca0d14a8ecb7e0, type: 3}
+      objectReference: {fileID: 4300000, guid: 37fa9da0fcef5f34fb11a8c28a6602a8, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d02edfb05c501e48a42e6a4f261a978, type: 3}

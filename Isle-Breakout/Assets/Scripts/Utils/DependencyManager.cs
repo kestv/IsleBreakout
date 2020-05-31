@@ -34,6 +34,8 @@ public class DependencyManager : MonoBehaviour
     private ArmorEquipper playerUIModel;
     private EquipSlotPanelController equipSlotPanelController;
 
+    private AudioManager audioManager;
+
     private void Awake()
     {
         canvasCtrl          = canvas.GetComponent<CanvasController>();
@@ -42,10 +44,7 @@ public class DependencyManager : MonoBehaviour
         craftingPanel       = canvasCtrl.getCraftingPanel().gameObject;
         equipPanel          = canvasCtrl.getEquipPanel().gameObject;
         resourceGatherPanel = canvasCtrl.getResourceGatherImage().gameObject;
-        shipRepairPanel     = canvasCtrl.getShipRepairPanel().gameObject;
-
-        craftingPanel.SetActive(false);
-        craftingPanel.GetComponent<Image>().enabled = true;
+        shipRepairPanel     = canvasCtrl.getShipRepairPanel().gameObject;        
         
         equipSlotPanelController = equipPanel.transform.GetChild(0).GetChild(2).GetComponent<EquipSlotPanelController>();
 
@@ -56,6 +55,8 @@ public class DependencyManager : MonoBehaviour
         playerUIModel = canvasPlayerRenderer.transform.GetChild(0).GetChild(0).GetComponent<ArmorEquipper>();        
 
         itemInfoCanvas = Instantiate(itemInfoCanvas);
+
+        audioManager = GetComponent<AudioManager>();
     }
 
     private void Start()
@@ -71,6 +72,8 @@ public class DependencyManager : MonoBehaviour
     {
         yield return time;    //Wait one frame
 
+        craftingPanel.SetActive(false);
+        craftingPanel.GetComponent<Image>().enabled = true;
         shipRepairPanel.SetActive(false);
         shipRepairPanel.GetComponent<Image>().enabled = true;
         resourceGatherPanel.SetActive(false);
@@ -128,4 +131,7 @@ public class DependencyManager : MonoBehaviour
 
     public EquipSlotPanelController getequipSlotPanelController()
     { return equipSlotPanelController; }
+
+    public AudioManager getAudioManager()
+    { return audioManager; }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 760235058484117435}
   - component: {fileID: 760235058484117436}
+  - component: {fileID: 7810934938404270006}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -43,21 +44,54 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4991f27d6f494a541b6e1c88f7b4b17c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 1982256521706089029, guid: a500ae0da735bc3479de2c9aadc30a98, type: 3}
   itemInfoCanvas: {fileID: 372034679925354607, guid: f445dba85a66cac4a8d4fc04cc09bcc8,
     type: 3}
-  player: {fileID: 789886572439412201, guid: 970735789fb28954892cd49df43a1251, type: 3}
-  canvas: {fileID: 1982256521706089029, guid: a500ae0da735bc3479de2c9aadc30a98, type: 3}
-  canvasController: {fileID: 0}
   inventorySize: 0
-  shipCrafting: {fileID: 3460190580375256272, guid: fa34750a18b327041992d3ce7c249cdc,
-    type: 3}
-  shipBuilder: {fileID: 0}
-  canvasShipRenderer: {fileID: 1038117993316755995, guid: 3f7265cf0b4cc2a4faf7bedcb7c5ea29,
-    type: 3}
-  equipPanel: {fileID: 0}
-  equipSlotPanelController: {fileID: 0}
-  playerModel: {fileID: 0}
-  playerUIModel: {fileID: 0}
+  player: {fileID: 789886572439412201, guid: 970735789fb28954892cd49df43a1251, type: 3}
   canvasPlayerRenderer: {fileID: 3251383272421016832, guid: b92570674f7a0b145b3d047977e4e088,
     type: 3}
-  resourceGatherImage: {fileID: 0}
+  canvasShipRenderer: {fileID: 1038117993316755995, guid: 3f7265cf0b4cc2a4faf7bedcb7c5ea29,
+    type: 3}
+  shipBuilder: {fileID: 0}
+--- !u!114 &7810934938404270006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760235058484117437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 560e3a21cbd6a2f4fae38ab87ed833a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - audioClip: {fileID: 8300000, guid: 46fc94f001742f44d9f5e13290f4cd4d, type: 3}
+    clipName: Open
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: e34d830fc9a9b68438a8ec2be3ad486f, type: 3}
+    clipName: CraftTrue
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: e3356ec0cd7927e4a9335ccb5de147a5, type: 3}
+    clipName: CraftFalse
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 006a185e260301c428454086855ad828, type: 3}
+    clipName: ChestOpen
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  background: []
+  dontDestroyOnLoad: 0
+  spatialBlend: 0
+  mixer: {fileID: 0}

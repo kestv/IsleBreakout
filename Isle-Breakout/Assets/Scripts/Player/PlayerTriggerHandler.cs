@@ -59,7 +59,8 @@ public class PlayerTriggerHandler : MonoBehaviour
                     case "chest":
                         ChestSettings chestSettings = triggers[triggers.Count - 1].GetComponent<ChestSettings>();
                         canvasController.DisableAllPanelsExcept(chestSettings.getChestPanel().transform);
-                        chestSettings.getChestPanel().SetActive(true);                        
+                        chestSettings.getChestPanel().SetActive(true);
+                        manager.getAudioManager().Play("ChestOpen");
                         break;
                     case "craft":
                         if (!shipBuilder.GetChild(shipBuilder.childCount - 1).GetChild(shipBuilder.GetChild(shipBuilder.childCount - 1).childCount - 1).gameObject.activeSelf)
@@ -67,6 +68,7 @@ public class PlayerTriggerHandler : MonoBehaviour
                             shipCrafting.SetActive(true);
                             shipPartCtrl.RefreshRecipes();
                             canvasController.DisableAllPanelsExcept(canvasController.getShipRepairPanel());
+                            manager.getAudioManager().Play("Open");
                         }
                         break;
                     case "resource":
