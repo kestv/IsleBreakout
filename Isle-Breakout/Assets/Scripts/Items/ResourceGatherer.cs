@@ -29,11 +29,13 @@ public class ResourceGatherer : MonoBehaviour
         ImageFiller script = progressPanel.GetComponent<ImageFiller>();
         script.InitVariables(gameObject, gatherTime, gatherItem, gatherCount);
         progressPanel.SetActive(true);
+        manager.getAudioManager().Play("Resource");
     }
 
     public void OnMineSuccess()
     {
         gatherCount--;
+        manager.getAudioManager().Stop("Resource");
     }
 
     public GameObject getGatherItem()

@@ -26,6 +26,7 @@ public class ClickHandlerEquip : MonoBehaviour, IPointerClickHandler
         {
             ScriptableObject tempEqp = itemBeingClicked.transform.GetChild(0).GetComponent<ItemSettings>().getEquip();
             IArmor equip = null;
+            manager.getAudioManager().Play("Equip");
 
             if (tempEqp != null)
             {

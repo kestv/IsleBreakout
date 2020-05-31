@@ -33,12 +33,13 @@ public class ClickHandler : MonoBehaviour, IPointerClickHandler
                 inventory.RemoveItem(transform.parent.GetSiblingIndex());
                 Destroy(item);
                 gameObject.SetActive(false);
+                manager.getAudioManager().Play("Eat");
             }
 
             if (tempEqp != null)
             {
                 IArmor equip = (IArmor)tempEqp;
-
+                manager.getAudioManager().Play("Equip");
 
                 Transform slot = manager.getequipSlotPanelController().getSlot(equip.getType());
 

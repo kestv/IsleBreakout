@@ -91,6 +91,36 @@ MonoBehaviour:
     pitch: 1
     loop: 0
     source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 629de58d53ff42e4686676b534d692fa, type: 3}
+    clipName: Resource
+    volume: 0.1
+    pitch: 1
+    loop: 1
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: f245e1ab1be5d344ab4055401be9cf77, type: 3}
+    clipName: Loot
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: b113b0794c4e44b4da17ec826b7822f1, type: 3}
+    clipName: Eat
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: 14f359411521e3245b45bbe711607a30, type: 3}
+    clipName: Equip
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
+  - audioClip: {fileID: 8300000, guid: e53d0e30d63d5474ca71c34578e74a2e, type: 3}
+    clipName: Drop
+    volume: 0.1
+    pitch: 1
+    loop: 0
+    source: {fileID: 0}
   background: []
   dontDestroyOnLoad: 0
   spatialBlend: 0

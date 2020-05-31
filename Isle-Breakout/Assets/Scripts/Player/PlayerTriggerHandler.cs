@@ -271,6 +271,7 @@ public class PlayerTriggerHandler : MonoBehaviour
         {
             triggers.Remove(triggers[triggers.Count - 1]);
             UpdateTriggerMessage();
+            manager.getAudioManager().Play("Loot");
         }
         else
         {

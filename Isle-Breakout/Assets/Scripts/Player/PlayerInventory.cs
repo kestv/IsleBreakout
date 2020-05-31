@@ -110,6 +110,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
             go.SetActive(true);
             Remove(index);
             RefreshCountPanels();
+            manager.getAudioManager().Play("Drop");
         }
     }
 
