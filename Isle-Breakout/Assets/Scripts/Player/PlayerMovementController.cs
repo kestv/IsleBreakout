@@ -58,12 +58,27 @@ public class PlayerMovementController : MonoBehaviour
         {
             isRunning = true;
             animator.SetBool("Running", true);
+            if (!audio.IsPlaying("Running"))
+            {
+                audio.Play("Running");
+            }
         }
         else
         {
             isRunning = false;
             if(canAnimate)
                 animator.SetBool("Running", false);
+            if(GetComponent<PlayerCombatController>().IsCharging())
+            {
+                if (!audio.IsPlaying("Running"))
+                {
+                    audio.Play("Running");
+                }
+            }
+            else if(audio.IsPlaying("Running"))
+            {
+                audio.Stop("Running");
+            }
         }
     }
 
@@ -75,17 +90,6 @@ public class PlayerMovementController : MonoBehaviour
         {
             transform.rotation = Quaternion.LookRotation(rot);
             controller.Move(move * speed * Time.deltaTime);
-            if (!audio.IsPlaying("Running"))
-            {
-                audio.Play("Running");
-            }
-        }
-        else
-        {
-            if (audio.IsPlaying("Running"))
-            {
-                audio.Stop("Running");
-            }
         }
     }
 
