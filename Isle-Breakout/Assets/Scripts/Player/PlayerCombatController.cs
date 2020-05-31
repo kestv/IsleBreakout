@@ -71,6 +71,7 @@ public class PlayerCombatController : MonoBehaviour
         
         rangeWeapon.SetActive(false);
         inCombat = false;
+        SetWeapon(false);
     }
 
     void SetWeapon(bool ranged)
