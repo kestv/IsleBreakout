@@ -157,6 +157,7 @@ public class EnemyWander : MonoBehaviour
         if (IsInRange(2f))
         {
             canWander = true;
+            animations.IsIdling(true);
         }
     }
 

@@ -3502,7 +3502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 10
   waitTime: 5
-  speed: 3
+  speed: 2
 --- !u!114 &-224047371850991228
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3567,7 +3567,7 @@ MonoBehaviour:
   background: []
   dontDestroyOnLoad: 0
   spatialBlend: 1
-  mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+  mixer: {fileID: 0}
 --- !u!1001 &6854259531727084631
 PrefabInstance:
   m_ObjectHideFlags: 0
