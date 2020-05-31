@@ -9,6 +9,7 @@ public class PlayerCombatController : MonoBehaviour
     bool isTriggering;
     bool isAttacking;
     bool inCombat;
+    bool isCharging;
     //Attack cooldown
     float lastAttack = 0;
     //Attack rate
@@ -139,6 +140,7 @@ public class PlayerCombatController : MonoBehaviour
                     controller.Move(pos * Time.deltaTime);
                     movementCtrl.SetIsRunning(true);
                     GetComponent<Animator>().SetBool("Running", true);
+                    isCharging = true;
                     movementCtrl.SetCanAnimate(false);
                     transform.LookAt(target.transform);
                 }
@@ -147,6 +149,7 @@ public class PlayerCombatController : MonoBehaviour
             else
             {
                 GetComponent<Animator>().SetBool("Running", false);
+                isCharging = false;
                 movementCtrl.SetIsRunning(false);
                 var damage = GetComponent<PlayerStatsController>().GetStrength() * 10 + this.damage;
 
@@ -294,5 +297,10 @@ public class PlayerCombatController : MonoBehaviour
     public void SetInCombat(bool inCombat)
     {
         this.inCombat = inCombat;
+    }
+
+    public bool IsCharging()
+    {
+        return isCharging;
     }
 }

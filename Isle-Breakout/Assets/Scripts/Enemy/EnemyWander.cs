@@ -44,7 +44,7 @@ public class EnemyWander : MonoBehaviour
         startingPosition = transform.position;
         actions = GetComponent<EnemyActionController>();
         animations = GetComponent<EnemyAnimationController>();
-        state = 2;
+        state = 4;
     }
 
     bool IsInRange(float range)
@@ -63,6 +63,7 @@ public class EnemyWander : MonoBehaviour
         if (!IsInRange(20f) && canWander)
         {
             canWander = false;
+            animations.IsIdling(true);
         }
         if (canWander)
         {
@@ -137,6 +138,7 @@ public class EnemyWander : MonoBehaviour
 
     void Wander()
     {
+        animations.IsWalking(true);
         transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
         if (!IsInRange(maxDistance) && Time.time - startedWalking > 2f)
         {
@@ -148,10 +150,10 @@ public class EnemyWander : MonoBehaviour
 
     void GoBackToStartingPosition()
     {
-        animations.IsWalking(true);
+        animations.IsRunning(true);
         transform.LookAt(startingPosition);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        transform.Translate(new Vector3(0, 0, speed * Time.deltaTime));
+        transform.Translate(new Vector3(0, 0, actions.GetSpeed() * Time.deltaTime));
         if (IsInRange(2f))
         {
             canWander = true;

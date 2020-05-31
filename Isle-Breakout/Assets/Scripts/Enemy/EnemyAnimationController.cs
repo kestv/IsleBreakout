@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class EnemyAnimationController : MonoBehaviour
 {
+    AudioManager audio;
+    bool running;
+    Animator anim;
+    private void Start()
+    {
+        audio = GetComponent<AudioManager>();
+        anim = GetComponent<Animator>();
+    }
     public void IsRunning(bool isRunning)
     {
         var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isRunning") != true)
         {
+            if (audio != null && !audio.IsPlaying("Running"))
+            {
+                audio.Play("Running");
+            }
             anim.SetBool("isRunning", isRunning);
             anim.SetBool("isIdling", !isRunning);
             anim.SetBool("isAttacking", !isRunning);
@@ -42,6 +54,10 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void IsWalking(bool isWalking)
     {
+        if (audio != null && audio.IsPlaying("Running"))
+        {
+            audio.Stop("Running");
+        }
         var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isWalking") != true)
         {

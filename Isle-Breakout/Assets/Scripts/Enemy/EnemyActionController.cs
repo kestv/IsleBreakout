@@ -29,10 +29,12 @@ public class EnemyActionController : MonoBehaviour
 
     //Attack rate
     [SerializeField]
-    float attackRate = 2.0f;
+    float attackRate = 3.0f;
 
     [SerializeField]
-    float fallBackDistance = 30f;
+    const float fallBackDistance = 30f;
+    const float fallBackTime = 3f;
+    float fallBackStart;
     bool gotAttacked;
     float attackTime;
     float followTime;
@@ -100,14 +102,14 @@ public class EnemyActionController : MonoBehaviour
             }
 
             //If idling, looking for action
-            if (!playerSpotted)
+            if (!playerSpotted && Time.time - fallBackStart > fallBackTime)
             {
                 action = IS_IDLING;
                 distance = GetDistance(player);
                 if (distance < scanDistance)
                 {
                     attackTime = Time.time;
-                    followTime = UnityEngine.Random.Range(5, 10);
+                    followTime = UnityEngine.Random.Range(3, 6);
                     busy = true;
                     playerSpotted = true;
                 }
@@ -131,13 +133,18 @@ public class EnemyActionController : MonoBehaviour
             //Running too far loses target
             if (playerSpotted && Time.time - attackTime > followTime)
             {
+                fallBackStart = Time.time;
                 playerSpotted = false;
+                busy = true;
+                print("lost target");
             }
 
             //Normal situation, player spotted
             if ((playerSpotted && !player.GetComponent<PlayerHealthController>().IsDead()))
             {
                 FollowPlayer(player);
+                if (wander != null)
+                    wander.enabled = false;
                 if (GetDistance(player) > fallBackDistance && !gotAttacked)
                 {
                     playerSpotted = false;
@@ -145,9 +152,10 @@ public class EnemyActionController : MonoBehaviour
             }
             else
             {
-                if (Vector3.Distance(transform.position, spawnPos) > 0.5f)
+                if (Vector3.Distance(transform.position, spawnPos) > 0.5f && !wander.IsBusy())
                 {
                     playerSpotted = false;
+                    busy = false;
                     GoBackToCamp();
                 }
                 else
@@ -156,6 +164,8 @@ public class EnemyActionController : MonoBehaviour
                     playerSpotted = false;
                     IsIdling(true);
                     busy = false;
+                    if (wander != null)
+                        wander.enabled = true;
                 }
             }
         }
@@ -213,6 +223,7 @@ public class EnemyActionController : MonoBehaviour
 
     void GoBackToCamp()
     {
+        print("going to camp");
         var busy = GetComponent<EnemyWander>() ? GetComponent<EnemyWander>().IsBusy() : false;
         if (spawnPos.x != 0 && !busy)
         {
@@ -235,19 +246,13 @@ public class EnemyActionController : MonoBehaviour
     public void IsRunning(bool isRunning)
     {
         animations.IsRunning(isRunning);
-        if(!audioManager.IsPlaying("Running"))
-        {
-            audioManager.Play("Running");
-        }
+        
     }
 
     public void IsIdling(bool isIdling)
     {
         animations.IsIdling(isIdling);
-        if (audioManager.IsPlaying("Running"))
-        {
-            audioManager.Stop("Running");
-        }
+        
     }
 
     public void IsAttacking(bool isAttacking)
@@ -268,6 +273,11 @@ public class EnemyActionController : MonoBehaviour
     public bool IsBusy()
     {
         return this.busy;
+    }
+
+    public float GetSpeed()
+    {
+        return speed;
     }
 
     //private void OnTriggerEnter(Collider other)
