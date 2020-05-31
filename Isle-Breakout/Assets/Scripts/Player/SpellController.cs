@@ -200,7 +200,7 @@ public class SpellController : MonoBehaviour
         yield return new WaitForSeconds(1f);
         var item = Instantiate(arrow, arrowCastPoint.transform.position, transform.rotation);
         item.transform.LookAt(target.transform);
-        item.GetComponent<ProjectileMovement>().SetDamage(item.GetComponent<ProjectileMovement>().GetDamage() + GetComponent<PlayerStatsController>().GetWisdom() * 5);
+        item.GetComponent<ProjectileMovement>().SetDamage(GetComponent<PlayerCombatController>().GetDamage() + GetComponent<PlayerStatsController>().GetStrength() * 2);
         item.GetComponent<ProjectileMovement>().SetTarget(target);
         GetComponent<PlayerMovementController>().enabled = true;
     }
