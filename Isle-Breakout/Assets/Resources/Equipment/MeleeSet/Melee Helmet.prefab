@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3250835089659005344}
   - component: {fileID: 8232652176559021006}
   m_Layer: 0
-  m_Name: Chr_Head_No_Elements_Male_06
+  m_Name: Melee Helmet
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,12 +107,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: H06
+  itemName: Iron Helmet
   description: 
   sprite: {fileID: 21300000, guid: d5ea0119fe43ea54da1ef5dad1b8683d, type: 3}
   model: {fileID: 0}
-  dropChance: 0
   equip: {fileID: 11400000, guid: 61a141be0ec3f78439d6fb4194dfb22b, type: 2}
+  dropChance: 0
 --- !u!135 &8232652176559021006
 SphereCollider:
   m_ObjectHideFlags: 0

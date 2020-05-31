@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6904853946632964091
+--- !u!1 &5765094165178760098
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,48 +8,48 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6908428498116390037}
-  - component: {fileID: 6891742766794702035}
-  - component: {fileID: 6882647052355898667}
-  - component: {fileID: 8555875206725455033}
-  - component: {fileID: 115290632722741864}
-  - component: {fileID: 3424943793738783613}
+  - component: {fileID: 5770806651682113018}
+  - component: {fileID: 5796158352940818510}
+  - component: {fileID: 5788565570219673782}
+  - component: {fileID: 5920607000034524003}
+  - component: {fileID: 2586207287799830245}
+  - component: {fileID: 3756104667788936048}
   m_Layer: 0
-  m_Name: Chr_Hips_Male_20
+  m_Name: Melee Torso
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6908428498116390037
+--- !u!4 &5770806651682113018
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
+  m_GameObject: {fileID: 5765094165178760098}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 465.2679, y: 11.81843, z: -266.5092}
+  m_LocalPosition: {x: 463.37354, y: 12.56, z: -263.11758}
   m_LocalScale: {x: 0.02, y: 0.02, z: 0.02}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &6891742766794702035
+--- !u!33 &5796158352940818510
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
-  m_Mesh: {fileID: 4300000, guid: f88ac95bd120b6a42975ecf286b6e712, type: 3}
---- !u!23 &6882647052355898667
+  m_GameObject: {fileID: 5765094165178760098}
+  m_Mesh: {fileID: 4300000, guid: e814dd50e3f0a2045800add809e37e20, type: 3}
+--- !u!23 &5788565570219673782
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
+  m_GameObject: {fileID: 5765094165178760098}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -82,47 +82,47 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!122 &8555875206725455033
+--- !u!122 &5920607000034524003
 Halo:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
+  m_GameObject: {fileID: 5765094165178760098}
   m_Enabled: 1
   m_Color:
     serializedVersion: 2
-    rgba: 4287927808
-  m_Size: 1.22
---- !u!114 &115290632722741864
+    rgba: 4287927552
+  m_Size: 1
+--- !u!114 &2586207287799830245
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
+  m_GameObject: {fileID: 5765094165178760098}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 31fd411ff37ee6844ba0bc25eb22b01e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemID: 0
-  itemName: H20
+  itemName: Iron Torso
   description: 
-  sprite: {fileID: 21300000, guid: 9006177e979e6b9499b8d85aa3b2072e, type: 3}
+  sprite: {fileID: 21300000, guid: 1133fd3bda81a5047817016243b20291, type: 3}
   model: {fileID: 0}
+  equip: {fileID: 11400000, guid: dcf73e47dfb1ece4885548e93b790d34, type: 2}
   dropChance: 0
-  equip: {fileID: 11400000, guid: 64b399d051f639546a0726ded5388d3f, type: 2}
---- !u!135 &3424943793738783613
+--- !u!135 &3756104667788936048
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6904853946632964091}
+  m_GameObject: {fileID: 5765094165178760098}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 42.26
+  m_Radius: 47.35
   m_Center: {x: 0, y: 0, z: 0}

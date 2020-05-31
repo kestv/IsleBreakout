@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 622576965284f334aad1484836c3fd32, type: 3}
-  m_Name: Mask_06
+  m_Script: {fileID: 11500000, guid: d2007596e71794f42a1ad3465bf46bda, type: 3}
+  m_Name: Melee Melee
   m_EditorClassIdentifier: 
-  mask: {fileID: 4302074, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  strength: 5
+  meleeWeapon: {fileID: 4300300, guid: 1e9c0c20142e6d94d97b3861baf422a7, type: 3}
+  strength: 50
   wisdom: 0
   speed: 0
-  hp: 100
+  hp: 0

@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2007596e71794f42a1ad3465bf46bda, type: 3}
+  m_Name: Legendary Melee
+  m_EditorClassIdentifier: 
+  meleeWeapon: {fileID: 4300350, guid: 1e9c0c20142e6d94d97b3861baf422a7, type: 3}
+  strength: 150
+  wisdom: 150
+  speed: 20
+  hp: 100

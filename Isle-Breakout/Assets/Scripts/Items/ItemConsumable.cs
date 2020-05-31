@@ -20,6 +20,8 @@ public class ItemConsumable : MonoBehaviour
         {
             playerHealthCtrl.Eat(restoreHunger);
         }
+
+        
     }
 
     public string getConsumableStats()

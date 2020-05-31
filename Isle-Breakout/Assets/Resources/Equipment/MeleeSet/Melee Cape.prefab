@@ -1,0 +1,128 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &920060767580751804
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -791507424547614193, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -791507424547614193, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_Radius
+      value: 65.22
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924746926648, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: eb27191b4f452be448bc7d2a00ad00d6, type: 3}
+    - target: {fileID: 336083924747989614, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 014fbaa82701c3f4bbd9c27c7a0650e5, type: 2}
+    - target: {fileID: 336083924750165154, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_Name
+      value: Melee Cape
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 336083924750356862, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170939324419968684, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: equip
+      value: 
+      objectReference: {fileID: 11400000, guid: 9398580c32b1592429892b79aba42c5c,
+        type: 2}
+    - target: {fileID: 5170939324419968684, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7c62e245fd3312141a2a404a7e494f8d,
+        type: 3}
+    - target: {fileID: 5170939324419968684, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: itemName
+      value: Simple Cape
+      objectReference: {fileID: 0}
+    - target: {fileID: 5170939324419968685, guid: f3edc6e4f73d5d6449eb904496f30a72,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4287927808
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f3edc6e4f73d5d6449eb904496f30a72, type: 3}

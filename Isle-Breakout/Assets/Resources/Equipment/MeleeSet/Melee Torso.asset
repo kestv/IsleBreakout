@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 918d8cfe04b5f5c429224f3b7353fdf3, type: 3}
-  m_Name: Torso_23
+  m_Name: Melee Torso
   m_EditorClassIdentifier: 
   torso: {fileID: 4300522, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   armUpperRight: {fileID: 4300552, guid: 038320a534bd8b444b43734860d1a211, type: 3}
@@ -19,7 +19,7 @@ MonoBehaviour:
   armLowerLeft: {fileID: 4300666, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   handRight: {fileID: 4300702, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   handLeft: {fileID: 4300738, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  strength: 30
+  strength: 5
   wisdom: 0
   speed: 0
-  hp: 300
+  hp: 100
