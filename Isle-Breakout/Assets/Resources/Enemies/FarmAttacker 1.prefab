@@ -1721,6 +1721,7 @@ GameObject:
   - component: {fileID: 230474693885393882}
   - component: {fileID: 1910626360340625018}
   - component: {fileID: 4373789501915252657}
+  - component: {fileID: 3031393439432548241}
   m_Layer: 8
   m_Name: FarmAttacker 1
   m_TagString: Enemy
@@ -1831,7 +1832,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRate: 2
-  fallBackDistance: 15
   scanDistance: 12
 --- !u!114 &230474693885393883
 MonoBehaviour:
@@ -1911,6 +1911,21 @@ MonoBehaviour:
   dontDestroyOnLoad: 0
   spatialBlend: 1
   mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+--- !u!114 &3031393439432548241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230474693885516528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxDistance: 10
+  waitTime: 2
+  speed: 1
 --- !u!1 &230474693885517366
 GameObject:
   m_ObjectHideFlags: 0

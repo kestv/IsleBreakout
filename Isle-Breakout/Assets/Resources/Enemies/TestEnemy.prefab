@@ -3124,7 +3124,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRate: 2
-  fallBackDistance: 15
   scanDistance: 12
 --- !u!114 &8422565565892463127
 MonoBehaviour:
@@ -3208,7 +3207,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8422565564660575944}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b50a7d7da2a8bb42bc2327d7f8474de, type: 3}
   m_Name: 

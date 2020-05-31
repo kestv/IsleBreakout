@@ -2365,7 +2365,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRate: 2
-  fallBackDistance: 15
   scanDistance: 8
 --- !u!114 &7727140215793484574
 MonoBehaviour:
