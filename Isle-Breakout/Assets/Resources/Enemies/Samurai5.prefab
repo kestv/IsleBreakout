@@ -193,7 +193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attackRate: 2
-  fallBackDistance: 15
   scanDistance: 12
 --- !u!114 &4357139493266684602
 MonoBehaviour:
@@ -270,7 +269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxDistance: 10
   waitTime: 5
-  speed: 3
+  speed: 2
 --- !u!114 &-8092699669052095677
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,7 +334,7 @@ MonoBehaviour:
   background: []
   dontDestroyOnLoad: 0
   spatialBlend: 1
-  mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+  mixer: {fileID: 0}
 --- !u!1 &5900720948005311921
 GameObject:
   m_ObjectHideFlags: 0

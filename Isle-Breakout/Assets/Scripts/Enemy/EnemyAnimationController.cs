@@ -30,6 +30,10 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void IsIdling(bool isIdling)
     {
+        if (audio != null && audio.IsPlaying("Running"))
+        {
+            audio.Stop("Running");
+        }
         var anim = transform.GetComponent<Animator>();
         if (anim.GetBool("isIdling") != true)
         {
@@ -42,6 +46,10 @@ public class EnemyAnimationController : MonoBehaviour
 
     public void IsAttacking(bool isAttacking)
     {
+        if (audio != null && audio.IsPlaying("Running"))
+        {
+            audio.Stop("Running");
+        }
         var anim = transform.GetComponent<Animator>();
         if (transform.GetComponent<Animator>().GetBool("isAttacking") != true)
         {

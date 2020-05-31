@@ -151,7 +151,7 @@ public class PlayerCombatController : MonoBehaviour
                 GetComponent<Animator>().SetBool("Running", false);
                 isCharging = false;
                 movementCtrl.SetIsRunning(false);
-                var damage = GetComponent<PlayerStatsController>().GetStrength() * 10 + this.damage;
+                var damage = GetComponent<PlayerStatsController>().GetStrength() * 3 + this.damage;
 
                 Vector3 direction = (target.transform.position - transform.position).normalized;
                 float dotProd = Vector3.Dot(direction, transform.forward);
@@ -163,7 +163,7 @@ public class PlayerCombatController : MonoBehaviour
                         lastAttack = Time.time;
                         if (!isRangedWeapon)
                         {
-                            StartCoroutine(MeleeAttack());
+                            StartCoroutine(MeleeAttack(damage));
                         }
                         else
                         {
@@ -179,7 +179,7 @@ public class PlayerCombatController : MonoBehaviour
         else movementCtrl.SetIsRunning(false);
     }
 
-    IEnumerator MeleeAttack()
+    IEnumerator MeleeAttack(float damage)
     {
         transform.GetComponent<Animator>().SetTrigger("isAttacking");
         if (meleeWeapon.activeSelf == true)
@@ -302,5 +302,10 @@ public class PlayerCombatController : MonoBehaviour
     public bool IsCharging()
     {
         return isCharging;
+    }
+
+    public float GetDamage()
+    {
+        return this.damage;
     }
 }
