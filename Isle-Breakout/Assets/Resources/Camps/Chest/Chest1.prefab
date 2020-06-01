@@ -189,7 +189,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestPanelPrefab: {fileID: 6156399294037096422, guid: e32227fb08c86434c8c681be8a6b7254,
     type: 3}
-  chestPanel: {fileID: 0}
   chestSize: 48
   items:
   - {fileID: 7629647312893869256, guid: cfdea412711330f4c94a9939aacac4bd, type: 3}

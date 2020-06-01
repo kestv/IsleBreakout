@@ -88,10 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ddc28c2d7168424a82d8dc53c4a68fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  inventory: {fileID: 0}
-  slotIndex: 0
-  isChest: 0
+  isChest: 1
 --- !u!114 &8366681092966817257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,8 +202,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 126eb9f5e75c88245b3037d5dbb6525e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  inventory: {fileID: 0}
 --- !u!225 &8947891980626937072
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -231,9 +226,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e09cb502fe6b24386613c5f6aea1fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
-  inventory: {fileID: 0}
-  itemBeingClicked: {fileID: 0}
 --- !u!114 &5447586054385424036
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,10 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bafc926d5030a042ba6a353d8c15851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 0}
   infoPanelPrefab: {fileID: 4194313526582695431, guid: 6af5510213fb2a14587025002a45817e,
     type: 3}
-  panelCtrl: {fileID: 0}
-  infoPanel: {fileID: 0}
   moveRight: 0
   moveUp: 70

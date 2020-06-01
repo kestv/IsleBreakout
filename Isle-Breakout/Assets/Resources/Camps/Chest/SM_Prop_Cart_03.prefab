@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 7351316227293892687}
   - component: {fileID: 7352098710950171707}
   - component: {fileID: 7351364323570829385}
-  - component: {fileID: 5048083105304511496}
   - component: {fileID: -1060882253794155051}
+  - component: {fileID: 867138929131479215}
   m_Layer: 0
   m_Name: SM_Prop_Cart_03
   m_TagString: chest
@@ -141,20 +141,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 43432571881083782, guid: bbcf70e401b44664ea44f14004ae973a, type: 2}
---- !u!136 &5048083105304511496
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7413873830607316559}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.6561798
-  m_Height: 1.8012091
-  m_Direction: 1
-  m_Center: {x: 0.000016480684, y: 0.90060455, z: -0.000015258789}
 --- !u!114 &-1060882253794155051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,8 +155,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chestPanelPrefab: {fileID: 6156399294037096422, guid: e32227fb08c86434c8c681be8a6b7254,
     type: 3}
-  chestPanel: {fileID: 0}
-  chestSize: 0
+  chestSize: 24
   items:
   - {fileID: 445756019839405310, guid: 48984f0939d762b4bbaa1c98597ad4c7, type: 3}
   - {fileID: 7629647312893869256, guid: cfdea412711330f4c94a9939aacac4bd, type: 3}
+--- !u!135 &867138929131479215
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7413873830607316559}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.87
+  m_Center: {x: 0.0000012218952, y: 0.90060455, z: 0}

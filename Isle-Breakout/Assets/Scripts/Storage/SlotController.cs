@@ -9,7 +9,9 @@ public class SlotController : MonoBehaviour, IDropHandler
     private DependencyManager manager;
     private PlayerInventory inventory;
     private int slotIndex;
-    private bool isChest;
+
+    [Header("Is the slot used for chest?")]
+    [SerializeField] private bool isChest;
 
     private void Start()
     {
