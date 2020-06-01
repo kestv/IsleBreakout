@@ -162,7 +162,7 @@ public class EnemyActionController : MonoBehaviour
                 //if (Vector3.Distance(transform.position, spawnPos) <= 0.5f)
                 {
                     playerSpotted = false;
-                    if(!wander.IsBusy())
+                    if(wander != null && !wander.IsBusy())
                         IsIdling(true);
                     busy = false;
                     if (wander != null)
