@@ -31,6 +31,7 @@ public class AudioManager : MonoBehaviour
             source.pitch = s.GetPitch();
             source.loop = s.GetLoop();
             source.spatialBlend = spatialBlend;
+            source.maxDistance = 100f;
             if (mixer != null)
                 source.outputAudioMixerGroup = mixer;
         }

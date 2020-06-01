@@ -207,6 +207,7 @@ public class PlayerCombatController : MonoBehaviour
     public void AttackFromRange()
     {
         transform.GetComponent<Animator>().SetTrigger("isShooting");
+        audioManager.Play("Bow");
         spellController.CastArrow(target, arrow);
     }
     public void FindTarget()
