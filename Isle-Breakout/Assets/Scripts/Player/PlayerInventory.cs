@@ -173,11 +173,11 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     public void setItemCount(int itemCount)
     { this.itemCount = itemCount; }
 
-    public bool ContainsItem(string name)
+    public bool ContainsItem(int id)
     {
         foreach(GameObject item in inventory)
         {
-            if(item.GetComponent<ItemSettings>().getName() == name)
+            if(item.GetComponent<ItemSettings>() != null && item.GetComponent<ItemSettings>().getItemID() == id)
             {
                 return true;
             }
@@ -201,7 +201,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     {
         foreach (var item in inventory)
         {
-            if (item != null && item.GetComponent<ItemSettings>() != null && item.tag.Equals("item"));
+            if (item != null && item.GetComponent<ItemSettings>() != null && item.tag.Equals("item"))
             {
                 return item;
             }

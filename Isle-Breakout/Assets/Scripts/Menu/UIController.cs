@@ -112,6 +112,7 @@ public class UIController : MonoBehaviour
     public void MainMenu()
     {
         SaveGame(true);
+        Destroy(GameObject.Find("Audio Source"));
         SceneManager.LoadScene(0);
         SceneManager.UnloadSceneAsync(2);
     }

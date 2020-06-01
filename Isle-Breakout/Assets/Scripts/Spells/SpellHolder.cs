@@ -12,7 +12,8 @@ public class SpellHolder : MonoBehaviour
     void Start()
     {
         cooldown = false;
-        image.sprite = spell.GetComponent<SpellInfo>().image;
+        if(spell != null)
+            image.sprite = spell.GetComponent<SpellInfo>().image;
     }
 
     // Update is called once per frame
