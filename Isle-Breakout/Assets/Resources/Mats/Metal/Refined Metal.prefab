@@ -111,8 +111,8 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: fab0d54e5e4d3524ab5015051ebef62b, type: 3}
   model: {fileID: 0}
-  dropChance: 0
   equip: {fileID: 0}
+  dropChance: 0
 --- !u!135 &1453367952846317574
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -121,7 +121,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433314890170547849}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.19

@@ -29,8 +29,21 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: 88bb6c7bdb5d15e41a7feb6d22c1d70e, type: 3}
   model: {fileID: 0}
-  dropChance: 80
   equip: {fileID: 0}
+  dropChance: 80
+--- !u!135 &1240429410011557695
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8364040567846769589}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.07
+  m_Center: {x: -0.00000025331974, y: 0.3375837, z: 0.0000009983778}
 --- !u!1001 &8364040567846664007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -119,7 +132,8 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 64425128257642790, guid: 1b3aa7594a79c9944927f447b0b59c77, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1b3aa7594a79c9944927f447b0b59c77, type: 3}
 --- !u!1 &8364040567846769589 stripped
 GameObject:

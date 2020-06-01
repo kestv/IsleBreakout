@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CoverageReport scope="Summary">
+  <Summary>
+    <Generatedon>5/31/2020 - 10:53:01 PM</Generatedon>
+    <Parser>OpenCoverParser</Parser>
+    <Assemblies>3</Assemblies>
+    <Classes>126</Classes>
+    <Files>125</Files>
+    <Coveredlines>1358</Coveredlines>
+    <Uncoveredlines>4930</Uncoveredlines>
+    <Coverablelines>6288</Coverablelines>
+    <Totallines>11024</Totallines>
+    <Linecoverage>21.5</Linecoverage>
+    <Coveredbranches>0</Coveredbranches>
+    <Totalbranches>0</Totalbranches>
+  </Summary>
+  <Coverage>
+    <Assembly name="KRAssembly" classes="110" coverage="22" coveredlines="1048" coverablelines="4746" totallines="8528" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="ArmorEquipper" coverage="10" coveredlines="19" coverablelines="189" totallines="339" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="AudioManager" coverage="33.3" coveredlines="21" coverablelines="63" totallines="99" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Boots" coverage="0" coveredlines="0" coverablelines="21" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CameraMovement" coverage="48.2" coveredlines="14" coverablelines="29" totallines="52" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CanvasController" coverage="40" coveredlines="6" coverablelines="15" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Cape" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Character" coverage="0" coveredlines="0" coverablelines="94" totallines="131" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CharacterCreationHandler" coverage="0" coveredlines="0" coverablelines="13" totallines="27" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ChestPanelController" coverage="57.1" coveredlines="8" coverablelines="14" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ChestSettings" coverage="82.6" coveredlines="19" coverablelines="23" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ClickHandler" coverage="0" coveredlines="0" coverablelines="58" totallines="92" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ClickHandlerEquip" coverage="0" coveredlines="0" coverablelines="44" totallines="71" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CombatHandler" coverage="78.5" coveredlines="11" coverablelines="14" totallines="29" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ConversationHandler" coverage="43.9" coveredlines="36" coverablelines="82" totallines="120" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CraftHoverHandler" coverage="0" coveredlines="0" coverablelines="24" totallines="51" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CraftingRecipe" coverage="32.1" coveredlines="9" coverablelines="28" totallines="61" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CraftItemController" coverage="50.9" coveredlines="28" coverablelines="55" totallines="99" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="CraftItemSlotController" coverage="15" coveredlines="3" coverablelines="20" totallines="63" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DataSystem" coverage="0" coveredlines="0" coverablelines="37" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DayNight" coverage="57.6" coveredlines="15" coverablelines="26" totallines="48" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DependencyManager" coverage="63.8" coveredlines="30" coverablelines="47" totallines="137" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="DragHandler" coverage="0" coveredlines="0" coverablelines="44" totallines="76" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Elbows" coverage="0" coveredlines="0" coverablelines="21" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyActionController" coverage="18.5" coveredlines="34" coverablelines="183" totallines="304" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyAnimationController" coverage="7.6" coveredlines="4" coverablelines="52" totallines="70" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyController" coverage="0" coveredlines="0" coverablelines="3" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyDeath" coverage="57.8" coveredlines="11" coverablelines="19" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyGenerator" coverage="100" coveredlines="50" coverablelines="50" totallines="74" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyHealthController" coverage="51.4" coveredlines="35" coverablelines="68" totallines="106" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EnemyWander" coverage="28" coveredlines="34" coverablelines="121" totallines="185" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EquipController" coverage="100" coveredlines="7" coverablelines="7" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EquipSlotController" coverage="100" coveredlines="6" coverablelines="6" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="EquipSlotPanelController" coverage="32.1" coveredlines="9" coverablelines="28" totallines="71" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="FacialHair" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Gloves" coverage="0" coveredlines="0" coverablelines="21" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Goal" coverage="0" coveredlines="0" coverablelines="20" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Hair" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Helmet" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="HoverHandler" coverage="0" coveredlines="0" coverablelines="33" totallines="65" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="HoverHandlerSpell" coverage="11.1" coveredlines="3" coverablelines="27" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ImageFiller" coverage="16.3" coveredlines="9" coverablelines="55" totallines="101" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="InteractableObject" coverage="30" coveredlines="3" coverablelines="10" totallines="30" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="IntroCameraRotate" coverage="0" coveredlines="0" coverablelines="6" totallines="16" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="InventoryPanelController" coverage="58.8" coveredlines="10" coverablelines="17" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ItemConsumable" coverage="0" coveredlines="0" coverablelines="23" totallines="42" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ItemDropController" coverage="23.8" coveredlines="5" coverablelines="21" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ItemInfoPanelController" coverage="0" coveredlines="0" coverablelines="88" totallines="132" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ItemSettings" coverage="28.5" coveredlines="4" coverablelines="14" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="KillGoal" coverage="24.1" coveredlines="7" coverablelines="29" totallines="43" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="KillQuest" coverage="100" coveredlines="8" coverablelines="8" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Knees" coverage="0" coveredlines="0" coverablelines="21" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Legs" coverage="0" coveredlines="0" coverablelines="22" totallines="60" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Mask" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="MeleeWeapon" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="MenuButtonHandler" coverage="0" coveredlines="0" coverablelines="36" totallines="70" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="MessagesScroller" coverage="42.8" coveredlines="12" coverablelines="28" totallines="50" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="MinimapCameraMovement" coverage="27.2" coveredlines="3" coverablelines="11" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="NameEnterController" coverage="0" coveredlines="0" coverablelines="14" totallines="34" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="NameRotationController" coverage="100" coveredlines="10" coverablelines="10" totallines="24" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="NPC" coverage="63.8" coveredlines="23" coverablelines="36" totallines="66" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="NpcMessagesHandler" coverage="78.5" coveredlines="11" coverablelines="14" totallines="33" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="OnAppearIntro" coverage="0" coveredlines="0" coverablelines="36" totallines="57" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="OnSpawn" coverage="64.2" coveredlines="9" coverablelines="14" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PanelObjectRotator" coverage="30.7" coveredlines="4" coverablelines="13" totallines="38" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PetController" coverage="11.6" coveredlines="9" coverablelines="77" totallines="122" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerCombatController" coverage="17.4" coveredlines="37" coverablelines="212" totallines="306" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerData" coverage="0" coveredlines="0" coverablelines="12" totallines="28" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerHealthController" coverage="29.7" coveredlines="22" coverablelines="74" totallines="115" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerInputController" coverage="35.2" coveredlines="12" coverablelines="34" totallines="54" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerInventory" coverage="13.1" coveredlines="26" coverablelines="198" totallines="280" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerLevelController" coverage="72.9" coveredlines="35" coverablelines="48" totallines="84" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerMovementController" coverage="17" coveredlines="14" coverablelines="82" totallines="131" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerStatsController" coverage="35.1" coveredlines="39" coverablelines="111" totallines="185" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerStatsPanelController" coverage="100" coveredlines="16" coverablelines="16" totallines="38" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PlayerTriggerHandler" coverage="8.2" coveredlines="18" coverablelines="219" totallines="299" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ProgressTracker" coverage="42.8" coveredlines="3" coverablelines="7" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ProjectileMovement" coverage="0" coveredlines="0" coverablelines="82" totallines="120" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Quest" coverage="15" coveredlines="18" coverablelines="120" totallines="175" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RangedWeapon" coverage="0" coveredlines="0" coverablelines="20" totallines="53" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RecipeController" coverage="42.3" coveredlines="11" coverablelines="26" totallines="50" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RecipeSlotController" coverage="72.5" coveredlines="29" coverablelines="40" totallines="102" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ResourceGatherer" coverage="20.8" coveredlines="5" coverablelines="24" totallines="58" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="RewardConfirmation" coverage="26" coveredlines="6" coverablelines="23" totallines="46" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Settings" coverage="0" coveredlines="0" coverablelines="41" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipBuilder" coverage="36.3" coveredlines="12" coverablelines="33" totallines="73" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipFloat" coverage="0" coveredlines="0" coverablelines="26" totallines="46" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipObjectController" coverage="100" coveredlines="25" coverablelines="25" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipPartController" coverage="36.3" coveredlines="20" coverablelines="55" totallines="96" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipPartSlotController" coverage="3.2" coveredlines="1" coverablelines="31" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipRecipeController" coverage="56.2" coveredlines="18" coverablelines="32" totallines="64" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipRepair" coverage="75" coveredlines="3" coverablelines="4" totallines="25" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ShipSlotController" coverage="75" coveredlines="18" coverablelines="24" totallines="69" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Shoulders" coverage="0" coveredlines="0" coverablelines="21" totallines="56" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SlotController" coverage="8.1" coveredlines="5" coverablelines="61" totallines="101" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Sound" coverage="50" coveredlines="18" coverablelines="36" totallines="77" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SpellController" coverage="10" coveredlines="22" coverablelines="218" totallines="310" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SpellHolder" coverage="25" coveredlines="7" coverablelines="28" totallines="54" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SpellInfo" coverage="0" coveredlines="0" coverablelines="8" totallines="35" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SpellInfoPanelController" coverage="0" coveredlines="0" coverablelines="34" totallines="69" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="SpellRewardController" coverage="10.2" coveredlines="5" coverablelines="49" totallines="75" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="StressReceiver" coverage="0" coveredlines="0" coverablelines="26" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="TalkGoal" coverage="23.3" coveredlines="7" coverablelines="30" totallines="44" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="TalkQuest" coverage="100" coveredlines="7" coverablelines="7" totallines="18" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Torso" coverage="0" coveredlines="0" coverablelines="26" totallines="71" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="TraumaInducer" coverage="0" coveredlines="0" coverablelines="27" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="UIController" coverage="20" coveredlines="15" coverablelines="75" totallines="118" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="UIHandler" coverage="50" coveredlines="23" coverablelines="46" totallines="72" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="UIHealthController" coverage="23.5" coveredlines="12" coverablelines="51" totallines="87" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="WaterGenerator" coverage="0" coveredlines="0" coverablelines="37" totallines="59" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="WaterNoise" coverage="0" coveredlines="0" coverablelines="25" totallines="47" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="ProjectAssembly" classes="15" coverage="19.8" coveredlines="305" coverablelines="1537" totallines="2811" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="DemoShooting" coverage="0" coveredlines="0" coverablelines="68" totallines="114" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LowPolyWaterv2Demo.DemoFreeFlyCamera" coverage="0" coveredlines="0" coverablelines="31" totallines="50" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.Displacement" coverage="0" coveredlines="0" coverablelines="73" totallines="124" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LowPolyWaterScript" coverage="49.3" coveredlines="212" coverablelines="430" totallines="585" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWDepthEffect" coverage="9.3" coveredlines="8" coverablelines="86" totallines="126" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWHiddenProps" coverage="77.1" coveredlines="54" coverablelines="70" totallines="92" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWNoise" coverage="100" coveredlines="19" coverablelines="19" totallines="41" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWNormalSolver" coverage="0" coveredlines="0" coverablelines="101" totallines="185" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWReflection" coverage="0" coveredlines="0" coverablelines="212" totallines="335" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="LPWAsset.LPWReflectionParams" coverage="100" coveredlines="12" coverablelines="12" totallines="335" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ParticleCollisionInstance" coverage="0" coveredlines="0" coverablelines="21" totallines="37" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="ProjectileMover" coverage="0" coveredlines="0" coverablelines="55" totallines="80" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="PsychoticLab.CharacterRandomizer" coverage="0" coveredlines="0" coverablelines="341" totallines="671" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="Rotator" coverage="0" coveredlines="0" coverablelines="12" totallines="21" branchcoverage="" coveredbranches="0" totalbranches="0" />
+      <Class name="TerrainScript" coverage="0" coveredlines="0" coverablelines="6" totallines="15" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+    <Assembly name="Tests" classes="1" coverage="100" coveredlines="5" coverablelines="5" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0">
+      <Class name="Tests.NewTestScript" coverage="100" coveredlines="5" coverablelines="5" totallines="20" branchcoverage="" coveredbranches="0" totalbranches="0" />
+    </Assembly>
+  </Coverage>
+</CoverageReport>
