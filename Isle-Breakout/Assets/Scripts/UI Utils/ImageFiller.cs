@@ -47,14 +47,16 @@ public class ImageFiller : MonoBehaviour
 
         elapsedTime += Time.deltaTime;
 
-        if (gatherTime >= 0)
+        if (gatherTime >= elapsedTime)
         {
-            if (elapsedTime >= 1f / modifier)
-            {
-                elapsedTime = elapsedTime % (1f / modifier);
-                progressImage.fillAmount += stepSize;
-                gatherTime -= 1 / modifier;
-            }
+            //image.fillAmount += 1f / spell.GetComponent<SpellInfo>().cooldown * Time.deltaTime;
+            progressImage.fillAmount += 1f / gatherTime * Time.deltaTime;
+            //if (elapsedTime >= 1f / modifier)
+            //{
+            //    elapsedTime = elapsedTime % (1f / modifier);
+            //    progressImage.fillAmount += stepSize;
+            //    gatherTime -= 1 / modifier;
+            //}
         }
         else
         {
