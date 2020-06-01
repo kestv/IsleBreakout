@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuButtonHandler : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class MenuButtonHandler : MonoBehaviour
         panel.SetActive(false);
         charSelect.SetActive(false);
         options.SetActive(false);
+        Time.timeScale = 1;
     }
 
     public void NewGame()
@@ -58,8 +60,8 @@ public class MenuButtonHandler : MonoBehaviour
     {
         print("loading scene");
         yield return new WaitForSeconds(4f);
-        SceneManager.LoadScene(1);
-        SceneManager.UnloadSceneAsync(0);
+        SceneManager.LoadScene("Intro");
+        SceneManager.UnloadSceneAsync("Menu");
         StopCoroutine();
     }
 
