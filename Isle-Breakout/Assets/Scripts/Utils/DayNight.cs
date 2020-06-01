@@ -45,4 +45,7 @@ public class DayNight : MonoBehaviour
             }
         }
     }
+
+    public void setSpeed(float speed)
+    { this.speed = speed; }
 }

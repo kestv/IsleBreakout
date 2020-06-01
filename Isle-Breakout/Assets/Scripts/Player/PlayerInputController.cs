@@ -50,5 +50,17 @@ public class PlayerInputController : MonoBehaviour
                 equipPanel.SetActive(true);
             }
         }
+        if (Input.GetKeyDown(KeyCode.Keypad7))
+        {
+            GameObject.Find("DayLight").GetComponent<DayNight>().setSpeed(0);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad8))
+        {
+            GameObject.Find("DayLight").GetComponent<DayNight>().setSpeed(1);
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad9))
+        {
+            GameObject.Find("DayLight").GetComponent<DayNight>().setSpeed(20);
+        }
     }
 }
