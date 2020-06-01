@@ -14,15 +14,18 @@ public class PlayerLevelController : MonoBehaviour
     [SerializeField]float currentGameXp;
 
     GameObject levelField;
+    GameObject xpBar;
 
     public void Start()
     {
         levelField = GameObject.Find("Level");
+        xpBar = GameObject.Find("Xp");
         level = Player.level;
         totalXp = Player.xp;
         currentGameXp = 0;
         levelField.GetComponent<Text>().text = level.ToString();
         CombatHandler.Instance.onEnemyDeath += GetExperience;
+        DisplayXp(0);
     }
 
     public void GetExperience(float amount)
@@ -39,7 +42,7 @@ public class PlayerLevelController : MonoBehaviour
         totalXp += amount;
         currentGameXp += amount;
         currentExperiencePoints += amount;
-        UIHandler.Instance.DisplayReward(amount + " xp", false);
+        DisplayXp(amount);
         EvaluateXp();
     }
 
@@ -57,14 +60,22 @@ public class PlayerLevelController : MonoBehaviour
         level += 1;
         currentExperiencePoints -= requiredExperiencePoints;
         requiredExperiencePoints *= levelRate;
-
+        
         //TODO bad position
         var hpCanvas = GetComponent<PlayerHealthController>().GetHealthbarCanvas();
         levelField.GetComponent<Text>().text = level.ToString();
         GetComponent<PlayerStatsController>().IncreaseRemainingPoints(1);
         GetComponent<PlayerStatsController>().UpdateRemainingPointsValue();
-
+        DisplayXp(0);
         UIHandler.Instance.DisplayReward("Level up!", true);
+    }
+
+    void DisplayXp(float amount)
+    {
+        xpBar.GetComponent<Image>().fillAmount = currentExperiencePoints / requiredExperiencePoints;
+        xpBar.transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}/{1}", currentExperiencePoints, requiredExperiencePoints);
+        if(amount > 0)
+            UIHandler.Instance.DisplayReward(amount + " xp", false);
     }
 
     public float GetLevel()
