@@ -67,6 +67,8 @@ public class SpellController : MonoBehaviour
             {
                 StopCoroutine(coroutine);
                 castBar.SetActive(false);
+                audio.Stop("Casting");
+                GetComponent<PlayerMovementController>().enabled = true;
             }
         }
     }

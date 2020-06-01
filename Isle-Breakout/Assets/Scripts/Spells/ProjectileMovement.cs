@@ -50,8 +50,11 @@ public class ProjectileMovement : MonoBehaviour {
     {
         if (!collided) {
 			collided = true;
-            target.GetComponent<EnemyHealthController>().DoDamage(actualDamage);
-            target.GetComponent<AudioManager>().Play("Collision");
+            if (!target.GetComponent<EnemyHealthController>().IsDead())
+            {
+                target.GetComponent<EnemyHealthController>().DoDamage(actualDamage);
+                target.GetComponent<AudioManager>().Play("Collision");
+            }
 
 			if (trails.Count > 0) {
 				for (int i = 0; i < trails.Count; i++) {

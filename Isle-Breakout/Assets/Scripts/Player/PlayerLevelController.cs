@@ -33,6 +33,7 @@ public class PlayerLevelController : MonoBehaviour
         totalXp += amount;
         currentGameXp += amount;
         currentExperiencePoints += amount;
+        DisplayXp(amount);
         UIHandler.Instance.DisplayReward(amount + " xp", false);
         EvaluateXp();
     }
@@ -60,6 +61,7 @@ public class PlayerLevelController : MonoBehaviour
         level += 1;
         currentExperiencePoints -= requiredExperiencePoints;
         requiredExperiencePoints *= levelRate;
+        requiredExperiencePoints = Mathf.Floor(requiredExperiencePoints);
         
         //TODO bad position
         var hpCanvas = GetComponent<PlayerHealthController>().GetHealthbarCanvas();
