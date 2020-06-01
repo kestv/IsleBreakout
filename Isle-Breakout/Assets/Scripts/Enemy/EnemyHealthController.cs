@@ -67,6 +67,7 @@ public class EnemyHealthController : EnemyController
         {
             GetComponent<EnemyDeath>().SetToDead(true);
             transform.GetComponent<Animator>().Play("Dead");
+            GetComponent<AudioManager>().Stop("Running");
             transform.GetComponent<EnemyActionController>().enabled = false;
             transform.GetComponent<EnemyHealthController>().enabled = false;
             if (transform.GetComponent<EnemyWander>() != null)

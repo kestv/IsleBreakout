@@ -1278,7 +1278,7 @@ MonoBehaviour:
     source: {fileID: 0}
   dontDestroyOnLoad: 1
   spatialBlend: 0
-  mixer: {fileID: 24300002, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+  mixer: {fileID: 24300002, guid: eb1bd2c11b14add4b99aeba4c3c0c1b8, type: 2}
 --- !u!4 &231148698
 Transform:
   m_ObjectHideFlags: 0
@@ -5902,7 +5902,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 678fe2e4ebe7ded4fae7c1b34146c0c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mixer: {fileID: 24100000, guid: 8648abb9a254cee42a8ed81092bb319d, type: 2}
+  mixer: {fileID: 24100000, guid: eb1bd2c11b14add4b99aeba4c3c0c1b8, type: 2}
   menu: {fileID: 1151411796}
   options: {fileID: 2086996992}
   resolutionDropdown: {fileID: 480704238}

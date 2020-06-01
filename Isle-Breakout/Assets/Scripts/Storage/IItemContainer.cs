@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IItemContainer
 {
-    bool ContainsItem(string name);
+    bool ContainsItem(int id);
     bool RemoveItem(string name);
     bool AddItem(GameObject go);
     bool isFull();

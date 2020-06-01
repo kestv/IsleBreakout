@@ -92,11 +92,11 @@ public class PlayerStatsController : MonoBehaviour
 
     public void AddBonuses(float strength, float speed, float wisdom)
     {
-        this.strength += strength;
+        UpdateStrength(strength);
         strengthValue.text = strength.ToString();
-        this.speed += speed;
+        UpdateSpeed(speed);
         speedValue.text = speed.ToString();
-        this.wisdom += wisdom;
+        UpdateWisdom(wisdom);
         wisdomValue.text = wisdom.ToString();
     }
 

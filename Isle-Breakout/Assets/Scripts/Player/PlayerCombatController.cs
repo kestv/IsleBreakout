@@ -80,6 +80,7 @@ public class PlayerCombatController : MonoBehaviour
         rangeSelect.SetActive(ranged);
         meleeWeapon.SetActive(!ranged);
         rangeWeapon.SetActive(ranged);
+        attackRate = ranged ? 4f : 2f;
     }
 
     // Update is called once per frame
@@ -286,6 +287,7 @@ public class PlayerCombatController : MonoBehaviour
         }
         else
         {
+            SetWeapon(false);
             img.color = new Color32(0,0,0,100);
         }
     }

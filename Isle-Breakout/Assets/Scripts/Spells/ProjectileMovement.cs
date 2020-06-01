@@ -44,6 +44,10 @@ public class ProjectileMovement : MonoBehaviour {
                 CollisionDetected();
             }
         }
+        if(target.GetComponent<EnemyHealthController>().IsDead())
+        {
+            Destroy(gameObject);
+        }
     }
 
     void CollisionDetected() 
