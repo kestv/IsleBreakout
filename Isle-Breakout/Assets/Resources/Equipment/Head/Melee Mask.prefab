@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3250835089659005344}
   - component: {fileID: 8232652176559021006}
   m_Layer: 0
-  m_Name: Melee Helmet
+  m_Name: Melee Mask
   m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

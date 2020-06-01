@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &968455986257281572
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 115290632722741864, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: equip
+      value: 
+      objectReference: {fileID: 11400000, guid: 661fc2726043caa4396e39a517b970e1,
+        type: 2}
+    - target: {fileID: 115290632722741864, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: itemName
+      value: Legendary Pants
+      objectReference: {fileID: 0}
+    - target: {fileID: 115290632722741864, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42367023dd6aee64f895a4e5ec44a85d,
+        type: 3}
+    - target: {fileID: 6891742766794702035, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 62a7cd5f41a694e4eb206eb693d5fcb6, type: 3}
+    - target: {fileID: 6904853946632964091, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_Name
+      value: Legendary Legs
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6908428498116390037, guid: 193c5e4ac6e51904b82e31e247c63b64,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 193c5e4ac6e51904b82e31e247c63b64, type: 3}

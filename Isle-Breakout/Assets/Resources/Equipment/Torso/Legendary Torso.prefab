@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &7161955559651949578
+--- !u!1001 &6724708045380219290
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -9,25 +9,25 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2586207287799830245, guid: 0c584ab24af3e314d80776ce30add081,
         type: 3}
+      propertyPath: equip
+      value: 
+      objectReference: {fileID: 11400000, guid: cf7be5c4aee1b174193e375f0a3e4ba2,
+        type: 2}
+    - target: {fileID: 2586207287799830245, guid: 0c584ab24af3e314d80776ce30add081,
+        type: 3}
       propertyPath: itemName
-      value: Wizard Cloak
+      value: Legendary Armor
       objectReference: {fileID: 0}
     - target: {fileID: 2586207287799830245, guid: 0c584ab24af3e314d80776ce30add081,
         type: 3}
       propertyPath: sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 0e54d218159025740910740532a7df15,
+      objectReference: {fileID: 21300000, guid: 129202e1426771241ba28cb7053a5732,
         type: 3}
-    - target: {fileID: 2586207287799830245, guid: 0c584ab24af3e314d80776ce30add081,
-        type: 3}
-      propertyPath: equip
-      value: 
-      objectReference: {fileID: 11400000, guid: f82e1aa6b2a66fc4e82e925a9a5149ad,
-        type: 2}
     - target: {fileID: 5765094165178760098, guid: 0c584ab24af3e314d80776ce30add081,
         type: 3}
       propertyPath: m_Name
-      value: Wizard Torso
+      value: Legendary Torso
       objectReference: {fileID: 0}
     - target: {fileID: 5770806651682113018, guid: 0c584ab24af3e314d80776ce30add081,
         type: 3}
@@ -88,6 +88,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 4300000, guid: 319b48a1d6d9d4c4ba5951f5b879196c, type: 3}
+      objectReference: {fileID: 4300000, guid: 4f9ed9df2ecc75247b5aea02457f7290, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c584ab24af3e314d80776ce30add081, type: 3}

@@ -9,10 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 29774f8e0f95bff47863b15c62aa0077, type: 3}
-  m_Name: Melee Cape
+  m_Script: {fileID: 11500000, guid: 32265224dea8a1e4db62e59606ecd4ba, type: 3}
+  m_Name: Heavy Shoulders
   m_EditorClassIdentifier: 
-  cape: {fileID: 4301188, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  shoulderRight: {fileID: 4301212, guid: 038320a534bd8b444b43734860d1a211, type: 3}
+  shoulderLeft: {fileID: 4301254, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   strength: 0
   wisdom: 0
   speed: 0

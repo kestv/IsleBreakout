@@ -84,5 +84,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: dd0541e79c51f984695c4d314596e216,
         type: 2}
+    - target: {fileID: 8223258934395179760, guid: bda6844a155a15f4eabd1d6ab155a14e,
+        type: 3}
+      propertyPath: itemName
+      value: Dragon Blade
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda6844a155a15f4eabd1d6ab155a14e, type: 3}

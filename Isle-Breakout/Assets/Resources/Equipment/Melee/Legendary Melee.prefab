@@ -78,5 +78,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: b72ca7d015cf44241a08fdfc01a41094,
         type: 2}
+    - target: {fileID: 8223258934395179760, guid: bda6844a155a15f4eabd1d6ab155a14e,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: f3d5caaca3e19974986457c98ad071f6,
+        type: 3}
+    - target: {fileID: 8223258934395179760, guid: bda6844a155a15f4eabd1d6ab155a14e,
+        type: 3}
+      propertyPath: itemName
+      value: Legendary Bane
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bda6844a155a15f4eabd1d6ab155a14e, type: 3}
