@@ -71,10 +71,9 @@ public class PlayerCombatController : MonoBehaviour
         
         rangeWeapon.SetActive(false);
         inCombat = false;
-        SetWeapon(false);
     }
 
-    void SetWeapon(bool ranged)
+    public void SetWeapon(bool ranged)
     {
         isRangedWeapon = ranged;
         meleeSelect.SetActive(!ranged);
