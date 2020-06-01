@@ -153,7 +153,7 @@ public class EnemyWander : MonoBehaviour
         animations.IsRunning(true);
         transform.LookAt(startingPosition);
         transform.eulerAngles = new Vector3(0, transform.eulerAngles.y, 0);
-        transform.Translate(new Vector3(0, 0, actions.GetSpeed() * Time.deltaTime));
+        transform.Translate(new Vector3(0, 0, actions != null ? actions.GetSpeed() * Time.deltaTime : speed * 4 * Time.deltaTime));
         if (IsInRange(2f))
         {
             canWander = true;
