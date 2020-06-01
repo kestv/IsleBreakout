@@ -216,6 +216,7 @@ public class ArmorEquipper : MonoBehaviour
     public void EquipWeapon(GameObject target, Mesh mesh)
     {
         target.GetComponent<MeshFilter>().mesh = mesh;
+        GetComponent<PlayerCombatController>().SetWeapon(false);
     }
 
     public void UnequipWeapon(GameObject target)
