@@ -119,8 +119,8 @@ MonoBehaviour:
   description: Ship cannot sail without Rum
   sprite: {fileID: 21300000, guid: 563786cf32e4cdd49aec310b8c37541c, type: 3}
   model: {fileID: 0}
-  dropChance: 0
   equip: {fileID: 0}
+  dropChance: 0
 --- !u!122 &-6805996796854087688
 Halo:
   m_ObjectHideFlags: 0

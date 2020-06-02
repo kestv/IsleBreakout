@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4e507a84fce924296dcf3a2bf14f58, type: 3}
+  m_Name: Small Potion
+  m_EditorClassIdentifier: 
+  materials:
+  - requiredItem: {fileID: 6033606883509081064, guid: 721366d5efa9d904cbc70f9a395a34f6,
+      type: 3}
+    count: 2
+  craftedItem: {fileID: 7370688132472608490, guid: bd23a83ecd203cd48889ba6bdfcae19a,
+    type: 3}

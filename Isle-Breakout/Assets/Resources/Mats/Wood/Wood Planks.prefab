@@ -29,8 +29,8 @@ MonoBehaviour:
   description: 
   sprite: {fileID: 21300000, guid: 0f0068617291d43418baf48cc4927434, type: 3}
   model: {fileID: 0}
-  dropChance: 50
   equip: {fileID: 0}
+  dropChance: 50
 --- !u!1001 &8128882926705021227
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -45,6 +45,10 @@ PrefabInstance:
     - target: {fileID: 184438, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_TagString
       value: item
+      objectReference: {fileID: 0}
+    - target: {fileID: 184438, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 488820, guid: bcecb47ea5c6ff945a4477cf0949925a, type: 3}
       propertyPath: m_LocalPosition.x

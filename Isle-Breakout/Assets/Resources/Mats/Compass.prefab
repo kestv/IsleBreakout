@@ -99,8 +99,8 @@ MonoBehaviour:
   description: This item will lead your way home, otherwise you could get lost
   sprite: {fileID: 21300000, guid: 3d4c842657184e944aa24097e7f0fd48, type: 3}
   model: {fileID: 0}
-  dropChance: 0
   equip: {fileID: 0}
+  dropChance: 0
 --- !u!122 &-6119815353315831505
 Halo:
   m_ObjectHideFlags: 0

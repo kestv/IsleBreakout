@@ -111,13 +111,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0607b6716489cc347a93da94a54c8017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   recipes:
   - {fileID: 11400000, guid: 61ad4ae8c43053145933449e77d18f79, type: 2}
   - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
   - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
   - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
-  itemList: {fileID: 0}
-  inventory: {fileID: 0}
+  - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
+  - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
+  - {fileID: 11400000, guid: 0469e9523b47e9f4aacc197171ee8a7e, type: 2}
   slotPrefab: {fileID: 6767192341412948742, guid: 8c9f10fdef364a84abb867ae2036a8e8,
     type: 3}

@@ -9,7 +9,12 @@ public class PlayerInputController : MonoBehaviour
     private CanvasController canvasController;
     private GameObject craftingPanel;
     private RecipeController recipeCtrl;
-    private GameObject equipPanel;      
+    private GameObject equipPanel;
+
+    [Header("Items")]
+    [SerializeField] List<GameObject> items;
+
+    private List<GameObject> gameObjects;
 
     private void Start()
     {
@@ -49,6 +54,30 @@ public class PlayerInputController : MonoBehaviour
                 canvasController.DisableAllPanelsExcept(canvasController.getEquipPanel());
                 equipPanel.SetActive(true);
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad6))
+        {
+            //GameObject obj1 = Instantiate(items[0]);
+            //GameObject obj2 = Instantiate(items[1]);
+            //GameObject obj3 = Instantiate(items[2]);
+            //GameObject obj4 = Instantiate(items[3]);
+            //GameObject obj5 = Instantiate(items[4]);
+            //GameObject obj6 = Instantiate(items[5]);
+            //gameObjects.Add(obj1);
+            //gameObjects.Add(obj2);
+            //gameObjects.Add(obj3);
+            //gameObjects.Add(obj4);
+            //gameObjects.Add(obj5);
+            //gameObjects.Add(obj6);
+
+            //for (int i = 0; i < manager.getInventorySize(); i++)
+            //{
+            //    GetComponent<PlayerInventory>().RemoveItem(i);
+            //}
+            //for (int i = 0; i < manager.getInventorySize(); i++)
+            //{
+            //    GetComponent<PlayerInventory>().AddItem(gameObjects[i]);
+            //}
         }
         if (Input.GetKeyDown(KeyCode.Keypad7))
         {
