@@ -16,12 +16,22 @@ public class PlayerLevelController : MonoBehaviour
     GameObject levelField;
     GameObject xpBar;
 
+    private void OnLevelWasLoaded(int level)
+    {
+        //this.level = Player.level;
+        //totalXp = Player.xp;
+        //currentExperiencePoints = Player.xp;
+        //levelField.GetComponent<Text>().text = level.ToString();
+        //EvaluateXp(false);
+        //DisplayXp(0);
+        totalXp = Player.xp;
+        currentExperiencePoints = totalXp;
+        EvaluateXp(false);
+    }
     public void Start()
     {
         levelField = GameObject.Find("Level");
         xpBar = GameObject.Find("Xp");
-        level = Player.level;
-        totalXp = Player.xp;
         currentGameXp = 0;
         levelField.GetComponent<Text>().text = level.ToString();
         CombatHandler.Instance.onEnemyDeath += GetExperience;
@@ -47,18 +57,18 @@ public class PlayerLevelController : MonoBehaviour
         EvaluateXp();
     }
 
-    public void EvaluateXp()
+    public void EvaluateXp(bool levelUp = true)
     {
         while (currentExperiencePoints >= requiredExperiencePoints)
         {
-            LevelUp();
+            LevelUp(levelUp);
         }
     }
 
-    public void LevelUp()
+    public void LevelUp(bool levelUp = true)
     {
-        UIHandler.Instance.DisplayReward("Level up!", true);
-        level += 1;
+        if(levelUp)
+            level += 1;
         currentExperiencePoints -= requiredExperiencePoints;
         requiredExperiencePoints *= levelRate;
         requiredExperiencePoints = Mathf.Floor(requiredExperiencePoints);
@@ -76,8 +86,6 @@ public class PlayerLevelController : MonoBehaviour
     {
         xpBar.GetComponent<Image>().fillAmount = currentExperiencePoints / requiredExperiencePoints;
         xpBar.transform.GetChild(1).GetComponent<Text>().text = string.Format("{0}/{1}", currentExperiencePoints, requiredExperiencePoints);
-        if(amount > 0)
-            UIHandler.Instance.DisplayReward(amount + " xp", false);
     }
 
     public float GetLevel()

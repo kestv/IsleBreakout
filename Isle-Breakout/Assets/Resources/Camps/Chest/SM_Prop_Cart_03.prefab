@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7351364323570829385}
   - component: {fileID: -1060882253794155051}
   - component: {fileID: 867138929131479215}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SM_Prop_Cart_03
   m_TagString: chest
   m_Icon: {fileID: 0}
