@@ -55,29 +55,33 @@ public class PlayerInputController : MonoBehaviour
                 equipPanel.SetActive(true);
             }
         }
-        if (Input.GetKeyDown(KeyCode.Keypad6))
+        if (Input.GetKeyDown(KeyCode.Keypad0))
         {
-            //GameObject obj1 = Instantiate(items[0]);
-            //GameObject obj2 = Instantiate(items[1]);
-            //GameObject obj3 = Instantiate(items[2]);
-            //GameObject obj4 = Instantiate(items[3]);
-            //GameObject obj5 = Instantiate(items[4]);
-            //GameObject obj6 = Instantiate(items[5]);
-            //gameObjects.Add(obj1);
-            //gameObjects.Add(obj2);
-            //gameObjects.Add(obj3);
-            //gameObjects.Add(obj4);
-            //gameObjects.Add(obj5);
-            //gameObjects.Add(obj6);
+            GetComponent<PlayerMovementController>().enabled = false;
+            transform.position = new Vector3(457, 50, -259);
+            StartCoroutine(Wait());
 
-            //for (int i = 0; i < manager.getInventorySize(); i++)
-            //{
-            //    GetComponent<PlayerInventory>().RemoveItem(i);
-            //}
-            //for (int i = 0; i < manager.getInventorySize(); i++)
-            //{
-            //    GetComponent<PlayerInventory>().AddItem(gameObjects[i]);
-            //}
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            GetComponent<PlayerMovementController>().enabled = false;
+            transform.position = new Vector3(-173, 50, -39);
+            StartCoroutine(Wait());
+            
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            GetComponent<PlayerMovementController>().enabled = false;
+            transform.position = new Vector3(235, 50, 304);
+            StartCoroutine(Wait());
+
+        }
+        if (Input.GetKeyDown(KeyCode.Keypad3))
+        {
+            GetComponent<PlayerMovementController>().enabled = false;
+            transform.position = new Vector3(-203, 50, 281);
+            StartCoroutine(Wait());
+
         }
         if (Input.GetKeyDown(KeyCode.Keypad7))
         {
@@ -91,5 +95,11 @@ public class PlayerInputController : MonoBehaviour
         {
             GameObject.Find("DayLight").GetComponent<DayNight>().setSpeed(20);
         }
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.1f);
+        GetComponent<PlayerMovementController>().enabled = true;
     }
 }
