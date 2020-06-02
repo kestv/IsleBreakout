@@ -12,6 +12,7 @@ public class PlayerStatsController : MonoBehaviour
     float speed;
     float wisdom;
     float remainingPoints;
+    bool firstTimeOpen;
 
     [SerializeField] private GameObject strengthButton;
     [SerializeField] private GameObject speedButton;
@@ -54,6 +55,7 @@ public class PlayerStatsController : MonoBehaviour
         healthCtrl = GetComponent<PlayerHealthController>();
         statsWindow.SetActive(false);
         UpdateRemainingPointsValue();
+        firstTimeOpen = true;
     }
 
     public void ImproveStrength(float value)
@@ -102,6 +104,11 @@ public class PlayerStatsController : MonoBehaviour
 
     public void Open()
     { 
+        if(firstTimeOpen)
+        {
+            remainingPoints = GetComponent<PlayerLevelController>().GetLevel();
+            firstTimeOpen = false;
+        }
         if(statsWindow.activeSelf)
         {
             statsWindow.SetActive(false);
