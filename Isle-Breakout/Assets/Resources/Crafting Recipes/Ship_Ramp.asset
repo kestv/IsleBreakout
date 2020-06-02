@@ -15,6 +15,6 @@ MonoBehaviour:
   materials:
   - requiredItem: {fileID: 6301488033319005396, guid: 720c3e62d1f891c4ab7395eefe9dd83d,
       type: 3}
-    count: 6
+    count: 1
   craftedItem: {fileID: 1277500657566384847, guid: b4977fafc60751a43b0d9e75bda4d456,
     type: 3}
