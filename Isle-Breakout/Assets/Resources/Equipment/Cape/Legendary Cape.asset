@@ -15,5 +15,5 @@ MonoBehaviour:
   cape: {fileID: 4301178, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   strength: 0
   wisdom: 0
-  speed: 0
-  hp: 0
+  speed: 10
+  hp: 100

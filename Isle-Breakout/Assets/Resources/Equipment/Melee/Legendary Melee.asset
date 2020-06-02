@@ -15,5 +15,5 @@ MonoBehaviour:
   meleeWeapon: {fileID: 4300350, guid: 1e9c0c20142e6d94d97b3861baf422a7, type: 3}
   strength: 150
   wisdom: 150
-  speed: 20
+  speed: 10
   hp: 100

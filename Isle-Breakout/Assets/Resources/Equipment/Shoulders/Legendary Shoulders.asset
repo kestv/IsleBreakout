@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shoulderRight: {fileID: 4301218, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   shoulderLeft: {fileID: 4301260, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  strength: 0
-  wisdom: 0
-  speed: 0
-  hp: 0
+  strength: 20
+  wisdom: 20
+  speed: 5
+  hp: 200

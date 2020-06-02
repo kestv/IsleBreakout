@@ -16,4 +16,4 @@ MonoBehaviour:
   strength: 0
   wisdom: 0
   speed: 0
-  hp: 0
+  hp: 100

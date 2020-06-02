@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Strong Mask
   m_EditorClassIdentifier: 
   mask: {fileID: 4302066, guid: 038320a534bd8b444b43734860d1a211, type: 3}
-  strength: 0
+  strength: 8
   wisdom: 0
   speed: 0
-  hp: 0
+  hp: 80
