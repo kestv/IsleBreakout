@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cape: {fileID: 4301180, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   strength: 0
-  wisdom: 0
-  speed: 0
-  hp: 0
+  wisdom: 5
+  speed: 5
+  hp: 50

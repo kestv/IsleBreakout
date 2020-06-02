@@ -16,6 +16,6 @@ MonoBehaviour:
   legRight: {fileID: 4300882, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   legLeft: {fileID: 4300842, guid: 038320a534bd8b444b43734860d1a211, type: 3}
   strength: 0
-  wisdom: 0
+  wisdom: 5
   speed: 0
-  hp: 0
+  hp: 50
