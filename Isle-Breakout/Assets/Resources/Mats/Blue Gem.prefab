@@ -1,0 +1,97 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &6944406771750812056
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 508757403520822010, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: itemName
+      value: Blue Gem
+      objectReference: {fileID: 0}
+    - target: {fileID: 508757403520822010, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ebfb70e4c99d7e2469c804b9daa42e65,
+        type: 3}
+    - target: {fileID: 1798867030066931043, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_Color.rgba
+      value: 4292117287
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651091685358, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d337a70f9e175348909eb917056c239, type: 2}
+    - target: {fileID: 3739342651093042890, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300492, guid: 98620e20dab377e4394a0ef66aae54cb, type: 3}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651093927116, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3739342651094149744, guid: 4811b3779a5845649a2b136c05f18359,
+        type: 3}
+      propertyPath: m_Name
+      value: Blue Gem
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4811b3779a5845649a2b136c05f18359, type: 3}

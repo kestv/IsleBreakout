@@ -99,8 +99,8 @@ MonoBehaviour:
   description: Ship won't sail without this part
   sprite: {fileID: 21300000, guid: 6312f49254b841949872ca7fd1ba5bd2, type: 3}
   model: {fileID: 0}
-  dropChance: 0
   equip: {fileID: 0}
+  dropChance: 0
 --- !u!122 &2279785450027736275
 Halo:
   m_ObjectHideFlags: 0
