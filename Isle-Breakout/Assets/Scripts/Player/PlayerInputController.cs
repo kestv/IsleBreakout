@@ -65,7 +65,7 @@ public class PlayerInputController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Keypad1))
         {
             GetComponent<PlayerMovementController>().enabled = false;
-            transform.position = new Vector3(-173, 50, -39);
+            transform.position = new Vector3(-186, 13, 250);
             StartCoroutine(Wait());
             
         }

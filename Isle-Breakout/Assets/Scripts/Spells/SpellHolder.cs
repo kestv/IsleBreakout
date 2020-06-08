@@ -30,6 +30,8 @@ public class SpellHolder : MonoBehaviour
     {
         image.sprite = spell.GetComponent<SpellInfo>().image;
         image.color = new Color(255, 255, 255, 255);
+        image.type = Image.Type.Filled;
+        image.fillMethod = Image.FillMethod.Radial360;
         this.spell = spell;
     }
 

@@ -177,7 +177,7 @@ public class PlayerInventory : MonoBehaviour, IItemContainer
     {
         foreach(GameObject item in inventory)
         {
-            if(item.GetComponent<ItemSettings>() != null && item.GetComponent<ItemSettings>().getItemID() == id)
+            if(item != null && item.GetComponent<ItemSettings>() != null && item.GetComponent<ItemSettings>().getItemID() == id)
             {
                 return true;
             }
