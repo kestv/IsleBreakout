@@ -20,7 +20,8 @@ public class InteractableObject : MonoBehaviour
     public void TransformToNewObject()
     {
         Quaternion quaternion = new Quaternion(newObjectPrefab.transform.rotation.x, newObjectPrefab.transform.rotation.y, newObjectPrefab.transform.rotation.z, 0);
-        GameObject newObject = Instantiate(newObjectPrefab, GameObject.Find("Map").transform, false);
+        //GameObject newObject = Instantiate(newObjectPrefab, GameObject.Find("Map").transform, false);
+        GameObject newObject = Instantiate(newObjectPrefab, newObjectPosition, quaternion);
         newObject.transform.position = newObjectPosition;
         gameObject.SetActive(false);
     }
