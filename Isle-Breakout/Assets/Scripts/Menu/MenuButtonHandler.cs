@@ -59,7 +59,7 @@ public class MenuButtonHandler : MonoBehaviour
     IEnumerator IESwitchScenes()
     {
         print("loading scene");
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(3.8f);
         SceneManager.LoadScene("Intro");
         SceneManager.UnloadSceneAsync("Menu");
         StopCoroutine();

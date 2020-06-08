@@ -18,16 +18,13 @@ public class PlayerLevelController : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        //this.level = Player.level;
-        //totalXp = Player.xp;
-        //currentExperiencePoints = Player.xp;
-        //levelField.GetComponent<Text>().text = level.ToString();
-        //EvaluateXp(false);
-        //DisplayXp(0);
+        this.level = Player.level;
         totalXp = Player.xp;
-        currentExperiencePoints = totalXp;
-        EvaluateXp(false);
+        //currentExperiencePoints = Player.xp;
+        requiredExperiencePoints = this.level * levelRate * requiredExperiencePoints;
+        levelField.GetComponent<Text>().text = this.level.ToString();
     }
+
     public void Start()
     {
         levelField = GameObject.Find("Level");

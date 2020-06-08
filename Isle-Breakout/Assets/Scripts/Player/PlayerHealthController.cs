@@ -54,6 +54,11 @@ public class PlayerHealthController : MonoBehaviour
         {
             DoDamage(50);
         }
+
+        if(Input.GetKeyDown(KeyCode.KeypadPlus))
+        {
+            Eat(50);
+        }
     }
 
     public void DoDamage(float amount)
