@@ -22,7 +22,6 @@ public class PlayerLevelController : MonoBehaviour
         totalXp = Player.xp;
         //currentExperiencePoints = Player.xp;
         requiredExperiencePoints = this.level * levelRate * requiredExperiencePoints;
-        levelField.GetComponent<Text>().text = this.level.ToString();
     }
 
     public void Start()
