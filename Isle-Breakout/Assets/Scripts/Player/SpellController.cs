@@ -245,6 +245,7 @@ public class SpellController : MonoBehaviour
     IEnumerator IETamePet(UIHandler ui, bool force) //Force - to prevent test failures
     {
         audio.Play("Casting");
+        var fixedPet = pet;
         yield return new WaitForSeconds(castTime);
         audio.Stop("Casting");
         if (Time.time - startedCasting >= castTime)
@@ -254,8 +255,8 @@ public class SpellController : MonoBehaviour
             {
                 if (currentPet != null)
                     currentPet.GetComponent<PetController>().SetUntamed();
-                pet.GetComponent<PetController>().SetTamed();
-                currentPet = pet;
+                fixedPet.GetComponent<PetController>().SetTamed();
+                currentPet = fixedPet;
                 ui.DisplayMessage("Pet tamed successfully");
             }
             else
