@@ -76,7 +76,7 @@ public class PlayerStatsController : MonoBehaviour
             remainingPoints -= value;
             speed += value;
             speedValue.text = speed.ToString();
-            GetComponent<PlayerMovementController>().AddSpeed(speed/4);
+            GetComponent<PlayerMovementController>().AddSpeed(speed);
             UpdateRemainingPointsValue();
         }
     }
@@ -128,7 +128,7 @@ public class PlayerStatsController : MonoBehaviour
     public void UpdateSpeed(float value)
     {
         speed += value;
-        GetComponent<PlayerMovementController>().AddSpeed(value / 4);
+        GetComponent<PlayerMovementController>().AddSpeed(value);
     }
 
     public void UpdateWisdom(float value)

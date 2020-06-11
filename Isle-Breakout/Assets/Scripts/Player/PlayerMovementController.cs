@@ -115,7 +115,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void AddSpeed(float speed)
     {
-        this.speed += speed;
+        this.speed += (speed / 4);
     }
 
     public void SetCanAnimate(bool canAnimate)
