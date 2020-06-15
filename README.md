@@ -9,22 +9,22 @@ and equipment, spells.
 
 ## Current features
 
--Inventory
--Chests
--Item managment
--Resource gathering
--Food & potions
--Crafting
--Equipment
--Player level & skills
--Melee and ranged weapons
--Combat & support spells
--Combat system
--NPCs & dialogues
--Quests
--Day/Night cycles
--Pet taming
--Hunger system
+- Inventory
+- Chests
+- Item managment
+- Resource gathering
+- Food & potions
+- Crafting
+- Equipment
+- Player level & skills
+- Melee and ranged weapons
+- Combat & support spells
+- Combat system
+- NPCs & dialogues
+- Quests
+- Day/Night cycles
+- Pet taming
+- Hunger system
 
 ## Game progress
 
